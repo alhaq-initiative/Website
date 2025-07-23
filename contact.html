@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Alhaq Digital Services (ADS)</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
+        .bg-brand-blue { background-color: #0A2540; }
+        .text-brand-blue { color: #0A2540; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .text-brand-gold { color: #D4AF37; }
+        .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
+    </style>
+</head>
+<body class="antialiased">
+    <header id="header" class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                </div>
+                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
+                <a href="index.html#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
+                <a href="index.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
+                <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
+                <a href="contact.html" class="text-brand-gold font-semibold">Contact</a>
+            </nav>
+            <div class="flex justify-end mb-4">
+                <!-- Modern Language Switcher -->
+                <div class="relative">
+                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ur')">اردو</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
+            <a href="index.html#about" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
+            <a href="index.html#services" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
+
+            <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
+            <a href="contact.html" class="block text-brand-gold font-semibold py-2">Contact</a>
+            <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold">Donate</a>
+        </div>
+    </header>
+    <main class="pt-32 pb-20 bg-gray-50 min-h-screen">
+        <section class="fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Contact Us</h1>
+                <p class="text-lg text-gray-700 mb-8">Have a question, suggestion, or want to collaborate? Fill out the form below and we’ll get back to you as soon as possible.</p>
+                <form action="mailto:contact@alhaq.digital" method="POST" enctype="text/plain" class="glass-card p-6 flex flex-col gap-4 items-stretch shadow-lg">
+                    <input type="text" name="Name" placeholder="Your Name" required class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none" />
+                    <input type="email" name="Email" placeholder="Your Email" required class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none" />
+                    <textarea name="Message" placeholder="Your Message" required rows="5" class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none"></textarea>
+                    <button type="submit" class="glass-button py-3 px-6 text-lg font-bold">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
+            <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
+                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+
+                <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
+                <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
+                <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
+            </div>
+            <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
+        </div>
+    </footer>
+    <button id="feedback-btn" class="fixed z-50 bottom-6 right-6 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-400 transition-all">Report / Feedback</button>
+    <div id="feedback-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
+            <button id="close-feedback" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold text-brand-blue mb-2">Report / Feedback</h2>
+            <form action="mailto:contact@alhaq.digital" method="POST" enctype="text/plain" class="flex flex-col gap-4">
+                <input type="text" name="Name" placeholder="Your Name (optional)" class="glass-input py-2 px-3 border border-gray-300" />
+                <input type="email" name="Email" placeholder="Your Email (optional)" class="glass-input py-2 px-3 border border-gray-300" />
+                <textarea name="Message" placeholder="Your feedback or report..." required rows="4" class="glass-input py-2 px-3 border border-gray-300"></textarea>
+                <button type="submit" class="glass-button py-2 px-4 font-bold">Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Feedback modal logic
+        const feedbackBtn = document.getElementById('feedback-btn');
+        const feedbackModal = document.getElementById('feedback-modal');
+        const closeFeedback = document.getElementById('close-feedback');
+        feedbackBtn.addEventListener('click', () => feedbackModal.classList.remove('hidden'));
+        closeFeedback.addEventListener('click', () => feedbackModal.classList.add('hidden'));
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') feedbackModal.classList.add('hidden'); });
+
+        const translations = {
+          fa: {
+            title: 'تماس',
+            navHome: 'خانه',
+            navAbout: 'درباره ما',
+            navServices: 'خدمات',
+            navLibrary: 'کتابخانه',
+            navProjects: 'پروژه‌ها',
+            navHelp: 'راهنما',
+            navContact: 'تماس',
+            navDonate: 'حمایت/اهدا',
+            mainHeading: 'تماس با ما',
+            mainSub: 'راه‌های ارتباط با تیم ما.',
+            // Footer
+            footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
+            footerHome: 'خانه',
+            footerAbout: 'درباره ما',
+            footerServices: 'خدمات',
+            footerLibrary: 'کتابخانه',
+            footerHelp: 'راهنما و سوالات متداول',
+            footerContact: 'تماس',
+            footerDonate: 'اهدا',
+            footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
+            visitLibrary: 'بازدید از کتابخانه',
+            // Add more translations as needed
+          }
+        };
+        function setLanguage(lang) {
+          document.getElementById('currentLang').textContent = lang === 'fa' ? 'دری' : 'English';
+          if (lang === 'fa') {
+            document.title = translations.fa.title;
+            document.querySelector('h1').textContent = translations.fa.mainHeading;
+            document.querySelector('p.text-lg').textContent = translations.fa.mainSub;
+            // Navigation tabs
+            let navLinks = document.querySelectorAll('nav a');
+            if (navLinks.length > 0) {
+              navLinks[0].textContent = translations.fa.navHome;
+              navLinks[1].textContent = translations.fa.navAbout;
+              navLinks[2].textContent = translations.fa.navServices;
+              navLinks[3].textContent = translations.fa.navLibrary;
+              navLinks[4].textContent = translations.fa.navProjects;
+              navLinks[5].textContent = translations.fa.navHelp;
+              navLinks[6].textContent = translations.fa.navContact;
+            }
+            let donateTab = document.querySelector('nav a[href="donate.html"]');
+            if (donateTab) donateTab.textContent = translations.fa.navDonate;
+            // Footer
+            let footerSlogan = document.querySelector('footer p.mt-2');
+            if (footerSlogan) footerSlogan.textContent = translations.fa.footerSlogan;
+            let footerLinks = document.querySelectorAll('footer .mt-6 a');
+            if (footerLinks.length > 0) {
+              footerLinks[0].textContent = translations.fa.footerHome;
+              footerLinks[1].textContent = translations.fa.footerAbout;
+              footerLinks[2].textContent = translations.fa.footerServices;
+              footerLinks[3].textContent = translations.fa.footerLibrary;
+              footerLinks[4].textContent = translations.fa.footerHelp;
+              footerLinks[5].textContent = translations.fa.footerContact;
+              footerLinks[6].textContent = translations.fa.footerDonate;
+            }
+            let copyright = document.querySelector('footer p.mt-8');
+            if (copyright) copyright.textContent = translations.fa.footerCopyright;
+            let visitLibrary = document.querySelector('footer .mt-4 a');
+            if (visitLibrary) visitLibrary.textContent = translations.fa.visitLibrary;
+            // Add more selectors and translations as needed
+          } else {
+            location.reload(); // fallback: reload to English
+          }
+        }
+
+        const langBtn = document.getElementById('langSwitcherBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        if (langBtn && langDropdown) {
+            langBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langDropdown.classList.toggle('hidden');
+                langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
+            });
+            document.addEventListener('click', function(e) {
+                if (!langBtn.contains(e.target)) {
+                    langDropdown.classList.add('hidden');
+                    langBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    </script>
+<script>
+// Dynamic tab highlighting
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('nav a');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  const currentPath = window.location.pathname.split('/').pop();
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active-tab', 'text-brand-gold');
+    } else {
+      link.classList.remove('active-tab', 'text-brand-gold');
+    }
+  });
+  mobileLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active-tab', 'text-brand-gold');
+    } else {
+      link.classList.remove('active-tab', 'text-brand-gold');
+    }
+  });
+});
+</script>
+</body>
+</html>

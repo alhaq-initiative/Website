@@ -1,0 +1,19 @@
+{
+  "name": "alhaq-digital-services-website",
+  "version": "1.0.0",
+  "description": "Alhaq Digital Services website with AI demo functionality",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "serve": "python -m http.server 8080",
+    "dev": "live-server --port=8080 --entry-file=index.html"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+} 

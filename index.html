@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alhaq Digital Services (ADS)</title>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA; /* Clean, light grey background */
+            color: #333333;
+        }
+
+        /* Define brand colors for Tailwind */
+        .bg-brand-blue { background-color: #0A2540; }
+        .text-brand-blue { color: #0A2540; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .no-underline { text-decoration: none !important; }
+        .text-brand-gold { color: #D4AF37; }
+        .border-brand-gold { border-color: #D4AF37; }
+
+        /* Animation for sections fading in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom style for the blurred background on the sticky navbar */
+        .backdrop-blur-nav {
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        /* Arabic text styling */
+        .arabic-text {
+            font-family: 'Amiri', 'Times New Roman', serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Glassmorphism/Liquid Glass Effects */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.25);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.35);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.4);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+        }
+
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .glass-button {
+            background: rgba(212, 175, 55, 0.8);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            background: rgba(212, 175, 55, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px 0 rgba(212, 175, 55, 0.3);
+        }
+
+        .glass-button-red {
+            background: rgba(239, 68, 68, 0.8);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 12px;
+        }
+
+        .glass-button-red:hover {
+            background: rgba(239, 68, 68, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px 0 rgba(239, 68, 68, 0.3);
+        }
+
+        .glass-button-gray {
+            background: rgba(107, 114, 128, 0.8);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(107, 114, 128, 0.4);
+            border-radius: 12px;
+        }
+
+        .glass-button-gray:hover {
+            background: rgba(107, 114, 128, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px 0 rgba(107, 114, 128, 0.3);
+        }
+
+        .glass-verse-display {
+            background: rgba(10, 37, 64, 0.05);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+        }
+
+        .glass-feedback {
+            background: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+        }
+
+        /* Compact text sizes */
+        .text-compact {
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        .text-compact-sm {
+            font-size: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .text-compact-xs {
+            font-size: 0.625rem;
+            line-height: 1.2;
+        }
+
+        /* Floating animation */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Recording indicator animation */
+        @keyframes record-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .recording-indicator {
+            animation: record-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Verse container styling */
+        .verse-container {
+            line-height: 2.2;
+            word-spacing: 0.3em;
+        }
+
+        /* Responsive verse display */
+        @media (max-width: 768px) {
+            .verse-container {
+                line-height: 2;
+                word-spacing: 0.2em;
+            }
+        }
+
+        /* Universal glass container with single full-window logo background */
+        .glass-container-with-logo,
+        .glass-card-with-logo,
+        .project-glass-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.35);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            overflow: hidden;
+        }
+
+        .glass-container-with-logo::before,
+        .glass-card-with-logo::before,
+        .project-glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('Logo2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.04;
+            filter: grayscale(40%) blur(1px);
+            z-index: -1;
+        }
+
+        /* Ensure content stays above background */
+        .glass-container-with-logo > *,
+        .glass-card-with-logo > *,
+        .project-glass-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Progress bar styling */
+        .progress-bar-initial {
+            width: 0%;
+        }
+
+        /* Ko-fi Button Style */
+        .kofi-button {
+            background-color: #29abe0; /* Ko-fi's brand color */
+            color: white !important; /* Make sure text is white */
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none; /* Remove underline from the link */
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block; /* Allows padding and styling */
+            transition: all 0.3s ease;
+        }
+
+        .kofi-button:hover {
+            background-color: #1a92c1; /* A darker shade for hover effect */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        /* Highlight current tab in gold */
+        .active-tab {
+          color: #D4AF37 !important;
+          position: relative;
+        }
+        .active-tab::after {
+          content: '';
+          position: absolute;
+          left: 0; right: 0; bottom: -4px;
+          height: 4px;
+          background: #D4AF37;
+          border-radius: 2px;
+          opacity: 0.7;
+        }
+        /* Pointer-events utility class */
+        .pointer-events-none {
+          pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <!-- Modern Language Switcher -->
+            <div class="relative ml-4">
+                <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                    <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                    <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ur')">اردو</button></li>
+                </ul>
+            </div>
+            <a href="#" class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <span class="icon-bg relative block h-8 w-8">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=100&q=80" alt="Islamic pattern background" class="absolute inset-0 w-full h-full object-cover opacity-40 z-0" />
+                        <img src="Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="relative h-full w-full object-cover z-10" />
+                    </span>
+                </div>
+                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
+                <a href="#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
+                <div class="relative group inline-block">
+                    <button class="text-gray-800 font-semibold hover:text-brand-blue transition focus:outline-none">Services</button>
+                    <ul class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                        <li><a href="taleem-ai.html" class="block px-4 py-2 text-gray-800 hover:bg-brand-gold hover:text-brand-blue">Taleem AI</a></li>
+                        <li><a href="library.html" class="block px-4 py-2 text-gray-800 hover:bg-brand-gold hover:text-brand-blue">Library</a></li>
+                        <!-- Add more services here -->
+                    </ul>
+                </div>
+                <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
+                <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-2">
+                <!-- Removed duplicate Contact Us button -->
+                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+            </div>
+             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
+            <a href="#about" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
+            <div class="pl-4">
+                <span class="block text-gray-800 font-semibold py-2">Services</span>
+                <a href="taleem-ai.html" class="block text-gray-600 hover:text-brand-blue transition py-2 ml-2">Taleem AI</a>
+                <a href="library.html" class="block text-gray-600 hover:text-brand-blue transition py-2 ml-2">Library</a>
+            </div>
+            <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
+            <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
+            <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold">Donate</a>
+        </div>
+    </header>
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Islamic architecture" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
+    <main>
+        <section class="bg-brand-blue text-white pt-32 pb-20">
+            <div class="hero-bg container mx-auto px-6 text-center relative rounded-2xl shadow-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Islamic architecture" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
+                <div class="relative z-10 py-20">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">Building a Digital Future, Rooted in Faith.</h1>
+                    <p class="mt-4 text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow">Alhaq Digital Services (ADS) leverages technology to create meaningful tools that enrich our connection to the Deen.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">Our Mission</h2>
+                <div class="mt-4 w-24 h-1 bg-brand-gold mx-auto rounded"></div>
+                <p class="mt-8 text-lg text-gray-700 leading-relaxed">
+                    At Alhaq Digital Services (ADS), our mission is to fuse state-of-the-art technology with the timeless wisdom of our faith. We are dedicated to developing innovative digital solutions that are not only technologically advanced but also spiritually enriching, helping users deepen their knowledge and practice of Islam in the modern world.
+                </p>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Our Services</h2>
+                <div class="mt-4 w-24 h-1 bg-brand-gold mx-auto rounded mb-8"></div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <a href="taleem-ai.html" class="glass-card p-6 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer no-underline">
+                        <img src="Taleem-icon.png" alt="Taleem AI Icon" class="h-16 w-16 mb-4 rounded-full shadow-lg border border-brand-gold bg-white object-contain group-hover:scale-105 transition" />
+                        <h3 class="text-2xl font-bold text-brand-blue mb-2 group-hover:text-brand-gold">Taleem AI</h3>
+                        <p class="text-gray-700 mb-2">AI-powered Quran recitation feedback and memorization practice.</p>
+                        <ul class="text-gray-600 text-left mb-4 list-disc list-inside">
+                            <li>Real-time recitation correction and feedback</li>
+                            <li>Moving highlight and word-by-word analysis</li>
+                            <li>Multiple surahs and full-surah display</li>
+                            <li>Modern, easy-to-use interface</li>
+                        </ul>
+                        <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-2">
+                            <img src="Screenshot_virtical.Taleem AI.png" alt="Taleem AI Screenshot 1" class="w-32 h-56 object-cover rounded-lg shadow-md border border-gray-200" />
+                            <img src="Screenshot_virtical2.Taleem AI.png" alt="Taleem AI Screenshot 2" class="w-32 h-56 object-cover rounded-lg shadow-md border border-gray-200" />
+                        </div>
+                    </a>
+                    <a href="library.html" class="glass-card p-6 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer no-underline">
+                        <img src="Logo2.png" alt="Library Icon" class="h-16 w-16 mb-4 rounded-full shadow-lg border border-brand-gold bg-white object-contain group-hover:scale-105 transition" />
+                        <h3 class="text-2xl font-bold text-brand-blue mb-2 group-hover:text-brand-gold">Library</h3>
+                        <p class="text-gray-700 mb-2">Access Islamic books, infographics, and educational resources.</p>
+                        <ul class="text-gray-600 text-left mb-4 list-disc list-inside">
+                            <li>Infographics and book chapters</li>
+                            <li>Islamic learning resources</li>
+                            <li>Easy navigation and access</li>
+                        </ul>
+                    </a>
+                    <div class="glass-card p-6 flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-blue mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h3m4 0V7a2 2 0 00-2-2h-7a2 2 0 00-2 2v2"/></svg>
+                        <h3 class="text-xl font-bold text-brand-blue mb-2">Custom Islamic Apps</h3>
+                        <p class="text-gray-600">We build mobile/web apps for Islamic education, community, and productivity.</p>
+                    </div>
+                    <!-- Consulting & Support card removed as requested -->
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="py-20 bg-gradient-to-br from-green-50 to-green-100 fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-4">Support Our Work</h2>
+                <div class="mt-4 w-24 h-1 bg-green-400 mx-auto rounded mb-8"></div>
+                <p class="text-lg text-gray-700 mb-6">Your donation helps us continue building meaningful digital tools for the community. Every contribution, big or small, makes a difference.</p>
+                <a href="donate.html" class="glass-button flex items-center justify-center gap-2 py-3 px-8 font-bold text-brand-blue bg-brand-gold hover:bg-yellow-400 rounded-full shadow-lg transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21C12 21 7 16.5 7 12.5C7 9.5 9.5 7 12 7C14.5 7 17 9.5 17 12.5C17 16.5 12 21 12 21Z" /></svg>
+                  Support Us (ADS)
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact section removed; use contact.html page instead -->
+    </main>
+
+    <!-- Removed duplicate #donate section; use #support section for donations -->
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
+            <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
+                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
+                <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
+                <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
+            </div>
+            <div class="mt-8 flex justify-center gap-6">
+                <a href="https://www.youtube.com/@AlhaqDigital" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" class="hover:text-red-600 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://x.com/@AlhaqD7396" target="_blank" rel="noopener" aria-label="X.com" title="X.com" class="hover:text-blue-400 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/></svg>
+                </a>
+                <a href="https://instagram.com/alhaq.digital" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="hover:text-pink-500 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.782-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="feedback-btn" class="fixed z-50 bottom-6 right-6 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-400 transition-all">Report / Feedback</button>
+    <div id="feedback-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
+            <button id="close-feedback" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold text-brand-blue mb-2">Report / Feedback</h2>
+            <form action="mailto:contact@alhaq.digital" method="POST" enctype="text/plain" class="flex flex-col gap-4">
+                <input type="text" name="Name" placeholder="Your Name (optional)" class="glass-input py-2 px-3 border border-gray-300" />
+                <input type="email" name="Email" placeholder="Your Email (optional)" class="glass-input py-2 px-3 border border-gray-300" />
+                <textarea name="Message" placeholder="Your feedback or report..." required rows="4" class="glass-input py-2 px-3 border border-gray-300"></textarea>
+                <button type="submit" class="glass-button py-2 px-4 font-bold">Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // JavaScript for fade-in animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Feedback modal logic
+        const feedbackBtn = document.getElementById('feedback-btn');
+        const feedbackModal = document.getElementById('feedback-modal');
+        const closeFeedback = document.getElementById('close-feedback');
+        feedbackBtn.addEventListener('click', () => feedbackModal.classList.remove('hidden'));
+        closeFeedback.addEventListener('click', () => feedbackModal.classList.add('hidden'));
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') feedbackModal.classList.add('hidden'); });
+
+        // Dynamic tab highlighting for all pages
+        // Unified dynamic tab highlighting for sections and page navigation
+        function highlightTabs() {
+          const navLinks = document.querySelectorAll('nav a');
+          const mobileLinks = document.querySelectorAll('#mobile-menu a');
+          const currentPath = window.location.pathname.split('/').pop();
+          const hash = window.location.hash.replace('#', '');
+          // Section IDs for scroll-based highlighting
+          const sectionIds = ['about', 'services'];
+          let activeSection = null;
+          // Check if a section is in view
+          sectionIds.forEach(id => {
+            const section = document.getElementById(id);
+            if (section) {
+              const rect = section.getBoundingClientRect();
+              if (rect.top <= 80 && rect.bottom > 80) {
+                activeSection = id;
+              }
+            }
+          });
+          navLinks.forEach(link => {
+            link.classList.remove('active-tab', 'text-brand-gold');
+            // Highlight by section scroll
+            if (activeSection && link.getAttribute('href') === `#${activeSection}`) {
+              link.classList.add('active-tab', 'text-brand-gold');
+            }
+            // Highlight by hash navigation
+            else if (hash && link.getAttribute('href') === `#${hash}`) {
+              link.classList.add('active-tab', 'text-brand-gold');
+            }
+            // Highlight by page navigation
+            else if (!activeSection && !hash && (link.getAttribute('href') === currentPath || (link.getAttribute('href') === 'index.html' && (currentPath === '' || currentPath === 'index.html')))) {
+              link.classList.add('active-tab', 'text-brand-gold');
+            }
+          });
+          mobileLinks.forEach(link => {
+            link.classList.remove('active-tab', 'text-brand-gold');
+            if (activeSection && link.getAttribute('href') === `#${activeSection}`) {
+              link.classList.add('active-tab', 'text-brand-gold');
+            }
+            else if (hash && link.getAttribute('href') === `#${hash}`) {
+              link.classList.add('active-tab', 'text-brand-gold');
+            }
+            else if (!activeSection && !hash && (link.getAttribute('href') === currentPath || (link.getAttribute('href') === 'index.html' && (currentPath === '' || currentPath === 'index.html')))) {
+              link.classList.add('active-tab', 'text-brand-gold');
+            }
+          });
+        }
+        document.addEventListener('DOMContentLoaded', highlightTabs);
+        window.addEventListener('scroll', highlightTabs);
+        window.addEventListener('hashchange', highlightTabs);
+        window.addEventListener('popstate', highlightTabs);
+
+        const langBtn = document.getElementById('langSwitcherBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        if (langBtn && langDropdown) {
+            langBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langDropdown.classList.toggle('hidden');
+                langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
+            });
+            document.addEventListener('click', function(e) {
+                if (!langBtn.contains(e.target)) {
+                    langDropdown.classList.add('hidden');
+                    langBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    </script>
+
+    <script src="taleem-demo.js"></script>
+    <script>
+const translations = {
+  fa: {
+    title: 'صفحه اصلی',
+    navHome: 'خانه',
+    navAbout: 'درباره ما',
+    navServices: 'خدمات',
+    navLibrary: 'کتابخانه',
+    navProjects: 'پروژه‌ها',
+    navHelp: 'راهنما',
+    navContact: 'تماس',
+    navDonate: 'حمایت/اهدا',
+    // mainHeading and mainSub removed as requested
+    donateButton: 'حمایت/اهدا',
+    aboutHeading: 'درباره ما',
+    aboutText: 'ما متعهد به ارائه منابع اسلامی و آموزشی هستیم.',
+    servicesHeading: 'خدمات ما',
+    servicesText: 'دسترسی به کتاب‌ها، مقالات، اینفوگرافیک‌ها و پروژه‌های اسلامی.',
+    exploreBtn: 'مطالب را مرور کنید',
+    learnMoreBtn: 'بیشتر بدانید',
+    contactBtn: 'تماس با ما',
+    // Footer
+    footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
+    footerHome: 'خانه',
+    footerAbout: 'درباره ما',
+    footerServices: 'خدمات',
+    footerLibrary: 'کتابخانه',
+    footerHelp: 'راهنما و سوالات متداول',
+    footerContact: 'تماس',
+    footerDonate: 'اهدا',
+    footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
+    visitLibrary: 'بازدید از کتابخانه',
+    // Add more translations as needed
+  }
+};
+function setLanguage(lang) {
+  document.getElementById('currentLang').textContent = lang === 'fa' ? 'دری' : 'English';
+  if (lang === 'fa') {
+    document.title = translations.fa.title;
+    document.querySelector('h1').textContent = translations.fa.mainHeading;
+    document.querySelector('p.text-lg').textContent = translations.fa.mainSub;
+    // Navigation tabs
+    let navLinks = document.querySelectorAll('nav a');
+    if (navLinks.length > 0) {
+      navLinks[0].textContent = translations.fa.navHome;
+      navLinks[1].textContent = translations.fa.navAbout;
+      navLinks[2].textContent = translations.fa.navServices;
+      navLinks[3].textContent = translations.fa.navLibrary;
+      navLinks[4].textContent = translations.fa.navProjects;
+      navLinks[5].textContent = translations.fa.navHelp;
+      navLinks[6].textContent = translations.fa.navContact;
+    }
+    let donateTab = document.querySelector('nav a[href="donate.html"]');
+    if (donateTab) donateTab.textContent = translations.fa.navDonate;
+    // Buttons
+    let exploreBtn = document.getElementById('exploreBtn');
+    if (exploreBtn) exploreBtn.textContent = translations.fa.exploreBtn;
+    let learnMoreBtn = document.getElementById('learnMoreBtn');
+    if (learnMoreBtn) learnMoreBtn.textContent = translations.fa.learnMoreBtn;
+    let contactBtn = document.getElementById('contactBtn');
+    if (contactBtn) contactBtn.textContent = translations.fa.contactBtn;
+    let donateBtn = document.querySelector('a.bg-yellow-400');
+    if (donateBtn) donateBtn.textContent = translations.fa.donateButton;
+    // Footer
+    let footerSlogan = document.querySelector('footer p.mt-2');
+    if (footerSlogan) footerSlogan.textContent = translations.fa.footerSlogan;
+    let footerLinks = document.querySelectorAll('footer .mt-6 a');
+    if (footerLinks.length > 0) {
+      footerLinks[0].textContent = translations.fa.footerHome;
+      footerLinks[1].textContent = translations.fa.footerAbout;
+      footerLinks[2].textContent = translations.fa.footerServices;
+      footerLinks[3].textContent = translations.fa.footerLibrary;
+      footerLinks[4].textContent = translations.fa.footerHelp;
+      footerLinks[5].textContent = translations.fa.footerContact;
+      footerLinks[6].textContent = translations.fa.footerDonate;
+    }
+    let copyright = document.querySelector('footer p.mt-8');
+    if (copyright) copyright.textContent = translations.fa.footerCopyright;
+    let visitLibrary = document.querySelector('footer .mt-4 a');
+    if (visitLibrary) visitLibrary.textContent = translations.fa.visitLibrary;
+    // Add more selectors and translations as needed
+  } else {
+    location.reload(); // fallback: reload to English
+  }
+}
+</script>
+
+</body>
+</html>

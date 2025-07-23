@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & FAQ - Alhaq Digital Services (ADS)</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
+        .bg-brand-blue { background-color: #0A2540; }
+        .text-brand-blue { color: #0A2540; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .text-brand-gold { color: #D4AF37; }
+        .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
+    </style>
+</head>
+<body class="antialiased">
+    <header id="header" class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                </div>
+                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
+                <a href="index.html#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
+                <a href="index.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
+                <a href="index.html#ai-demo" class="text-gray-800 font-semibold hover:text-brand-blue transition">Try AI Demo</a>
+                <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
+                <a href="help.html" class="text-brand-gold font-semibold">Help & FAQ</a>
+            </nav>
+            <div class="flex items-center space-x-2">
+                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex justify-end mb-4">
+            <!-- Modern Language Switcher -->
+            <div class="relative">
+                <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                    <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                    <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                    <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
+                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ur')">اردو</button></li>
+                </ul>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
+            <a href="index.html#about" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
+            <a href="index.html#services" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
+            <a href="index.html#ai-demo" class="block text-gray-600 hover:text-brand-blue transition py-2">Try AI Demo</a>
+            <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
+            <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
+            <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold">Donate</a>
+        </div>
+    </header>
+    <main class="pt-32 pb-20 bg-gray-50 min-h-screen">
+        <section class="fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Help & FAQ</h1>
+                <p class="text-lg text-gray-700 mb-8">Find answers to common questions and get help with our services.</p>
+                <div class="glass-card p-6 text-left shadow-lg">
+                    <h2 id="faqHeading" class="text-2xl font-bold text-brand-blue mb-4">Frequently Asked Questions</h2>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">How do I use Taleem AI?</h3>
+                        <p class="text-gray-700 faq-a">Go to the Library or Projects page, select Taleem AI, and follow the instructions to try the demo and receive real-time feedback on your recitation.</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">How can I donate to support your work?</h3>
+                        <p class="text-gray-700 faq-a">Visit our Donate page for secure online donations via Ko-fi or other available methods.</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">How do I contact you for support or collaboration?</h3>
+                        <p class="text-gray-700 faq-a">Use the Contact page to send us a message directly, or email us at contact@alhaq.digital.</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">Is my data safe?</h3>
+                        <p class="text-gray-700 faq-a">Yes, we take privacy seriously and do not share your data with third parties. All information is handled securely.</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">Can I access the infographics and book chapters for free?</h3>
+                        <p class="text-gray-700 faq-a">Yes, all infographic chapters and resources in the Library are freely accessible to all users.</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">How do I report a bug or suggest a feature?</h3>
+                        <p class="text-gray-700 faq-a">Please use the Contact page or email us with details about the bug or your suggestion. We appreciate your feedback!</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">What is Alhaq Digital Services' mission?</h3>
+                        <p class="text-gray-700 faq-a">Our mission is to provide accessible Islamic resources, educational tools, and digital services to empower communities and foster learning.</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">Are there plans to add more books or features?</h3>
+                        <p class="text-gray-700 faq-a">Yes, we are continuously working to expand our Library and add new features. Stay tuned for updates!</p>
+                    </div>
+                    <div class="mb-4 faq-item">
+                        <h3 class="font-semibold text-brand-blue faq-q">How do I access the Quran and Hadith sections?</h3>
+                        <p class="text-gray-700 faq-a">Go to the Library page and select the Quran or Hadith section to explore translations, tafsir, and authentic collections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
+            <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <a href="https://www.youtube.com/@Al-Haq-H" class="text-gray-400 hover:text-white transition" aria-label="YouTube" title="Subscribe on YouTube" target="_blank" rel="noopener"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                <a href="https://x.com/AlhaqDigital" class="text-gray-400 hover:text-white transition" aria-label="X.com" title="Follow us on X.com" target="_blank" rel="noopener"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/></svg></a>
+            </div>
+            <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        const translations = {
+  fa: {
+    title: 'راهنما',
+    navHome: 'خانه',
+    navAbout: 'درباره ما',
+    navServices: 'خدمات',
+    navLibrary: 'کتابخانه',
+    navProjects: 'پروژه‌ها',
+    navHelp: 'راهنما',
+    navContact: 'تماس',
+    navDonate: 'حمایت/اهدا',
+    mainHeading: 'سوالات متداول',
+    mainSub: 'پاسخ به سوالات رایج درباره سایت و منابع.',
+    faq: 'سوالات متداول',
+    faqItems: [
+      {
+        q: 'چگونه از تعلیم AI استفاده کنم؟',
+        a: 'به صفحه کتابخانه یا پروژه‌ها بروید، تعلیم AI را انتخاب کنید و دستورالعمل‌ها را دنبال کنید تا دمو را امتحان کنید و بازخورد لحظه‌ای دریافت نمایید.'
+      },
+      {
+        q: 'چگونه می‌توانم برای حمایت از کار شما اهدا کنم؟',
+        a: 'به صفحه اهدا بروید تا به صورت آنلاین و امن از طریق Ko-fi یا روش‌های دیگر اهدا کنید.'
+      },
+      {
+        q: 'چگونه برای پشتیبانی یا همکاری با شما تماس بگیرم؟',
+        a: 'از صفحه تماس برای ارسال پیام مستقیم استفاده کنید یا به ایمیل contact@alhaq.digital پیام دهید.'
+      },
+      {
+        q: 'آیا داده‌های من امن است؟',
+        a: 'بله، ما حریم خصوصی را جدی می‌گیریم و داده‌های شما را با اشخاص ثالث به اشتراک نمی‌گذاریم. تمام اطلاعات به صورت امن مدیریت می‌شود.'
+      },
+      {
+        q: 'آیا می‌توانم اینفوگرافیک‌ها و فصل‌های کتاب را رایگان مشاهده کنم؟',
+        a: 'بله، تمام فصل‌های اینفوگرافیک و منابع کتابخانه برای همه کاربران رایگان است.'
+      },
+      {
+        q: 'چگونه یک مشکل را گزارش دهم یا ویژگی جدید پیشنهاد کنم؟',
+        a: 'لطفاً از صفحه تماس یا ایمیل برای ارسال جزئیات مشکل یا پیشنهاد خود استفاده کنید. بازخورد شما برای ما ارزشمند است!'
+      },
+      {
+        q: 'ماموریت خدمات دیجیتال الخق چیست؟',
+        a: 'ماموریت ما ارائه منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال برای توانمندسازی جوامع و ارتقاء یادگیری است.'
+      },
+      {
+        q: 'آیا برنامه‌ای برای افزودن کتاب‌ها یا ویژگی‌های جدید دارید؟',
+        a: 'بله، ما به طور مداوم در حال گسترش کتابخانه و افزودن ویژگی‌های جدید هستیم. منتظر بروزرسانی‌ها باشید!'
+      },
+      {
+        q: 'چگونه به بخش قرآن و حدیث دسترسی پیدا کنم؟',
+        a: 'به صفحه کتابخانه بروید و بخش قرآن یا حدیث را برای مشاهده ترجمه‌ها، تفسیر و مجموعه‌های معتبر انتخاب کنید.'
+      }
+    ],
+    // Footer
+    footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
+    footerHome: 'خانه',
+    footerAbout: 'درباره ما',
+    footerServices: 'خدمات',
+    footerLibrary: 'کتابخانه',
+    footerHelp: 'راهنما و سوالات متداول',
+    footerContact: 'تماس',
+    footerDonate: 'اهدا',
+    footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
+    visitLibrary: 'بازدید از کتابخانه',
+  }
+};
+function setLanguage(lang) {
+  document.getElementById('currentLang').textContent = lang === 'fa' ? 'دری' : 'English';
+  if (lang === 'fa') {
+    document.title = translations.fa.title;
+    document.querySelector('h1').textContent = translations.fa.mainHeading;
+    document.querySelector('p.text-lg').textContent = translations.fa.mainSub;
+    // Navigation tabs
+    let navLinks = document.querySelectorAll('nav a');
+    if (navLinks.length > 0) {
+      navLinks[0].textContent = translations.fa.navHome;
+      navLinks[1].textContent = translations.fa.navAbout;
+      navLinks[2].textContent = translations.fa.navServices;
+      navLinks[3].textContent = translations.fa.navLibrary;
+      navLinks[4].textContent = translations.fa.navProjects;
+      navLinks[5].textContent = translations.fa.navHelp;
+      navLinks[6].textContent = translations.fa.navContact;
+    }
+    let donateTab = document.querySelector('nav a[href="donate.html"]');
+    if (donateTab) donateTab.textContent = translations.fa.navDonate;
+    // FAQ section
+    let faqHeading = document.getElementById('faqHeading');
+    if (faqHeading) faqHeading.textContent = translations.fa.faq;
+    let faqItems = document.querySelectorAll('.faq-item');
+    translations.fa.faqItems.forEach(function(item, i) {
+      if (faqItems[i]) {
+        let q = faqItems[i].querySelector('.faq-q');
+        let a = faqItems[i].querySelector('.faq-a');
+        if (q) q.textContent = item.q;
+        if (a) a.textContent = item.a;
+      }
+    });
+    // Footer
+    let footerSlogan = document.querySelector('footer p.mt-2');
+    if (footerSlogan) footerSlogan.textContent = translations.fa.footerSlogan;
+    let footerLinks = document.querySelectorAll('footer .mt-6 a');
+    if (footerLinks.length > 0) {
+      footerLinks[0].textContent = translations.fa.footerHome;
+      footerLinks[1].textContent = translations.fa.footerAbout;
+      footerLinks[2].textContent = translations.fa.footerServices;
+      footerLinks[3].textContent = translations.fa.footerLibrary;
+      footerLinks[4].textContent = translations.fa.footerHelp;
+      footerLinks[5].textContent = translations.fa.footerContact;
+      footerLinks[6].textContent = translations.fa.footerDonate;
+    }
+    let copyright = document.querySelector('footer p.mt-8');
+    if (copyright) copyright.textContent = translations.fa.footerCopyright;
+    let visitLibrary = document.querySelector('footer .mt-4 a');
+    if (visitLibrary) visitLibrary.textContent = translations.fa.visitLibrary;
+    // Add more selectors and translations as needed
+  } else {
+    location.reload(); // fallback: reload to English
+  }
+}
+const langBtn = document.getElementById('langSwitcherBtn');
+const langDropdown = document.getElementById('langDropdown');
+if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        langDropdown.classList.toggle('hidden');
+        langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
+    });
+    document.addEventListener('click', function(e) {
+        if (!langBtn.contains(e.target)) {
+            langDropdown.classList.add('hidden');
+            langBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+    </script>
+<script>
+// Dynamic tab highlighting
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('nav a');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  const currentPath = window.location.pathname.split('/').pop();
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active-tab', 'text-brand-gold');
+    } else {
+      link.classList.remove('active-tab', 'text-brand-gold');
+    }
+  });
+  mobileLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active-tab', 'text-brand-gold');
+    } else {
+      link.classList.remove('active-tab', 'text-brand-gold');
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unveiling the Western World: Beyond the Facade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A thematic, non-linear SPA. The structure is designed to guide the user through the book's core arguments in three digestible parts: 1) The historical foundation (colonialism), 2) The internal reality (social issues backed by data), and 3) The external impact (foreign policy and culture). This is more engaging than a simple chapter-by-chapter layout. Key interactions include clickable diagrams, interactive charts, and a tabbed/timeline view to allow users to explore the evidence supporting the book's thesis at their own pace. -->
+    <!-- Visualization & Content Choices: 
+        - Colonialism Flow (Chapter 1): Goal: Organize. Method: HTML/CSS diagram. Interaction: Click to reveal text. Justification: Visually shows the causal chain of exploitation.
+        - Social Cracks Data (Chapter 2): Goal: Compare/Inform. Method: Bar charts (Chart.js) & stat cards. Interaction: Hover tooltips. Justification: Presents hard data in a clear, impactful dashboard format.
+        - Global Impact (Chapters 3 & 4): Goal: Show change/Organize. Method: HTML/CSS timeline and tabbed content. Interaction: Click to reveal case studies. Justification: Separates complex topics (policy vs. culture) and presents historical events logically.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #D97706;
+        }
+        .nav-link.active {
+            color: #D97706;
+            border-bottom-color: #D97706;
+        }
+        .custom-prose {
+            font-family: 'Lora', serif;
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: #374151;
+        }
+        .hero-bg {
+            background-image: url('https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                </div>
+                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#foundation" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-foundation">The Foundation</a>
+                <a href="#reality" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-reality">The Reality Within</a>
+                <a href="#impact" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-impact">The Global Impact</a>
+                <a href="#perspective" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-perspective">A New Perspective</a>
+                <a href="library.html" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-library">Library</a>
+            </nav>
+            <div class="flex items-center space-x-2">
+                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#foundation" class="block py-2 text-gray-600">The Foundation</a>
+            <a href="#reality" class="block py-2 text-gray-600">The Reality Within</a>
+            <a href="#impact" class="block py-2 text-gray-600">The Global Impact</a>
+            <a href="#perspective" class="block py-2 text-gray-600">A New Perspective</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-bg relative">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative container mx-auto px-6 py-20 md:py-32 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Unveiling the Western World</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto">An interactive exploration of the complex realities behind the facade of Western prosperity, based on the analysis from "Unveiling the Western World".</p>
+            </div>
+        </section>
+
+        <section id="foundation" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Foundation: A Colonial Legacy</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">The book argues that modern Western wealth wasn't accidental, but built on a historical foundation of colonialism. This section explores the systematic process of exploitation that transferred resources from colonized lands to imperial centers, creating lasting global disparities.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="group flex flex-col bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Les_chantiers_navals_de_la_Compagnie_des_Indes_%C3%A0_Lorient.jpg/1280px-Les_chantiers_navals_de_la_Compagnie_des_Indes_%C3%A0_Lorient.jpg" alt="18th-century European shipyard" class="h-48 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Economic+Hunger';">
+                        <div class="p-6 flex-grow">
+                            <h3 class="font-semibold text-lg mb-2">1. Economic Hunger</h3>
+                            <p class="text-gray-600 text-sm">The industrial revolution created an insatiable demand for raw materials and new markets, driving the push for overseas expansion and resource extraction.</p>
+                        </div>
+                    </div>
+                    <div class="group flex flex-col bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Maiwand.jpg/1280px-Maiwand.jpg" alt="Battle of Maiwand, Second Anglo-Afghan War, 1880" class="h-48 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Invasion';">
+                        <div class="p-6 flex-grow">
+                            <h3 class="font-semibold text-lg mb-2">2. Invasion & Subjugation</h3>
+                            <p class="text-gray-600 text-sm">Military conquest, like the British invasions of Afghanistan, was used to subjugate local populations and ensure economic dependence.</p>
+                        </div>
+                    </div>
+                    <div class="group flex flex-col bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Congolese_rubber_slaves.jpg" alt="Forced laborers in the Congo Free State with severed hands" class="h-48 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Resource+Theft';">
+                        <div class="p-6 flex-grow">
+                            <h3 class="font-semibold text-lg mb-2">3. Systematic Resource Theft</h3>
+                            <p class="text-gray-600 text-sm">Resources were plundered, often with brutal forced labor, such as in the Belgian Congo's rubber trade. This stolen wealth flowed to imperial centers.</p>
+                        </div>
+                    </div>
+                    <div class="group flex flex-col bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lord_Curzon_in_India_with_the_Amir_of_Afghanistan.jpg/1024px-Lord_Curzon_in_India_with_the_Amir_of_Afghanistan.jpg" alt="Lord Curzon, Viceroy of India" class="h-48 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Enduring+Legacy';">
+                        <div class="p-6 flex-grow">
+                            <h3 class="font-semibold text-lg mb-2">4. The Enduring Legacy</h3>
+                            <p class="text-gray-600 text-sm">This history of imposed rule and extraction created the economic disparities and political instabilities that many formerly colonized nations still face.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reality" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Reality Within: Social Cracks</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Beyond the gleaming surface, the book highlights significant internal crises. This dashboard visualizes data on violent crime, public health, financial hardship, and personal safety, revealing a reality far from the idealized image.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                        <h3 class="text-xl font-semibold mb-4 text-center">Disproportionate Violence</h3>
+                        <p class="text-center text-gray-600 mb-4">The U.S. homicide rate is an outlier among developed nations.</p>
+                        <div class="chart-container flex-grow">
+                            <canvas id="homicideChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                        <h3 class="text-xl font-semibold mb-4 text-center">Pervasive Health Crises</h3>
+                        <p class="text-center text-gray-600 mb-4">Data from the US & UK reveals deep-seated health challenges.</p>
+                        <div class="chart-container flex-grow">
+                            <canvas id="healthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-around space-y-4">
+                        <h3 class="text-xl font-semibold mb-2 text-center">Widespread Financial Hardship</h3>
+                        <img src="https://images.pexels.com/photos/6805531/pexels-photo-6805531.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="h-40 w-full object-cover rounded-md mb-4" alt="Homeless person" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Financial+Hardship';">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-amber-600">27.1%</p>
+                            <p class="text-gray-600">of US adults faced food insecurity in 2024.</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-amber-600">91%</p>
+                            <p class="text-gray-600">increase in rough sleeping in England over 3 years (to 2025).</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-around space-y-4">
+                        <h3 class="text-xl font-semibold mb-2 text-center">Pervasive Harassment</h3>
+                        <img src="https://images.pexels.com/photos/7848671/pexels-photo-7848671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="h-40 w-full object-cover rounded-md mb-4" alt="Woman looking concerned" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Harassment';">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-amber-600">71%</p>
+                            <p class="text-gray-600">of all UK women have experienced sexual harassment in public.</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-amber-600">86%</p>
+                            <p class="text-gray-600">This rises to 86% for young women aged 18-24.</p>
+                        </div>
+                         <p class="text-xs text-gray-400 text-center pt-2">Source: UN Women UK</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Global Impact: Intervention & Culture</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">The book argues that Western influence extends globally through both overt foreign policy and pervasive cultural exports. Explore the case studies and concepts that illustrate this two-pronged impact.</p>
+                </div>
+
+                <div>
+                    <div class="flex justify-center border-b mb-8">
+                        <button data-tab="intervention" class="tab-button py-2 px-6 text-lg font-semibold text-amber-600 border-b-2 border-amber-600">Foreign Intervention</button>
+                        <button data-tab="culture" class="tab-button py-2 px-6 text-lg font-semibold text-gray-500">Cultural Imprint</button>
+                    </div>
+
+                    <div id="intervention-content" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                           <div class="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Mohammad_Mosaddegh_in_court_1953.jpg" alt="Mohammad Mosaddegh in court" class="h-56 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=1953+Iranian+Coup';">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-gray-800 text-xl mb-2">1953: Iranian Coup</h3>
+                                    <p class="text-sm text-gray-600">The US and UK orchestrated the overthrow of democratically elected PM Mossadegh after he nationalized Iran's oil industry, installing a monarch friendly to Western interests.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/IMF_Protest_in_Dhaka_1995.jpg/1280px-IMF_Protest_in_Dhaka_1995.jpg" alt="Protest against IMF policies in Dhaka, Bangladesh, 1995" class="h-56 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=Structural+Adjustment';">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-gray-800 text-xl mb-2">1980s: Structural Adjustment</h3>
+                                    <p class="text-sm text-gray-600">The IMF & World Bank imposed programs on developing nations, forcing cuts to public services to service debts, often leading to mass protests and social unrest.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Toppling_of_Saddam_Hussein%27s_statue.jpg/1280px-Toppling_of_Saddam_Hussein%27s_statue.jpg" alt="US Marines watch as Saddam Hussein's statue is toppled in Baghdad, 2003" class="h-56 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FDFBF7/333?text=2003+Iraq+Invasion';">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-gray-800 text-xl mb-2">2003: Iraq Invasion</h3>
+                                    <p class="text-sm text-gray-600">Led by the US and UK on a false pretext, the invasion led to state collapse, immense loss of life, and regional destabilization, including the rise of ISIS.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="culture-content" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="relative text-center p-6 bg-gray-50 rounded-lg overflow-hidden h-64 flex items-center justify-center">
+                                <img src="https://images.pexels.com/photos/3769999/pexels-photo-3769999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="absolute inset-0 w-full h-full object-cover z-0" alt="Shopping bags" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/fff?text=Consumerism';">
+                                <div class="relative z-10 bg-black/60 p-4 rounded-md">
+                                    <h3 class="text-xl font-semibold mb-2 text-white">Consumerism</h3>
+                                    <p class="custom-prose text-white/90 text-base">A culture equating happiness with acquisition, fueling unsustainable consumption and personal debt.</p>
+                                </div>
+                            </div>
+                             <div class="relative text-center p-6 bg-gray-50 rounded-lg overflow-hidden h-64 flex items-center justify-center">
+                                <img src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="absolute inset-0 w-full h-full object-cover z-0" alt="Man walking alone" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/fff?text=Individualism';">
+                                <div class="relative z-10 bg-black/60 p-4 rounded-md">
+                                    <h3 class="text-xl font-semibold mb-2 text-white">Individualism</h3>
+                                    <p class="custom-prose text-white/90 text-base">Prioritizing self-reliance over community, which can lead to social isolation and weakened support networks.</p>
+                                </div>
+                            </div>
+                             <div class="relative text-center p-6 bg-gray-50 rounded-lg overflow-hidden h-64 flex items-center justify-center">
+                                <img src="https://images.pexels.com/photos/7649241/pexels-photo-7649241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="absolute inset-0 w-full h-full object-cover z-0" alt="News cameras" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/fff?text=Media+Machine';">
+                                <div class="relative z-10 bg-black/60 p-4 rounded-md">
+                                    <h3 class="text-xl font-semibold mb-2 text-white">The Media Machine</h3>
+                                    <p class="custom-prose text-white/90 text-base">Global media projects a curated, idealized image of the West, obscuring internal problems and historical injustices.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="perspective" class="py-16 md:py-24 bg-amber-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">A New Perspective</h2>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <p class="custom-prose">The book concludes that a balanced understanding of the Western world requires moving beyond superficial perceptions. It calls for acknowledging the historical injustices that underpin its prosperity, recognizing its deep-seated internal challenges, and critically evaluating the global impact of its foreign policy and cultural dominance.</p>
+                    <p class="custom-prose">For Eastern nations, this understanding offers liberation from the pressure to emulate a flawed model, empowering them to pursue authentic development paths. For the West, it is an urgent call for introspection and accountability.</p>
+                    <p class="custom-prose font-semibold">Ultimately, the goal is a shared future based on mutual respect, genuine collaboration, and a clear-eyed understanding of our interconnected world.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>Interactive report based on "Unveiling the Western World: Beyond the Facade".</p>
+            <p class="text-sm text-gray-400 mt-2">By Alhaq Digital services. Historical images are used for illustrative purposes and sourced from public domain or Creative Commons repositories where possible.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const appData = {
+                charts: {
+                    homicide: {
+                        labels: ['United States', 'France', 'Germany', 'United Kingdom', 'Japan'],
+                        data: [7.8, 1.4, 0.9, 1.2, 0.3]
+                    },
+                    health: {
+                        labels: ['US Opioid Deaths (per 100k)', 'UK Obesity Rate (%)', 'UK Youth Mental Health Problem (%)'],
+                        data: [24.7, 27.0, 16.6]
+                    }
+                }
+            };
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tab = button.dataset.tab;
+                    
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('text-amber-600', 'border-amber-600');
+                        btn.classList.add('text-gray-500');
+                    });
+                    button.classList.add('text-amber-600', 'border-amber-600');
+                    button.classList.remove('text-gray-500');
+
+                    tabContents.forEach(content => {
+                        if (content.id === `${tab}-content`) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            const createChart = (ctx, type, labels, data, label, backgroundColor) => {
+                new Chart(ctx, {
+                    type: type,
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: label,
+                            data: data,
+                            backgroundColor: backgroundColor,
+                            borderColor: backgroundColor.map(c => c.replace('0.6', '1')),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y;
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: '#e5e7eb'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+            
+            const homicideCtx = document.getElementById('homicideChart').getContext('2d');
+            createChart(homicideCtx, 'bar', appData.charts.homicide.labels, appData.charts.homicide.data, 'Homicides per 100,000 (2020)', ['rgba(217, 119, 6, 0.6)', 'rgba(202, 138, 4, 0.6)', 'rgba(202, 138, 4, 0.6)', 'rgba(202, 138, 4, 0.6)', 'rgba(202, 138, 4, 0.6)']);
+
+            const healthCtx = document.getElementById('healthChart').getContext('2d');
+            createChart(healthCtx, 'bar', appData.charts.health.labels, appData.charts.health.data, 'Value', ['rgba(217, 119, 6, 0.6)', 'rgba(202, 138, 4, 0.6)', 'rgba(180, 83, 9, 0.6)']);
+        
+            // Navigation highlight logic
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section[id]');
+            const navMap = {
+                'foundation': 'nav-foundation',
+                'reality': 'nav-reality',
+                'impact': 'nav-impact',
+                'perspective': 'nav-perspective',
+                'library': 'nav-library'
+            };
+            function highlightNav(id) {
+                navLinks.forEach(link => {
+                    link.classList.remove('text-brand-gold', 'border-brand-gold');
+                    link.classList.add('text-gray-800', 'border-transparent');
+                });
+                if (navMap[id]) {
+                    const activeLink = document.getElementById(navMap[id]);
+                    if (activeLink) {
+                        activeLink.classList.remove('text-gray-800', 'border-transparent');
+                        activeLink.classList.add('text-brand-gold', 'border-brand-gold');
+                    }
+                }
+            }
+            // Only highlight on scroll or hash change, no default
+            function updateHighlightFromHash() {
+                const hash = window.location.hash.replace('#', '');
+                if (navMap[hash]) {
+                    highlightNav(hash);
+                } else {
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-brand-gold', 'border-brand-gold');
+                        link.classList.add('text-gray-800', 'border-transparent');
+                    });
+                }
+            }
+            window.addEventListener('hashchange', updateHighlightFromHash);
+            updateHighlightFromHash();
+            // Intersection observer for scroll-based highlight
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        highlightNav(entry.target.id);
+                    }
+                });
+            }, observerOptions);
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "taleemai-project",
+  "version": "1.0.0",
+  "description": "My serverless backend functions.",
+  "main": "send-feedback/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "node-fetch": "^2.6.7"
+  }
+}

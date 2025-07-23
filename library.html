@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Alhaq Digital Services (ADS)</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
+        .bg-brand-blue { background-color: #0A2540; }
+        .text-brand-blue { color: #0A2540; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .text-brand-gold { color: #D4AF37; }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                </div>
+                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
+                <a href="index.html#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
+                <a href="library.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
+                <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
+                <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
+                <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
+            </nav>
+            <div class="flex justify-end mb-4">
+                <!-- Modern Language Switcher -->
+                <div class="relative">
+                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ur')">اردو</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-32 pb-20">
+        <section class="fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Library</h1>
+                <p class="text-lg text-gray-700 mb-6">Explore our collection of Islamic books, articles, and resources. Find knowledge, guidance, and inspiration for your journey.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Quran</h2>
+                        <p class="text-gray-700 mb-4">Read and explore the Holy Quran with translation and tafsir.</p>
+                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Quran</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Hadith</h2>
+                        <p class="text-gray-700 mb-4">Browse authentic collections of Hadith and their explanations.</p>
+                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Hadith</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
+                        <p class="text-gray-700 mb-4">Read articles on Islamic topics, history, and contemporary issues.</p>
+                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Articles</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Books</h2>
+                        <p class="text-gray-700 mb-4">Discover recommended Islamic books for all ages.</p>
+                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Books</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">InfoGraphics</h2>
+                        <p class="text-gray-700 mb-4">Explore our interactive infographics and book chapters for deeper understanding.</p>
+                        <a href="#" class="text-brand-gold font-semibold hover:underline">View InfoGraphics</a>
+                        <div class="mt-4 relative">
+                            <button id="infographicsDropdownBtn" class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded hover:bg-yellow-400 transition w-full text-left flex justify-between items-center">
+                                Unveiling the Western World (Infographics)
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                            <ul id="infographicsDropdownMenu" class="absolute left-0 right-0 mt-2 bg-white border border-brand-gold rounded-lg shadow-lg z-10 hidden">
+                                <li><a href="all-infographics.html" class="block px-6 py-4 hover:bg-brand-gold hover:text-brand-blue transition font-semibold">All Infographics: Unveiling the Western World</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
+            <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
+                <a href="library.html" class="text-brand-gold font-semibold hover:underline">Visit our Library</a>
+            </div>
+            <div class="mt-8 flex justify-center gap-6">
+                <a href="https://www.youtube.com/@AlhaqDigital" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" class="hover:text-red-600 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://x.com/@AlhaqD73href" target="_blank" rel="noopener" aria-label="X.com" title="X.com" class="hover:text-blue-400 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/></svg>
+                </a>
+                <a href="https://instagram.com/alhaq.digital" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="hover:text-pink-500 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.782-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="library.html" class="text-brand-gold font-semibold hover:underline">Visit our Library</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Dropdown menu toggle for infographics
+        const infBtn = document.getElementById('infographicsDropdownBtn');
+        const infMenu = document.getElementById('infographicsDropdownMenu');
+        if (infBtn && infMenu) {
+            infBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                infMenu.classList.toggle('hidden');
+            });
+            document.addEventListener('click', function(e) {
+                if (!infBtn.contains(e.target)) {
+                    infMenu.classList.add('hidden');
+                }
+            });
+        }
+        // Language switcher dropdown logic
+        const langBtn = document.getElementById('langSwitcherBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        if (langBtn && langDropdown) {
+            langBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const expanded = langDropdown.classList.contains('opacity-100');
+                langDropdown.classList.toggle('opacity-0');
+                langDropdown.classList.toggle('pointer-events-none');
+                langDropdown.classList.toggle('opacity-100');
+                langDropdown.classList.toggle('pointer-events-auto');
+                langBtn.setAttribute('aria-expanded', !expanded);
+            });
+            document.addEventListener('click', function(e) {
+                if (!langBtn.contains(e.target)) {
+                    langDropdown.classList.add('opacity-0');
+                    langDropdown.classList.add('pointer-events-none');
+                    langDropdown.classList.remove('opacity-100');
+                    langDropdown.classList.remove('pointer-events-auto');
+                    langBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+const translations = {
+  fa: {
+    title: 'کتابخانه',
+    navHome: 'خانه',
+    navAbout: 'درباره ما',
+    navServices: 'خدمات',
+    navLibrary: 'کتابخانه',
+    navProjects: 'پروژه‌ها',
+    navHelp: 'راهنما',
+    navContact: 'تماس',
+    navDonate: 'حمایت/اهدا',
+    mainHeading: 'کتابخانه',
+    mainSub: 'دسترسی به کتاب‌ها و منابع آموزشی.',
+    quran: 'قرآن',
+    quranDesc: 'قرآن کریم را با ترجمه و تفسیر مطالعه کنید.',
+    hadith: 'حدیث',
+    hadithDesc: 'مجموعه‌های معتبر حدیث و توضیحات آن‌ها را مرور کنید.',
+    articles: 'مقالات',
+    articlesDesc: 'مقالات درباره موضوعات اسلامی، تاریخ و مسائل روز.',
+    books: 'کتاب‌ها',
+    booksDesc: 'کتاب‌های توصیه‌شده اسلامی برای همه سنین.',
+    infographics: 'اینفوگرافیک‌ها',
+    infographicsDesc: 'اینفوگرافیک‌های تعاملی و فصل‌های کتاب را مرور کنید.',
+    view: 'مشاهده',
+    // Footer
+    footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
+    footerHome: 'خانه',
+    footerAbout: 'درباره ما',
+    footerServices: 'خدمات',
+    footerLibrary: 'کتابخانه',
+    footerHelp: 'راهنما و سوالات متداول',
+    footerContact: 'تماس',
+    footerDonate: 'اهدا',
+    footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
+    visitLibrary: 'بازدید از کتابخانه',
+    // Add more translations as needed
+  }
+};
+function setLanguage(lang) {
+  document.getElementById('currentLang').textContent = lang === 'fa' ? 'دری' : 'English';
+  if (lang === 'fa') {
+    document.title = translations.fa.title;
+    document.querySelector('h1').textContent = translations.fa.mainHeading;
+    document.querySelector('p.text-lg').textContent = translations.fa.mainSub;
+    // Navigation tabs
+    let navLinks = document.querySelectorAll('nav a');
+    if (navLinks.length > 0) {
+      navLinks[0].textContent = translations.fa.navHome;
+      navLinks[1].textContent = translations.fa.navAbout;
+      navLinks[2].textContent = translations.fa.navServices;
+      navLinks[3].textContent = translations.fa.navLibrary;
+      navLinks[4].textContent = translations.fa.navProjects;
+      navLinks[5].textContent = translations.fa.navHelp;
+      navLinks[6].textContent = translations.fa.navContact;
+    }
+    let donateTab = document.querySelector('nav a[href="donate.html"]');
+    if (donateTab) donateTab.textContent = translations.fa.navDonate;
+    // Cards (skip books and articles)
+    let cards = document.querySelectorAll('.grid .bg-white h2');
+    if (cards.length > 0) {
+      cards[0].textContent = translations.fa.quran;
+      cards[1].textContent = translations.fa.hadith;
+      // cards[2] and cards[3] are articles/books, skip
+      cards[4].textContent = translations.fa.infographics;
+    }
+    let cardDescs = document.querySelectorAll('.grid .bg-white p');
+    if (cardDescs.length > 0) {
+      cardDescs[0].textContent = translations.fa.quranDesc;
+      cardDescs[1].textContent = translations.fa.hadithDesc;
+      // cardDescs[2] and cardDescs[3] are articles/books, skip
+      cardDescs[4].textContent = translations.fa.infographicsDesc;
+    }
+    let viewLinks = document.querySelectorAll('.grid .bg-white a');
+    if (viewLinks.length > 0) {
+      viewLinks[0].textContent = translations.fa.view;
+      viewLinks[1].textContent = translations.fa.view;
+      // viewLinks[2] and viewLinks[3] are articles/books, skip
+      viewLinks[4].textContent = translations.fa.view;
+    }
+    // Infographics dropdown
+    let infBtn = document.getElementById('infographicsDropdownBtn');
+    if (infBtn) infBtn.textContent = translations.fa.infographicsDropdown;
+    let infMenuLinks = document.querySelectorAll('#infographicsDropdownMenu a');
+    if (infMenuLinks.length > 0) {
+      infMenuLinks[0].textContent = translations.fa.introInfographic;
+      infMenuLinks[1].textContent = translations.fa.chapter1Infographic;
+      infMenuLinks[2].textContent = translations.fa.chapter2Infographic;
+      infMenuLinks[3].textContent = translations.fa.chapter3Infographic;
+      infMenuLinks[4].textContent = translations.fa.chapter4Infographic;
+      infMenuLinks[5].textContent = translations.fa.chapter5Infographic;
+    }
+    // Footer
+    let footerSlogan = document.querySelector('footer p.mt-2');
+    if (footerSlogan) footerSlogan.textContent = translations.fa.footerSlogan;
+    let footerLinks = document.querySelectorAll('footer .mt-6 a');
+    if (footerLinks.length > 0) {
+      footerLinks[0].textContent = translations.fa.footerHome;
+      footerLinks[1].textContent = translations.fa.footerAbout;
+      footerLinks[2].textContent = translations.fa.footerServices;
+      footerLinks[3].textContent = translations.fa.footerLibrary;
+      footerLinks[4].textContent = translations.fa.footerHelp;
+      footerLinks[5].textContent = translations.fa.footerContact;
+      footerLinks[6].textContent = translations.fa.footerDonate;
+    }
+    let copyright = document.querySelector('footer p.mt-8');
+    if (copyright) copyright.textContent = translations.fa.footerCopyright;
+    let visitLibrary = document.querySelector('footer .mt-4 a');
+    if (visitLibrary) visitLibrary.textContent = translations.fa.visitLibrary;
+    // Add more selectors and translations as needed
+  } else {
+    location.reload(); // fallback: reload to English
+  }
+}
+    </script>
+<script>
+// Dynamic tab highlighting
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('nav a');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  const currentPath = window.location.pathname.split('/').pop();
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active-tab', 'text-brand-gold');
+    } else {
+      link.classList.remove('active-tab', 'text-brand-gold');
+    }
+  });
+  mobileLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active-tab', 'text-brand-gold');
+    } else {
+      link.classList.remove('active-tab', 'text-brand-gold');
+    }
+  });
+});
+</script>
+</body>
+</html>
