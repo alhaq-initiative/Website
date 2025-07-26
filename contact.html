@@ -16,6 +16,8 @@
         .bg-brand-gold { background-color: #D4AF37; }
         .text-brand-gold { color: #D4AF37; }
         .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
+        .hidden-input { display: none; }
+        .input-hide { display: none; }
     </style>
 </head>
 <body class="antialiased">
@@ -73,12 +75,21 @@
             <div class="container mx-auto px-6 text-center max-w-xl">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Contact Us</h1>
                 <p class="text-lg text-gray-700 mb-8">Have a question, suggestion, or want to collaborate? Fill out the form below and we’ll get back to you as soon as possible.</p>
-                <form action="https://prod-10.ukwest.logic.azure.com:443/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg" method="POST" autocomplete="off" class="glass-card p-6 flex flex-col gap-4 items-stretch shadow-lg">
-                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
-                    <input type="text" name="Name" placeholder="Your Name" required class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none" />
-                    <input type="email" name="Email" placeholder="Your Email" required class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none" />
-                    <textarea name="Message" placeholder="Your Message" required rows="5" class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none"></textarea>
+                <form id="contact-form" class="flex flex-col gap-4 glass-card p-6 shadow-lg" autocomplete="off">
+                    <div>
+                        <label for="name" class="block text-left font-semibold mb-1">Name:</label>
+                        <input type="text" id="name" name="name" required class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none w-full" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left font-semibold mb-1">Email:</label>
+                        <input type="email" id="email" name="email" required class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none w-full" />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left font-semibold mb-1">Message:</label>
+                        <textarea id="message" name="message" required rows="5" class="glass-input py-3 px-4 text-lg border border-gray-300 focus:border-brand-gold outline-none w-full"></textarea>
+                    </div>
                     <button type="submit" class="glass-button py-3 px-6 text-lg font-bold">Send Message</button>
+                    <div id="form-status" class="mt-2 text-center"></div>
                 </form>
             </div>
         </section>
@@ -272,6 +283,41 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.remove('active-tab', 'text-brand-gold');
     }
   });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    if (!form) return;
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        formStatus.textContent = 'Sending...';
+        formStatus.style.color = 'gray';
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const logicAppUrl = "https://prod-10.ukwest.logic.azure.com/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg";
+        try {
+            const response = await fetch(logicAppUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+            });
+            if (response.ok) {
+                formStatus.textContent = "Feedback submitted successfully.";
+                formStatus.style.color = 'green';
+                form.reset();
+            } else {
+                formStatus.textContent = 'Submission failed. Please check your Logic App configuration.';
+                formStatus.style.color = 'red';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            formStatus.textContent = 'An unexpected error occurred. Please try again later.';
+            formStatus.style.color = 'red';
+        }
+    });
 });
 </script>
 </body>
