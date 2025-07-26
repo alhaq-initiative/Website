@@ -36,6 +36,19 @@
             <div class="flex items-center space-x-2">
                 <a href="index.html#contact" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
                 <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+                <!-- Language Switcher -->
+                <div class="relative ml-4">
+                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                    </ul>
+                </div>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -103,7 +116,8 @@
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
             <button id="close-feedback" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
             <h2 class="text-2xl font-bold text-brand-blue mb-2">Report / Feedback</h2>
-            <form action="mailto:contact@alhaq.digital" method="POST" enctype="text/plain" class="flex flex-col gap-4">
+            <form action="https://prod-10.ukwest.logic.azure.com:443/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg" method="POST" autocomplete="off" class="flex flex-col gap-4">
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
                 <input type="text" name="Name" placeholder="Your Name (optional)" class="glass-input py-2 px-3 border border-gray-300" />
                 <input type="email" name="Email" placeholder="Your Email (optional)" class="glass-input py-2 px-3 border border-gray-300" />
                 <textarea name="Message" placeholder="Your feedback or report..." required rows="4" class="glass-input py-2 px-3 border border-gray-300"></textarea>
@@ -143,5 +157,104 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+</script>
+<script>
+// Language switcher dropdown logic
+const langBtn = document.getElementById('langSwitcherBtn');
+const langDropdown = document.getElementById('langDropdown');
+if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const expanded = langDropdown.classList.contains('opacity-100');
+        langDropdown.classList.toggle('opacity-0');
+        langDropdown.classList.toggle('pointer-events-none');
+        langDropdown.classList.toggle('opacity-100');
+        langDropdown.classList.toggle('pointer-events-auto');
+        langBtn.setAttribute('aria-expanded', !expanded);
+    });
+    document.addEventListener('click', function(e) {
+        if (!langBtn.contains(e.target)) {
+            langDropdown.classList.add('opacity-0');
+            langDropdown.classList.add('pointer-events-none');
+            langDropdown.classList.remove('opacity-100');
+            langDropdown.classList.remove('pointer-events-auto');
+            langBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+// Multilingual translations (English, Arabic, Dari)
+const translations = {
+    ar: {
+        title: 'ادعمنا',
+        navHome: 'الرئيسية',
+        navAbout: 'من نحن',
+        navServices: 'الخدمات',
+        navHelp: 'المساعدة',
+        navContact: 'اتصل بنا',
+        mainHeading: 'ادعمنا (ADS)',
+        mainSub: 'نحن منظمة غير ربحية مسجلة نبني أدوات رقمية للمجتمع. تذهب تبرعاتك مباشرة إلى مشاريع خدمات الحق الرقمية.',
+        footerSlogan: 'نبني مستقبلاً رقمياً متجذراً في الإيمان.',
+        visitLibrary: 'زيارة المكتبة',
+    },
+    fa: {
+        title: 'حمایت',
+        navHome: 'خانه',
+        navAbout: 'درباره ما',
+        navServices: 'خدمات',
+        navHelp: 'راهنما',
+        navContact: 'تماس',
+        mainHeading: 'حمایت از ما (ADS)',
+        mainSub: 'ما یک سازمان غیرانتفاعی ثبت‌شده هستیم که ابزارهای دیجیتال برای جامعه می‌سازد. کمک شما مستقیماً صرف پروژه‌های خدمات دیجیتال الحق می‌شود.',
+        footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
+        visitLibrary: 'بازدید از کتابخانه',
+    }
+};
+function setLanguage(lang) {
+    // Set language label
+    if (lang === 'ar') {
+        document.getElementById('currentLang').textContent = 'العربية';
+    } else if (lang === 'fa') {
+        document.getElementById('currentLang').textContent = 'دری';
+    } else {
+        document.getElementById('currentLang').textContent = 'English';
+    }
+    // English is default, so only translate if ar or fa
+    if (lang === 'ar' || lang === 'fa') {
+        const t = translations[lang];
+        document.title = t.title;
+        // Main heading and sub
+        const h1 = document.querySelector('h1');
+        if (h1) h1.textContent = t.mainHeading;
+        const mainSub = document.querySelector('p.text-lg');
+        if (mainSub) mainSub.textContent = t.mainSub;
+        // Navigation links (by href)
+        const navMap = {
+            'index.html': t.navHome,
+            'index.html#about': t.navAbout,
+            'index.html#services': t.navServices,
+            'help.html': t.navHelp,
+            'contact.html': t.navContact
+        };
+        document.querySelectorAll('nav a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (navMap[href]) a.textContent = navMap[href];
+        });
+        // Mobile nav
+        document.querySelectorAll('#mobile-menu a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (navMap[href]) a.textContent = navMap[href];
+        });
+        // Footer slogan
+        const footerSlogan = document.querySelector('footer p.mt-2');
+        if (footerSlogan) footerSlogan.textContent = t.footerSlogan;
+        // Visit library button (if present)
+        const visitLib = document.querySelector('footer .mt-4 a');
+        if (visitLib) visitLib.textContent = t.visitLibrary;
+        // DO NOT translate copyright/footer copyright, always keep in English
+    } else {
+        // Reload to reset to English
+        location.reload();
+    }
+}
 </script>
 </body>

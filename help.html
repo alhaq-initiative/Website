@@ -16,6 +16,15 @@
         .bg-brand-gold { background-color: #D4AF37; }
         .text-brand-gold { color: #D4AF37; }
         .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
+        /* Modern link color for FAQ answers */
+        .faq-a a {
+            color: #2563eb; /* modern blue-600 */
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .faq-a a:hover {
+            color: #1d4ed8; /* blue-700 */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -31,7 +40,6 @@
                 <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
                 <a href="index.html#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
                 <a href="index.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
-                <a href="index.html#ai-demo" class="text-gray-800 font-semibold hover:text-brand-blue transition">Try AI Demo</a>
                 <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
                 <a href="help.html" class="text-brand-gold font-semibold">Help & FAQ</a>
             </nav>
@@ -56,8 +64,8 @@
                     <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
                     <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
                     <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
-                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ur')">اردو</button></li>
+                    
+                    
                 </ul>
             </div>
         </div>
@@ -65,7 +73,6 @@
             <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
             <a href="index.html#about" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
             <a href="index.html#services" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
-            <a href="index.html#ai-demo" class="block text-gray-600 hover:text-brand-blue transition py-2">Try AI Demo</a>
             <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
             <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
             <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold">Donate</a>
@@ -78,41 +85,65 @@
                 <p class="text-lg text-gray-700 mb-8">Find answers to common questions and get help with our services.</p>
                 <div class="glass-card p-6 text-left shadow-lg">
                     <h2 id="faqHeading" class="text-2xl font-bold text-brand-blue mb-4">Frequently Asked Questions</h2>
+                    <!-- About (ADS) -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">About Alhaq Digital Services (ADS)</h3>
                     <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">How do I use Taleem AI?</h3>
-                        <p class="text-gray-700 faq-a">Go to the Library or Projects page, select Taleem AI, and follow the instructions to try the demo and receive real-time feedback on your recitation.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">What is Alhaq Digital Services?</h4>
+                        <p class="text-gray-700 faq-a">Alhaq Digital Services (ADS) provides accessible Islamic resources, educational tools, and digital services to empower communities and foster learning. Learn more on our <a href="index.html#about" class="text-brand-blue underline hover:text-brand-gold">About</a> page.</p>
                     </div>
                     <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">How can I donate to support your work?</h3>
-                        <p class="text-gray-700 faq-a">Visit our Donate page for secure online donations via Ko-fi or other available methods.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">What is Alhaq Digital Services' mission?</h4>
+                        <p class="text-gray-700 faq-a">Our mission is to provide accessible Islamic resources, educational tools, and digital services to empower communities and foster learning. See our <a href="index.html#about" class="text-brand-blue underline hover:text-brand-gold">About</a> section for more details.</p>
+                    </div>
+                    <!-- Library -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Library</h3>
+                    <div class="mb-4 faq-item">
+                        <h4 class="font-semibold text-brand-blue faq-q">How can I access the library? Is it free?</h4>
+                        <p class="text-gray-700 faq-a">Yes, all infographics and most resources in the Library are freely accessible to all users. Visit the <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">Library</a> page to explore the available content.</p>
                     </div>
                     <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">How do I contact you for support or collaboration?</h3>
-                        <p class="text-gray-700 faq-a">Use the Contact page to send us a message directly, or email us at contact@alhaq.digital.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">How do I access the Quran and Hadith sections?</h4>
+                        <p class="text-gray-700 faq-a">Go to the <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">Library</a> page and select the Quran or Hadith section to explore translations, tafsir, and authentic collections.</p>
+                    </div>
+                    <!-- Usage -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Usage</h3>
+                    <div class="mb-4 faq-item">
+                        <h4 class="font-semibold text-brand-blue faq-q">How do I use Taleem AI?</h4>
+                        <p class="text-gray-700 faq-a">Download our App (Taleem AI) from <a href="https://play.google.com/store" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold">Google Play Store</a> or <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold">App Store</a>. Once installed, follow the instructions to receive real-time feedback on your recitation.</p>
+                    </div>
+                    <!-- Donations -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Donations</h3>
+                    <div class="mb-4 faq-item">
+                        <h4 class="font-semibold text-brand-blue faq-q">How can I donate to support your work?</h4>
+                        <p class="text-gray-700 faq-a">Visit our <a href="donate.html" class="text-brand-blue underline hover:text-brand-gold">Donate</a> page for secure online donations via Ko-fi or other available methods.</p>
+                    </div>
+                    <!-- Contact & Support -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Contact & Support</h3>
+                    <div class="mb-4 faq-item">
+                        <h4 class="font-semibold text-brand-blue faq-q">How do I contact you for support or collaboration?</h4>
+                        <p class="text-gray-700 faq-a">Use the <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">Contact</a> page, or click the floating button on the bottom right corner of the webpage, to send us a message directly.</p>
                     </div>
                     <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">Is my data safe?</h3>
-                        <p class="text-gray-700 faq-a">Yes, we take privacy seriously and do not share your data with third parties. All information is handled securely.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">How do I report a bug or suggest a feature?</h4>
+                        <p class="text-gray-700 faq-a">Please use the <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">Contact</a> page or email us with details about the bug or your suggestion. We appreciate your feedback!</p>
                     </div>
+                    <!-- Privacy & Data -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Privacy & Data</h3>
                     <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">Can I access the infographics and book chapters for free?</h3>
-                        <p class="text-gray-700 faq-a">Yes, all infographic chapters and resources in the Library are freely accessible to all users.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">Is my data safe?</h4>
+                        <p class="text-gray-700 faq-a">Yes, we take privacy seriously and do not share your data with third parties. All information is handled securely. For more details, see our <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">Contact</a> page to reach out with privacy concerns.</p>
                     </div>
+                    <!-- Features & Updates -->
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Features & Updates</h3>
                     <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">How do I report a bug or suggest a feature?</h3>
-                        <p class="text-gray-700 faq-a">Please use the Contact page or email us with details about the bug or your suggestion. We appreciate your feedback!</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">Are there plans to add more books or features?</h4>
+                        <p class="text-gray-700 faq-a">Yes, we are continuously working to expand our <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">Library</a> and add new features. Stay tuned for updates!</p>
                     </div>
-                    <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">What is Alhaq Digital Services' mission?</h3>
-                        <p class="text-gray-700 faq-a">Our mission is to provide accessible Islamic resources, educational tools, and digital services to empower communities and foster learning.</p>
-                    </div>
-                    <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">Are there plans to add more books or features?</h3>
-                        <p class="text-gray-700 faq-a">Yes, we are continuously working to expand our Library and add new features. Stay tuned for updates!</p>
-                    </div>
-                    <div class="mb-4 faq-item">
-                        <h3 class="font-semibold text-brand-blue faq-q">How do I access the Quran and Hadith sections?</h3>
-                        <p class="text-gray-700 faq-a">Go to the Library page and select the Quran or Hadith section to explore translations, tafsir, and authentic collections.</p>
+                    <!-- Still Need Help? -->
+                    <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-brand-gold rounded-lg flex flex-col items-start">
+                        <h3 class="text-lg font-bold text-brand-blue mb-2">Haven't found your answer?</h3>
+                        <p class="text-gray-700 mb-2">Still need help? Find answers to your questions here and get help if needed.</p>
+                        <a href="contact.html" class="inline-block bg-brand-gold text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 transition">Contact Us for Support</a>
                     </div>
                 </div>
             </div>
@@ -150,44 +181,87 @@
     mainHeading: 'سوالات متداول',
     mainSub: 'پاسخ به سوالات رایج درباره سایت و منابع.',
     faq: 'سوالات متداول',
-    faqItems: [
+    faqCategories: [
       {
-        q: 'چگونه از تعلیم AI استفاده کنم؟',
-        a: 'به صفحه کتابخانه یا پروژه‌ها بروید، تعلیم AI را انتخاب کنید و دستورالعمل‌ها را دنبال کنید تا دمو را امتحان کنید و بازخورد لحظه‌ای دریافت نمایید.'
+        category: 'درباره خدمات دیجیتال الخق',
+        items: [
+          {
+            q: 'خدمات دیجیتال الخق چیست؟',
+            a: 'خدمات دیجیتال الخق (ADS) منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال را برای توانمندسازی جوامع و ارتقاء یادگیری فراهم می‌کند. برای اطلاعات بیشتر به صفحه <a href="index.html#about" class="text-brand-blue underline hover:text-brand-gold">درباره ما</a> مراجعه کنید.'
+          },
+          {
+            q: 'ماموریت خدمات دیجیتال الخق چیست؟',
+            a: 'ماموریت ما ارائه منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال برای توانمندسازی جوامع و ارتقاء یادگیری است. جزئیات بیشتر را در بخش <a href="index.html#about" class="text-brand-blue underline hover:text-brand-gold">درباره ما</a> ببینید.'
+          }
+        ]
       },
       {
-        q: 'چگونه می‌توانم برای حمایت از کار شما اهدا کنم؟',
-        a: 'به صفحه اهدا بروید تا به صورت آنلاین و امن از طریق Ko-fi یا روش‌های دیگر اهدا کنید.'
+        category: 'کتابخانه',
+        items: [
+          {
+            q: 'چگونه به کتابخانه دسترسی پیدا کنم؟ آیا رایگان است؟',
+            a: 'بله، تمام اینفوگرافیک‌ها و بیشتر منابع کتابخانه برای همه کاربران رایگان است. برای مشاهده محتوا به صفحه <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">کتابخانه</a> مراجعه کنید.'
+          },
+          {
+            q: 'چگونه به بخش قرآن و حدیث دسترسی پیدا کنم؟',
+            a: 'به صفحه <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">کتابخانه</a> بروید و بخش قرآن یا حدیث را برای مشاهده ترجمه‌ها، تفسیر و مجموعه‌های معتبر انتخاب کنید.'
+          }
+        ]
       },
       {
-        q: 'چگونه برای پشتیبانی یا همکاری با شما تماس بگیرم؟',
-        a: 'از صفحه تماس برای ارسال پیام مستقیم استفاده کنید یا به ایمیل contact@alhaq.digital پیام دهید.'
+        category: 'نحوه استفاده',
+        items: [
+          {
+            q: 'چگونه از تعلیم AI استفاده کنم؟',
+            a: 'اپلیکیشن تعلیم AI را از <a href="https://play.google.com/store" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold">گوگل پلی استور</a> یا <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold">اپ استور</a> دانلود کنید. پس از نصب، دستورالعمل‌ها را دنبال کنید تا بازخورد لحظه‌ای دریافت نمایید.'
+          }
+        ]
       },
       {
-        q: 'آیا داده‌های من امن است؟',
-        a: 'بله، ما حریم خصوصی را جدی می‌گیریم و داده‌های شما را با اشخاص ثالث به اشتراک نمی‌گذاریم. تمام اطلاعات به صورت امن مدیریت می‌شود.'
+        category: 'حمایت و اهدا',
+        items: [
+          {
+            q: 'چگونه می‌توانم برای حمایت از کار شما اهدا کنم؟',
+            a: 'به صفحه <a href="donate.html" class="text-brand-blue underline hover:text-brand-gold">اهدا</a> بروید تا به صورت آنلاین و امن از طریق Ko-fi یا روش‌های دیگر اهدا کنید.'
+          }
+        ]
       },
       {
-        q: 'آیا می‌توانم اینفوگرافیک‌ها و فصل‌های کتاب را رایگان مشاهده کنم؟',
-        a: 'بله، تمام فصل‌های اینفوگرافیک و منابع کتابخانه برای همه کاربران رایگان است.'
+        category: 'تماس و پشتیبانی',
+        items: [
+          {
+            q: 'چگونه برای پشتیبانی یا همکاری با شما تماس بگیرم؟',
+            a: 'از صفحه <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">تماس</a> برای ارسال پیام مستقیم استفاده کنید یا از دکمه شناور پایین صفحه استفاده نمایید.'
+          },
+          {
+            q: 'چگونه یک مشکل را گزارش دهم یا ویژگی جدید پیشنهاد کنم؟',
+            a: 'لطفاً از صفحه <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">تماس</a> یا ایمیل برای ارسال جزئیات مشکل یا پیشنهاد خود استفاده کنید. بازخورد شما برای ما ارزشمند است!'
+          }
+        ]
       },
       {
-        q: 'چگونه یک مشکل را گزارش دهم یا ویژگی جدید پیشنهاد کنم؟',
-        a: 'لطفاً از صفحه تماس یا ایمیل برای ارسال جزئیات مشکل یا پیشنهاد خود استفاده کنید. بازخورد شما برای ما ارزشمند است!'
+        category: 'حریم خصوصی و داده',
+        items: [
+          {
+            q: 'آیا داده‌های من امن است؟',
+            a: 'بله، ما حریم خصوصی را جدی می‌گیریم و داده‌های شما را با اشخاص ثالث به اشتراک نمی‌گذاریم. تمام اطلاعات به صورت امن مدیریت می‌شود. برای جزئیات بیشتر، از صفحه <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">تماس</a> استفاده کنید.'
+          }
+        ]
       },
       {
-        q: 'ماموریت خدمات دیجیتال الخق چیست؟',
-        a: 'ماموریت ما ارائه منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال برای توانمندسازی جوامع و ارتقاء یادگیری است.'
-      },
-      {
-        q: 'آیا برنامه‌ای برای افزودن کتاب‌ها یا ویژگی‌های جدید دارید؟',
-        a: 'بله، ما به طور مداوم در حال گسترش کتابخانه و افزودن ویژگی‌های جدید هستیم. منتظر بروزرسانی‌ها باشید!'
-      },
-      {
-        q: 'چگونه به بخش قرآن و حدیث دسترسی پیدا کنم؟',
-        a: 'به صفحه کتابخانه بروید و بخش قرآن یا حدیث را برای مشاهده ترجمه‌ها، تفسیر و مجموعه‌های معتبر انتخاب کنید.'
+        category: 'ویژگی‌ها و بروزرسانی‌ها',
+        items: [
+          {
+            q: 'آیا برنامه‌ای برای افزودن کتاب‌ها یا ویژگی‌های جدید دارید؟',
+            a: 'بله، ما به طور مداوم در حال گسترش <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">کتابخانه</a> و افزودن ویژگی‌های جدید هستیم. منتظر بروزرسانی‌ها باشید!'
+          }
+        ]
       }
     ],
+    // Support/Contact section
+    supportNotFound: 'پاسخ خود را پیدا نکردید؟',
+    supportStillNeed: 'هنوز هم نیاز به کمک دارید؟ اینجا پاسخ سوالات خود را بیابید و در صورت نیاز کمک بگیرید.',
+    supportContact: 'تماس با پشتیبانی',
     // Footer
     footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
     footerHome: 'خانه',
@@ -199,57 +273,90 @@
     footerDonate: 'اهدا',
     footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
     visitLibrary: 'بازدید از کتابخانه',
+  },
+  ar: {
+    title: 'المساعدة',
+    navHome: 'الرئيسية',
+    navAbout: 'من نحن',
+    navServices: 'الخدمات',
+    navLibrary: 'المكتبة',
+    navProjects: 'المشاريع',
+    navHelp: 'المساعدة',
+    navContact: 'اتصل بنا',
+    navDonate: 'تبرع',
+    mainHeading: 'الأسئلة الشائعة',
+    mainSub: 'إجابات على الأسئلة الشائعة حول الموقع والخدمات.',
+    // ...add Arabic FAQ/support translations as needed...
+    footerSlogan: 'نبني مستقبلاً رقمياً متجذراً في الإيمان.',
+    footerHome: 'الرئيسية',
+    footerAbout: 'من نحن',
+    footerServices: 'الخدمات',
+    footerLibrary: 'المكتبة',
+    footerHelp: 'الأسئلة الشائعة',
+    footerContact: 'اتصل بنا',
+    footerDonate: 'تبرع',
+    footerCopyright: '© 2025 خدمات الحق الرقمية. جميع الحقوق محفوظة.',
+    visitLibrary: 'زيارة المكتبة',
   }
 };
 function setLanguage(lang) {
-  document.getElementById('currentLang').textContent = lang === 'fa' ? 'دری' : 'English';
-  if (lang === 'fa') {
-    document.title = translations.fa.title;
-    document.querySelector('h1').textContent = translations.fa.mainHeading;
-    document.querySelector('p.text-lg').textContent = translations.fa.mainSub;
-    // Navigation tabs
-    let navLinks = document.querySelectorAll('nav a');
-    if (navLinks.length > 0) {
-      navLinks[0].textContent = translations.fa.navHome;
-      navLinks[1].textContent = translations.fa.navAbout;
-      navLinks[2].textContent = translations.fa.navServices;
-      navLinks[3].textContent = translations.fa.navLibrary;
-      navLinks[4].textContent = translations.fa.navProjects;
-      navLinks[5].textContent = translations.fa.navHelp;
-      navLinks[6].textContent = translations.fa.navContact;
-    }
-    let donateTab = document.querySelector('nav a[href="donate.html"]');
-    if (donateTab) donateTab.textContent = translations.fa.navDonate;
-    // FAQ section
-    let faqHeading = document.getElementById('faqHeading');
-    if (faqHeading) faqHeading.textContent = translations.fa.faq;
-    let faqItems = document.querySelectorAll('.faq-item');
-    translations.fa.faqItems.forEach(function(item, i) {
-      if (faqItems[i]) {
-        let q = faqItems[i].querySelector('.faq-q');
-        let a = faqItems[i].querySelector('.faq-a');
-        if (q) q.textContent = item.q;
-        if (a) a.textContent = item.a;
-      }
+  const currentLang = document.getElementById('currentLang');
+  if (currentLang) {
+    if (lang === 'fa') currentLang.textContent = 'دری';
+    else if (lang === 'ar') currentLang.textContent = 'العربية';
+    else currentLang.textContent = 'English';
+  }
+  if (lang === 'fa' || lang === 'ar') {
+    const t = translations[lang];
+    if (t.title) document.title = t.title;
+    const h1 = document.querySelector('h1');
+    if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
+    const mainSub = document.querySelector('p.text-lg');
+    if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
+    // Navigation links (desktop)
+    const navLinks = [
+      { href: 'index.html', key: 'navHome' },
+      { href: 'index.html#about', key: 'navAbout' },
+      { href: 'index.html#services', key: 'navServices' },
+      { href: 'contact.html', key: 'navContact' },
+      { href: 'help.html', key: 'navHelp' },
+      { href: 'donate.html', key: 'navDonate' }
+    ];
+    navLinks.forEach(item => {
+      let link = document.querySelector(`nav a[href='${item.href}']`);
+      if (link && t[item.key]) link.textContent = t[item.key];
     });
-    // Footer
+    // Navigation links (mobile)
+    navLinks.forEach(item => {
+      let link = document.querySelector(`#mobile-menu a[href='${item.href}']`);
+      if (link && t[item.key]) link.textContent = t[item.key];
+    });
+    // Footer links
+    const footerLinks = [
+      { href: 'index.html', key: 'footerHome' },
+      { href: 'index.html#about', key: 'footerAbout' },
+      { href: 'index.html#services', key: 'footerServices' },
+      { href: 'contact.html', key: 'footerContact' },
+      { href: 'help.html', key: 'footerHelp' },
+      { href: 'donate.html', key: 'footerDonate' }
+    ];
+    footerLinks.forEach(item => {
+      let link = document.querySelector(`footer .mt-6 a[href='${item.href}']`);
+      if (link && t[item.key]) link.textContent = t[item.key];
+    });
+    // Footer slogan
     let footerSlogan = document.querySelector('footer p.mt-2');
-    if (footerSlogan) footerSlogan.textContent = translations.fa.footerSlogan;
-    let footerLinks = document.querySelectorAll('footer .mt-6 a');
-    if (footerLinks.length > 0) {
-      footerLinks[0].textContent = translations.fa.footerHome;
-      footerLinks[1].textContent = translations.fa.footerAbout;
-      footerLinks[2].textContent = translations.fa.footerServices;
-      footerLinks[3].textContent = translations.fa.footerLibrary;
-      footerLinks[4].textContent = translations.fa.footerHelp;
-      footerLinks[5].textContent = translations.fa.footerContact;
-      footerLinks[6].textContent = translations.fa.footerDonate;
-    }
+    if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
+    // Copyright (always English)
     let copyright = document.querySelector('footer p.mt-8');
-    if (copyright) copyright.textContent = translations.fa.footerCopyright;
+    if (copyright) copyright.textContent = '© 2025 Alhaq Digital Services. All rights reserved.';
+    // Visit library (if present)
     let visitLibrary = document.querySelector('footer .mt-4 a');
-    if (visitLibrary) visitLibrary.textContent = translations.fa.visitLibrary;
-    // Add more selectors and translations as needed
+    if (visitLibrary && t.visitLibrary) visitLibrary.textContent = t.visitLibrary;
+    // FAQ section heading
+    let faqHeading = document.getElementById('faqHeading');
+    if (faqHeading && t.mainHeading) faqHeading.textContent = t.mainHeading;
+    // ...add more robust FAQ/Support translation logic for Arabic as needed...
   } else {
     location.reload(); // fallback: reload to English
   }

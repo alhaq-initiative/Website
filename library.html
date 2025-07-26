@@ -45,8 +45,6 @@
                         <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
                         <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
                         <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ur')">اردو</button></li>
                     </ul>
                 </div>
             </div>
@@ -159,119 +157,132 @@
                 }
             });
         }
-const translations = {
-  fa: {
-    title: 'کتابخانه',
-    navHome: 'خانه',
-    navAbout: 'درباره ما',
-    navServices: 'خدمات',
-    navLibrary: 'کتابخانه',
-    navProjects: 'پروژه‌ها',
-    navHelp: 'راهنما',
-    navContact: 'تماس',
-    navDonate: 'حمایت/اهدا',
-    mainHeading: 'کتابخانه',
-    mainSub: 'دسترسی به کتاب‌ها و منابع آموزشی.',
-    quran: 'قرآن',
-    quranDesc: 'قرآن کریم را با ترجمه و تفسیر مطالعه کنید.',
-    hadith: 'حدیث',
-    hadithDesc: 'مجموعه‌های معتبر حدیث و توضیحات آن‌ها را مرور کنید.',
-    articles: 'مقالات',
-    articlesDesc: 'مقالات درباره موضوعات اسلامی، تاریخ و مسائل روز.',
-    books: 'کتاب‌ها',
-    booksDesc: 'کتاب‌های توصیه‌شده اسلامی برای همه سنین.',
-    infographics: 'اینفوگرافیک‌ها',
-    infographicsDesc: 'اینفوگرافیک‌های تعاملی و فصل‌های کتاب را مرور کنید.',
-    view: 'مشاهده',
-    // Footer
-    footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
-    footerHome: 'خانه',
-    footerAbout: 'درباره ما',
-    footerServices: 'خدمات',
-    footerLibrary: 'کتابخانه',
-    footerHelp: 'راهنما و سوالات متداول',
-    footerContact: 'تماس',
-    footerDonate: 'اهدا',
-    footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
-    visitLibrary: 'بازدید از کتابخانه',
-    // Add more translations as needed
-  }
-};
-function setLanguage(lang) {
-  document.getElementById('currentLang').textContent = lang === 'fa' ? 'دری' : 'English';
-  if (lang === 'fa') {
-    document.title = translations.fa.title;
-    document.querySelector('h1').textContent = translations.fa.mainHeading;
-    document.querySelector('p.text-lg').textContent = translations.fa.mainSub;
-    // Navigation tabs
-    let navLinks = document.querySelectorAll('nav a');
-    if (navLinks.length > 0) {
-      navLinks[0].textContent = translations.fa.navHome;
-      navLinks[1].textContent = translations.fa.navAbout;
-      navLinks[2].textContent = translations.fa.navServices;
-      navLinks[3].textContent = translations.fa.navLibrary;
-      navLinks[4].textContent = translations.fa.navProjects;
-      navLinks[5].textContent = translations.fa.navHelp;
-      navLinks[6].textContent = translations.fa.navContact;
-    }
-    let donateTab = document.querySelector('nav a[href="donate.html"]');
-    if (donateTab) donateTab.textContent = translations.fa.navDonate;
-    // Cards (skip books and articles)
-    let cards = document.querySelectorAll('.grid .bg-white h2');
-    if (cards.length > 0) {
-      cards[0].textContent = translations.fa.quran;
-      cards[1].textContent = translations.fa.hadith;
-      // cards[2] and cards[3] are articles/books, skip
-      cards[4].textContent = translations.fa.infographics;
-    }
-    let cardDescs = document.querySelectorAll('.grid .bg-white p');
-    if (cardDescs.length > 0) {
-      cardDescs[0].textContent = translations.fa.quranDesc;
-      cardDescs[1].textContent = translations.fa.hadithDesc;
-      // cardDescs[2] and cardDescs[3] are articles/books, skip
-      cardDescs[4].textContent = translations.fa.infographicsDesc;
-    }
-    let viewLinks = document.querySelectorAll('.grid .bg-white a');
-    if (viewLinks.length > 0) {
-      viewLinks[0].textContent = translations.fa.view;
-      viewLinks[1].textContent = translations.fa.view;
-      // viewLinks[2] and viewLinks[3] are articles/books, skip
-      viewLinks[4].textContent = translations.fa.view;
-    }
-    // Infographics dropdown
-    let infBtn = document.getElementById('infographicsDropdownBtn');
-    if (infBtn) infBtn.textContent = translations.fa.infographicsDropdown;
-    let infMenuLinks = document.querySelectorAll('#infographicsDropdownMenu a');
-    if (infMenuLinks.length > 0) {
-      infMenuLinks[0].textContent = translations.fa.introInfographic;
-      infMenuLinks[1].textContent = translations.fa.chapter1Infographic;
-      infMenuLinks[2].textContent = translations.fa.chapter2Infographic;
-      infMenuLinks[3].textContent = translations.fa.chapter3Infographic;
-      infMenuLinks[4].textContent = translations.fa.chapter4Infographic;
-      infMenuLinks[5].textContent = translations.fa.chapter5Infographic;
-    }
-    // Footer
-    let footerSlogan = document.querySelector('footer p.mt-2');
-    if (footerSlogan) footerSlogan.textContent = translations.fa.footerSlogan;
-    let footerLinks = document.querySelectorAll('footer .mt-6 a');
-    if (footerLinks.length > 0) {
-      footerLinks[0].textContent = translations.fa.footerHome;
-      footerLinks[1].textContent = translations.fa.footerAbout;
-      footerLinks[2].textContent = translations.fa.footerServices;
-      footerLinks[3].textContent = translations.fa.footerLibrary;
-      footerLinks[4].textContent = translations.fa.footerHelp;
-      footerLinks[5].textContent = translations.fa.footerContact;
-      footerLinks[6].textContent = translations.fa.footerDonate;
-    }
-    let copyright = document.querySelector('footer p.mt-8');
-    if (copyright) copyright.textContent = translations.fa.footerCopyright;
-    let visitLibrary = document.querySelector('footer .mt-4 a');
-    if (visitLibrary) visitLibrary.textContent = translations.fa.visitLibrary;
-    // Add more selectors and translations as needed
-  } else {
-    location.reload(); // fallback: reload to English
-  }
-}
+
+        // Multilingual translations (English, Arabic, Dari)
+        const translations = {
+            ar: {
+                title: 'المكتبة',
+                navHome: 'الرئيسية',
+                navAbout: 'من نحن',
+                navServices: 'الخدمات',
+                navLibrary: 'المكتبة',
+                navHelp: 'المساعدة',
+                navContact: 'اتصل بنا',
+                mainHeading: 'المكتبة',
+                mainSub: 'استكشف مجموعتنا من الكتب والمقالات والموارد الإسلامية.',
+                quran: 'القرآن',
+                quranDesc: 'اقرأ واستكشف القرآن الكريم مع الترجمة والتفسير.',
+                hadith: 'الحديث',
+                hadithDesc: 'تصفح مجموعات الأحاديث الصحيحة وشرحها.',
+                articles: 'مقالات',
+                articlesDesc: 'اقرأ مقالات حول مواضيع إسلامية وتاريخية ومعاصرة.',
+                books: 'كتب',
+                booksDesc: 'اكتشف كتبًا إسلامية موصى بها لجميع الأعمار.',
+                infographics: 'الرسوم البيانية',
+                infographicsDesc: 'استكشف الرسوم البيانية التفاعلية وفصول الكتب لمزيد من الفهم.',
+                view: 'عرض',
+                // Footer
+                footerSlogan: 'نبني مستقبلاً رقمياً متجذراً في الإيمان.',
+                visitLibrary: 'زيارة المكتبة',
+            },
+            fa: {
+                title: 'کتابخانه',
+                navHome: 'خانه',
+                navAbout: 'درباره ما',
+                navServices: 'خدمات',
+                navLibrary: 'کتابخانه',
+                navHelp: 'راهنما',
+                navContact: 'تماس',
+                mainHeading: 'کتابخانه',
+                mainSub: 'دسترسی به کتاب‌ها و منابع آموزشی.',
+                quran: 'قرآن',
+                quranDesc: 'قرآن کریم را با ترجمه و تفسیر مطالعه کنید.',
+                hadith: 'حدیث',
+                hadithDesc: 'مجموعه‌های معتبر حدیث و توضیحات آن‌ها را مرور کنید.',
+                articles: 'مقالات',
+                articlesDesc: 'مقالات درباره موضوعات اسلامی، تاریخ و مسائل روز.',
+                books: 'کتاب‌ها',
+                booksDesc: 'کتاب‌های توصیه‌شده اسلامی برای همه سنین.',
+                infographics: 'اینفوگرافیک‌ها',
+                infographicsDesc: 'اینفوگرافیک‌های تعاملی و فصل‌های کتاب را مرور کنید.',
+                view: 'مشاهده',
+                // Footer
+                footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
+                visitLibrary: 'بازدید از کتابخانه',
+            }
+        };
+
+        function setLanguage(lang) {
+            // Set language label
+            if (lang === 'ar') {
+                document.getElementById('currentLang').textContent = 'العربية';
+            } else if (lang === 'fa') {
+                document.getElementById('currentLang').textContent = 'دری';
+            } else {
+                document.getElementById('currentLang').textContent = 'English';
+            }
+
+            // English is default, so only translate if ar or fa
+            if (lang === 'ar' || lang === 'fa') {
+                const t = translations[lang];
+                document.title = t.title;
+                // Main heading and sub
+                const h1 = document.querySelector('h1');
+                if (h1) h1.textContent = t.mainHeading;
+                const mainSub = document.querySelector('p.text-lg');
+                if (mainSub) mainSub.textContent = t.mainSub;
+                // Navigation links (by href)
+                const navMap = {
+                    'index.html': t.navHome,
+                    'index.html#about': t.navAbout,
+                    'library.html#services': t.navServices,
+                    'library.html': t.navLibrary,
+                    'help.html': t.navHelp,
+                    'contact.html': t.navContact
+                };
+                document.querySelectorAll('nav a').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (navMap[href]) a.textContent = navMap[href];
+                });
+                // Cards (Quran, Hadith, Articles, Books, Infographics)
+                const cardTitles = [t.quran, t.hadith, t.articles, t.books, t.infographics];
+                const cardDescs = [t.quranDesc, t.hadithDesc, t.articlesDesc, t.booksDesc, t.infographicsDesc];
+                const cardLinks = [t.view, t.view, t.view, t.view, t.view];
+                document.querySelectorAll('.grid .bg-white h2').forEach((el, i) => {
+                    if (cardTitles[i]) el.textContent = cardTitles[i];
+                });
+                document.querySelectorAll('.grid .bg-white p').forEach((el, i) => {
+                    if (cardDescs[i]) el.textContent = cardDescs[i];
+                });
+                document.querySelectorAll('.grid .bg-white a').forEach((el, i) => {
+                    if (cardLinks[i]) el.textContent = cardLinks[i];
+                });
+                // Infographics dropdown button
+                const infBtn = document.getElementById('infographicsDropdownBtn');
+                if (infBtn) infBtn.childNodes[0].nodeValue = t.infographics;
+                // Infographics dropdown menu
+                // (no translation for infographics menu link as per user instruction)
+                // Footer slogan
+                const footerSlogan = document.querySelector('footer p.mt-2');
+                if (footerSlogan) footerSlogan.textContent = t.footerSlogan;
+                // Footer links (by href)
+                const footerMap = {
+                    'index.html': t.navHome,
+                    'library.html': t.navLibrary
+                };
+                document.querySelectorAll('footer .mt-6 a').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (footerMap[href]) a.textContent = footerMap[href];
+                });
+                // Visit library button
+                const visitLib = document.querySelector('footer .mt-4 a');
+                if (visitLib) visitLib.textContent = t.visitLibrary;
+                // DO NOT translate copyright/footer copyright, always keep in English
+            } else {
+                // Reload to reset to English
+                location.reload();
+            }
+        }
     </script>
 <script>
 // Dynamic tab highlighting
