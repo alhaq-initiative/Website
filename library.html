@@ -14,10 +14,50 @@
         .text-brand-blue { color: #0A2540; }
         .bg-brand-gold { background-color: #D4AF37; }
         .text-brand-gold { color: #D4AF37; }
+        
+        /* Islamic Styling */
+        .islamic-header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+            -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .islamic-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+        
+        .islamic-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37);
+        }
+        
+        .islamic-footer {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+            border-top: 3px solid #D4AF37;
+        }
+        
+        .islamic-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 <body class="antialiased">
-    <header class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+    <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
                 <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
@@ -28,11 +68,13 @@
             <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
                 <a href="index.html#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
-                <a href="library.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
-                <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
+                <a href="index.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
                 <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
-                <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
             </nav>
+            <div class="flex items-center space-x-2">
+                <a href="contact.html" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
+                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+            </div>
             <div class="flex justify-end mb-4">
                 <!-- Modern Language Switcher -->
                 <div class="relative">
@@ -50,33 +92,141 @@
             </div>
         </div>
     </header>
-    <main class="pt-32 pb-20">
+    <main class="pt-32 pb-20 islamic-section">
         <section class="fade-in-section">
             <div class="container mx-auto px-6 text-center max-w-3xl">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Library</h1>
                 <p class="text-lg text-gray-700 mb-6">Explore our collection of Islamic books, articles, and resources. Find knowledge, guidance, and inspiration for your journey.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Quran</h2>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Quran Hub</h2>
                         <p class="text-gray-700 mb-4">Read and explore the Holy Quran with translation and tafsir.</p>
-                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Quran</a>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Complete Quran with Arabic text</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Multiple translations (English, Arabic, Dari)</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Tafsir and commentary</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Audio recitations</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2">
+                            <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center">Read Quran</a>
+                            <a href="quran.html#recitations" class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center">Listen Recitation</a>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Hadith</h2>
                         <p class="text-gray-700 mb-4">Browse authentic collections of Hadith and their explanations.</p>
-                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Hadith</a>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Sahih Bukhari & Muslim</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Authentic narrations</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Detailed explanations</span>
+                            </div>
+                        </div>
+                        <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Hadith</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Media</h2>
+                        <p class="text-gray-700 mb-4">Watch Islamic videos, listen to podcasts, and explore audio lectures.</p>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Featured videos</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Podcasts and audio lectures</span>
+                            </div>
+                        </div>
+                        <a href="media.html" class="text-brand-gold font-semibold hover:underline">Go to Media Page</a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
                         <p class="text-gray-700 mb-4">Read articles on Islamic topics, history, and contemporary issues.</p>
-                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Articles</a>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Islamic history & culture</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Contemporary issues</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Spiritual guidance</span>
+                            </div>
+                        </div>
+                        <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Articles</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Books</h2>
                         <p class="text-gray-700 mb-4">Discover recommended Islamic books for all ages.</p>
-                        <a href="#" class="text-brand-gold font-semibold hover:underline">View Books</a>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Children's Islamic books</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Scholarly works</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Biographies & history</span>
+                            </div>
+                        </div>
+                        <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Books</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">InfoGraphics</h2>
                         <p class="text-gray-700 mb-4">Explore our interactive infographics and book chapters for deeper understanding.</p>
                         <a href="#" class="text-brand-gold font-semibold hover:underline">View InfoGraphics</a>
@@ -94,29 +244,30 @@
             </div>
         </section>
     </main>
-    <footer class="bg-gray-800 text-white mt-20">
+    <footer class="islamic-footer bg-gray-800 text-white mt-20">
         <div class="container mx-auto px-6 py-8 text-center">
             <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="library.html" class="text-brand-gold font-semibold hover:underline">Visit our Library</a>
+                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
+                <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
+                <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
             </div>
-            <div class="mt-8 flex justify-center gap-6">
+            <div class="mt-6 flex justify-center gap-6">
                 <a href="https://www.youtube.com/@AlhaqDigital" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" class="hover:text-red-600 transition">
                     <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
-                <a href="https://x.com/@AlhaqD73href" target="_blank" rel="noopener" aria-label="X.com" title="X.com" class="hover:text-blue-400 transition">
+                <a href="https://x.com/@AlhaqD7396" target="_blank" rel="noopener" aria-label="X.com" title="X.com" class="hover:text-blue-400 transition">
                     <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/></svg>
                 </a>
                 <a href="https://instagram.com/alhaq.digital" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="hover:text-pink-500 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.782-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.689.072-4.85.072s-3.585-.014-4.85-.072c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.782-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
                 </a>
             </div>
             <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
-            <div class="mt-4">
-                <a href="library.html" class="text-brand-gold font-semibold hover:underline">Visit our Library</a>
-            </div>
         </div>
     </footer>
     <script>
@@ -235,7 +386,7 @@
                 const navMap = {
                     'index.html': t.navHome,
                     'index.html#about': t.navAbout,
-                    'library.html#services': t.navServices,
+                    'index.html#services': t.navServices,
                     'library.html': t.navLibrary,
                     'help.html': t.navHelp,
                     'contact.html': t.navContact
@@ -268,7 +419,11 @@
                 // Footer links (by href)
                 const footerMap = {
                     'index.html': t.navHome,
-                    'library.html': t.navLibrary
+                    'index.html#about': t.navAbout,
+                    'index.html#services': t.navServices,
+                    'help.html': t.navHelp,
+                    'contact.html': t.navContact,
+                    'donate.html': t.visitLibrary // Assuming donate.html is the donation page
                 };
                 document.querySelectorAll('footer .mt-6 a').forEach(a => {
                     const href = a.getAttribute('href');
