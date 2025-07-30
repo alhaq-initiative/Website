@@ -110,7 +110,7 @@
                 <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
                     <span class="icon-bg relative block h-8 w-8">
                         <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=100&q=80" alt="Islamic pattern background" class="absolute inset-0 w-full h-full object-cover opacity-40 z-0" />
-                        <img src="Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="relative h-full w-full object-cover z-10" />
+                        <img src="assets/images/Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="relative h-full w-full object-cover z-10" />
                     </span>
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
@@ -268,8 +268,8 @@
                 }
 
                 Promise.all([
-                    fetch('Quran.txt').then(r => r.text()),
-                    fetch('Translations/en-maulana-wahiduddin-khan-inline-footnotes.json')
+                    fetch('assets/Quran_Data/Quran.txt').then(r => r.text()),
+                    fetch('assets/Translations/en-maulana-wahiduddin-khan-inline-footnotes.json')
                       .then(r => r.text())
                       .then(text => {
                         try {
@@ -278,7 +278,7 @@
                           console.error('Invalid JSON in en-maulana-wahiduddin-khan-inline-footnotes.json:', e);
                         }
                       }),
-                    fetch('Translations/pashto-sarfaraz-simple.json')
+                    fetch('assets/Translations/pashto-sarfaraz-simple.json')
                       .then(r => r.text())
                       .then(text => {
                         try {
@@ -407,7 +407,7 @@
                                     <div class="space-y-3">
                                         <div class="border-l-4 border-brand-gold pl-4">
                                             <h4 class="font-semibold text-brand-blue">Ma'ariful Quran</h4>
-                                            <p class="text-sm text-gray-600">A comprehensive modern tafsir that explains the Quran in light of contemporary understanding.</p>
+                                            <p class="text-sm text-gray-600">A comprehensive modern tafir that explains the Quran in light of contemporary understanding.</p>
                                         </div>
                                         <div class="border-l-4 border-brand-gold pl-4">
                                             <h4 class="font-semibold text-brand-blue">Tafsir Al-Tabari</h4>
