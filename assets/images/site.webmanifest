@@ -1,0 +1,23 @@
+{
+  "name": "AlhaqDigitalServices",
+  "short_name": "ADS",
+  "icons": [
+    {
+      "src": "/assets/images/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/images/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#6d5f5f",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

@@ -1,0 +1,1449 @@
+<!-- language: html -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeenShield - Islamic Productivity App</title>
+    <meta name="description" content="Professional Islamic productivity app with prayer times, Quran study, and productivity tools for Muslims. By Alhaq Digital Services.">
+    <meta name="keywords" content="Islamic productivity, prayer times, Quran, Muslim tools, Salah, Islamic calendar, Alhaq Digital Services">
+    <meta name="author" content="Alhaq Digital Services (ADS)">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4A90E2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="DeenShield">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/liquid-glass.css">
+    <link rel="stylesheet" href="styles/tabs.css">
+    <link rel="stylesheet" href="styles/prayer-times.css">
+    <link rel="stylesheet" href="styles/quran-study.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+    .dashboard-widget.resizing {
+        box-shadow: 0 8px 32px 0 rgba(10,37,64,0.22);
+        z-index: 1000;
+        user-select: none;
+    }
+    /* iOS-Style Resize Handle */
+    .resize-handle {
+        position: absolute;
+        right: 6px;
+        bottom: 6px;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(0,0,0,0.1));
+        border-radius: 12px;
+        cursor: se-resize;
+        z-index: 15;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .resize-handle:hover {
+        background: linear-gradient(135deg, rgba(74,144,226,0.3), rgba(74,144,226,0.1));
+        opacity: 1;
+        transform: scale(1.15);
+        box-shadow: 0 4px 15px rgba(74,144,226,0.2);
+    }
+    
+    .resize-handle:after {
+        content: '⋱';
+        font-size: 16px;
+        color: rgba(74,144,226,0.8);
+        font-weight: bold;
+    }
+    
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+        .nav-content {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo-img {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .logo h1 {
+            font-size: 1.3rem;
+        }
+        
+        .nav-center {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            width: 100%;
+            justify-content: stretch;
+        }
+        
+        .nav-right {
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        
+        .nav-btn {
+            padding: 0.8rem 0.5rem;
+            flex-direction: column;
+            text-align: center;
+            font-size: 0.8rem;
+            justify-content: center;
+        }
+        
+        .nav-btn span {
+            font-size: 0.7rem;
+            margin-top: 0.2rem;
+        }
+        
+        .nav-btn i {
+            font-size: 1.2rem;
+        }
+        
+        /* Special mobile styling for Premium button */
+        .premium-btn {
+            padding: 1rem;
+            font-size: 1rem;
+        }
+        
+        .premium-btn span {
+            font-size: 0.9rem;
+            margin-top: 0;
+            margin-left: 0.3rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none; /* Hide for now since we're showing all items */
+        }
+        
+        /* Fix container padding */
+        .container {
+            padding: 0 10px;
+        }
+        
+        /* Make main content area normal */
+        .main {
+            padding-top: 1rem;
+        }
+        
+        /* Improve library categories layout */
+        .library-categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .category-card {
+            padding: 15px;
+            height: auto;
+        }
+        
+        .category-card p {
+            display: none;
+        }
+        
+        /* Fix Add Widget button position */
+        .add-widget-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 15px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            background: #4A90E2;
+            color: white;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            margin-top: 0 !important;
+            z-index: 90;
+        }
+        
+        .add-widget-btn .btn-text {
+            display: none;
+        }
+        
+        .add-widget-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Dashboard grid for mobile */
+        .dashboard-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .dashboard-widget {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
+        
+        /* Audio player on mobile */
+        .audio-player {
+            width: calc(100% - 20px) !important;
+            max-width: calc(100% - 20px) !important;
+            min-width: auto !important;
+            right: 10px !important;
+            left: 10px !important;
+            bottom: 80px !important;
+        }
+        
+        /* Mobile friendly section headings */
+        .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .section-header h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        /* Scrollable areas */
+        .scrollable-content {
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Form elements */
+        input, select, textarea, button {
+            font-size: 16px !important; /* Prevents zoom on iOS */
+        }
+        
+        /* Specific widget styles */
+        .prayer-times-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        
+        /* Quran reader */
+        .quran-reader-container {
+            margin: 0 -10px;
+        }
+        
+        .quran-reader-controls {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Preloader for better mobile experience -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f8f9fa; display: flex; justify-content: center; align-items: center; z-index: 9999;">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="images/logo.png" alt="Deen Shield" style="width: 80px; height: 80px; margin-bottom: 20px;">
+            <div style="width: 60px; height: 60px; border: 4px solid rgba(74, 144, 226, 0.1); border-top: 4px solid #4A90E2; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        </div>
+    </div>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- Drawer -->
+    <nav id="sideDrawer" class="side-drawer">
+        <div class="drawer-header">
+            <div class="drawer-header-content">
+                <img src="images/logo.png" alt="Deen Shield" class="drawer-logo">
+                <div class="drawer-title">Deen Shield</div>
+            </div>
+            <button id="drawerClose" class="drawer-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="drawer-menu">
+            <li><button class="drawer-link" data-tab="dashboard"><i class="fas fa-home"></i><span>Dashboard</span></button></li>
+            <li><button class="drawer-link" data-tab="prayer-times"><i class="fas fa-pray"></i><span>Prayer Times</span></button></li>
+            <li><button class="drawer-link" data-tab="quran"><i class="fas fa-quran"></i><span>Quran Study</span></button></li>
+            <li><button class="drawer-link" data-tab="dhikr"><i class="fas fa-dharmachakra"></i><span>Dhikr</span></button></li>
+            <li><button class="drawer-link" data-tab="library"><i class="fas fa-book"></i><span>Library</span></button></li>
+            <li><button class="drawer-link" data-tab="productivity"><i class="fas fa-tasks"></i><span>Tasks</span></button></li>
+            <li class="drawer-divider"></li>
+            <li><button class="drawer-link" id="audioPlayerToggle"><i class="fas fa-music"></i><span>Audio Player</span></button></li>
+            <li><button class="drawer-link" id="quranAudioToggle"><i class="fas fa-quran"></i><span>Quran Audio</span></button></li>
+            <li><button class="drawer-link" id="nasheedPlayerToggle"><i class="fas fa-headphones"></i><span>Nasheeds</span></button></li>
+            <li class="drawer-divider"></li>
+            <li><a href="privacy-policy.html" class="drawer-link external-link"><i class="fas fa-shield-alt"></i><span>Privacy Policy</span></a></li>
+            <li><a href="about.html" class="drawer-link external-link"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+        </ul>
+    </nav>
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+
+    <!-- Navigation Bar (Drawer + Profile Only) -->
+    <div class="simple-nav-bar">
+        <!-- Drawer Button - Left -->
+        <button id="drawerToggle" class="drawer-toggle" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Page Header - Center -->
+        <div class="page-header">
+            <h1 id="pageTitle" class="page-title">Dashboard</h1>
+        </div>
+        
+        <!-- Profile Menu - Right -->
+        <div class="nav-right">
+            <div class="profile-menu-container">
+                <button class="profile-btn" id="profileBtn">
+                    <div class="profile-avatar">
+                        <img src="images/default-avatar.png" alt="Profile" id="profileImage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-placeholder" style="display: none;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <span class="profile-name" id="profileName">Guest</span>
+                    <i class="fas fa-chevron-down profile-arrow"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Right Drawer -->
+    <div id="profileDrawer" class="profile-drawer">
+        <div class="profile-drawer-content">
+            <!-- Profile Dropdown Menu -->
+            <div class="profile-header">
+                <div class="profile-avatar-large">
+                    <img src="images/default-avatar.png" alt="Profile" id="profileImageLarge" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-placeholder-large" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <button class="change-avatar-btn" id="changeAvatarBtn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h4 id="profileNameLarge">Guest User</h4>
+                    <p id="profileEmail">guest@example.com</p>
+                </div>
+            </div>
+            
+            <div class="profile-menu-items">
+                <button class="profile-menu-item" id="loginSignupBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login / Sign Up</span>
+                </button>
+                
+                <button class="profile-menu-item" id="progressBtn">
+                    <i class="fas fa-chart-line"></i>
+                    <span>My Progress</span>
+                    <div class="progress-badge">
+                        <span id="progressPercent">45%</span>
+                    </div>
+                </button>
+                
+                <button class="profile-menu-item premium-menu-item" id="premiumMenuBtn">
+                    <i class="fas fa-crown"></i>
+                    <span>Premium</span>
+                    <div class="premium-badge">Upgrade</div>
+                </button>
+                
+                <button class="profile-menu-item" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+                
+                <div class="menu-divider"></div>
+                
+                <button class="profile-menu-item" id="helpBtn">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </button>
+                
+                <button class="profile-menu-item" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="profileDrawerBackdrop" class="drawer-backdrop"></div>
+    <!-- ...existing code... -->
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Tab Content -->
+            <div id="dashboard" class="tab-content active">
+                <!-- Dashboard Widgets Container -->
+                <div id="dashboard-widgets" class="dashboard-grid">
+                    <!-- Widgets will be rendered here by JS -->
+                </div>
+                <!-- Create Widget Button -->
+                <button class="add-widget-btn" id="addWidgetBtn">
+                    <i class="fas fa-plus"></i><span class="btn-text"> Create Widget</span>
+                </button>
+            </div>
+
+            <!-- Prayer Times Tab Content -->
+            <div id="prayer-times" class="tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-pray"></i> Prayer Times</h2>
+                    <button class="location-btn" id="locationBtn">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Set Location
+                    </button>
+                </div>
+                
+                <div class="prayer-times-card">
+                    <div class="prayer-times-grid" id="prayerTimesGrid">
+                        <!-- Prayer times will be dynamically populated -->
+                    </div>
+                </div>
+
+                <div class="prayer-notifications">
+                    <h3>Prayer Notifications</h3>
+                    <div class="notification-settings">
+                        <label class="switch">
+                            <input type="checkbox" id="prayerAlertsEnabled" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Enable prayer time alerts</span>
+                    </div>
+                    <div class="notification-options">
+                        <select id="notificationSound">
+                            <option value="adhan">Traditional Adhan</option>
+                            <option value="bell">Simple Bell</option>
+                            <option value="chime">Peaceful Chime</option>
+                        </select>
+                        <label for="notificationSound">Notification Sound</label>
+                                        </div>
+                </div>
+            </div>
+
+            <!-- Quran Study Tab Content -->
+            <div id="quran" class="tab-content">
+                <div class="section-header quran-header">
+                    <div style="display: flex; align-items: center; gap: 1rem; width: 100%; justify-content: space-between; flex-wrap: wrap;">
+                        <h2 class="quran-title" style="margin: 0;"><i class="fas fa-quran"></i> Quran Study</h2>
+                        <div class="quran-controls" style="display: flex; gap: 0.5rem;">
+                            <button class="btn-primary" id="todaysVerseBtn" title="Show Today's Verse"><i class="fas fa-calendar-day"></i> Today's Verse</button>
+                            <button class="btn-primary" id="toggleFullQuranBtn" title="Read the full Quran"><i class="fas fa-book-open"></i> Full Quran</button>
+                            <button class="btn-secondary" id="randomVerseBtn" title="Show a random verse"><i class="fas fa-random"></i> Random Verse</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Verse Section -->
+                <div class="quran-content" id="dailyVerseSection">
+                    <div class="verse-of-the-day modern-card">
+                        <div class="verse-header">
+                            <span class="verse-label" id="todaysVerseLabel"><i class="fas fa-star"></i> Today's Verse</span>
+                            <span class="verse-reference" id="verseReference">Al-Fatihah 1:1</span>
+                        </div>
+                        <div class="arabic-text" id="arabicVerse">بسم الله الرحمن الرحيم</div>
+                        <div class="translation" id="verseTranslation">In the name of Allah, the Entirely Merciful, the Especially Merciful.</div>
+                    </div>
+                </div>
+
+                <!-- Full Quran Reader Section (Initially Hidden) -->
+                <div class="full-quran-reader" id="fullQuranSection" style="display: none;">
+                    <div class="quran-reader-container">
+                        <div class="quran-reader-controls modern-controls">
+                            <div class="control-group">
+                                <label for="surahSelect" class="sr-only">Surah</label>
+                                <select id="surahSelect" class="select-control"></select>
+                                <button id="hifzLayoutBtn" class="btn-secondary active" title="Hifz Layout"><i class="fas fa-align-right"></i></button>
+                                <button id="madinahLayoutBtn" class="btn-secondary" title="Madinah Layout"><i class="fas fa-align-center"></i></button>
+                            </div>
+                            <div class="control-group">
+                                <label for="translationSelect" class="sr-only">Translation</label>
+                                <select id="translationSelect" class="select-control">
+                                    <option value="">No Translation</option>
+                                    <option value="en" selected>English</option>
+                                    <option value="ps">Pashto</option>
+                                </select>
+                                <button id="audioBtn" class="btn-secondary" title="Play Surah Audio">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quran-text-container">
+                            <div id="quranContent" class="quran-content-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dhikr Tab Content -->
+            <div id="dhikr" class="tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-dharmachakra"></i> Digital Dhikr</h2>
+                </div>
+
+                <div class="dhikr-content">
+                    <!-- Main Counter Display -->
+                    <div class="dhikr-counter-card">
+                        <div class="counter-display">
+                            <div class="current-dhikr-text" id="currentDhikrText">سُبْحَانَ اللّٰهِ</div>
+                            <div class="current-dhikr-translation" id="currentDhikrTranslation">SubhanAllah</div>
+                            <div class="counter-progress">
+                                <div class="counter-number" id="counterNumber">0</div>
+                                <div class="counter-separator">/</div>
+                                <div class="target-count" id="targetCount">33</div>
+                            </div>
+                            <div class="progress-bar-dhikr">
+                                <div class="progress-fill-dhikr" id="progressFillDhikr"></div>
+                            </div>
+                        </div>
+                        <button class="counter-btn" id="counterBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Count</span>
+                        </button>
+                        <button class="reset-btn" id="resetDhikr" title="Reset Counter">
+                            <i class="fas fa-refresh"></i> Reset
+                        </button>
+                    </div>
+
+                    <!-- Detailed Azkar List -->
+                    <div class="azkar-list-container" id="azkarListContainer">
+                        <div class="azkar-categories-nav">
+                            <button class="category-tab active" data-category="basic">Basic</button>
+                            <button class="category-tab" data-category="morning">Morning</button>
+                            <button class="category-tab" data-category="evening">Evening</button>
+                            <button class="category-tab" data-category="after-prayer">After Prayer</button>
+                            <button class="category-tab" data-category="before-sleep">Before Sleep</button>
+                            <button class="category-tab" data-category="istighfar">Istighfar</button>
+                            <button class="category-tab" data-category="salawat">Salawat</button>
+                        </div>
+                        <h3 id="azkarCategoryTitle">Basic Dhikr</h3>
+                        <div class="azkar-grid" id="azkarGrid">
+                            <!-- Azkar items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Library Tab Content -->
+            <div id="library" class="tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-book-open"></i> Islamic Library</h2>
+                    <a href="https://www.alhaqds.software/library.html" target="_blank" class="btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visit Full Library
+                    </a>
+                </div>
+
+                <div class="library-content">
+                    <div class="library-categories">
+                        <div class="category-card" data-category="quran">
+                            <div class="category-icon">
+                                <i class="fas fa-quran"></i>
+                            </div>
+                            <h3>Quran</h3>
+                            <p>Complete Quran with translations and recitations</p>
+                        </div>
+                        <div class="category-card" data-category="hadith">
+                            <div class="category-icon">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <h3>Hadith</h3>
+                            <p>Authentic hadith collections and commentary</p>
+                        </div>
+                        <div class="category-card" data-category="books">
+                            <div class="category-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Islamic Books</h3>
+                            <p>Comprehensive Islamic literature and studies</p>
+                        </div>
+                        <div class="category-card" data-category="articles">
+                            <div class="category-icon">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <h3>Articles</h3>
+                            <p>Contemporary Islamic articles and insights</p>
+                        </div>
+                        <div class="category-card" data-category="media">
+                            <div class="category-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <h3>Islamic Media</h3>
+                            <p>Lectures, recitations, and educational content</p>
+                        </div>
+                        <div class="category-card" data-category="resources">
+                            <div class="category-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Resources</h3>
+                            <p>Prayer guides, Islamic calendar, and tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity Tab Content -->
+            <div id="productivity" class="tab-content">
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks"></i> Islamic Productivity</h2>
+                    <button class="btn-primary" id="addTaskBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Task
+                    </button>
+                </div>
+
+                <div class="productivity-content">
+                    <!-- Task Manager -->
+                    <div class="task-manager" id="originalTaskView">
+                        <h3>Today's Tasks</h3>
+                        
+                        <!-- Category Tabs -->
+                        <div class="category-tabs">
+                            <button class="category-tab active" data-category="all">All Tasks</button>
+                            <button class="category-tab" data-category="spiritual">🤲 Spiritual</button>
+                            <button class="category-tab" data-category="work">💼 Work</button>
+                            <button class="category-tab" data-category="personal">👤 Personal</button>
+                            <button class="category-tab" data-category="shopping">🛒 Shopping</button>
+                            <button class="category-tab" data-category="other">📋 Other</button>
+                        </div>
+                        
+                        <div class="task-list" id="simpleTaskList">
+                            <!-- Tasks will be dynamically added -->
+                        </div>
+                    </div>
+
+                    <!-- Task Form (Hidden by default) -->
+                    <div id="taskForm" class="task-form" style="display: none;">
+                        <div class="form-header">
+                            <h3>Add New Task</h3>
+                            <button type="button" id="closeFormBtn" class="close-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <form class="task-form-content">
+                            <div class="form-group">
+                                <label for="taskInput">Task Description</label>
+                                <input type="text" id="taskInput" placeholder="What needs to be done?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categorySelect">Category</label>
+                                <select id="categorySelect" required>
+                                    <option value="personal">Personal</option>
+                                    <option value="work">Work</option>
+                                    <option value="islamic">Islamic</option>
+                                    <option value="study">Study</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dueDateInput">Due Date</label>
+                                    <input type="date" id="dueDateInput" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dueTimeInput">Due Time</label>
+                                    <input type="time" id="dueTimeInput" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="repeatSelect">Repeat</label>
+                                <select id="repeatSelect">
+                                    <option value="none">No Repeat</option>
+                                    <option value="daily">Every Day</option>
+                                    <option value="weekly">Every Week</option>
+                                    <option value="monthly">Every Month</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Add Task</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Task List -->
+                    <div class="task-list-container">
+                        <div id="taskList" class="task-list"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Audio Player (Quran, Nasheeds, Taqreers) - Compact Version -->
+    <div class="audio-player floating-player" id="audioPlayer" style="position:fixed;bottom:20px;right:20px;z-index:10000;box-shadow:0 4px 24px rgba(10,37,64,0.18);border-radius:12px;background:#fff;min-width:240px;max-width:280px;cursor:move;resize:both;overflow:auto;min-height:120px;max-height:200px;display:none;">
+        <div class="player-content" style="padding:12px;">
+            <div class="player-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <div class="player-info" style="flex:1;min-width:0;">
+                    <div class="surah-info">
+                        <span class="surah-name" style="font-size:13px;font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Surat Al-Waqiah</span>
+                        <span class="reciter" style="font-size:11px;color:#666;display:block;">Quran • 1 of 96</span>
+                    </div>
+                </div>
+                <div style="display:flex;gap:4px;align-items:center;">
+                    <button id="resizePlayerBtn" style="background:none;border:none;outline:none;cursor:pointer;padding:4px;border-radius:4px;color:#666;" title="Toggle Size">
+                        <i class="fas fa-expand-arrows-alt" style="font-size:12px;"></i>
+                    </button>
+                    <button id="closePlayerBtn" style="background:none;border:none;outline:none;cursor:pointer;padding:4px;border-radius:4px;color:#666;">
+                        <i class="fas fa-times" style="font-size:12px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="player-controls" style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;">
+                <button class="control-btn prev" style="width:32px;height:32px;border:none;background:#f5f5f5;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <i class="fas fa-step-backward" style="font-size:12px;"></i>
+                </button>
+                <button class="control-btn play-pause" style="width:36px;height:36px;border:none;background:#4A90E2;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <i class="fas fa-pause" style="font-size:14px;"></i>
+                </button>
+                <button class="control-btn next" style="width:32px;height:32px;border:none;background:#f5f5f5;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                    <i class="fas fa-step-forward" style="font-size:12px;"></i>
+                </button>
+            </div>
+            <div class="player-progress">
+                <div class="progress-bar" style="width:100%;height:4px;background:#e0e0e0;border-radius:2px;margin-bottom:8px;position:relative;cursor:pointer;">
+                    <div class="progress-fill" style="width: 30%;height:100%;background:#4A90E2;border-radius:2px;"></div>
+                </div>
+                <div class="volume-control" style="display:flex;align-items:center;gap:6px;">
+                    <i class="fas fa-volume-up" style="font-size:12px;color:#666;"></i>
+                    <div class="volume-slider" style="flex:1;height:3px;background:#e0e0e0;border-radius:2px;position:relative;cursor:pointer;">
+                        <div class="volume-fill" style="width:70%;height:100%;background:#4A90E2;border-radius:2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Widget Button -->
+    <button class="add-widget-btn" id="addWidgetBtn">
+        <i class="fas fa-plus"></i>
+        Create Widget
+    </button>
+
+    <!-- Main Application Scripts removed - loaded later -->
+                                <!-- Tasks will be dynamically added here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Widgets Modal -->
+    <div id="widgetsModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeWidgetsModal()"></div>
+        <div class="modal-content widgets-modal-content">
+            <!-- Modal content will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script>
+    // Global function to close widgets modal
+    function closeWidgetsModal() {
+        const modal = document.getElementById('widgetsModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+    </script>
+
+    <!-- Scripts -->
+    <script>
+    // Floating draggable audio player logic
+    (function() {
+        const player = document.getElementById('audioPlayer');
+        const closeBtn = document.getElementById('closePlayerBtn');
+        if (closeBtn) closeBtn.onclick = () => player.style.display = 'none';
+        let isDragging = false, offsetX = 0, offsetY = 0;
+        player.addEventListener('mousedown', function(e) {
+            if (e.target.closest('button')) return;
+            isDragging = true;
+            offsetX = e.clientX - player.getBoundingClientRect().left;
+            offsetY = e.clientY - player.getBoundingClientRect().top;
+            document.body.style.userSelect = 'none';
+        });
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            player.style.left = (e.clientX - offsetX) + 'px';
+            player.style.top = (e.clientY - offsetY) + 'px';
+            player.style.right = 'auto';
+            player.style.bottom = 'auto';
+        });
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            document.body.style.userSelect = '';
+        });
+    })();
+    </script>
+    <script src="js/mobile-menu.js"></script>
+    <!-- Quran Data -->
+    <script src="assets/Quran_Data/Metadata.js"></script>
+    
+    <!-- Fix for missing makeElementDraggable function -->
+    <script>
+    // Add missing function to prevent errors
+    window.makeElementDraggable = function(element) {
+        // Simple stub - you can implement dragging later if needed
+        console.log('makeElementDraggable called for:', element);
+    };
+    
+    // Also add to DeenShieldApp prototype if it exists
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.DeenShieldApp && window.DeenShieldApp.prototype) {
+            window.DeenShieldApp.prototype.makeElementDraggable = function(element) {
+                console.log('DeenShieldApp makeElementDraggable called for:', element);
+            };
+        }
+    });
+    </script>
+    
+    <!-- App JS -->
+    <script src="js/deenshield.js"></script>
+    <script src="js/quran-reader.js"></script>
+    <script>
+    // Initialize app
+    // Initialize Task Master functionality
+    window.app = {
+        tasks: JSON.parse(localStorage.getItem('taskMasterTasks')) || [],
+        
+        // Add a new task
+        addTask: function() {
+            const taskInput = document.getElementById('taskInput');
+            const taskDate = document.getElementById('taskDate');
+            const taskTime = document.getElementById('taskTime');
+            const taskCategory = document.getElementById('taskCategory');
+            const taskPriority = document.getElementById('taskPriority');
+            
+            if (!taskInput.value.trim()) {
+                alert('Please enter a task description');
+                return;
+            }
+            
+            const task = {
+                id: Date.now(),
+                description: taskInput.value.trim(),
+                completed: false,
+                date: taskDate.value,
+                time: taskTime.value,
+                category: taskCategory.value,
+                priority: taskPriority.value,
+                created: new Date().toISOString()
+            };
+            
+            this.tasks.push(task);
+            this.saveTasks();
+            this.renderTasks();
+            this.clearForm();
+        },
+        
+        // Clear the task form
+        clearForm: function() {
+            document.getElementById('taskInput').value = '';
+            document.getElementById('taskDate').value = '';
+            document.getElementById('taskTime').value = '';
+            document.getElementById('taskCategory').value = 'spiritual';
+            document.getElementById('taskPriority').value = 'medium';
+        },
+        
+        // Save tasks to local storage
+        saveTasks: function() {
+            localStorage.setItem('taskMasterTasks', JSON.stringify(this.tasks));
+        },
+        
+        // Delete a task
+        deleteTask: function(id) {
+            this.tasks = this.tasks.filter(task => task.id !== id);
+            this.saveTasks();
+            this.renderTasks();
+        },
+        
+        // Toggle task completion
+        toggleTaskCompletion: function(id) {
+            const task = this.tasks.find(task => task.id === id);
+            if (task) {
+                task.completed = !task.completed;
+                this.saveTasks();
+                this.renderTasks();
+            }
+        },
+        
+        // Render all tasks
+        renderTasks: function() {
+            const taskList = document.getElementById('taskList');
+            const simpleTaskList = document.getElementById('simpleTaskList');
+            
+            if (!taskList || !simpleTaskList) return;
+            
+            // Clear both lists
+            taskList.innerHTML = '';
+            simpleTaskList.innerHTML = '';
+            
+            // Render all tasks
+            let filteredTasks = [...this.tasks];
+            
+            // Check for overdue tasks
+            const now = new Date();
+            
+            // Render in both lists
+            filteredTasks.forEach(task => {
+                // Is task overdue?
+                let isOverdue = false;
+                if (task.date && !task.completed) {
+                    const dueDate = new Date(task.date + 'T' + (task.time || '23:59:59'));
+                    isOverdue = dueDate < now;
+                }
+                
+                // Advanced task list
+                const li = document.createElement('li');
+                li.dataset.category = task.category;
+                li.dataset.priority = task.priority;
+                if (isOverdue) li.classList.add('overdue-task');
+                
+                const taskContent = document.createElement('div');
+                taskContent.className = 'task-content' + (task.completed ? ' completed' : '');
+                
+                let taskText = `<strong>${task.description}</strong>`;
+                if (task.date) {
+                    taskText += `<br><small>📅 Due: ${task.date} ${task.time ? '⌚ ' + task.time : ''}</small>`;
+                }
+                taskContent.innerHTML = taskText;
+                li.appendChild(taskContent);
+                
+                const actions = document.createElement('div');
+                actions.className = 'task-actions';
+                
+                const completeBtn = document.createElement('button');
+                completeBtn.innerHTML = task.completed ? '<i class="fas fa-undo"></i>' : '<i class="fas fa-check"></i>';
+                completeBtn.title = task.completed ? 'Mark as incomplete' : 'Mark as complete';
+                completeBtn.onclick = () => this.toggleTaskCompletion(task.id);
+                actions.appendChild(completeBtn);
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                deleteBtn.title = 'Delete task';
+                deleteBtn.onclick = () => this.deleteTask(task.id);
+                actions.appendChild(deleteBtn);
+                
+                li.appendChild(actions);
+                taskList.appendChild(li);
+                
+                // Simple task list (original view)
+                const simpleLi = document.createElement('div');
+                simpleLi.className = 'simple-task-item' + (task.completed ? ' completed' : '');
+                simpleLi.dataset.category = task.category;
+                if (isOverdue) simpleLi.classList.add('overdue');
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = task.completed;
+                checkbox.onchange = () => this.toggleTaskCompletion(task.id);
+                
+                const taskLabel = document.createElement('span');
+                
+                // Format the task description with category icon
+                let categoryIcon = '';
+                switch(task.category) {
+                    case 'spiritual': categoryIcon = '🤲 '; break;
+                    case 'work': categoryIcon = '💼 '; break;
+                    case 'personal': categoryIcon = '👤 '; break;
+                    case 'shopping': categoryIcon = '🛒 '; break;
+                    case 'other': categoryIcon = '📋 '; break;
+                }
+                
+                taskLabel.textContent = categoryIcon + task.description;
+                
+                const simpleActions = document.createElement('div');
+                simpleActions.className = 'simple-actions';
+                
+                const simpleDeleteBtn = document.createElement('button');
+                simpleDeleteBtn.className = 'simple-delete-btn';
+                simpleDeleteBtn.innerHTML = '×';
+                simpleDeleteBtn.onclick = () => this.deleteTask(task.id);
+                
+                simpleLi.appendChild(checkbox);
+                simpleLi.appendChild(taskLabel);
+                simpleLi.appendChild(simpleDeleteBtn);
+                simpleTaskList.appendChild(simpleLi);
+            });
+            
+            // Show no tasks message if needed
+            if (filteredTasks.length === 0) {
+                taskList.innerHTML = '<li class="no-tasks">No tasks found</li>';
+                simpleTaskList.innerHTML = '<div class="no-tasks">No tasks found</div>';
+            }
+        },
+        
+        // Clear all tasks
+        clearAllTasks: function() {
+            if (confirm('Are you sure you want to delete all tasks? This cannot be undone.')) {
+                this.tasks = [];
+                this.saveTasks();
+                this.renderTasks();
+            }
+        }
+    };
+    </script>
+
+    <script>
+    // Prevent multiple initializations and fix performance issues
+    (function() {
+        if (window.appInitialized) return;
+        window.appInitialized = true;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Main initialization started');
+            
+            // Profile Drawer Functionality - Most Important Fix
+            const profileBtn = document.getElementById('profileBtn');
+            const profileDrawer = document.getElementById('profileDrawer');
+            const profileDrawerBackdrop = document.getElementById('profileDrawerBackdrop');
+            
+            if (profileBtn && profileDrawer && profileDrawerBackdrop) {
+                profileBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Profile button clicked');
+                    profileDrawer.classList.add('open');
+                    profileDrawerBackdrop.classList.add('open');
+                });
+                
+                profileDrawerBackdrop.addEventListener('click', function() {
+                    profileDrawer.classList.remove('open');
+                    profileDrawerBackdrop.classList.remove('open');
+                });
+                
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        profileDrawer.classList.remove('open');
+                        profileDrawerBackdrop.classList.remove('open');
+                    }
+                });
+                console.log('Profile drawer functionality initialized');
+            } else {
+                console.log('Profile drawer elements not found:', {profileBtn, profileDrawer, profileDrawerBackdrop});
+            }
+            
+            // Initialize other functionality
+            try {
+                if (typeof DeenShieldApp !== 'undefined') {
+                    window.deenShield = new DeenShieldApp();
+                }
+            } catch(e) { console.log('DeenShieldApp init deferred'); }
+            
+            try {
+                if (typeof QuranReader !== 'undefined') {
+                    window.quranReader = new QuranReader();
+                }
+            } catch(e) { console.log('QuranReader init deferred'); }
+            
+            if (typeof app !== 'undefined' && app.renderTasks) {
+                app.renderTasks();
+            }
+            
+            if (typeof loadTasks === 'function') {
+                loadTasks();
+            }
+            
+            if (typeof bindAddTaskBtn === 'function') {
+                bindAddTaskBtn();
+            }
+            
+            // Audio Player and Privacy Policy functionality
+            const audioPlayerToggle = document.getElementById('audioPlayerToggle');
+            const quranAudioToggle = document.getElementById('quranAudioToggle');
+            const nasheedPlayerToggle = document.getElementById('nasheedPlayerToggle');
+            const privacyPolicy = document.getElementById('privacyPolicy');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const resizePlayerBtn = document.getElementById('resizePlayerBtn');
+            
+            // Toggle audio player visibility
+            if (audioPlayerToggle && audioPlayer) {
+                audioPlayerToggle.addEventListener('click', function() {
+                    if (audioPlayer.style.display === 'none') {
+                        audioPlayer.style.display = 'block';
+                        audioPlayerToggle.querySelector('span').textContent = 'Hide Audio Player';
+                    } else {
+                        audioPlayer.style.display = 'none';
+                        audioPlayerToggle.querySelector('span').textContent = 'Audio Player';
+                    }
+                });
+            }
+            
+            // Quran Audio functionality
+            if (quranAudioToggle && audioPlayer) {
+                quranAudioToggle.addEventListener('click', function() {
+                    audioPlayer.style.display = 'block';
+                    const surahName = audioPlayer.querySelector('.surah-name');
+                    const reciter = audioPlayer.querySelector('.reciter');
+                    if (surahName) surahName.textContent = 'Al-Fatiha';
+                    if (reciter) reciter.textContent = 'Quran Recitation';
+                });
+            }
+            
+            // Nasheed Player functionality
+            if (nasheedPlayerToggle && audioPlayer) {
+                nasheedPlayerToggle.addEventListener('click', function() {
+                    audioPlayer.style.display = 'block';
+                    const surahName = audioPlayer.querySelector('.surah-name');
+                    const reciter = audioPlayer.querySelector('.reciter');
+                    if (surahName) surahName.textContent = 'Islamic Nasheed';
+                    if (reciter) reciter.textContent = 'Nasheed Collection';
+                });
+            }
+            
+            // Privacy Policy functionality
+            if (privacyPolicy) {
+                privacyPolicy.addEventListener('click', function() {
+                    window.open('https://www.alhaqds.software/privacy-policy.html', '_blank');
+                });
+            }
+            
+            // Audio player resize functionality
+            if (resizePlayerBtn && audioPlayer) {
+                let isCompact = true;
+                resizePlayerBtn.addEventListener('click', function() {
+                    if (isCompact) {
+                        // Expand to larger size
+                        audioPlayer.style.minWidth = '320px';
+                        audioPlayer.style.maxWidth = '400px';
+                        audioPlayer.style.minHeight = '160px';
+                        audioPlayer.style.maxHeight = '240px';
+                        resizePlayerBtn.querySelector('i').className = 'fas fa-compress-arrows-alt';
+                        isCompact = false;
+                    } else {
+                        // Compress to smaller size
+                        audioPlayer.style.minWidth = '240px';
+                        audioPlayer.style.maxWidth = '280px';
+                        audioPlayer.style.minHeight = '120px';
+                        audioPlayer.style.maxHeight = '200px';
+                        resizePlayerBtn.querySelector('i').className = 'fas fa-expand-arrows-alt';
+                        isCompact = true;
+                    }
+                });
+            }
+            
+            console.log('Main initialization completed');
+        });
+    })();
+    </script>
+
+    <script>
+    // Global task management functions (accessible from anywhere)
+    function addTask(description, category, dueDate, dueTime, repeat) {
+        const taskList = document.getElementById('taskList');
+        const taskItem = document.createElement('div');
+        taskItem.className = 'task-item';
+        taskItem.dataset.category = category;
+        taskItem.dataset.dueDate = dueDate;
+        taskItem.dataset.dueTime = dueTime;
+        taskItem.dataset.repeat = repeat;
+        
+        // Format the due date and time for display
+        const dueDateObj = new Date(dueDate + 'T' + dueTime);
+        const now = new Date();
+        const isOverdue = dueDateObj < now;
+        const isToday = dueDate === now.toISOString().split('T')[0];
+        const isTomorrow = dueDate === new Date(now.getTime() + 24*60*60*1000).toISOString().split('T')[0];
+        
+        let dueDateDisplay = '';
+        if (isToday) {
+            dueDateDisplay = `Today at ${dueTime}`;
+        } else if (isTomorrow) {
+            dueDateDisplay = `Tomorrow at ${dueTime}`;
+        } else {
+            dueDateDisplay = `${dueDateObj.toLocaleDateString()} at ${dueTime}`;
+        }
+        
+        const repeatDisplay = repeat !== 'none' ? `<span class="repeat-indicator">🔄 ${repeat}</span>` : '';
+        const overdueClass = isOverdue ? 'overdue' : '';
+        
+        taskItem.innerHTML = `
+            <div class="task-content">
+                <input type="checkbox" class="task-checkbox">
+                <div class="task-info">
+                    <span class="task-text">${description}</span>
+                    <div class="task-meta">
+                        <span class="due-date ${overdueClass}">${dueDateDisplay}</span>
+                        ${repeatDisplay}
+                        <span class="category-badge category-${category}">${category}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="task-actions">
+                <button class="delete-task" onclick="deleteTask(this)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
+        
+        taskList.appendChild(taskItem);
+        
+        // Handle repeat functionality
+        if (repeat !== 'none') {
+            scheduleRepeatingTask(description, category, dueDate, dueTime, repeat);
+        }
+        
+        saveTasks();
+    }
+
+    function deleteTask(button) {
+        const taskItem = button.closest('.task-item');
+        taskItem.remove();
+        saveTasks();
+    }
+
+    function scheduleRepeatingTask(description, category, dueDate, dueTime, repeat) {
+        // Calculate next occurrence
+        const currentDate = new Date(dueDate + 'T' + dueTime);
+        let nextDate = new Date(currentDate);
+        
+        switch(repeat) {
+            case 'daily':
+                nextDate.setDate(nextDate.getDate() + 1);
+                break;
+            case 'weekly':
+                nextDate.setDate(nextDate.getDate() + 7);
+                break;
+            case 'monthly':
+                nextDate.setMonth(nextDate.getMonth() + 1);
+                break;
+        }
+        
+        const nextDateStr = nextDate.toISOString().split('T')[0];
+        const nextTimeStr = dueTime;
+        
+        // Store repeating task info
+        const repeatingTasks = JSON.parse(localStorage.getItem('repeatingTasks') || '[]');
+        repeatingTasks.push({
+            description,
+            category,
+            dueDate: nextDateStr,
+            dueTime: nextTimeStr,
+            repeat,
+            originalDate: dueDate
+        });
+        localStorage.setItem('repeatingTasks', JSON.stringify(repeatingTasks));
+    }
+
+    function checkRepeatingTasks() {
+        const repeatingTasks = JSON.parse(localStorage.getItem('repeatingTasks') || '[]');
+        const today = new Date().toISOString().split('T')[0];
+        
+        repeatingTasks.forEach((task, index) => {
+            if (task.dueDate <= today) {
+                // Add the repeated task
+                addTask(task.description, task.category, task.dueDate, task.dueTime, task.repeat);
+                
+                // Update the next occurrence
+                const nextDate = new Date(task.dueDate + 'T' + task.dueTime);
+                switch(task.repeat) {
+                    case 'daily':
+                        nextDate.setDate(nextDate.getDate() + 1);
+                        break;
+                    case 'weekly':
+                        nextDate.setDate(nextDate.getDate() + 7);
+                        break;
+                    case 'monthly':
+                        nextDate.setMonth(nextDate.getMonth() + 1);
+                        break;
+                }
+                
+                repeatingTasks[index].dueDate = nextDate.toISOString().split('T')[0];
+            }
+        });
+        
+        localStorage.setItem('repeatingTasks', JSON.stringify(repeatingTasks));
+    }
+
+    function saveTasks() {
+        const taskList = document.getElementById('taskList');
+        const tasks = Array.from(taskList.children).map(taskItem => ({
+            description: taskItem.querySelector('.task-text').textContent,
+            category: taskItem.dataset.category,
+            dueDate: taskItem.dataset.dueDate,
+            dueTime: taskItem.dataset.dueTime,
+            repeat: taskItem.dataset.repeat,
+            completed: taskItem.querySelector('.task-checkbox').checked
+        }));
+        
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function loadTasks() {
+        const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        tasks.forEach(task => {
+            // Handle legacy tasks without date/time/repeat
+            const dueDate = task.dueDate || new Date().toISOString().split('T')[0];
+            const dueTime = task.dueTime || '12:00';
+            const repeat = task.repeat || 'none';
+            
+            addTask(task.description, task.category, dueDate, dueTime, repeat);
+        });
+        
+        // Check for repeating tasks that need to be added
+        checkRepeatingTasks();
+    }
+
+    function bindAddTaskBtn() {
+        console.log('bindAddTaskBtn called');
+        const addTaskBtn = document.getElementById('addTaskBtn');
+        const taskForm = document.getElementById('taskForm');
+        const closeFormBtn = document.getElementById('closeFormBtn');
+        const taskList = document.getElementById('taskList');
+        const actualForm = taskForm ? taskForm.querySelector('.task-form-content') : null;
+
+        console.log('Elements found:', {
+            addTaskBtn: !!addTaskBtn,
+            taskForm: !!taskForm,
+            closeFormBtn: !!closeFormBtn,
+            actualForm: !!actualForm
+        });
+
+        if (addTaskBtn && taskForm) {
+            addTaskBtn.onclick = function() {
+                console.log('Add Task button clicked!');
+                
+                // Set default values for date and time
+                const dueDateInput = document.getElementById('dueDateInput');
+                const dueTimeInput = document.getElementById('dueTimeInput');
+                
+                if (dueDateInput && !dueDateInput.value) {
+                    dueDateInput.value = new Date().toISOString().split('T')[0]; // Today's date
+                }
+                
+                if (dueTimeInput && !dueTimeInput.value) {
+                    const now = new Date();
+                    const hours = String(now.getHours()).padStart(2, '0');
+                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                    dueTimeInput.value = `${hours}:${minutes}`; // Current time
+                }
+                
+                taskForm.style.display = 'block';
+                console.log('Task form should now be visible');
+            };
+            console.log('Add Task button event bound successfully');
+        } else {
+            console.log('Failed to bind Add Task button - missing elements');
+        }
+
+        if (closeFormBtn && taskForm) {
+            closeFormBtn.onclick = function() {
+                console.log('Close button clicked');
+                taskForm.style.display = 'none';
+            };
+        }
+
+        // Handle task submission
+        if (actualForm) {
+            actualForm.addEventListener('submit', function(e) {
+                console.log('Form submission triggered');
+                e.preventDefault();
+                const taskInput = document.getElementById('taskInput');
+                const categorySelect = document.getElementById('categorySelect');
+                const dueDateInput = document.getElementById('dueDateInput');
+                const dueTimeInput = document.getElementById('dueTimeInput');
+                const repeatSelect = document.getElementById('repeatSelect');
+                
+                console.log('Task input value:', taskInput.value);
+                console.log('Category value:', categorySelect.value);
+                console.log('Due date:', dueDateInput.value);
+                console.log('Due time:', dueTimeInput.value);
+                console.log('Repeat:', repeatSelect.value);
+                
+                if (taskInput.value.trim() && dueDateInput.value && dueTimeInput.value) {
+                    console.log('Adding task with all details');
+                    addTask(
+                        taskInput.value.trim(), 
+                        categorySelect.value,
+                        dueDateInput.value,
+                        dueTimeInput.value,
+                        repeatSelect.value
+                    );
+                    
+                    // Clear form
+                    taskInput.value = '';
+                    dueDateInput.value = '';
+                    dueTimeInput.value = '';
+                    repeatSelect.value = 'none';
+                    
+                    taskForm.style.display = 'none';
+                    console.log('Task added and form hidden');
+                } else {
+                    console.log('Missing required fields');
+                    alert('Please fill in all required fields (description, date, and time)');
+                }
+            });
+            console.log('Form submission handler attached');
+        } else {
+            console.log('Could not find form element for submission handler');
+        }
+    } // Close bindAddTaskBtn function
+    
+    // Hide preloader when page is loaded
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 500);
+        }
+    });
+    
+    // PWA Install prompt
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (installBtn) installBtn.style.display = 'inline-flex';
+    });
+    if (installBtn) installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installBtn.textContent = 'Installed!';
+                installBtn.disabled = true;
+            }
+        }
+    });
+    // Hide button by default
+    if (installBtn) installBtn.style.display = 'none';
+    </script>
+</body>
+</html>

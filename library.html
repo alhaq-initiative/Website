@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library - Alhaq Digital Services (ADS)</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -54,52 +64,147 @@
             box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
             backdrop-filter: blur(10px);
         }
+        
+        /* Modern Navigation Styles */
+        .active-nav {
+            position: relative;
+        }
+        
+        .active-nav:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background-color: #D4AF37;
+            border-radius: 4px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background-color: #D4AF37;
+            border-radius: 4px;
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body class="antialiased">
     <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <!-- Logo Section -->
             <a href="index.html" class="flex items-center space-x-2">
-                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <img src="assets/images/Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
-                <a href="index.html#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
-                <a href="index.html#services" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
-                <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
-            </nav>
-            <div class="flex items-center space-x-2">
-                <a href="contact.html" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
-                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
-            </div>
-            <div class="flex justify-end mb-4">
-                <!-- Modern Language Switcher -->
-                <div class="relative">
-                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
-                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
-                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </button>
-                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                    </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center justify-between flex-1 pl-10">
+                <div class="flex space-x-1">
+                    <a href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a>
+                    <a href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a>
+                    <a href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a>
+                    <a href="deenshield-app.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">
+                        <span class="inline-flex items-center">
+                            <span class="mr-1">🛡️</span> Deen Shield
+                        </span>
+                    </a>
+                    <a href="library.html" class="nav-link px-3 py-2 text-brand-gold font-medium hover:text-brand-blue transition rounded-md active-nav">Library</a>
+                    <a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a>
                 </div>
+                
+                <!-- Action Buttons and Language -->
+                <div class="flex items-center space-x-2">
+                    <!-- Language Switcher -->
+                    <div class="relative mr-2">
+                        <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-50 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                            <span class="font-semibold text-brand-blue mr-1">🌐</span>
+                            <span id="currentLang" class="font-medium text-brand-blue">EN</span>
+                            <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <ul id="langDropdown" class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('en')">English</button></li>
+                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ar')">عربی</button></li>
+                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('fa')">دری</button></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>
+                    <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2">
+                <nav class="flex flex-col space-y-1">
+                    <a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a>
+                    <a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a>
+                    <a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Services</a>
+                    <a href="deenshield-app.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">🛡️ Deen Shield</a>
+                    <a href="library.html" class="px-4 py-2 text-brand-gold font-medium hover:bg-gray-100 rounded-md">Library</a>
+                    <a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a>
+                    <a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact Us</a>
+                    <a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a>
+                    
+                    <!-- Mobile Language Selector -->
+                    <div class="px-4 py-2">
+                        <div class="text-sm text-gray-600 mb-1">Language</div>
+                        <div class="flex space-x-2">
+                            <button onclick="setLanguage('en')" class="px-3 py-1 bg-gray-100 rounded text-sm text-brand-blue hover:bg-gray-200">English</button>
+                            <button onclick="setLanguage('ar')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">عربی</button>
+                            <button onclick="setLanguage('fa')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">دری</button>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
     </header>
     <main class="pt-32 pb-20 islamic-section">
         <section class="fade-in-section">
-            <div class="container mx-auto px-6 text-center max-w-3xl">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Library</h1>
-                <p class="text-lg text-gray-700 mb-6">Explore our collection of Islamic books, articles, and resources. Find knowledge, guidance, and inspiration for your journey.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Quran Hub</h2>
+            <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row gap-8">
+                <!-- Drawer/Sidebar Navigation -->
+                <nav id="drawerMenu" class="w-full md:w-64 bg-white rounded-xl shadow-lg p-4 mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+                    <h2 class="text-xl font-bold text-brand-blue mb-4 flex items-center"><img src="assets/images/Books.png" alt="Books Icon" class="h-6 w-6 mr-2">Library Menu</h2>
+                    <ul class="space-y-2">
+                        <li><a href="#quran" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Quran Hub</a></li>
+                        <li><a href="#hadith" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Hadith</a></li>
+                        <li><a href="#books" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Books</a></li>
+                        <li><a href="#media" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Media</a></li>
+                        <li><a href="#articles" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Articles</a></li>
+                        <li><a href="#infographics" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Infographics</a></li>
+                    </ul>
+                </nav>
+                <!-- Main Content Area -->
+                <div class="flex-1">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4 flex items-center"><img src="assets/images/Books.png" alt="Books Icon" class="h-8 w-8 mr-2">Library</h1>
+                    <p class="text-lg text-gray-700 mb-6">Explore our collection of Islamic books, articles, and resources. Find knowledge, guidance, and inspiration for your journey.</p>
+                    <!-- Section: Quran Hub -->
+                    <div id="quran" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-bold text-brand-blue">Quran Hub</h2>
+                            <img src="assets/images/QuranHub.png" alt="Quran Hub Logo" class="h-16 w-16 object-contain" />
+                        </div>
                         <p class="text-gray-700 mb-4">Read and explore the Holy Quran with translation and tafsir.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-center space-x-2">
@@ -132,7 +237,8 @@
                             <a href="quran.html#recitations" class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center">Listen Recitation</a>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <!-- Hadith Section -->
+                    <div id="hadith" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Hadith</h2>
                         <p class="text-gray-700 mb-4">Browse authentic collections of Hadith and their explanations.</p>
                         <div class="space-y-3 mb-4">
@@ -157,7 +263,34 @@
                         </div>
                         <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Hadith</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <!-- Books Section -->
+                    <div id="books" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2"><img src="assets/images/Books.png" alt="Books Icon" style="height:1.2em;width:auto;vertical-align:middle;margin-right:0.4em;">Books</h2>
+                        <p class="text-gray-700 mb-4">Discover recommended Islamic books for all ages.</p>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Children's Islamic books</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Scholarly works</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-600">Biographies & history</span>
+                            </div>
+                        </div>
+                        <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Books</a>
+                    </div>
+                    <!-- Media Section -->
+                    <div id="media" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Media</h2>
                         <p class="text-gray-700 mb-4">Watch Islamic videos, listen to podcasts, and explore audio lectures.</p>
                         <div class="space-y-3 mb-4">
@@ -176,7 +309,8 @@
                         </div>
                         <a href="media.html" class="text-brand-gold font-semibold hover:underline">Go to Media Page</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <!-- Articles Section -->
+                    <div id="articles" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
                         <p class="text-gray-700 mb-4">Read articles on Islamic topics, history, and contemporary issues.</p>
                         <div class="space-y-3 mb-4">
@@ -201,32 +335,8 @@
                         </div>
                         <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Articles</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Books</h2>
-                        <p class="text-gray-700 mb-4">Discover recommended Islamic books for all ages.</p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Children's Islamic books</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Scholarly works</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Biographies & history</span>
-                            </div>
-                        </div>
-                        <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Books</a>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <!-- Infographics Section -->
+                    <div id="infographics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">InfoGraphics</h2>
                         <p class="text-gray-700 mb-4">Explore our interactive infographics and book chapters for deeper understanding.</p>
                         <a href="#" class="text-brand-gold font-semibold hover:underline">View InfoGraphics</a>
@@ -243,6 +353,9 @@
                 </div>
             </div>
         </section>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="islamic-footer bg-gray-800 text-white mt-20">
         <div class="container mx-auto px-6 py-8 text-center">
@@ -250,8 +363,8 @@
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
                 <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
                 <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
@@ -385,8 +498,8 @@
                 // Navigation links (by href)
                 const navMap = {
                     'index.html': t.navHome,
-                    'index.html#about': t.navAbout,
-                    'index.html#services': t.navServices,
+                    'about.html': t.navAbout,
+                    'services.html': t.navServices,
                     'library.html': t.navLibrary,
                     'help.html': t.navHelp,
                     'contact.html': t.navContact
@@ -419,8 +532,8 @@
                 // Footer links (by href)
                 const footerMap = {
                     'index.html': t.navHome,
-                    'index.html#about': t.navAbout,
-                    'index.html#services': t.navServices,
+                    'about.html': t.navAbout,
+                    'services.html': t.navServices,
                     'help.html': t.navHelp,
                     'contact.html': t.navContact,
                     'donate.html': t.visitLibrary // Assuming donate.html is the donation page
@@ -440,23 +553,42 @@
         }
     </script>
 <script>
-// Dynamic tab highlighting
+// Modern navigation behavior
 document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('nav a');
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Dynamic tab highlighting
+  const navLinks = document.querySelectorAll('.nav-link');
   const mobileLinks = document.querySelectorAll('#mobile-menu a');
   const currentPath = window.location.pathname.split('/').pop();
+  
+  // Desktop navigation highlighting
   navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active-tab', 'text-brand-gold');
-    } else {
-      link.classList.remove('active-tab', 'text-brand-gold');
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('text-brand-gold', 'active-nav');
+      link.classList.remove('text-gray-800');
+    } else if (href.includes('#') && href.split('#')[0] === currentPath) {
+      link.classList.add('text-brand-gold', 'active-nav');
+      link.classList.remove('text-gray-800');
     }
   });
+  
+  // Mobile navigation highlighting
   mobileLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active-tab', 'text-brand-gold');
-    } else {
-      link.classList.remove('active-tab', 'text-brand-gold');
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('text-brand-gold', 'bg-gray-100', 'font-medium');
+    } else if (href.includes('#') && href.split('#')[0] === currentPath) {
+      link.classList.add('text-brand-gold', 'bg-gray-100', 'font-medium');
     }
   });
 });

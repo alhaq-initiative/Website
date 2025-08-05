@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Alhaq Digital Services (ADS)</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +74,7 @@
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
                 <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <img src="assets/images/Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
             </a>
@@ -104,8 +114,8 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
             <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
-            <a href="index.html#about" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
-            <a href="index.html#services" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
+            <a href="about.html" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
+            <a href="services.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
 
             <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
             <a href="contact.html" class="block text-brand-gold font-semibold py-2">Contact</a>
@@ -156,8 +166,8 @@
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
                 <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
                 <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
@@ -271,7 +281,7 @@
             // Navigation links (desktop)
             const navLinks = [
               { href: 'index.html', key: 'navHome' },
-              { href: 'index.html#about', key: 'navAbout' },
+              { href: 'about.html', key: 'navAbout' },
               { href: 'index.html#services', key: 'navServices' },
               { href: 'help.html', key: 'navHelp' },
               { href: 'contact.html', key: 'navContact' },
@@ -289,7 +299,7 @@
             // Footer links
             const footerLinks = [
               { href: 'index.html', key: 'footerHome' },
-              { href: 'index.html#about', key: 'footerAbout' },
+              { href: 'about.html', key: 'footerAbout' },
               { href: 'index.html#services', key: 'footerServices' },
               { href: 'help.html', key: 'footerHelp' },
               { href: 'contact.html', key: 'footerContact' },

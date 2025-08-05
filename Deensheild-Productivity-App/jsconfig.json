@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "checkJs": false,
+        "target": "ES2018",
+        "module": "ESNext",
+        "lib": ["ES2018", "DOM"],
+        "allowJs": true,
+        "skipLibCheck": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

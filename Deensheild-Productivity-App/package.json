@@ -1,0 +1,46 @@
+﻿{
+  "name": "deenshield-productivity-app",
+  "version": "1.0.0",
+  "description": "Islamic Productivity Web App by Alhaq Digital Services - Prayer times, Quran study, and productivity tools for Muslims",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server public --port=3000 --open=/",
+    "build": "npm run copy-files && npm run minify",
+    "copy-files": "powershell -Command \"Copy-Item -Path 'src/*' -Destination 'public/' -Recurse -Force\"",
+    "minify": "echo 'Minification placeholder - add build tools as needed'",
+    "dev": "live-server src --port=3000 --open=/",
+    "deploy": "npm run build && echo 'Ready for deployment to alhaqds.software'"
+  },
+  "keywords": [
+    "islamic",
+    "productivity",
+    "prayer-times",
+    "muslim",
+    "quran",
+    "deen",
+    "salah",
+    "islamic-tools",
+    "alhaq-digital-services"
+  ],
+  "author": {
+    "name": "Alhaq Digital Services (ADS)",
+    "email": "support@alhaqds.software",
+    "url": "https://alhaqds.software"
+  },
+  "license": "MIT",
+  "homepage": "https://alhaqds.software/productivity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HabibGHub/DeenShield-Extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HabibGHub/DeenShield-Extension/issues"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alhaq Digital Services (ADS)</title>
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -333,7 +340,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('Logo2.png');
+            background-image: url('assets/images/ADS_Logo_1024.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -501,62 +508,121 @@
             background-image: 
                 repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px);
         }
+        
+        /* Modern Navigation Styles */
+        .active-nav {
+            position: relative;
+        }
+        
+        .active-nav:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background-color: #D4AF37;
+            border-radius: 4px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background-color: #D4AF37;
+            border-radius: 4px;
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <header id="header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <!-- Modern Language Switcher -->
-            <div class="relative ml-4">
-                <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                    <span class="font-semibold text-brand-blue mr-2">🌐</span>
-                    <span id="currentLang" class="font-bold text-brand-blue">English</span>
-                    <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
-                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
-                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
-                    <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                </ul>
-            </div>
-            <a href="#" class="flex items-center space-x-2">
-                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <span class="icon-bg relative block h-8 w-8">
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=100&q=80" alt="Islamic pattern background" class="absolute inset-0 w-full h-full object-cover opacity-40 z-0" />
-                        <img src="assets/images/Al-Haq logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
-                    </span>
+        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <!-- Logo Section -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
-                <a href="#about" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
-                <a href="services.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Services</a>
-                <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
-                <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
-            </nav>
-            <div class="flex items-center space-x-2">
-                <a href="contact.html" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
-                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
-            </div>
-             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
-            <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
-            <a href="#about" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
-            <div class="pl-4">
-                <span class="block text-gray-800 font-semibold py-2">Services</span>
-                <a href="taleem-ai.html" class="block text-gray-600 hover:text-brand-blue transition py-2 ml-2">Taleem AI</a>
-                <a href="library.html" class="block text-gray-600 hover:text-brand-blue transition py-2 ml-2">Library</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center justify-between flex-1 pl-10">
+                <div class="flex space-x-1">
+                    <a href="index.html" class="nav-link px-3 py-2 text-brand-gold font-medium hover:text-brand-blue transition rounded-md active-nav">Home</a>
+                    <a href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a>
+                    <a href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a>
+                    <a href="deenshield-app.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">
+                        <span class="inline-flex items-center">
+                            <span class="mr-1">🛡️</span> Deen Shield
+                        </span>
+                    </a>
+                    <a href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a>
+                    <a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a>
+                </div>
+                
+                <!-- Action Buttons and Language -->
+                <div class="flex items-center space-x-2">
+                    <!-- Language Switcher -->
+                    <div class="relative mr-2">
+                        <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-50 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                            <span class="font-semibold text-brand-blue mr-1">🌐</span>
+                            <span id="currentLang" class="font-medium text-brand-blue">EN</span>
+                            <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <ul id="langDropdown" class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('en')">English</button></li>
+                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ar')">عربی</button></li>
+                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('fa')">دری</button></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>
+                    <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2">
+                <nav class="flex flex-col space-y-1">
+                    <a href="index.html" class="px-4 py-2 text-brand-gold font-medium hover:bg-gray-100 rounded-md">Home</a>
+                    <a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a>
+                    <a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Services</a>
+                    <a href="deenshield-app.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">🛡️ Deen Shield</a>
+                    <a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a>
+                    <a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a>
+                    <a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact Us</a>
+                    <a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a>
+                    
+                    <!-- Mobile Language Selector -->
+                    <div class="px-4 py-2">
+                        <div class="text-sm text-gray-600 mb-1">Language</div>
+                        <div class="flex space-x-2">
+                            <button onclick="setLanguage('en')" class="px-3 py-1 bg-gray-100 rounded text-sm text-brand-blue hover:bg-gray-200">English</button>
+                            <button onclick="setLanguage('ar')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">عربی</button>
+                            <button onclick="setLanguage('fa')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">دری</button>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
-            <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
-            <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold">Donate</a>
         </div>
     </header>
                 <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Islamic architecture" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
@@ -601,8 +667,22 @@
                             <img src="assets/images/Screenshot_virtical2.Taleem AI.png" alt="Taleem AI Screenshot 2" class="w-32 h-56 object-cover rounded-lg shadow-md border border-gray-200" />
                         </div>
                     </a>
+                    <a href="deenshield-app.html" class="glass-card p-6 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer no-underline">
+                        <div class="h-16 w-16 mb-4 rounded-full shadow-lg border border-brand-gold bg-brand-blue flex items-center justify-center group-hover:scale-105 transition">
+                            <span class="text-white text-2xl">🛡️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-blue mb-2 group-hover:text-brand-gold">Deen Shield</h3>
+                        <p class="text-gray-700 mb-2">Comprehensive Islamic productivity app with prayer times, Quran study, and more.</p>
+                        <ul class="text-gray-600 text-left mb-4 list-disc list-inside">
+                            <li>Prayer times & notifications</li>
+                            <li>Qibla direction compass</li>
+                            <li>Quran with translation</li>
+                            <li>Digital dhikr counter</li>
+                            <li>Task management</li>
+                        </ul>
+                    </a>
                     <a href="library.html" class="glass-card p-6 flex flex-col items-center hover:shadow-2xl transition group cursor-pointer no-underline">
-                        <img src="assets/images/Logo2.png" alt="Library Icon" class="h-16 w-16 mb-4 rounded-full shadow-lg border border-brand-gold bg-white object-contain group-hover:scale-105 transition" />
+                        <img src="assets/images/Library.png" alt="Library Icon" class="h-16 w-16 mb-4 rounded-full shadow-lg border border-brand-gold bg-white object-contain group-hover:scale-105 transition" />
                         <h3 class="text-2xl font-bold text-brand-blue mb-2 group-hover:text-brand-gold">Library</h3>
                         <p class="text-gray-700 mb-2">Access Islamic books, infographics, and educational resources.</p>
                         <ul class="text-gray-600 text-left mb-4 list-disc list-inside">
@@ -659,8 +739,8 @@
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
                 <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
                 <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
@@ -780,17 +860,25 @@
         window.addEventListener('hashchange', highlightTabs);
         window.addEventListener('popstate', highlightTabs);
 
+        // Language switcher dropdown logic with modern animation
         const langBtn = document.getElementById('langSwitcherBtn');
         const langDropdown = document.getElementById('langDropdown');
         if (langBtn && langDropdown) {
             langBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                langDropdown.classList.toggle('hidden');
-                langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
+                const expanded = langDropdown.classList.contains('opacity-100');
+                langDropdown.classList.toggle('opacity-0');
+                langDropdown.classList.toggle('pointer-events-none');
+                langDropdown.classList.toggle('opacity-100');
+                langDropdown.classList.toggle('pointer-events-auto');
+                langBtn.setAttribute('aria-expanded', !expanded);
             });
             document.addEventListener('click', function(e) {
                 if (!langBtn.contains(e.target)) {
-                    langDropdown.classList.add('hidden');
+                    langDropdown.classList.add('opacity-0');
+                    langDropdown.classList.add('pointer-events-none');
+                    langDropdown.classList.remove('opacity-100');
+                    langDropdown.classList.remove('pointer-events-auto');
                     langBtn.setAttribute('aria-expanded', 'false');
                 }
             });
@@ -1012,6 +1100,81 @@ function setLanguage(lang) {
     location.reload(); // fallback to English
   }
 }
+</script>
+
+<script>
+// Modern navigation behavior
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Dynamic tab highlighting
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  const currentPath = window.location.pathname.split('/').pop();
+  
+  // Desktop navigation highlighting
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('text-brand-gold', 'active-nav');
+      link.classList.remove('text-gray-800');
+    } else if (href.includes('#') && href.split('#')[0] === currentPath) {
+      link.classList.add('text-brand-gold', 'active-nav');
+      link.classList.remove('text-gray-800');
+    }
+  });
+  
+  // Intersection observer for scroll-based highlighting
+  const sections = document.querySelectorAll('section[id]');
+  if (sections.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          
+          // Update desktop nav
+          navLinks.forEach(link => {
+            link.classList.remove('text-brand-gold', 'active-nav');
+            link.classList.add('text-gray-800');
+            
+            const href = link.getAttribute('href');
+            if (href === `#${id}` || href.endsWith(`#${id}`)) {
+              link.classList.add('text-brand-gold', 'active-nav');
+              link.classList.remove('text-gray-800');
+            }
+          });
+          
+          // Update mobile nav
+          mobileLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${id}` || href.endsWith(`#${id}`)) {
+              link.classList.add('text-brand-gold');
+              link.classList.remove('text-gray-800');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  }
+});
 </script>
 
 </body>
