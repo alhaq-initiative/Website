@@ -3,61 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Alhaq Digital Services - Get in touch with us for Islamic AI tools, digital solutions, and support. We're here to help with your spiritual and technological needs.">
+    <meta name="keywords" content="Contact Alhaq, Islamic support, digital services contact, get in touch, customer service">
+    <meta name="author" content="Alhaq Digital Services">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alhaqdigital.com/contact.html">
+    <meta property="og:title" content="Contact Us - Alhaq Digital Services">
+    <meta property="og:description" content="Get in touch with Alhaq Digital Services for Islamic AI tools and digital solutions.">
+    <meta property="og:image" content="https://alhaqdigital.com/assets/images/Al-Haq%20logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://alhaqdigital.com/contact.html">
+    <meta property="twitter:title" content="Contact Us - Alhaq Digital Services">
+    <meta property="twitter:description" content="Get in touch with Alhaq Digital Services for Islamic AI tools and digital solutions.">
+    <meta property="twitter:image" content="https://alhaqdigital.com/assets/images/Al-Haq%20logo.png">
+    
+    <link rel="canonical" href="https://alhaqdigital.com/contact.html">
+    
     <title>Contact Us - Alhaq Digital Services (ADS)</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/Al-Haq%20logo.png">
+    <link rel="manifest" href="manifest.json">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-        .bg-brand-blue { background-color: #0A2540; }
-        .text-brand-blue { color: #0A2540; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        .text-brand-gold { color: #D4AF37; }
-        .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
-        .hidden-input { display: none; }
-        .input-hide { display: none; }
-        
-        /* Islamic Styling */
-        .islamic-header {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .islamic-section {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            position: relative;
-        }
-        
-        .islamic-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37);
-        }
-        
-        .islamic-footer {
-            background: linear-gradient(135deg, #2d3748, #1a202c);
-            border-top: 3px solid #D4AF37;
-        }
-        
-        .islamic-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="antialiased">
     <header id="header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -329,62 +312,10 @@
             });
         }
     </script>
-<script>
-// Dynamic tab highlighting
-document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('nav a');
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-  const currentPath = window.location.pathname.split('/').pop();
-  navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active-tab', 'text-brand-gold');
-    } else {
-      link.classList.remove('active-tab', 'text-brand-gold');
-    }
-  });
-  mobileLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active-tab', 'text-brand-gold');
-    } else {
-      link.classList.remove('active-tab', 'text-brand-gold');
-    }
-  });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    if (!form) return;
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        formStatus.textContent = 'Sending...';
-        formStatus.style.color = 'gray';
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        const logicAppUrl = "https://prod-10.ukwest.logic.azure.com/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg";
-        try {
-            const response = await fetch(logicAppUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message }),
-            });
-            if (response.ok) {
-                formStatus.textContent = "Feedback submitted successfully.";
-                formStatus.style.color = 'green';
-                form.reset();
-            } else {
-                formStatus.textContent = 'Submission failed. Please check your Logic App configuration.';
-                formStatus.style.color = 'red';
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            formStatus.textContent = 'An unexpected error occurred. Please try again later.';
-            formStatus.style.color = 'red';
-        }
-    });
-});
-</script>
+    
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact.js"></script>
+
 </body>
 </html>
