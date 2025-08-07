@@ -1,12 +1,30 @@
 {
   "name": "alhaq-digital-services-website",
   "version": "1.0.0",
-  "description": "Alhaq Digital Services website with AI demo functionality",
-  "main": "index.js",
+  "description": "Alhaq Digital Services website with AI demo functionality - Building a Digital Future, Rooted in Faith",
+  "main": "index.html",
+  "homepage": "https://alhaqdigital.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlhaqGH/alhaq-website.git"
+  },
+  "keywords": ["islamic", "ai", "quran", "education", "digital-services", "website"],
+  "author": {
+    "name": "Alhaq Digital Services",
+    "email": "info@alhaqdigital.com",
+    "url": "https://alhaqdigital.com"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "serve": "python -m http.server 8080",
-    "dev": "live-server --port=8080 --entry-file=index.html"
+    "serve": "python3 -m http.server 8080",
+    "dev": "npx live-server --port=8080 --entry-file=index.html --open=/",
+    "lint": "npx eslint assets/js/*.js --fix",
+    "lint:check": "npx eslint assets/js/*.js",
+    "build": "npm run lint:check && echo 'Build completed successfully'",
+    "test": "echo 'No tests specified' && exit 0",
+    "validate": "npx html-validate *.html",
+    "optimize": "echo 'Running optimization checks...' && npm run lint:check"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -16,5 +34,16 @@
   "devDependencies": {
     "eslint": "^9.32.0",
     "live-server": "^1.2.2"
-  }
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not dead",
+    "> 0.5%",
+    "last 2 versions"
+  ]
 }

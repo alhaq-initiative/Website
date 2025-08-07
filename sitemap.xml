@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://alhaqdigital.com/</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://alhaqdigital.com/assets/images/Al-Haq%20logo.png</image:loc>
+            <image:title>Alhaq Digital Services Logo</image:title>
+        </image:image>
+    </url>
+    
+    <!-- About Page -->
+    <url>
+        <loc>https://alhaqdigital.com/about.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Services Page -->
+    <url>
+        <loc>https://alhaqdigital.com/services.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Taleem AI Page -->
+    <url>
+        <loc>https://alhaqdigital.com/taleem-ai.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://alhaqdigital.com/assets/images/Taleem-icon.png</image:loc>
+            <image:title>Taleem AI - AI-powered Quran Learning</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Library Page -->
+    <url>
+        <loc>https://alhaqdigital.com/library.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Quran Hub -->
+    <url>
+        <loc>https://alhaqdigital.com/quran.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Media Page -->
+    <url>
+        <loc>https://alhaqdigital.com/media.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Infographics Page -->
+    <url>
+        <loc>https://alhaqdigital.com/all-infographics.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Help & FAQ Page -->
+    <url>
+        <loc>https://alhaqdigital.com/help.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Contact Page -->
+    <url>
+        <loc>https://alhaqdigital.com/contact.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Donate Page -->
+    <url>
+        <loc>https://alhaqdigital.com/donate.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
