@@ -1,0 +1,7 @@
+/* Extracted styles from services.html */
+body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
+.bg-brand-blue { background-color: #0A2540; }
+.text-brand-blue { color: #0A2540; }
+.bg-brand-gold { background-color: #D4AF37; }
+.text-brand-gold { color: #D4AF37; }
+.glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }

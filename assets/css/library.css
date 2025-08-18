@@ -1,0 +1,12 @@
+/* Extracted Library page styles */
+body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
+.bg-brand-blue { background-color: #0A2540; }
+.text-brand-blue { color: #0A2540; }
+.bg-brand-gold { background-color: #D4AF37; }
+.text-brand-gold { color: #D4AF37; }
+
+.islamic-section { background: linear-gradient(135deg, #f8f9fa, #e9ecef); position: relative; }
+.islamic-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37); }
+
+/* Utility */
+.inline-icon { display: inline-block; width: 1.25rem; height: 1.25rem; vertical-align: middle; margin-right: 0.25rem; }

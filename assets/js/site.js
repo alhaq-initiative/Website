@@ -59,6 +59,99 @@
 
   // Init on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
+    // Ensure global stylesheet is last in head so overrides (including dark mode) take precedence
+    try {
+      const links = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+      const globalLink = links.find(l => (l.getAttribute('href') || '').includes('/assets/css/styles.css'));
+      if (globalLink && globalLink.parentElement) {
+        // Move to end of head
+        document.head.appendChild(globalLink);
+      }
+    } catch(_) {}
+    // Remove header language switcher completely (floating dock replaces it)
+    try {
+      // delete elements if present
+      const btn = document.getElementById('langSwitcherBtn');
+      const dd = document.getElementById('langDropdown');
+      if (btn) btn.remove();
+      if (dd) dd.remove();
+      // hide by CSS at any viewport as a safeguard
+      const style = document.createElement('style');
+      style.setAttribute('data-lang-switcher-hide-all', 'true');
+      style.textContent = '#langSwitcherBtn, #langDropdown { display:none !important; }';
+      document.head.appendChild(style);
+    } catch(_) {}
+
+    // Global dark-mode readability: boost contrast for common text classes and brand blue
+    try {
+      const darkStyle = document.createElement('style');
+      darkStyle.setAttribute('data-global-dark-styles', 'true');
+      darkStyle.textContent = `
+        html.dark body { background-color:#00172e; color:#e2e8f0; }
+        html.dark .text-gray-700, html.dark .text-gray-600, html.dark .text-gray-500 { color:#e2e8f0 !important; }
+        html.dark .text-brand-blue { color:#f1f5f9 !important; }
+        /* Preferences dock buttons in dark */
+        html.dark #global-preferences-dock #global-theme-btn,
+        html.dark #global-lang-switcher #global-lang-btn { background:rgba(17,34,64,0.9) !important; color:#ffffff !important; border-color:rgba(212,175,55,0.6) !important; }
+        html.dark #global-lang-switcher #global-lang-menu { background:rgba(23,53,83,0.98) !important; border-color:rgba(212,175,55,0.5) !important; }
+        html.dark #global-lang-switcher #global-lang-menu button { color:#f8fafc !important; }
+      `;
+      document.head.appendChild(darkStyle);
+    } catch(_) {}
+    // 1) Apply saved theme or system preference and add bottom-left toggle
+    (function initGlobalTheme() {
+      try {
+        const STORAGE_KEY = 'siteTheme';
+        const root = document.documentElement;
+        const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ds-theme'); // unify with DeenShield legacy
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = (saved === 'dark' || saved === 'light') ? saved : (prefersDark ? 'dark' : 'light');
+  root.classList.toggle('dark', initial === 'dark');
+  if (document.body) document.body.classList.toggle('dark', initial === 'dark');
+        try { localStorage.setItem(STORAGE_KEY, initial); localStorage.setItem('ds-theme', initial); } catch(_) {}
+
+        // Build bottom-left preferences dock with Theme + Language shortcuts
+        if (!document.getElementById('global-preferences-dock')) {
+          const dock = document.createElement('div');
+          dock.id = 'global-preferences-dock';
+          Object.assign(dock.style, {
+            position: 'fixed', left: '1rem', bottom: '1rem', zIndex: '9999',
+            display: 'flex', gap: '8px', alignItems: 'center'
+          });
+
+          // Theme button
+          const themeBtn = document.createElement('button');
+          themeBtn.id = 'global-theme-btn';
+          themeBtn.type = 'button';
+          themeBtn.title = 'Toggle theme';
+          themeBtn.setAttribute('aria-label', 'Toggle color theme');
+          themeBtn.setAttribute('aria-pressed', initial === 'dark' ? 'true':'false');
+          Object.assign(themeBtn.style, {
+            width: '44px', height: '44px', borderRadius: '9999px', cursor: 'pointer',
+            border: '1px solid rgba(212,175,55,0.5)',
+            background: 'rgba(255,255,255,0.9)', color: '#0A2540', fontWeight: '700',
+            backdropFilter: 'blur(8px)', boxShadow: '0 6px 16px rgba(0,0,0,0.12)'
+          });
+          const updateThemeBtnIcon = () => {
+            const dark = root.classList.contains('dark');
+            themeBtn.textContent = dark ? '☀️' : '🌙';
+            themeBtn.setAttribute('aria-pressed', dark ? 'true':'false');
+          };
+          updateThemeBtnIcon();
+          themeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const nowDark = !root.classList.contains('dark');
+            root.classList.toggle('dark', nowDark);
+            if (document.body) document.body.classList.toggle('dark', nowDark);
+            try { localStorage.setItem(STORAGE_KEY, nowDark ? 'dark':'light'); localStorage.setItem('ds-theme', nowDark ? 'dark':'light'); } catch(_) {}
+            updateThemeBtnIcon();
+          });
+
+          dock.appendChild(themeBtn);
+          document.body.appendChild(dock);
+        }
+      } catch(_) {}
+    })();
     hardenExternalLinks();
     enableLazyImages();
     prefetchOnHover();
@@ -211,7 +304,11 @@
         // Prefer path segment (/ar/, /fa/, /ps), fallback to ?lang
         const fromPath = getLangFromPath();
         if (fromPath) return fromPath;
-        try { return new URLSearchParams(location.search).get('lang'); } catch (_) { return null; }
+        try {
+          const qp = new URLSearchParams(location.search).get('lang');
+          if (qp && ['ar','fa','ps'].includes(qp)) return qp;
+        } catch (_) {}
+        return null;
       };
       function getPathWithoutLang() {
         const parts = location.pathname.split('/');
@@ -285,9 +382,11 @@
         if (name.includes('projects')) return 'projects';
         if (name.includes('introduction')) return 'introduction';
         if (name.includes('taleem-ai')) return 'taleem-ai';
-        if (name.includes('deenshield-app')) return 'deenshield-app';
-        if (name.includes('deensheild-extension')) return 'deensheild-extension';
-        if (name.includes('deensheild')) return 'deensheild';
+  // DeenShield pages: handle both correct and legacy misspelling used in assets/Translations
+  if (name.includes('deenshield-app')) return 'deenshield-app';
+  // If path uses correct spelling, map to legacy folder name to avoid 404
+  if (name.includes('deenshield-extension')) return 'deensheild-extension';
+  if (name.includes('deenshield')) return 'deensheild';
         return null;
       }
       async function fetchPageTranslations(pageKey, langCode) {
@@ -295,7 +394,17 @@
         const key = `${pageKey}:${langCode}`;
         if (cache[key]) return cache[key];
         try {
-      const res = await fetch(`/assets/Translations/${pageKey}/${langCode}.json`, { cache: 'no-cache' });
+      let res = await fetch(`/assets/Translations/${pageKey}/${langCode}.json`, { cache: 'no-cache' });
+          // Fallback for legacy/corrected folder name mismatches (deensheild <-> deenshield)
+          if (!res.ok) {
+            const alt = pageKey === 'deensheild' ? 'deenshield' : (pageKey === 'deensheild-extension' ? 'deenshield-extension' : null);
+            if (alt) {
+              try {
+                const r2 = await fetch(`/assets/Translations/${alt}/${langCode}.json`, { cache: 'no-cache' });
+                if (r2.ok) res = r2;
+              } catch(_) {}
+            }
+          }
           if (!res.ok) return null;
           const data = await res.json();
           cache[key] = data;
@@ -344,6 +453,10 @@
       }
 
       async function applyLang(langCode) {
+        // Capture previous language to avoid reload loops on EN
+        const prevLang = (function(){
+          try { return getLangFromUrl() || localStorage.getItem('siteLang') || 'en'; } catch(_) { return 'en'; }
+        })();
         const lang = findLang(langCode);
         try { localStorage.setItem('siteLang', lang.code); } catch (_) {}
         try {
@@ -383,6 +496,12 @@
         ensureBaseForLangPrefix(lang.code);
         rewriteInternalLinks(lang.code);
         setLangInUrl(lang.code);
+        // If switching to English, reload once to restore original default content immediately
+        // (pages only ship non-EN JSON; EN relies on static DOM)
+        if (lang.code === 'en' && prevLang !== 'en') {
+          try { location.reload(); } catch(_) {}
+          return; // stop further processing
+        }
       }
 
       try {
@@ -400,32 +519,36 @@
         });
       } catch (_) {}
 
-      // Determine initial language: honor explicit URL (/ar, /fa, /ps or ?lang) only.
+  // Determine initial language: honor explicit URL (/ar|/fa|/ps or ?lang=ar|fa|ps).
       // Do NOT auto-switch to a stored preference when landing at root — English is default.
-      const explicit = getLangFromUrl();
-      const initialLang = explicit || 'en';
+  const explicit = getLangFromUrl();
+  const storedPref = (function(){ try { return localStorage.getItem('siteLang'); } catch(_) { return null; }})();
+  const initialLang = explicit || storedPref || 'en';
       // Ensure base and links are correct for initial load before applying
-      ensureBaseForLangPrefix(initialLang);
-      rewriteInternalLinks(initialLang);
-      if (explicit && initialLang !== 'en') {
-        // Only apply and rewrite URL when language is explicitly requested
+  ensureBaseForLangPrefix(initialLang);
+  rewriteInternalLinks(initialLang);
+  if (explicit && initialLang !== 'en') {
+        // Apply and normalize visible URL to path-prefix style
         applyLang(initialLang);
+        setLangInUrl(initialLang);
+      } else if (!explicit && storedPref && storedPref !== 'en') {
+        // Honor stored language across the whole site when explicit is absent
+        applyLang(storedPref);
+        setLangInUrl(storedPref);
       } else {
         // Keep default English at '/'
-        reflectCurrentLangLabel(initialLang);
+        reflectCurrentLangLabel('en');
         // Do not rewrite URL to '/index.html' for English
       }
 
-  // Inject floating button only if no page-level switcher is present
-  const hasPageLangControl = !!document.getElementById('currentLang');
-  // Disable floating language switcher for consistency across pages
-  if (false && !hasPageLangControl && !document.getElementById('global-lang-switcher')) {
+  // Inject floating language switcher (bottom-left) for consistency across pages
+  if (!document.getElementById('global-lang-switcher')) {
         const wrap = document.createElement('div');
         wrap.id = 'global-lang-switcher';
         wrap.setAttribute('aria-live', 'polite');
         wrap.style.position = 'fixed';
-        wrap.style.top = '1.0rem';
-        wrap.style.right = '1.0rem';
+        wrap.style.left = '1.0rem';
+        wrap.style.bottom = '4.5rem';
         wrap.style.zIndex = '9999';
 
         const btn = document.createElement('button');
@@ -445,7 +568,7 @@
         menu.id = 'global-lang-menu';
         menu.setAttribute('role', 'menu');
         Object.assign(menu.style, {
-          position: 'absolute', top: '56px', right: '0', minWidth: '160px', padding: '6px',
+          position: 'absolute', bottom: '56px', left: '0', minWidth: '160px', padding: '6px',
           borderRadius: '12px', border: '1px solid rgba(212,175,55,0.4)', background: 'rgba(255,255,255,0.98)',
           boxShadow: '0 12px 24px rgba(0,0,0,0.12)', display: 'none'
         });
@@ -498,40 +621,7 @@
       }
     })();
 
-    // Universal header language dropdown toggle (binds once; coexists with differing class patterns)
-    try {
-      const langBtn = document.getElementById('langSwitcherBtn');
-      const langDropdown = document.getElementById('langDropdown');
-      if (langBtn && langDropdown && !langBtn.dataset.bound) {
-        const toggle = (e) => {
-          e?.stopPropagation?.();
-          // Support two patterns: hidden vs. opacity/pointer-events
-          if (langDropdown.classList.contains('hidden')) {
-            langDropdown.classList.toggle('hidden');
-          } else {
-            const expanded = langDropdown.classList.contains('opacity-100');
-            langDropdown.classList.toggle('opacity-0');
-            langDropdown.classList.toggle('pointer-events-none');
-            langDropdown.classList.toggle('opacity-100');
-            langDropdown.classList.toggle('pointer-events-auto');
-            langBtn.setAttribute('aria-expanded', (!expanded).toString());
-          }
-        };
-        langBtn.addEventListener('click', toggle, { capture: true });
-        document.addEventListener('click', (e) => {
-          if (!langBtn.contains(e.target)) {
-            if (langDropdown.classList.contains('hidden')) return;
-            langDropdown.classList.add('opacity-0');
-            langDropdown.classList.add('pointer-events-none');
-            langDropdown.classList.remove('opacity-100');
-            langDropdown.classList.remove('pointer-events-auto');
-            langDropdown.classList.add('hidden');
-            langBtn.setAttribute('aria-expanded', 'false');
-          }
-        });
-        langBtn.dataset.bound = 'true';
-      }
-    } catch(_) {}
+  // Header language dropdown removed; no binding necessary
 
   });
 })();

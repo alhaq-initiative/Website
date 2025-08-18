@@ -21,14 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/components.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-        .bg-brand-blue { background-color: #0A2540; }
-        .text-brand-blue { color: #0A2540; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        .text-brand-gold { color: #D4AF37; }
-        .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
-    </style>
+    <link rel="stylesheet" href="assets/css/services.css">
 </head>
 <body class="antialiased">
     <header id="header" class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -45,20 +38,6 @@
         <a href="services.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
         <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
         <a href="help.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Help & FAQ</a>
-                                <!-- Language Switcher -->
-                                <div class="relative ml-2">
-                                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                                        <span class="font-semibold text-brand-blue mr-1">🌐</span>
-                                        <span id="currentLang" class="font-medium text-brand-blue">EN</span>
-                                        <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                                    </button>
-                                    <ul id="langDropdown" class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
-                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('en')">English</button></li>
-                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ar')">عربی</button></li>
-                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('fa')">دری</button></li>
-                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ps')">پښتو</button></li>
-                                    </ul>
-                                </div>
             </nav>
             <div class="flex items-center space-x-2">
                 <a href="contact.html" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
@@ -194,19 +173,7 @@
             <p class="mt-2">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
         </div>
     </footer>
-<script>
-// Mobile menu toggle for Services page
-document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-        btn.addEventListener('click', function () {
-            const isHidden = menu.classList.toggle('hidden');
-            btn.setAttribute('aria-expanded', (!isHidden).toString());
-        });
-    }
-});
-</script>
     <script src="assets/js/site.js"></script>
+    <script src="assets/js/services.js"></script>
 </body>
 </html>

@@ -9,6 +9,86 @@
   "navDonate": "تبرع",
   "mainHeading": "الأسئلة الشائعة",
   "mainSub": "إجابات على الأسئلة الشائعة حول الموقع والخدمات.",
+  "faqCategories": [
+    {
+      "category": "عن الحق للخدمات الرقمية (ADS)",
+      "items": [
+        {
+          "q": "ما هي الحق للخدمات الرقمية؟",
+          "a": "الحق للخدمات الرقمية (ADS) توفر موارد إسلامية ميسّرة، وأدوات تعليمية، وخدمات رقمية لتمكين المجتمعات وتعزيز التعلم. لمعرفة المزيد، راجع صفحة <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">من نحن</a>."
+        },
+        {
+          "q": "ما هي رسالة الحق للخدمات الرقمية؟",
+          "a": "رسالتنا هي تقديم موارد إسلامية وأدوات تعليمية وخدمات رقمية ميسّرة تدعم المجتمع وتُنمّي التعلم والإيمان. مزيد من التفاصيل في قسم <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">من نحن</a>."
+        }
+      ]
+    },
+    {
+      "category": "المكتبة",
+      "items": [
+        {
+          "q": "كيف أصل إلى المكتبة؟ وهل هي مجانية؟",
+          "a": "نعم، كل الإنفوجرافيك ومعظم الموارد في المكتبة متاحة مجانًا للجميع. تفضل بزيارة صفحة <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">المكتبة</a>."
+        },
+        {
+          "q": "كيف أصل إلى قسمي القرآن والحديث؟",
+          "a": "اذهب إلى صفحة <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">المكتبة</a> ثم اختر القرآن أو الحديث للاطلاع على الترجمات والتفسير والمجموعات الموثوقة."
+        }
+      ]
+    },
+    {
+      "category": "الاستخدام",
+      "items": [
+        {
+          "q": "كيف أستخدم تطبيق Taleem AI؟",
+          "a": "حمّل التطبيق من <a href=\"https://play.google.com/store\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">Google Play</a> أو <a href=\"https://www.apple.com/app-store/\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">App Store</a>، واتبع الإرشادات للحصول على ملاحظات فورية على تلاوتك."
+        }
+      ]
+    },
+    {
+      "category": "التبرعات",
+      "items": [
+        {
+          "q": "كيف يمكنني التبرع لدعم عملكم؟",
+          "a": "قم بزيارة صفحة <a href=\"donate.html\" class=\"text-brand-blue underline hover:text-brand-gold\">التبرع</a> للتبرع عبر الإنترنت بأمان من خلال Ko‑fi أو وسائل متاحة أخرى."
+        }
+      ]
+    },
+    {
+      "category": "الاتصال والدعم",
+      "items": [
+        {
+          "q": "كيف أتواصل معكم للدعم أو التعاون؟",
+          "a": "استخدم صفحة <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اتصل بنا</a>، أو زر الزر العائم أسفل يمين الصفحة لإرسال رسالة مباشرة."
+        },
+        {
+          "q": "كيف أُبلّغ عن خطأ أو أقترح ميزة؟",
+          "a": "يرجى استخدام صفحة <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اتصل بنا</a> وذكر تفاصيل الخطأ أو الاقتراح. نقدر ملاحظاتكم!"
+        }
+      ]
+    },
+    {
+      "category": "الخصوصية والبيانات",
+      "items": [
+        {
+          "q": "هل بياناتي آمنة؟",
+          "a": "نعم، نحن نهتم بالخصوصية ولا نشارك بياناتك مع أطراف ثالثة. تُدار المعلومات بأمان. لأي استفسارات راجع <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اتصل بنا</a>."
+        }
+      ]
+    },
+    {
+      "category": "الميزات والتحديثات",
+      "items": [
+        {
+          "q": "هل هناك خطط لإضافة كتب أو ميزات جديدة؟",
+          "a": "نعم، نعمل باستمرار على توسيع <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">المكتبة</a> وإضافة مزايا جديدة. ترقبوا التحديثات!"
+        }
+      ]
+    }
+  ],
+  "supportNotFound": "لم تجد إجابتك؟",
+  "supportStillNeed": "لا تزال بحاجة إلى مساعدة؟ ابحث عن الإجابات هنا واحصل على الدعم عند الحاجة.",
+  "supportContact": "اتصل بالدعم",
   "footerSlogan": "نبني مستقبلاً رقمياً متجذراً في الإيمان.",
   "footerHome": "الرئيسية",
   "footerAbout": "من نحن",

@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/library.css">
 </head>
 <body class="antialiased">
     <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -68,41 +69,7 @@
                         <a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a>
                     </div>
                 </div>
-                
-                <!-- Action Buttons and Language -->
                 <div class="flex items-center space-x-2">
-                    <!-- Language Switcher -->
-                    <div class="relative mr-2">
-                        <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-50 focus:outline-none" 
-                                aria-haspopup="true" 
-                                aria-controls="langDropdown" 
-                                aria-expanded="false"
-                                aria-label="Select language">
-                            <span class="font-semibold text-brand-blue mr-1" aria-hidden="true">🌐</span>
-                            <span id="currentLang" class="font-medium text-brand-blue">EN</span>
-                            <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </button>
-                        <div id="langDropdown" 
-                             class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50" 
-                             role="menu" 
-                             aria-labelledby="langSwitcherBtn">
-                            <div role="none">
-                                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
-                                        onclick="setLanguage('en')" 
-                                        role="menuitem">English</button>
-                                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
-                                        onclick="setLanguage('ar')" 
-                                        role="menuitem">عربی</button>
-                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
-                    onclick="setLanguage('fa')" 
-                    role="menuitem">دری</button>
-                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
-                    onclick="setLanguage('ps')" 
-                    role="menuitem">پښتو</button>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>
                     <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>
                 </div>
@@ -372,17 +339,7 @@
                     <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
-                </a>
-                <a href="https://x.com/@AlhaqD7396" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Follow us on X (formerly Twitter)" 
-                   class="hover:text-blue-400 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/>
-                    </svg>
-                </a>
-                <a href="https://instagram.com/alhaq.digital" 
+                    
                    target="_blank" 
                    rel="noopener noreferrer" 
                    aria-label="Follow us on Instagram" 
@@ -396,71 +353,6 @@
         </div>
     </footer>
     <script src="assets/js/site.js"></script>
-    <script>
-        // Dropdown menu toggle for infographics
-        const infBtn = document.getElementById('infographicsDropdownBtn');
-        const infMenu = document.getElementById('infographicsDropdownMenu');
-        if (infBtn && infMenu) {
-            infBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                infMenu.classList.toggle('hidden');
-            });
-            document.addEventListener('click', function(e) {
-                if (!infBtn.contains(e.target)) {
-                    infMenu.classList.add('hidden');
-                }
-            });
-        }
-
-        // Page-specific language hook used by core site.js
-        window._pageSetLanguage = function(lang) {
-            if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
-            const t = Object.assign({}, window.pageTranslations || {});
-            if (t.title) document.title = t.title;
-            // Main heading and sub
-            const h1 = document.querySelector('h1');
-            if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
-            const mainSub = document.querySelector('p.text-lg');
-            if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
-            // Cards (Quran, Hadith, Articles, Books, Infographics)
-            const cardTitles = [t.quran, t.hadith, t.articles, t.books, t.infographics];
-            const cardDescs = [t.quranDesc, t.hadithDesc, t.articlesDesc, t.booksDesc, t.infographicsDesc];
-            const cardLinks = [t.view, t.view, t.view, t.view, t.view];
-            document.querySelectorAll('.grid .bg-white h2').forEach((el, i) => {
-                if (cardTitles[i]) el.textContent = cardTitles[i];
-            });
-            document.querySelectorAll('.grid .bg-white p').forEach((el, i) => {
-                if (cardDescs[i]) el.textContent = cardDescs[i];
-            });
-            document.querySelectorAll('.grid .bg-white a').forEach((el, i) => {
-                if (cardLinks[i]) el.textContent = cardLinks[i];
-            });
-            // Infographics dropdown button label
-            const ib = document.getElementById('infographicsDropdownBtn');
-            if (ib && t.infographics) ib.childNodes[0].nodeValue = t.infographics;
-            // Footer slogan
-            const footerSlogan = document.querySelector('footer p.mt-2');
-            if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
-        };
-    </script>
-<script>
-// Minimal mobile menu toggle; active nav handled globally in site.js
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            const isHidden = mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.setAttribute('aria-expanded', (!isHidden).toString());
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
-});
-</script>
+    <script src="assets/js/library.js"></script>
 </body>
 </html>

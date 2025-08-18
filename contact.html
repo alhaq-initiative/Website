@@ -20,53 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/components.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-        .bg-brand-blue { background-color: #0A2540; }
-        .text-brand-blue { color: #0A2540; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        .text-brand-gold { color: #D4AF37; }
-        .glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
-        .hidden-input { display: none; }
-        .input-hide { display: none; }
-        
-        /* Islamic Styling */
-        .islamic-header {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .islamic-section {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            position: relative;
-        }
-        
-        .islamic-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37);
-        }
-        
-        .islamic-footer {
-            background: linear-gradient(135deg, #2d3748, #1a202c);
-            border-top: 3px solid #D4AF37;
-        }
-        
-        .islamic-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 <body class="antialiased">
     <header id="header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -185,6 +139,7 @@
         </div>
     </footer>
     <script src="assets/js/site.js"></script>
+    <script src="assets/js/contact.js"></script>
     <button id="feedback-btn" class="fixed z-50 bottom-6 right-6 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-400 transition-all">Report / Feedback</button>
     <div id="feedback-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
@@ -199,73 +154,7 @@
             </form>
         </div>
     </div>
-    <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Feedback modal logic
-        const feedbackBtn = document.getElementById('feedback-btn');
-        const feedbackModal = document.getElementById('feedback-modal');
-        const closeFeedback = document.getElementById('close-feedback');
-        feedbackBtn.addEventListener('click', () => feedbackModal.classList.remove('hidden'));
-        closeFeedback.addEventListener('click', () => feedbackModal.classList.add('hidden'));
-        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') feedbackModal.classList.add('hidden'); });
-
-        // Page-specific translations hook used by core site.js
-        window._pageSetLanguage = function(lang) {
-            if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
-            const t = Object.assign({}, window.pageTranslations || {});
-            if (t.title) document.title = t.title;
-            const h1 = document.querySelector('h1'); if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
-            const mainSub = document.querySelector('p.text-lg'); if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
-            const nameLabel = document.querySelector("label[for='name']"); if (nameLabel && t.formName) nameLabel.textContent = t.formName;
-            const emailLabel = document.querySelector("label[for='email']"); if (emailLabel && t.formEmail) emailLabel.textContent = t.formEmail;
-            const messageLabel = document.querySelector("label[for='message']"); if (messageLabel && t.formMessage) messageLabel.textContent = t.formMessage;
-            const submitBtn = document.querySelector("button[type='submit']"); if (submitBtn && t.formSubmit) submitBtn.textContent = t.formSubmit;
-            const footerSlogan = document.querySelector('footer p.mt-2'); if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
-        };
-    </script>
-<script>
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    if (!form) return;
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        formStatus.textContent = 'Sending...';
-        formStatus.style.color = 'gray';
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        const logicAppUrl = "https://prod-10.ukwest.logic.azure.com/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg";
-        try {
-            const response = await fetch(logicAppUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message }),
-            });
-            if (response.ok) {
-                formStatus.textContent = "Feedback submitted successfully.";
-                formStatus.style.color = 'green';
-                form.reset();
-            } else {
-                formStatus.textContent = 'Submission failed. Please check your Logic App configuration.';
-                formStatus.style.color = 'red';
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            formStatus.textContent = 'An unexpected error occurred. Please try again later.';
-            formStatus.style.color = 'red';
-        }
-    });
-});
-</script>
+    
 </body>
 </html>
 

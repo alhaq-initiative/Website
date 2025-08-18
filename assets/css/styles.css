@@ -7,6 +7,62 @@ body {
   color: #333333;
 }
 
+/* Dark mode: high-contrast base */
+html.dark body {
+  background-color: #0b1220; /* deep navy */
+  color: #e5e7eb; /* light text */
+}
+/* Support pages that use body.dark selectors */
+body.dark { background-color: #0b1220; color: #e5e7eb; }
+html.dark a { color: #dbeafe; }
+html.dark .text-brand-blue { color: #f1f5f9; }
+html.dark .text-gray-700,
+html.dark .text-gray-600,
+html.dark .text-gray-500 { color: #e5e7eb !important; }
+html.dark .text-gray-800,
+html.dark .text-gray-900 { color: #f1f5f9 !important; }
+
+/* Dark mode backgrounds and borders for common utility classes */
+html.dark .bg-white { background-color: #0f1a2b !important; }
+html.dark .bg-gray-50 { background-color: #0e1726 !important; }
+html.dark .bg-gray-100 { background-color: #0f172a !important; }
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 { border-color: #334155 !important; }
+html.dark .divide-gray-100,
+html.dark .divide-gray-200 { border-color: #334155 !important; }
+
+/* Form controls */
+html.dark input[type="text"],
+html.dark input[type="email"],
+html.dark input[type="tel"],
+html.dark input[type="search"],
+html.dark input[type="url"],
+html.dark input[type="password"],
+html.dark textarea,
+html.dark select {
+  background-color: #0f1a2b !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder { color: #94a3b8 !important; }
+
+/* Dropdowns/menus commonly using white */
+html.dark .menu, html.dark .dropdown, html.dark .popover, html.dark .modal {
+  background-color: #0f1a2b !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+
+/* Dark mode: ensure common text elements are readable even if pages set their own colors */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+  color: #f8fafc !important;
+}
+html.dark p, html.dark li, html.dark small, html.dark blockquote, html.dark label, html.dark dt, html.dark dd {
+  color: #e5e7eb !important;
+}
+
 /* Brand colors */
 .bg-brand-blue {
   background-color: #0a2540;
@@ -42,9 +98,19 @@ body {
   user-select: none;
 }
 
+html.dark .islamic-header {
+  background: linear-gradient(135deg, rgba(16, 31, 53, 0.9), rgba(11, 25, 43, 0.88));
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  color: #f1f5f9;
+}
+
 .islamic-section {
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   position: relative;
+}
+
+html.dark .islamic-section {
+  background: linear-gradient(135deg, #10243b, #0b1a2b);
 }
 
 .islamic-section::before {
@@ -57,9 +123,18 @@ body {
   background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
 }
 
+html.dark .islamic-section::before {
+  background: linear-gradient(90deg, #d4af37, #1e3a8a, #d4af37);
+}
+
 .islamic-footer {
   background: linear-gradient(135deg, #2d3748, #1a202c);
   border-top: 3px solid #d4af37;
+}
+
+html.dark .islamic-footer {
+  background: linear-gradient(135deg, #0e1726, #0b1220);
+  color: #cbd5e1;
 }
 
 .islamic-card {
@@ -74,6 +149,26 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+html.dark .islamic-card {
+  background: linear-gradient(135deg, rgba(23, 53, 83, 0.92), rgba(15, 39, 64, 0.88)) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
+  color: #e5e7eb !important;
+}
+html.dark .islamic-card h3 { color: #f8fafc !important; }
+html.dark .islamic-card p, html.dark .islamic-card li { color: #e5e7eb !important; }
+
+/* Generic card/section overrides for pages with custom inline styles */
+html.dark .card, html.dark .panel, html.dark .box, html.dark .value-card, html.dark .feature-card, html.dark .content-card {
+  background-color: #0f1a2b !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+
+/* Gradients and highlights */
+html.dark .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #111827 100%) !important; }
+html.dark .integration-highlight { background: linear-gradient(135deg, #1f2937, #111827) !important; color: #e5e7eb !important; }
 
 /* Modern Navigation Styles */
 .active-nav {

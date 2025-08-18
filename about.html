@@ -19,15 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/components.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-        .bg-brand-blue { background-color: #0A2540; }
-        .text-brand-blue { color: #0A2540; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        .text-brand-gold { color: #D4AF37; }
-        .islamic-header { background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 2px solid rgba(212, 175, 55, 0.2); }
-        .islamic-footer { background: linear-gradient(135deg, #2d3748, #1a202c); border-top: 3px solid #D4AF37; }
-    </style>
+    <link rel="stylesheet" href="assets/css/about.css">
 </head>
 <body class="antialiased">
     <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -118,18 +110,6 @@
         </div>
     </footer>
     <script src="assets/js/site.js"></script>
-    <script>
-    // Mobile menu toggle for About page
-    document.addEventListener('DOMContentLoaded', function () {
-        const btn = document.getElementById('mobile-menu-button');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', function () {
-                const isHidden = menu.classList.toggle('hidden');
-                btn.setAttribute('aria-expanded', (!isHidden).toString());
-            });
-        }
-    });
-    </script>
+    <script src="assets/js/about.js"></script>
 </body>
 </html>

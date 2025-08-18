@@ -20,57 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/components.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-        .bg-brand-blue { background-color: #0A2540; }
-        .text-brand-blue { color: #0A2540; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        .text-brand-gold { color: #D4AF37; }
-        .hidden-website-field { display: none; }
-        .input-hide { display: none; }
-        
-        /* Islamic Styling */
-        .islamic-header {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .islamic-section {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            position: relative;
-        }
-        
-        .islamic-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37);
-        }
-        
-        .islamic-footer {
-            background: linear-gradient(135deg, #2d3748, #1a202c);
-            border-top: 3px solid #D4AF37;
-        }
-        
-        .islamic-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/donate.css">
 </head>
 <body class="antialiased">
     <header id="header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -91,20 +41,6 @@
             <div class="flex items-center space-x-2">
                 <a href="index.html#contact" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
                 <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
-                <!-- Language Switcher -->
-                <div class="relative ml-4">
-                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
-                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
-                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </button>
-                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
-                    </ul>
-                </div>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -181,6 +117,7 @@
     </footer>
     <!-- Feedback button and modal retained, as they are not legacy or old references -->
     <script src="assets/js/site.js"></script>
+    <script src="assets/js/donate.js"></script>
     <button id="feedback-btn" class="fixed z-50 bottom-6 right-6 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-400 transition-all">Report / Feedback</button>
     <div id="feedback-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
@@ -195,44 +132,6 @@
             </form>
         </div>
     </div>
-    <script>
-        // Feedback modal logic
-        const feedbackBtn = document.getElementById('feedback-btn');
-        const feedbackModal = document.getElementById('feedback-modal');
-        const closeFeedback = document.getElementById('close-feedback');
-        feedbackBtn.addEventListener('click', () => feedbackModal.classList.remove('hidden'));
-        closeFeedback.addEventListener('click', () => feedbackModal.classList.add('hidden'));
-        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') feedbackModal.classList.add('hidden'); });
-    </script>
-    <script>
-    // Mobile menu toggle for Donate page (placed near end for better load order)
-    document.addEventListener('DOMContentLoaded', function () {
-        const btn = document.getElementById('mobile-menu-button');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', function () {
-                const isHidden = menu.classList.toggle('hidden');
-                btn.setAttribute('aria-expanded', (!isHidden).toString());
-            });
-        }
-    });
-    </script>
-<script>
-</script>
-<script>
-// Page-specific translations hook used by core site.js
-window._pageSetLanguage = function(lang) {
-    if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
-    const t = Object.assign({}, window.pageTranslations || {});
-    if (t.title) document.title = t.title;
-    const h1 = document.querySelector('h1'); if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
-    const mainSub = document.querySelector('p.text-lg'); if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
-    const footerSlogan = document.querySelector('footer p.mt-2'); if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
-    // Optional: update Explore Library heading if provided
-    const libHeading = document.querySelector('section.bg-white h2'); if (libHeading && t.visitLibrary) libHeading.textContent = t.visitLibrary;
-    // Optional: update donate button text if provided
-    const stripeBtn = document.querySelector('a[href*="buy.stripe.com"]'); if (stripeBtn && t.navDonate) stripeBtn.textContent = t.navDonate;
-};
-</script>
+    
 </body>
 </html>

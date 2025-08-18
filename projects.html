@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projects - Alhaq Digital Services (ADS)</title>
+	<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+	<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+	<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+	<link rel="manifest" href="assets/images/site.webmanifest">
+	<meta name="theme-color" content="#ffffff">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/components.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="antialiased">
+	<header class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+		<div class="container mx-auto px-4 py-2 flex justify-between items-center">
+			<a href="index.html" class="flex items-center space-x-2">
+				<div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+					<img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+				</div>
+				<span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+			</a>
+			<nav class="hidden md:flex space-x-8 items-center">
+				<a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
+				<a href="about.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
+				<a href="services.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
+				<a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
+				<a href="projects.html" class="text-brand-gold font-semibold">Projects</a>
+				<a href="help.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Help & FAQ</a>
+				<a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
+			</nav>
+			<button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+			</button>
+		</div>
+		<div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+			<a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
+			<a href="about.html" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
+			<a href="services.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
+			<a href="library.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Library</a>
+			<a href="projects.html" class="block text-brand-gold font-semibold py-2">Projects</a>
+			<a href="help.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Help & FAQ</a>
+			<a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
+		</div>
+	</header>
+
+	<main class="pt-32 pb-20">
+		<section class="fade-in-section">
+			<div class="container mx-auto px-6 text-center max-w-3xl">
+				<h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Projects</h1>
+				<p class="text-lg text-gray-700 mb-6">A showcase of our current and upcoming initiatives across apps, extensions, and digital resources.</p>
+				<div class="grid md:grid-cols-2 gap-8">
+					<a href="/deenshield/main.html" class="glass-card p-6 text-left hover:shadow-xl transition block group">
+						<h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Deen Shield</h3>
+						<p class="text-gray-700">Suite of tools for digital wellness: web app, mobile apps, and browser extension.</p>
+					</a>
+					<a href="quran.html" class="glass-card p-6 text-left hover:shadow-xl transition block group">
+						<h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Quran Hub</h3>
+						<p class="text-gray-700">Reader with translations and recitation, plus study resources.</p>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="bg-gray-800 text-white mt-20">
+		<div class="container mx-auto px-6 py-8 text-center">
+			<h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
+			<p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
+			<div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+				<a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
+				<a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
+				<a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+				<a href="library.html" class="text-gray-300 hover:text-brand-gold transition">Library</a>
+				<a href="projects.html" class="text-brand-gold font-semibold">Projects</a>
+				<a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
+				<a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
+			</div>
+			<p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
+		</div>
+	</footer>
+	<script src="assets/js/site.js"></script>
+</body>
+</html>
