@@ -47,16 +47,38 @@ $appDst        = Join-Path $DestRoot "deenshield_app"
 $rootFiles = @(
   "index.html","about.html","contact.html","donate.html","help.html",
   "library.html","services.html","quran.html","projects.html","media.html",
-  "introduction.html","all-infographics.html","taleem-ai.html"
+  "introduction.html","all-infographics.html","taleem-ai.html",
+  # PWA/offline and IIS config
+  "offline.html","sw.js","web.config"
 )
 
 # 1) Main site: copy selected root pages + assets/
 Copy-List $repoRoot $rootFiles $mainDst
 Copy-Tree (Join-Path $repoRoot "assets") (Join-Path $mainDst "assets")
 
-# 2) DeenShield site: dedicated page + assets
+# 2) DeenShield site: landing + dedicated brand assets and localized content
 $shieldPage = Join-Path $repoRoot "deenshield\main.html"
-if (Test-Path $shieldPage) { Copy-List $repoRoot @("deenshield\main.html") $shieldDst } else { Write-Host "Missing deenshield/main.html" -ForegroundColor DarkYellow }
+if (Test-Path $shieldPage) {
+  Copy-List $repoRoot @("deenshield\main.html") $shieldDst
+  # Brand-specific assets used by the landing
+  $shieldStyles = Join-Path $repoRoot "deenshield\styles"
+  $shieldJs     = Join-Path $repoRoot "deenshield\js"
+  $shieldImgs   = Join-Path $repoRoot "deenshield\images"
+  $shieldComps  = Join-Path $repoRoot "deenshield\components"
+  if (Test-Path $shieldStyles) { Copy-Tree $shieldStyles (Join-Path $shieldDst "styles") }
+  if (Test-Path $shieldJs)     { Copy-Tree $shieldJs     (Join-Path $shieldDst "js") }
+  if (Test-Path $shieldImgs)   { Copy-Tree $shieldImgs   (Join-Path $shieldDst "images") }
+  if (Test-Path $shieldComps)  { Copy-Tree $shieldComps  (Join-Path $shieldDst "components") }
+  # Localized brand pages (privacy/support/terms)
+  $shieldPrivacy = Join-Path $repoRoot "deenshield\privacy"
+  $shieldSupport = Join-Path $repoRoot "deenshield\support"
+  $shieldTerms   = Join-Path $repoRoot "deenshield\terms"
+  if (Test-Path $shieldPrivacy) { Copy-Tree $shieldPrivacy (Join-Path $shieldDst "privacy") }
+  if (Test-Path $shieldSupport) { Copy-Tree $shieldSupport (Join-Path $shieldDst "support") }
+  if (Test-Path $shieldTerms)   { Copy-Tree $shieldTerms   (Join-Path $shieldDst "terms") }
+} else {
+  Write-Host "Missing deenshield/main.html" -ForegroundColor DarkYellow
+}
 Copy-Tree (Join-Path $repoRoot "assets") (Join-Path $shieldDst "assets")
 
 # 4) DeenShield Extension: publish the extension folder or the marketing page if preferred
