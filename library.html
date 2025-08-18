@@ -18,88 +18,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-        .bg-brand-blue { background-color: #0A2540; }
-        .text-brand-blue { color: #0A2540; }
-        .bg-brand-gold { background-color: #D4AF37; }
-        .text-brand-gold { color: #D4AF37; }
-        
-        /* Islamic Styling */
-        .islamic-header {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .islamic-section {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            position: relative;
-        }
-        
-        .islamic-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37);
-        }
-        
-        .islamic-footer {
-            background: linear-gradient(135deg, #2d3748, #1a202c);
-            border-top: 3px solid #D4AF37;
-        }
-        
-        .islamic-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        /* Modern Navigation Styles */
-        .active-nav {
-            position: relative;
-        }
-        
-        .active-nav:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 2px;
-            background-color: #D4AF37;
-            border-radius: 4px;
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 2px;
-            background-color: #D4AF37;
-            border-radius: 4px;
-            opacity: 0.5;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/components.css">
 </head>
 <body class="antialiased">
     <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
@@ -113,41 +33,74 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none"
+                    aria-label="Toggle navigation menu" 
+                    aria-expanded="false" 
+                    aria-controls="mobile-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center justify-between flex-1 pl-10">
-                <div class="flex space-x-1">
-                    <a href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a>
-                    <a href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a>
-                    <a href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a>
-                    <a href="deenshield-app.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">
-                        <span class="inline-flex items-center">
-                            <span class="mr-1">🛡️</span> Deen Shield
-                        </span>
-                    </a>
-                    <a href="library.html" class="nav-link px-3 py-2 text-brand-gold font-medium hover:text-brand-blue transition rounded-md active-nav">Library</a>
-                    <a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a>
+            <nav class="hidden md:flex items-center justify-between flex-1 pl-10" role="navigation" aria-label="Main navigation">
+                <div class="flex space-x-1" role="list">
+                    <div role="listitem">
+                        <a href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="/deenshield/main.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">
+                            <span class="inline-flex items-center">
+                                <span class="mr-1" aria-hidden="true">🛡️</span> Deen Shield
+                            </span>
+                        </a>
+                    </div>
+                    <div role="listitem">
+                        <a href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a>
+                    </div>
                 </div>
                 
                 <!-- Action Buttons and Language -->
                 <div class="flex items-center space-x-2">
                     <!-- Language Switcher -->
                     <div class="relative mr-2">
-                        <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-50 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                            <span class="font-semibold text-brand-blue mr-1">🌐</span>
+                        <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-50 focus:outline-none" 
+                                aria-haspopup="true" 
+                                aria-controls="langDropdown" 
+                                aria-expanded="false"
+                                aria-label="Select language">
+                            <span class="font-semibold text-brand-blue mr-1" aria-hidden="true">🌐</span>
                             <span id="currentLang" class="font-medium text-brand-blue">EN</span>
-                            <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         </button>
-                        <ul id="langDropdown" class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
-                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('en')">English</button></li>
-                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ar')">عربی</button></li>
-                            <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('fa')">دری</button></li>
-                        </ul>
+                        <div id="langDropdown" 
+                             class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50" 
+                             role="menu" 
+                             aria-labelledby="langSwitcherBtn">
+                            <div role="none">
+                                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
+                                        onclick="setLanguage('en')" 
+                                        role="menuitem">English</button>
+                                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
+                                        onclick="setLanguage('ar')" 
+                                        role="menuitem">عربی</button>
+                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
+                    onclick="setLanguage('fa')" 
+                    role="menuitem">دری</button>
+                <button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" 
+                    onclick="setLanguage('ps')" 
+                    role="menuitem">پښتو</button>
+                            </div>
+                        </div>
                     </div>
                     
                     <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>
@@ -157,15 +110,33 @@
 
             <!-- Mobile Menu (Hidden by default) -->
             <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2">
-                <nav class="flex flex-col space-y-1">
-                    <a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a>
-                    <a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a>
-                    <a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Services</a>
-                    <a href="deenshield-app.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">🛡️ Deen Shield</a>
-                    <a href="library.html" class="px-4 py-2 text-brand-gold font-medium hover:bg-gray-100 rounded-md">Library</a>
-                    <a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a>
-                    <a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact Us</a>
-                    <a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a>
+                <nav class="flex flex-col space-y-1" aria-label="Mobile navigation">
+                    <ul class="flex flex-col space-y-1" role="menu">
+                        <li role="none">
+                            <a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Home</a>
+                        </li>
+                        <li role="none">
+                            <a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">About</a>
+                        </li>
+                        <li role="none">
+                            <a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Services</a>
+                        </li>
+                        <li role="none">
+                            <a href="/deenshield/main.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">🛡️ Deen Shield</a>
+                        </li>
+                        <li role="none">
+                            <a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Library</a>
+                        </li>
+                        <li role="none">
+                            <a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Help & FAQ</a>
+                        </li>
+                        <li role="none">
+                            <a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Contact Us</a>
+                        </li>
+                        <li role="none">
+                            <a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md block" role="menuitem">Donate</a>
+                        </li>
+                    </ul>
                     
                     <!-- Mobile Language Selector -->
                     <div class="px-4 py-2">
@@ -174,6 +145,7 @@
                             <button onclick="setLanguage('en')" class="px-3 py-1 bg-gray-100 rounded text-sm text-brand-blue hover:bg-gray-200">English</button>
                             <button onclick="setLanguage('ar')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">عربی</button>
                             <button onclick="setLanguage('fa')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">دری</button>
+                            <button onclick="setLanguage('ps')" class="px-3 py-1 bg-gray-100 rounded text-sm hover:bg-gray-200">پښتو</button>
                         </div>
                     </div>
                 </nav>
@@ -184,15 +156,15 @@
         <section class="fade-in-section">
             <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row gap-8">
                 <!-- Drawer/Sidebar Navigation -->
-                <nav id="drawerMenu" class="w-full md:w-64 bg-white rounded-xl shadow-lg p-4 mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+                <nav id="drawerMenu" class="w-full md:w-64 bg-white rounded-xl shadow-lg p-4 mb-6 md:mb-0 md:mr-6 flex-shrink-0" role="navigation" aria-label="Main navigation">
                     <h2 class="text-xl font-bold text-brand-blue mb-4 flex items-center"><img src="assets/images/Books.png" alt="Books Icon" class="h-6 w-6 mr-2">Library Menu</h2>
-                    <ul class="space-y-2">
-                        <li><a href="#quran" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Quran Hub</a></li>
-                        <li><a href="#hadith" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Hadith</a></li>
-                        <li><a href="#books" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Books</a></li>
-                        <li><a href="#media" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Media</a></li>
-                        <li><a href="#articles" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Articles</a></li>
-                        <li><a href="#infographics" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition">Infographics</a></li>
+                    <ul class="space-y-2" role="menu">
+                        <li role="none"><a href="#quran" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition" role="menuitem">Quran Hub</a></li>
+                        <li role="none"><a href="#hadith" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition" role="menuitem">Hadith</a></li>
+                        <li role="none"><a href="#books" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition" role="menuitem">Books</a></li>
+                        <li role="none"><a href="#media" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition" role="menuitem">Media</a></li>
+                        <li role="none"><a href="#articles" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition" role="menuitem">Articles</a></li>
+                        <li role="none"><a href="#infographics" class="block px-4 py-2 rounded-lg hover:bg-brand-gold hover:text-brand-blue font-medium transition" role="menuitem">Infographics</a></li>
                     </ul>
                 </nav>
                 <!-- Main Content Area -->
@@ -200,7 +172,7 @@
                     <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4 flex items-center"><img src="assets/images/Books.png" alt="Books Icon" class="h-8 w-8 mr-2">Library</h1>
                     <p class="text-lg text-gray-700 mb-6">Explore our collection of Islamic books, articles, and resources. Find knowledge, guidance, and inspiration for your journey.</p>
                     <!-- Section: Quran Hub -->
-                    <div id="quran" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                    <div id="quran" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-2xl font-bold text-brand-blue">Quran Hub</h2>
                             <img src="assets/images/QuranHub.png" alt="Quran Hub Logo" class="h-16 w-16 object-contain" />
@@ -238,7 +210,7 @@
                         </div>
                     </div>
                     <!-- Hadith Section -->
-                    <div id="hadith" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                    <div id="hadith" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Hadith</h2>
                         <p class="text-gray-700 mb-4">Browse authentic collections of Hadith and their explanations.</p>
                         <div class="space-y-3 mb-4">
@@ -264,8 +236,8 @@
                         <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Hadith</a>
                     </div>
                     <!-- Books Section -->
-                    <div id="books" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2"><img src="assets/images/Books.png" alt="Books Icon" style="height:1.2em;width:auto;vertical-align:middle;margin-right:0.4em;">Books</h2>
+                    <div id="books" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2"><img src="assets/images/Books.png" alt="Books Icon" class="inline-icon">Books</h2>
                         <p class="text-gray-700 mb-4">Discover recommended Islamic books for all ages.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-center space-x-2">
@@ -290,7 +262,7 @@
                         <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Books</a>
                     </div>
                     <!-- Media Section -->
-                    <div id="media" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                    <div id="media" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Media</h2>
                         <p class="text-gray-700 mb-4">Watch Islamic videos, listen to podcasts, and explore audio lectures.</p>
                         <div class="space-y-3 mb-4">
@@ -310,7 +282,7 @@
                         <a href="media.html" class="text-brand-gold font-semibold hover:underline">Go to Media Page</a>
                     </div>
                     <!-- Articles Section -->
-                    <div id="articles" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                    <div id="articles" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
                         <p class="text-gray-700 mb-4">Read articles on Islamic topics, history, and contemporary issues.</p>
                         <div class="space-y-3 mb-4">
@@ -336,53 +308,94 @@
                         <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Articles</a>
                     </div>
                     <!-- Infographics Section -->
-                    <div id="infographics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8">
+                    <div id="infographics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">InfoGraphics</h2>
                         <p class="text-gray-700 mb-4">Explore our interactive infographics and book chapters for deeper understanding.</p>
                         <a href="#" class="text-brand-gold font-semibold hover:underline">View InfoGraphics</a>
                         <div class="mt-4 relative">
-                            <button id="infographicsDropdownBtn" class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded hover:bg-yellow-400 transition w-full text-left flex justify-between items-center">
+                            <button id="infographicsDropdownBtn" 
+                                class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded hover:bg-yellow-400 transition w-full text-left flex justify-between items-center"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-controls="infographicsDropdownMenu">
                                 Unveiling the Western World (Infographics)
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
-                            <ul id="infographicsDropdownMenu" class="absolute left-0 right-0 mt-2 bg-white border border-brand-gold rounded-lg shadow-lg z-10 hidden">
-                                <li><a href="all-infographics.html" class="block px-6 py-4 hover:bg-brand-gold hover:text-brand-blue transition font-semibold">All Infographics: Unveiling the Western World</a></li>
-                            </ul>
+                            <div class="absolute left-0 right-0 mt-2 bg-white border border-brand-gold rounded-lg shadow-lg z-10 hidden" 
+                                 id="infographicsDropdownMenu"
+                                 role="menu"
+                                 aria-labelledby="infographicsDropdownBtn">
+                                <div role="none">
+                                    <a href="all-infographics.html" 
+                                       class="block px-6 py-4 hover:bg-brand-gold hover:text-brand-blue transition font-semibold"
+                                       role="menuitem">All Infographics: Unveiling the Western World</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-                </div>
-            </div>
-        </section>
+    </section>
     </main>
     <footer class="islamic-footer bg-gray-800 text-white mt-20">
         <div class="container mx-auto px-6 py-8 text-center">
             <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
-            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-                <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
-                <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
-                <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
-                <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
-            </div>
-            <div class="mt-6 flex justify-center gap-6">
-                <a href="https://www.youtube.com/@AlhaqDigital" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" class="hover:text-red-600 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <nav class="mt-6 flex flex-wrap justify-center gap-4 text-sm" role="navigation" aria-label="Footer navigation">
+                <div class="flex flex-wrap justify-center gap-4 text-sm" role="list">
+                    <div role="listitem">
+                        <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
+                    </div>
+                    <div role="listitem">
+                        <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="mt-6 flex justify-center gap-6" role="navigation" aria-label="Social media links">
+                <a href="https://www.youtube.com/@AlhaqDigital" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="Follow us on YouTube" 
+                   class="hover:text-red-600 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
                 </a>
-                <a href="https://x.com/@AlhaqD7396" target="_blank" rel="noopener" aria-label="X.com" title="X.com" class="hover:text-blue-400 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/></svg>
+                <a href="https://x.com/@AlhaqD7396" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="Follow us on X (formerly Twitter)" 
+                   class="hover:text-blue-400 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/>
+                    </svg>
                 </a>
-                <a href="https://instagram.com/alhaq.digital" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="hover:text-pink-500 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.689.072-4.85.072s-3.585-.014-4.85-.072c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.782-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+                <a href="https://instagram.com/alhaq.digital" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="Follow us on Instagram" 
+                   class="hover:text-pink-500 transition">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.689.072-4.85.072s-3.585-.014-4.85-.072c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.782-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/>
+                    </svg>
                 </a>
             </div>
             <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
         </div>
     </footer>
+    <script src="assets/js/site.js"></script>
     <script>
         // Dropdown menu toggle for infographics
         const infBtn = document.getElementById('infographicsDropdownBtn');
@@ -398,199 +411,55 @@
                 }
             });
         }
-        // Language switcher dropdown logic
-        const langBtn = document.getElementById('langSwitcherBtn');
-        const langDropdown = document.getElementById('langDropdown');
-        if (langBtn && langDropdown) {
-            langBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const expanded = langDropdown.classList.contains('opacity-100');
-                langDropdown.classList.toggle('opacity-0');
-                langDropdown.classList.toggle('pointer-events-none');
-                langDropdown.classList.toggle('opacity-100');
-                langDropdown.classList.toggle('pointer-events-auto');
-                langBtn.setAttribute('aria-expanded', !expanded);
-            });
-            document.addEventListener('click', function(e) {
-                if (!langBtn.contains(e.target)) {
-                    langDropdown.classList.add('opacity-0');
-                    langDropdown.classList.add('pointer-events-none');
-                    langDropdown.classList.remove('opacity-100');
-                    langDropdown.classList.remove('pointer-events-auto');
-                    langBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
 
-        // Multilingual translations (English, Arabic, Dari)
-        const translations = {
-            ar: {
-                title: 'المكتبة',
-                navHome: 'الرئيسية',
-                navAbout: 'من نحن',
-                navServices: 'الخدمات',
-                navLibrary: 'المكتبة',
-                navHelp: 'المساعدة',
-                navContact: 'اتصل بنا',
-                mainHeading: 'المكتبة',
-                mainSub: 'استكشف مجموعتنا من الكتب والمقالات والموارد الإسلامية.',
-                quran: 'القرآن',
-                quranDesc: 'اقرأ واستكشف القرآن الكريم مع الترجمة والتفسير.',
-                hadith: 'الحديث',
-                hadithDesc: 'تصفح مجموعات الأحاديث الصحيحة وشرحها.',
-                articles: 'مقالات',
-                articlesDesc: 'اقرأ مقالات حول مواضيع إسلامية وتاريخية ومعاصرة.',
-                books: 'كتب',
-                booksDesc: 'اكتشف كتبًا إسلامية موصى بها لجميع الأعمار.',
-                infographics: 'الرسوم البيانية',
-                infographicsDesc: 'استكشف الرسوم البيانية التفاعلية وفصول الكتب لمزيد من الفهم.',
-                view: 'عرض',
-                // Footer
-                footerSlogan: 'نبني مستقبلاً رقمياً متجذراً في الإيمان.',
-                visitLibrary: 'زيارة المكتبة',
-            },
-            fa: {
-                title: 'کتابخانه',
-                navHome: 'خانه',
-                navAbout: 'درباره ما',
-                navServices: 'خدمات',
-                navLibrary: 'کتابخانه',
-                navHelp: 'راهنما',
-                navContact: 'تماس',
-                mainHeading: 'کتابخانه',
-                mainSub: 'دسترسی به کتاب‌ها و منابع آموزشی.',
-                quran: 'قرآن',
-                quranDesc: 'قرآن کریم را با ترجمه و تفسیر مطالعه کنید.',
-                hadith: 'حدیث',
-                hadithDesc: 'مجموعه‌های معتبر حدیث و توضیحات آن‌ها را مرور کنید.',
-                articles: 'مقالات',
-                articlesDesc: 'مقالات درباره موضوعات اسلامی، تاریخ و مسائل روز.',
-                books: 'کتاب‌ها',
-                booksDesc: 'کتاب‌های توصیه‌شده اسلامی برای همه سنین.',
-                infographics: 'اینفوگرافیک‌ها',
-                infographicsDesc: 'اینفوگرافیک‌های تعاملی و فصل‌های کتاب را مرور کنید.',
-                view: 'مشاهده',
-                // Footer
-                footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
-                visitLibrary: 'بازدید از کتابخانه',
-            }
+        // Page-specific language hook used by core site.js
+        window._pageSetLanguage = function(lang) {
+            if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
+            const t = Object.assign({}, window.pageTranslations || {});
+            if (t.title) document.title = t.title;
+            // Main heading and sub
+            const h1 = document.querySelector('h1');
+            if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
+            const mainSub = document.querySelector('p.text-lg');
+            if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
+            // Cards (Quran, Hadith, Articles, Books, Infographics)
+            const cardTitles = [t.quran, t.hadith, t.articles, t.books, t.infographics];
+            const cardDescs = [t.quranDesc, t.hadithDesc, t.articlesDesc, t.booksDesc, t.infographicsDesc];
+            const cardLinks = [t.view, t.view, t.view, t.view, t.view];
+            document.querySelectorAll('.grid .bg-white h2').forEach((el, i) => {
+                if (cardTitles[i]) el.textContent = cardTitles[i];
+            });
+            document.querySelectorAll('.grid .bg-white p').forEach((el, i) => {
+                if (cardDescs[i]) el.textContent = cardDescs[i];
+            });
+            document.querySelectorAll('.grid .bg-white a').forEach((el, i) => {
+                if (cardLinks[i]) el.textContent = cardLinks[i];
+            });
+            // Infographics dropdown button label
+            const ib = document.getElementById('infographicsDropdownBtn');
+            if (ib && t.infographics) ib.childNodes[0].nodeValue = t.infographics;
+            // Footer slogan
+            const footerSlogan = document.querySelector('footer p.mt-2');
+            if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
         };
-
-        function setLanguage(lang) {
-            // Set language label
-            if (lang === 'ar') {
-                document.getElementById('currentLang').textContent = 'العربية';
-            } else if (lang === 'fa') {
-                document.getElementById('currentLang').textContent = 'دری';
-            } else {
-                document.getElementById('currentLang').textContent = 'English';
-            }
-
-            // English is default, so only translate if ar or fa
-            if (lang === 'ar' || lang === 'fa') {
-                const t = translations[lang];
-                document.title = t.title;
-                // Main heading and sub
-                const h1 = document.querySelector('h1');
-                if (h1) h1.textContent = t.mainHeading;
-                const mainSub = document.querySelector('p.text-lg');
-                if (mainSub) mainSub.textContent = t.mainSub;
-                // Navigation links (by href)
-                const navMap = {
-                    'index.html': t.navHome,
-                    'about.html': t.navAbout,
-                    'services.html': t.navServices,
-                    'library.html': t.navLibrary,
-                    'help.html': t.navHelp,
-                    'contact.html': t.navContact
-                };
-                document.querySelectorAll('nav a').forEach(a => {
-                    const href = a.getAttribute('href');
-                    if (navMap[href]) a.textContent = navMap[href];
-                });
-                // Cards (Quran, Hadith, Articles, Books, Infographics)
-                const cardTitles = [t.quran, t.hadith, t.articles, t.books, t.infographics];
-                const cardDescs = [t.quranDesc, t.hadithDesc, t.articlesDesc, t.booksDesc, t.infographicsDesc];
-                const cardLinks = [t.view, t.view, t.view, t.view, t.view];
-                document.querySelectorAll('.grid .bg-white h2').forEach((el, i) => {
-                    if (cardTitles[i]) el.textContent = cardTitles[i];
-                });
-                document.querySelectorAll('.grid .bg-white p').forEach((el, i) => {
-                    if (cardDescs[i]) el.textContent = cardDescs[i];
-                });
-                document.querySelectorAll('.grid .bg-white a').forEach((el, i) => {
-                    if (cardLinks[i]) el.textContent = cardLinks[i];
-                });
-                // Infographics dropdown button
-                const infBtn = document.getElementById('infographicsDropdownBtn');
-                if (infBtn) infBtn.childNodes[0].nodeValue = t.infographics;
-                // Infographics dropdown menu
-                // (no translation for infographics menu link as per user instruction)
-                // Footer slogan
-                const footerSlogan = document.querySelector('footer p.mt-2');
-                if (footerSlogan) footerSlogan.textContent = t.footerSlogan;
-                // Footer links (by href)
-                const footerMap = {
-                    'index.html': t.navHome,
-                    'about.html': t.navAbout,
-                    'services.html': t.navServices,
-                    'help.html': t.navHelp,
-                    'contact.html': t.navContact,
-                    'donate.html': t.visitLibrary // Assuming donate.html is the donation page
-                };
-                document.querySelectorAll('footer .mt-6 a').forEach(a => {
-                    const href = a.getAttribute('href');
-                    if (footerMap[href]) a.textContent = footerMap[href];
-                });
-                // Visit library button
-                const visitLib = document.querySelector('footer .mt-4 a');
-                if (visitLib) visitLib.textContent = t.visitLibrary;
-                // DO NOT translate copyright/footer copyright, always keep in English
-            } else {
-                // Reload to reset to English
-                location.reload();
-            }
-        }
     </script>
 <script>
-// Modern navigation behavior
+// Minimal mobile menu toggle; active nav handled globally in site.js
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
-
-  // Dynamic tab highlighting
-  const navLinks = document.querySelectorAll('.nav-link');
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-  const currentPath = window.location.pathname.split('/').pop();
-  
-  // Desktop navigation highlighting
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-      link.classList.add('text-brand-gold', 'active-nav');
-      link.classList.remove('text-gray-800');
-    } else if (href.includes('#') && href.split('#')[0] === currentPath) {
-      link.classList.add('text-brand-gold', 'active-nav');
-      link.classList.remove('text-gray-800');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', (!isHidden).toString());
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
-  });
-  
-  // Mobile navigation highlighting
-  mobileLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-      link.classList.add('text-brand-gold', 'bg-gray-100', 'font-medium');
-    } else if (href.includes('#') && href.split('#')[0] === currentPath) {
-      link.classList.add('text-brand-gold', 'bg-gray-100', 'font-medium');
-    }
-  });
 });
 </script>
 </body>

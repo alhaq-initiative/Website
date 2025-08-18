@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/components.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
         .bg-brand-blue { background-color: #0A2540; }
@@ -49,9 +50,9 @@
             <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
                 <a href="about.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
-                <a href="services.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Services</a>
+                <a href="services.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
                 <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
-                <a href="help.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Help & FAQ</a>
+                <a href="help.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Help & FAQ</a>
             </nav>
             <div class="flex items-center space-x-2">
                 <a href="contact.html" class="hidden md:inline-block bg-brand-gold text-brand-blue font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition shadow-sm">Contact Us</a>
@@ -71,10 +72,11 @@
                     <span id="currentLang" class="font-bold text-brand-blue">English</span>
                     <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                 </button>
-                <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
+        <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
                     <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
                     <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
                     <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+          <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
                     
                     
                 </ul>
@@ -85,7 +87,7 @@
             <a href="about.html" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
             <a href="index.html#services" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
             <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
-            <a href="help.html" class="block text-brand-gold font-semibold py-2">Help & FAQ</a>
+            <a href="help.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Help & FAQ</a>
             <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold">Donate</a>
         </div>
     </header>
@@ -171,6 +173,7 @@
             <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
         </div>
     </footer>
+  <script src="assets/js/site.js"></script>
     <script>
         // JavaScript for mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -178,237 +181,64 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        const translations = {
-  fa: {
-    title: 'راهنما',
-    navHome: 'خانه',
-    navAbout: 'درباره ما',
-    navServices: 'خدمات',
-    navLibrary: 'کتابخانه',
-    navProjects: 'پروژه‌ها',
-    navHelp: 'راهنما',
-    navContact: 'تماس',
-    navDonate: 'حمایت/اهدا',
-    mainHeading: 'سوالات متداول',
-    mainSub: 'پاسخ به سوالات رایج درباره سایت و منابع.',
-    faq: 'سوالات متداول',
-    faqCategories: [
-      {
-        category: 'درباره خدمات دیجیتال الخق',
-        items: [
-          {
-            q: 'خدمات دیجیتال الخق چیست؟',
-            a: 'خدمات دیجیتال الخق (ADS) منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال را برای توانمندسازی جوامع و ارتقاء یادگیری فراهم می‌کند. برای اطلاعات بیشتر به صفحه <a href="about.html" class="text-brand-blue underline hover:text-brand-gold">درباره ما</a> مراجعه کنید.'
-          },
-          {
-            q: 'ماموریت خدمات دیجیتال الخق چیست؟',
-            a: 'ماموریت ما ارائه منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال برای توانمندسازی جوامع و ارتقاء یادگیری است. جزئیات بیشتر را در بخش <a href="about.html" class="text-brand-blue underline hover:text-brand-gold">درباره ما</a> ببینید.'
-          }
-        ]
-      },
-      {
-        category: 'کتابخانه',
-        items: [
-          {
-            q: 'چگونه به کتابخانه دسترسی پیدا کنم؟ آیا رایگان است؟',
-            a: 'بله، تمام اینفوگرافیک‌ها و بیشتر منابع کتابخانه برای همه کاربران رایگان است. برای مشاهده محتوا به صفحه <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">کتابخانه</a> مراجعه کنید.'
-          },
-          {
-            q: 'چگونه به بخش قرآن و حدیث دسترسی پیدا کنم؟',
-            a: 'به صفحه <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">کتابخانه</a> بروید و بخش قرآن یا حدیث را برای مشاهده ترجمه‌ها، تفسیر و مجموعه‌های معتبر انتخاب کنید.'
-          }
-        ]
-      },
-      {
-        category: 'نحوه استفاده',
-        items: [
-          {
-            q: 'چگونه از تعلیم AI استفاده کنم؟',
-            a: 'اپلیکیشن تعلیم AI را از <a href="https://play.google.com/store" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold">گوگل پلی استور</a> یا <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold">اپ استور</a> دانلود کنید. پس از نصب، دستورالعمل‌ها را دنبال کنید تا بازخورد لحظه‌ای دریافت نمایید.'
-          }
-        ]
-      },
-      {
-        category: 'حمایت و اهدا',
-        items: [
-          {
-            q: 'چگونه می‌توانم برای حمایت از کار شما اهدا کنم؟',
-            a: 'به صفحه <a href="donate.html" class="text-brand-blue underline hover:text-brand-gold">اهدا</a> بروید تا به صورت آنلاین و امن از طریق Ko-fi یا روش‌های دیگر اهدا کنید.'
-          }
-        ]
-      },
-      {
-        category: 'تماس و پشتیبانی',
-        items: [
-          {
-            q: 'چگونه برای پشتیبانی یا همکاری با شما تماس بگیرم؟',
-            a: 'از صفحه <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">تماس</a> برای ارسال پیام مستقیم استفاده کنید یا از دکمه شناور پایین صفحه استفاده نمایید.'
-          },
-          {
-            q: 'چگونه یک مشکل را گزارش دهم یا ویژگی جدید پیشنهاد کنم؟',
-            a: 'لطفاً از صفحه <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">تماس</a> یا ایمیل برای ارسال جزئیات مشکل یا پیشنهاد خود استفاده کنید. بازخورد شما برای ما ارزشمند است!'
-          }
-        ]
-      },
-      {
-        category: 'حریم خصوصی و داده',
-        items: [
-          {
-            q: 'آیا داده‌های من امن است؟',
-            a: 'بله، ما حریم خصوصی را جدی می‌گیریم و داده‌های شما را با اشخاص ثالث به اشتراک نمی‌گذاریم. تمام اطلاعات به صورت امن مدیریت می‌شود. برای جزئیات بیشتر، از صفحه <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">تماس</a> استفاده کنید.'
-          }
-        ]
-      },
-      {
-        category: 'ویژگی‌ها و بروزرسانی‌ها',
-        items: [
-          {
-            q: 'آیا برنامه‌ای برای افزودن کتاب‌ها یا ویژگی‌های جدید دارید؟',
-            a: 'بله، ما به طور مداوم در حال گسترش <a href="library.html" class="text-brand-blue underline hover:text-brand-gold">کتابخانه</a> و افزودن ویژگی‌های جدید هستیم. منتظر بروزرسانی‌ها باشید!'
-          }
-        ]
-      }
-    ],
-    // Support/Contact section
-    supportNotFound: 'پاسخ خود را پیدا نکردید؟',
-    supportStillNeed: 'هنوز هم نیاز به کمک دارید؟ اینجا پاسخ سوالات خود را بیابید و در صورت نیاز کمک بگیرید.',
-    supportContact: 'تماس با پشتیبانی',
-    // Footer
-    footerSlogan: 'ساخت آینده دیجیتال، ریشه در ایمان.',
-    footerHome: 'خانه',
-    footerAbout: 'درباره ما',
-    footerServices: 'خدمات',
-    footerLibrary: 'کتابخانه',
-    footerHelp: 'راهنما و سوالات متداول',
-    footerContact: 'تماس',
-    footerDonate: 'اهدا',
-    footerCopyright: '© ۲۰۲۵. همه حقوق محفوظ است.',
-    visitLibrary: 'بازدید از کتابخانه',
-  },
-  ar: {
-    title: 'المساعدة',
-    navHome: 'الرئيسية',
-    navAbout: 'من نحن',
-    navServices: 'الخدمات',
-    navLibrary: 'المكتبة',
-    navProjects: 'المشاريع',
-    navHelp: 'المساعدة',
-    navContact: 'اتصل بنا',
-    navDonate: 'تبرع',
-    mainHeading: 'الأسئلة الشائعة',
-    mainSub: 'إجابات على الأسئلة الشائعة حول الموقع والخدمات.',
-    // ...add Arabic FAQ/support translations as needed...
-    footerSlogan: 'نبني مستقبلاً رقمياً متجذراً في الإيمان.',
-    footerHome: 'الرئيسية',
-    footerAbout: 'من نحن',
-    footerServices: 'الخدمات',
-    footerLibrary: 'المكتبة',
-    footerHelp: 'الأسئلة الشائعة',
-    footerContact: 'اتصل بنا',
-    footerDonate: 'تبرع',
-    footerCopyright: '© 2025 خدمات الحق الرقمية. جميع الحقوق محفوظة.',
-    visitLibrary: 'زيارة المكتبة',
-  }
-};
-function setLanguage(lang) {
-  const currentLang = document.getElementById('currentLang');
-  if (currentLang) {
-    if (lang === 'fa') currentLang.textContent = 'دری';
-    else if (lang === 'ar') currentLang.textContent = 'العربية';
-    else currentLang.textContent = 'English';
-  }
-  if (lang === 'fa' || lang === 'ar') {
-    const t = translations[lang];
+  // Page-specific translations hook used by core site.js
+  window._pageSetLanguage = function(lang) {
+    if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
+    const t = Object.assign({}, window.pageTranslations || {});
     if (t.title) document.title = t.title;
-    const h1 = document.querySelector('h1');
-    if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
-    const mainSub = document.querySelector('p.text-lg');
-    if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
-    // Navigation links (desktop)
-    const navLinks = [
-      { href: 'index.html', key: 'navHome' },
-      { href: 'about.html', key: 'navAbout' },
-      { href: 'index.html#services', key: 'navServices' },
-      { href: 'contact.html', key: 'navContact' },
-      { href: 'help.html', key: 'navHelp' },
-      { href: 'donate.html', key: 'navDonate' }
-    ];
-    navLinks.forEach(item => {
-      let link = document.querySelector(`nav a[href='${item.href}']`);
-      if (link && t[item.key]) link.textContent = t[item.key];
-    });
-    // Navigation links (mobile)
-    navLinks.forEach(item => {
-      let link = document.querySelector(`#mobile-menu a[href='${item.href}']`);
-      if (link && t[item.key]) link.textContent = t[item.key];
-    });
-    // Footer links
-    const footerLinks = [
-      { href: 'index.html', key: 'footerHome' },
-      { href: 'about.html', key: 'footerAbout' },
-      { href: 'index.html#services', key: 'footerServices' },
-      { href: 'contact.html', key: 'footerContact' },
-      { href: 'help.html', key: 'footerHelp' },
-      { href: 'donate.html', key: 'footerDonate' }
-    ];
-    footerLinks.forEach(item => {
-      let link = document.querySelector(`footer .mt-6 a[href='${item.href}']`);
-      if (link && t[item.key]) link.textContent = t[item.key];
-    });
+    const h1 = document.querySelector('h1'); if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
+    const mainSub = document.querySelector('p.text-lg'); if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
     // Footer slogan
-    let footerSlogan = document.querySelector('footer p.mt-2');
+    const footerSlogan = document.querySelector('footer p.mt-2');
     if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
-    // Copyright (always English)
-    let copyright = document.querySelector('footer p.mt-8');
-    if (copyright) copyright.textContent = '© 2025 Alhaq Digital Services. All rights reserved.';
-    // Visit library (if present)
-    let visitLibrary = document.querySelector('footer .mt-4 a');
-    if (visitLibrary && t.visitLibrary) visitLibrary.textContent = t.visitLibrary;
-    // FAQ section heading
-    let faqHeading = document.getElementById('faqHeading');
-    if (faqHeading && t.mainHeading) faqHeading.textContent = t.mainHeading;
-    // ...add more robust FAQ/Support translation logic for Arabic as needed...
-  } else {
-    location.reload(); // fallback: reload to English
-  }
-}
-const langBtn = document.getElementById('langSwitcherBtn');
-const langDropdown = document.getElementById('langDropdown');
-if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        langDropdown.classList.toggle('hidden');
-        langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
-    });
-    document.addEventListener('click', function(e) {
-        if (!langBtn.contains(e.target)) {
-            langDropdown.classList.add('hidden');
-            langBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
+    // Rebuild FAQ list if structured data provided
+    if (Array.isArray(t.faqCategories)) {
+      const card = document.querySelector('.glass-card');
+      if (card) {
+        card.innerHTML = '';
+        const h2 = document.createElement('h2');
+        h2.id = 'faqHeading';
+        h2.className = 'text-2xl font-bold text-brand-blue mb-4';
+        h2.textContent = t.mainHeading || 'FAQ';
+        card.appendChild(h2);
+        t.faqCategories.forEach(cat => {
+          const h3 = document.createElement('h3');
+          h3.className = 'text-xl font-bold text-brand-blue mt-6 mb-2';
+          h3.textContent = cat.category;
+          card.appendChild(h3);
+          (cat.items || []).forEach(it => {
+            const wrap = document.createElement('div');
+            wrap.className = 'mb-4 faq-item';
+            const q = document.createElement('h4');
+            q.className = 'font-semibold text-brand-blue faq-q';
+            q.textContent = it.q;
+            const a = document.createElement('p');
+            a.className = 'text-gray-700 faq-a';
+            a.innerHTML = it.a;
+            wrap.appendChild(q);
+            wrap.appendChild(a);
+            card.appendChild(wrap);
+          });
+        });
+        const sb = document.createElement('div');
+        sb.className = 'mt-8 p-4 bg-yellow-50 border-l-4 border-brand-gold rounded-lg flex flex-col items-start';
+        const sbh = document.createElement('h3');
+        sbh.className = 'text-lg font-bold text-brand-blue mb-2';
+        sbh.textContent = t.supportNotFound || "Haven't found your answer?";
+        const sbp = document.createElement('p');
+        sbp.className = 'text-gray-700 mb-2';
+        sbp.textContent = t.supportStillNeed || 'Still need help? Find answers to your questions here and get help if needed.';
+        const sba = document.createElement('a');
+        sba.href = 'contact.html';
+        sba.className = 'inline-block bg-brand-gold text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 transition';
+        sba.textContent = t.supportContact || 'Contact Us for Support';
+        sb.appendChild(sbh); sb.appendChild(sbp); sb.appendChild(sba);
+        card.appendChild(sb);
+      }
+    }
+  };
     </script>
 <script>
-// Dynamic tab highlighting
-document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('nav a');
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-  const currentPath = window.location.pathname.split('/').pop();
-  navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active-tab', 'text-brand-gold');
-    } else {
-      link.classList.remove('active-tab', 'text-brand-gold');
-    }
-  });
-  mobileLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active-tab', 'text-brand-gold');
-    } else {
-      link.classList.remove('active-tab', 'text-brand-gold');
-    }
-  });
-});
 </script>
 </body>
 </html>

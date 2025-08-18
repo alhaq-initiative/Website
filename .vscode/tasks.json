@@ -1,5 +1,23 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run DeenShield Desktop Manager",
+      "type": "shell",
+      "command": "npm",
+      "args": ["start", "--prefix", "DeenShield-Desktop-Manager"],
+      "isBackground": false,
+      "problemMatcher": ["$eslint-stylish"],
+      "group": "build"
+    },
+    {
+      "label": "Run DeenShield Desktop Manager",
+      "type": "shell",
+      "command": "npm",
+      "args": ["start", "--prefix", "DeenShield-Desktop-Manager"],
+      "isBackground": false,
+      "problemMatcher": ["$eslint-stylish"],
+      "group": "build"
+    }
+  ]
 }

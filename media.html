@@ -17,6 +17,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/components.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
         .bg-brand-blue { background-color: #0A2540; }
@@ -34,14 +35,28 @@
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
             </a>
-            <nav class="hidden md:flex space-x-8">
+                        <nav class="hidden md:flex space-x-8 items-center">
                 <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
                 <a href="about.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
-                <a href="services.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Services</a>
+                <a href="services.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
                 <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
-                <a href="media.html" class="text-brand-gold font-semibold hover:text-brand-blue transition">Media</a>
+                <a href="media.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Media</a>
                 <a href="help.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
+                                <!-- Language Switcher -->
+                                <div class="relative ml-2">
+                                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                                        <span class="font-semibold text-brand-blue mr-1">🌐</span>
+                                        <span id="currentLang" class="font-medium text-brand-blue">EN</span>
+                                        <svg class="ml-1 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                    </button>
+                                    <ul id="langDropdown" class="absolute right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('en')">English</button></li>
+                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ar')">عربی</button></li>
+                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('fa')">دری</button></li>
+                                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-50 text-brand-blue flex items-center text-sm" onclick="setLanguage('ps')">پښتو</button></li>
+                                    </ul>
+                                </div>
             </nav>
         </div>
     </header>
@@ -92,5 +107,6 @@
             <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
         </div>
     </footer>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>

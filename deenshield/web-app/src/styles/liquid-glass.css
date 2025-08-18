@@ -1,0 +1,998 @@
+/* Modern Liquid Glass Widget & Drawer Styles */
+
+/* Audio Player Liquid Glass Styling - Optimized */
+.audio-player.floating-player {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.12),
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15) !important;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+  transform: translateZ(0) !important;
+  will-change: transform, box-shadow !important;
+  contain: layout style paint !important;
+}
+
+.audio-player.floating-player:hover {
+  box-shadow:
+    0 16px 50px rgba(0, 0, 0, 0.15),
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2) !important;
+  transform: translateZ(0) translateY(-2px) !important;
+}
+
+.audio-player .player-content {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  contain: layout style !important;
+}
+
+.audio-player .control-btn {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease !important;
+  will-change: transform !important;
+}
+
+.audio-player .control-btn:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
+  transform: scale(1.05) translateZ(0) !important;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+.audio-player .control-btn.play-pause {
+  background: linear-gradient(
+    145deg,
+    rgba(74, 144, 226, 0.8) 0%,
+    rgba(74, 144, 226, 0.6) 100%
+  ) !important;
+  border: 1px solid rgba(74, 144, 226, 0.3) !important;
+}
+
+.audio-player .control-btn.play-pause:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(74, 144, 226, 0.9) 0%,
+    rgba(74, 144, 226, 0.7) 100%
+  ) !important;
+}
+
+.audio-player .progress-bar {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 4px !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  contain: layout !important;
+}
+
+.audio-player .progress-fill {
+  background: linear-gradient(
+    90deg,
+    rgba(74, 144, 226, 0.9) 0%,
+    rgba(74, 144, 226, 0.7) 100%
+  ) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3) !important;
+  will-change: width !important;
+}
+
+.audio-player .volume-slider {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 3px !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  contain: layout !important;
+}
+
+.audio-player .volume-fill {
+  background: linear-gradient(
+    90deg,
+    rgba(74, 144, 226, 0.8) 0%,
+    rgba(74, 144, 226, 0.6) 100%
+  ) !important;
+  border-radius: 2px !important;
+  will-change: width !important;
+}
+
+#resizePlayerBtn,
+#closePlayerBtn {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease !important;
+}
+
+#resizePlayerBtn:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(74, 144, 226, 0.3) 0%,
+    rgba(74, 144, 226, 0.1) 100%
+  ) !important;
+  border-color: rgba(74, 144, 226, 0.3) !important;
+}
+
+#closePlayerBtn:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(244, 67, 54, 0.3) 0%,
+    rgba(244, 67, 54, 0.1) 100%
+  ) !important;
+  border-color: rgba(244, 67, 54, 0.3) !important;
+}
+
+/* Liquid Glass Widget Styles - Performance Optimized */
+.widget-card,
+.dashboard-widget {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  padding: 0;
+  box-sizing: border-box;
+  contain: layout size style paint;
+  will-change: transform, box-shadow;
+}
+
+/* Widget Content Overflow Control & Responsive Scaling */
+.widget-card *,
+.dashboard-widget * {
+  box-sizing: border-box;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Widget Content Container */
+.widget-card .widget-content,
+.dashboard-widget .widget-content,
+.widget-card .widget-body,
+.dashboard-widget .widget-body {
+  width: 100%;
+  height: 100%;
+  padding: clamp(12px, 3vw, 20px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Widget Header Overflow Control */
+.widget-card .widget-header,
+.dashboard-widget .widget-header {
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: clamp(8px, 2vw, 16px) clamp(12px, 3vw, 20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.widget-card .widget-header h4,
+.dashboard-widget .widget-header h4 {
+  margin: 0;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Widget Main Content Area */
+.widget-card .widget-main,
+.dashboard-widget .widget-main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: clamp(8px, 2vw, 16px);
+}
+
+/* Text Content Scaling */
+.widget-card p,
+.dashboard-widget p,
+.widget-card .widget-text,
+.dashboard-widget .widget-text {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  line-height: 1.4;
+  margin: 0.5em 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Button Scaling */
+.widget-card .widget-btn,
+.dashboard-widget .widget-btn,
+.widget-card button,
+.dashboard-widget button {
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2.5vw, 16px);
+  min-height: clamp(32px, 8vw, 40px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+/* List and Grid Content */
+.widget-card ul,
+.dashboard-widget ul,
+.widget-card ol,
+.dashboard-widget ol {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-card li,
+.dashboard-widget li {
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  padding: clamp(4px, 1vw, 8px) 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Input and Form Elements */
+.widget-card input,
+.dashboard-widget input,
+.widget-card select,
+.dashboard-widget select,
+.widget-card textarea,
+.dashboard-widget textarea {
+  width: 100%;
+  max-width: 100%;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  padding: clamp(6px, 1.5vw, 10px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Image and Media Scaling */
+.widget-card img,
+.dashboard-widget img,
+.widget-card video,
+.dashboard-widget video {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Icon Scaling */
+.widget-card .icon,
+.dashboard-widget .icon,
+.widget-card i,
+.dashboard-widget i {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  flex-shrink: 0;
+}
+
+/* Table Content */
+.widget-card table,
+.dashboard-widget table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+}
+
+.widget-card td,
+.dashboard-widget td,
+.widget-card th,
+.dashboard-widget th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: clamp(4px, 1vw, 8px);
+}
+
+/* Scrollable Content Areas */
+.widget-card .scrollable,
+.dashboard-widget .scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100%;
+}
+
+/* Custom Scrollbar for Widget Content */
+.widget-card .scrollable::-webkit-scrollbar,
+.dashboard-widget .scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.widget-card .scrollable::-webkit-scrollbar-track,
+.dashboard-widget .scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.widget-card .scrollable::-webkit-scrollbar-thumb,
+.dashboard-widget .scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.widget-card .scrollable::-webkit-scrollbar-thumb:hover,
+.dashboard-widget .scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Specific Widget Type Overflow Control */
+/* Prayer Times Widget */
+.prayer-times-widget,
+.prayer-times-widget .prayer-time-item {
+  overflow: hidden;
+}
+
+.prayer-times-widget .prayer-time-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(6px, 1.5vw, 10px);
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+}
+
+.prayer-times-widget .prayer-name,
+.prayer-times-widget .prayer-time {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Quran Widget */
+.quran-widget .verse-text {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.quran-widget .verse-reference {
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  opacity: 0.8;
+  margin-top: 0.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dhikr Widget */
+.dhikr-widget .dhikr-text {
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.dhikr-widget .dhikr-counter {
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Task Widget */
+.task-widget .task-item {
+  display: flex;
+  align-items: center;
+  padding: clamp(4px, 1vw, 8px) 0;
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  overflow: hidden;
+}
+
+.task-widget .task-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 0.5em;
+}
+
+.task-widget .task-checkbox {
+  flex-shrink: 0;
+  width: clamp(16px, 4vw, 20px);
+  height: clamp(16px, 4vw, 20px);
+}
+
+/* Library Widget */
+.library-widget .book-item {
+  display: flex;
+  align-items: center;
+  padding: clamp(6px, 1.5vw, 10px);
+  overflow: hidden;
+}
+
+.library-widget .book-title {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.library-widget .book-author {
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  opacity: 0.7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Audio Widget */
+.audio-widget .audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(8px, 2vw, 12px);
+  overflow: hidden;
+}
+
+.audio-widget .audio-title {
+  flex: 1;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 0.5em;
+}
+
+.audio-widget .audio-button {
+  flex-shrink: 0;
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+  border-radius: 50%;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* Weather Widget */
+.weather-widget .weather-info {
+  text-align: center;
+  overflow: hidden;
+}
+
+.weather-widget .temperature {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.weather-widget .weather-description {
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  opacity: 0.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Media Query for Very Small Widgets */
+@media (max-width: 300px) {
+  .widget-card,
+  .dashboard-widget {
+    min-height: 120px;
+  }
+
+  .widget-card .widget-content,
+  .dashboard-widget .widget-content {
+    padding: 8px;
+  }
+
+  .widget-card .widget-header,
+  .dashboard-widget .widget-header {
+    padding: 6px 8px;
+  }
+
+  .widget-card .widget-main,
+  .dashboard-widget .widget-main {
+    padding: 6px;
+  }
+}
+
+/* Additional Content Containment Rules */
+.widget-card .widget-content > *,
+.dashboard-widget .widget-content > * {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* Flexbox Content Control */
+.widget-card .flex-container,
+.dashboard-widget .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+.widget-card .flex-item,
+.dashboard-widget .flex-item {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Grid Content Control */
+.widget-card .grid-container,
+.dashboard-widget .grid-container {
+  display: grid;
+  gap: clamp(4px, 1vw, 8px);
+  overflow: hidden;
+}
+
+/* Text Truncation Utilities */
+.widget-card .truncate,
+.dashboard-widget .truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.widget-card .truncate-multiline,
+.dashboard-widget .truncate-multiline {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Ensure No Absolute Positioned Elements Overflow */
+.widget-card .absolute,
+.dashboard-widget .absolute {
+  position: absolute;
+  max-width: calc(100% - 20px);
+  max-height: calc(100% - 20px);
+  overflow: hidden;
+}
+
+/* Force Content to Respect Widget Boundaries */
+.widget-card,
+.dashboard-widget {
+  isolation: isolate;
+  contain: layout style paint;
+}
+.widget-card::before,
+.dashboard-widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  opacity: 0.7;
+}
+
+.widget-card:hover,
+.dashboard-widget:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 16px 64px rgba(0, 0, 0, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+/* Enhanced Liquid Glass Drawer Styles */
+.side-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  left: -320px !important;
+  width: 320px !important;
+  height: 100vh !important;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0.75) 100%
+  ) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow:
+    4px 0 32px rgba(0, 0, 0, 0.15),
+    2px 0 16px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  z-index: 1000 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.side-drawer.open {
+  left: 0 !important;
+  box-shadow:
+    6px 0 48px rgba(0, 0, 0, 0.2),
+    3px 0 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Modern Drawer Header */
+.drawer-header {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  ) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 24px 20px !important;
+  position: relative !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+}
+
+.drawer-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.drawer-header-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+.drawer-logo {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) !important;
+}
+
+.drawer-title {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+  letter-spacing: 0.5px !important;
+}
+
+.drawer-close {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: none !important;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  ) !important;
+  border-radius: 12px !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.drawer-close:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
+  transform: scale(1.1) !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Modern Drawer Menu */
+.drawer-menu {
+  list-style: none !important;
+  padding: 16px 0 !important;
+  margin: 0 !important;
+}
+
+.drawer-menu li {
+  margin: 0 !important;
+  padding: 0 20px 8px 20px !important;
+}
+
+.drawer-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 16px 20px !important;
+  margin: 0 -20px !important;
+  border: none !important;
+  background: transparent !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  border-radius: 16px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.drawer-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.drawer-link:hover::before {
+  left: 100%;
+}
+
+.drawer-link:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+  transform: translateX(8px) !important;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.drawer-link.active {
+  background: linear-gradient(
+    145deg,
+    rgba(74, 144, 226, 0.3) 0%,
+    rgba(74, 144, 226, 0.15) 100%
+  ) !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+  border: 1px solid rgba(74, 144, 226, 0.3) !important;
+}
+
+.drawer-link i {
+  font-size: 20px !important;
+  width: 24px !important;
+  text-align: center !important;
+  opacity: 0.85 !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.drawer-link span {
+  flex: 1 !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Responsive drawer improvements */
+@media (max-width: 768px) {
+  .side-drawer {
+    width: 280px !important;
+  }
+
+  .drawer-link {
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+  }
+
+  .drawer-link i {
+    font-size: 18px !important;
+  }
+}
+
+/* Enhanced Widget Content */
+.widget-header {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  ) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 20px !important;
+  border-radius: 24px 24px 0 0 !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  position: relative !important;
+}
+
+.widget-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+.widget-header h4 {
+  color: rgba(255, 255, 255, 0.95) !important;
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: 0.5px !important;
+}
+
+.widget-header i {
+  font-size: 20px !important;
+  opacity: 0.9 !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Enhanced widget content area */
+.widget-card .widget-content,
+.dashboard-widget .widget-content {
+  padding: 24px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 0 0 24px 24px !important;
+}
+
+/* Widget animations */
+@keyframes liquidGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.15),
+      0 6px 24px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+.widget-card.active,
+.dashboard-widget.active {
+  animation: liquidGlow 3s ease-in-out infinite;
+}
+
+/* Drawer backdrop improvements */
+.drawer-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.3s ease !important;
+  z-index: 999 !important;
+}
+
+.drawer-backdrop.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Additional liquid glass enhancements */
+.drawer-toggle {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  ) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.drawer-toggle:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}

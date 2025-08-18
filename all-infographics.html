@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unveiling the Western World: Beyond the Facade</title>
+        <title>Infographics</title>
     
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -77,10 +77,10 @@
 <body class="antialiased">
 
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
                 <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <img src="assets/images/ADS_Logo_1024.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-10 w-auto object-contain" />
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
             </a>
@@ -93,6 +93,19 @@
             </nav>
             <div class="flex items-center space-x-2">
                 <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
+                <div class="relative ml-4">
+                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
+                    </ul>
+                </div>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -113,6 +126,7 @@
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="relative container mx-auto px-6 py-20 md:py-32 text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Unveiling the Western World</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Infographics</h1>
                 <p class="text-lg md:text-xl max-w-3xl mx-auto">An interactive exploration of the complex realities behind the facade of Western prosperity, based on the analysis from "Unveiling the Western World".</p>
             </div>
         </section>
@@ -276,7 +290,7 @@
             </div>
         </section>
 
-        <section id="perspective" class="py-16 md:py-24 bg-amber-50">
+    <section id="perspective" class="py-16 md:py-24 bg-amber-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800">A New Perspective</h2>
@@ -288,6 +302,15 @@
                 </div>
             </div>
         </section>
+        <!-- Golden Speech Poems Button -->
+        <div class="container mx-auto px-6 mb-12">
+            <div class="flex justify-center">
+                <a href="golden-speech.html" class="inline-block px-8 py-4 bg-yellow-600 text-white text-lg font-semibold rounded-lg shadow hover:bg-yellow-700 transition">
+                    Visit Golden Speech — Our Poems Collection
+                </a>
+            </div>
+            <p class="text-center text-gray-600 mt-2">All future poems will be hosted in the Golden Speech page.</p>
+        </div>
     </main>
 
     <footer class="bg-gray-800 text-white py-8">
@@ -454,179 +477,78 @@
             });
         });
 
-        const translations = {
-          fa: {
-            title: "رونمایی از جهان غرب: فراسوی نما",
-            navFoundation: "بنیان",
-            navReality: "واقعیت درونی",
-            navImpact: "تأثیر جهانی",
-            navPerspective: "نگاهی نو",
-            navLibrary: "کتابخانه",
-            navDonate: "حمایت مالی",
-            heroTitle: "رونمایی از جهان غرب",
-            heroSubtitle: "کاوشی تعاملی در واقعیت‌های پیچیده پشت نمای رفاه غربی، بر اساس تحلیلی از کتاب \"رونمایی از جهان غرب\".",
-            foundationTitle: "بنیان: میراث استعماری",
-            foundationSubtitle: "این کتاب استدلال می‌کند که ثروت مدرن غرب تصادفی نبوده، بلکه بر پایه‌ای تاریخی از استعمار بنا شده است. این بخش به بررسی روند سیستماتیک استثماری می‌پردازد که منابع را از سرزمین‌های مستعمره به مراکز امپریالیستی منتقل کرده و نابرابری‌های جهانی پایداری ایجاد کرده است.",
-            foundationCard1Title: "۱. گرسنگی اقتصادی",
-            foundationCard1Text: "انقلاب صنعتی تقاضای سیری‌ناپذیری برای مواد خام و بازارهای جدید ایجاد کرد که به توسعه‌طلبی برون‌مرزی و استخراج منابع منجر شد.",
-            foundationCard2Title: "۲. تهاجم و انقیاد",
-            foundationCard2Text: "فتوحات نظامی، مانند تهاجمات بریتانیا به افغانستان، برای به انقیاد درآوردن جمعیت‌های محلی و تضمین وابستگی اقتصادی به کار گرفته شد.",
-            foundationCard3Title: "۳. دزدی سیستماتیک منابع",
-            foundationCard3Text: "منابع، اغلب با کار اجباری وحشیانه مانند تجارت لاستیک در کنگو بلژیک، غارت می‌شد. این ثروت دزدیده شده به مراکز امپریالیستی سرازیر می‌شد.",
-            foundationCard4Title: "۴. میراث پایدار",
-            foundationCard4Text: "این تاریخ تحمیل حاکمیت و استخراج، نابرابری‌های اقتصادی و بی‌ثباتی‌های سیاسی را ایجاد کرد که بسیاری از کشورهای مستعمره سابق هنوز با آن روبرو هستند.",
-            realityTitle: "واقعیت درونی: شکاف‌های اجتماعی",
-            realitySubtitle: "فراسوی ظاهر درخشان، کتاب بحران‌های داخلی قابل توجهی را برجسته می‌کند. این داشبورد داده‌های مربوط به جرائم خشن، بهداشت عمومی، مشکلات مالی و امنیت شخصی را به تصویر می‌کشد و واقعیتی دور از تصویر ایده‌آل را آشکار می‌سازد.",
-            realityChart1Title: "خشونت نامتناسب",
-            realityChart1Subtitle: "نرخ قتل در ایالات متحده در میان کشورهای توسعه‌یافته یک استثنا است.",
-            realityChart2Title: "بحران‌های بهداشتی فراگیر",
-            realityChart2Subtitle: "داده‌های ایالات متحده و بریتانیا چالش‌های بهداشتی عمیقی را نشان می‌دهد.",
-            realityChart3Title: "مشکلات مالی گسترده",
-            realityChart3Stat1: "۲۷.۱٪",
-            realityChart3Stat1Subtitle: "بزرگسالان آمریکایی در سال ۲۰۲۴ با ناامنی غذایی روبرو بودند.",
-            realityChart3Stat2: "۹۱٪",
-            realityChart3Stat2Subtitle: "افزایش بی‌خانمانی در انگلستان طی ۳ سال (تا ۲۰۲۵).",
-            realityChart4Title: "آزار و اذیت فراگیر",
-            realityChart4Stat1: "۷۱٪",
-            realityChart4Stat1Subtitle: "کل زنان بریتانیا آزار جنسی در ملاء عام را تجربه کرده‌اند.",
-            realityChart4Stat2: "۸۶٪",
-            realityChart4Stat2Subtitle: "این رقم برای زنان جوان ۱۸ تا ۲۴ ساله به ۸۶ درصد افزایش می‌یابد.",
-            impactTitle: "تأثیر جهانی: مداخله و فرهنگ",
-            impactSubtitle: "کتاب استدلال می‌کند که نفوذ غرب به صورت جهانی از طریق سیاست خارجی آشکار و صادرات فرهنگی فراگیر گسترش می‌یابد. موارد مطالعاتی و مفاهیمی را که این تأثیر دوگانه را نشان می‌دهند، کاوش کنید.",
-            impactTab1: "مداخله خارجی",
-            impactTab2: "تأثیر فرهنگی",
-            impactIntervention1Title: "۱۹۵۳: کودتای ایران",
-            impactIntervention1Text: "آمریکا و بریتانیا پس از ملی شدن صنعت نفت ایران توسط نخست‌وزیر منتخب دموکراتیک، مصدق، سرنگونی او را سازماندهی کرده و یک پادشاه دوستدار منافع غرب را به قدرت رساندند.",
-            impactIntervention2Title: "دهه ۱۹۸۰: تعدیل ساختاری",
-            impactIntervention2Text: "صندوق بین‌المللی پول و بانک جهانی برنامه‌هایی را بر کشورهای در حال توسعه تحمیل کردند که آنها را مجبور به کاهش خدمات عمومی برای پرداخت بدهی‌ها کرد و اغلب منجر به اعتراضات گسترده و ناآرامی‌های اجتماعی شد.",
-            impactIntervention3Title: "۲۰۰۳: تهاجم به عراق",
-            impactIntervention3Text: "تهاجم به رهبری آمریکا و بریتانیا با بهانه‌ای دروغین، منجر به فروپاشی دولت، تلفات جانی عظیم و بی‌ثباتی منطقه‌ای، از جمله ظهور داعش شد.",
-            impactCulture1Title: "مصرف‌گرایی",
-            impactCulture1Text: "فرهنگی که خوشبختی را با تملک برابر می‌داند و به مصرف ناپایدار و بدهی شخصی دامن می‌زند.",
-            impactCulture2Title: "فردگرایی",
-            impactCulture2Text: "اولویت دادن به خوداتکایی بر جامعه، که می‌تواند به انزوای اجتماعی و تضعیف شبکه‌های حمایتی منجر شود.",
-            impactCulture3Title: "ماشین رسانه‌ای",
-            impactCulture3Text: "رسانه‌های جهانی تصویری گزینشی و ایده‌آل از غرب را به نمایش می‌گذارند و مشکلات داخلی و بی‌عدالتی‌های تاریخی را پنهان می‌کنند.",
-            perspectiveTitle: "نگاهی نو",
-            perspectiveText1: "کتاب نتیجه می‌گیرد که درک متعادل از جهان غرب نیازمند فراتر رفتن از برداشت‌های سطحی است. این کتاب خواستار به رسمیت شناختن بی‌عدالتی‌های تاریخی است که زیربنای رفاه آن را تشکیل می‌دهد، تشخیص چالش‌های داخلی عمیق آن، و ارزیابی انتقادی تأثیر جهانی سیاست خارجی و سلطه فرهنگی آن است.",
-            perspectiveText2: "برای ملت‌های شرقی، این درک رهایی از فشار برای تقلید از یک مدل ناقص را به ارمغان می‌آورد و آنها را برای پیگیری مسیرهای توسعه اصیل توانمند می‌سازد. برای غرب، این یک فراخوان فوری برای خودنگری و پاسخگویی است.",
-            perspectiveText3: "در نهایت، هدف، آینده‌ای مشترک بر اساس احترام متقابل، همکاری واقعی و درک روشن از دنیای به هم پیوسته ماست.",
-            footerText: "گزارش تعاملی بر اساس کتاب "رونمایی از جهان غرب: فراسوی نما".",
-            footerCredit: "توسط خدمات دیجیتال الحق. تصاویر تاریخی برای اهداف تصویری استفاده شده و از منابع دامنه عمومی یا مخازن کریتیو کامانز در صورت امکان تهیه شده‌اند."
-          }
-        };
-
-        function setLanguage(lang) {
-          if (lang === 'fa') {
-            const t = translations.fa;
-            document.title = t.title;
-            document.getElementById('currentLang').textContent = 'دری';
-
-            // Header
-            document.getElementById('nav-foundation').textContent = t.navFoundation;
-            document.getElementById('nav-reality').textContent = t.navReality;
-            document.getElementById('nav-impact').textContent = t.navImpact;
-            document.getElementById('nav-perspective').textContent = t.navPerspective;
-            document.getElementById('nav-library').textContent = t.navLibrary;
-            document.querySelector('a[href="donate.html"]').textContent = t.navDonate;
-
-            // Mobile Menu
-            const mobileLinks = document.querySelectorAll('#mobile-menu a');
-            mobileLinks[0].textContent = t.navFoundation;
-            mobileLinks[1].textContent = t.navReality;
-            mobileLinks[2].textContent = t.navImpact;
-            mobileLinks[3].textContent = t.navPerspective;
-
-            // Hero
-            document.querySelector('#hero h1').textContent = t.heroTitle;
-            document.querySelector('#hero p').textContent = t.heroSubtitle;
-
-            // Foundation
-            document.querySelector('#foundation h2').textContent = t.foundationTitle;
-            document.querySelector('#foundation .text-lg').textContent = t.foundationSubtitle;
-            const foundationCards = document.querySelectorAll('#foundation .group');
-            foundationCards[0].querySelector('h3').textContent = t.foundationCard1Title;
-            foundationCards[0].querySelector('p').textContent = t.foundationCard1Text;
-            foundationCards[1].querySelector('h3').textContent = t.foundationCard2Title;
-            foundationCards[1].querySelector('p').textContent = t.foundationCard2Text;
-            foundationCards[2].querySelector('h3').textContent = t.foundationCard3Title;
-            foundationCards[2].querySelector('p').textContent = t.foundationCard3Text;
-            foundationCards[3].querySelector('h3').textContent = t.foundationCard4Title;
-            foundationCards[3].querySelector('p').textContent = t.foundationCard4Text;
-
-            // Reality
-            document.querySelector('#reality h2').textContent = t.realityTitle;
-            document.querySelector('#reality .text-lg').textContent = t.realitySubtitle;
-            const realityCards = document.querySelectorAll('#reality .grid > div');
-            realityCards[0].querySelector('h3').textContent = t.realityChart1Title;
-            realityCards[0].querySelector('p').textContent = t.realityChart1Subtitle;
-            realityCards[1].querySelector('h3').textContent = t.realityChart2Title;
-            realityCards[1].querySelector('p').textContent = t.realityChart2Subtitle;
-            realityCards[2].querySelector('h3').textContent = t.realityChart3Title;
-            const realityStats1 = realityCards[2].querySelectorAll('div');
-            realityStats1[0].querySelector('p:first-child').textContent = t.realityChart3Stat1;
-            realityStats1[0].querySelector('p:last-child').textContent = t.realityChart3Stat1Subtitle;
-            realityStats1[1].querySelector('p:first-child').textContent = t.realityChart3Stat2;
-            realityStats1[1].querySelector('p:last-child').textContent = t.realityChart3Stat2Subtitle;
-            realityCards[3].querySelector('h3').textContent = t.realityChart4Title;
-            const realityStats2 = realityCards[3].querySelectorAll('div');
-            realityStats2[0].querySelector('p:first-child').textContent = t.realityChart4Stat1;
-            realityStats2[0].querySelector('p:last-child').textContent = t.realityChart4Stat1Subtitle;
-            realityStats2[1].querySelector('p:first-child').textContent = t.realityChart4Stat2;
-            realityStats2[1].querySelector('p:last-child').textContent = t.realityChart4Stat2Subtitle;
-
-            // Impact
-            document.querySelector('#impact h2').textContent = t.impactTitle;
-            document.querySelector('#impact .text-lg').textContent = t.impactSubtitle;
-            const impactTabs = document.querySelectorAll('.tab-button');
-            impactTabs[0].textContent = t.impactTab1;
-            impactTabs[1].textContent = t.impactTab2;
-            const interventionCards = document.querySelectorAll('#intervention-content .grid > div');
-            interventionCards[0].querySelector('h3').textContent = t.impactIntervention1Title;
-            interventionCards[0].querySelector('p').textContent = t.impactIntervention1Text;
-            interventionCards[1].querySelector('h3').textContent = t.impactIntervention2Title;
-            interventionCards[1].querySelector('p').textContent = t.impactIntervention2Text;
-            interventionCards[2].querySelector('h3').textContent = t.impactIntervention3Title;
-            interventionCards[2].querySelector('p').textContent = t.impactIntervention3Text;
-            const cultureCards = document.querySelectorAll('#culture-content .grid > div');
-            cultureCards[0].querySelector('h3').textContent = t.impactCulture1Title;
-            cultureCards[0].querySelector('p').textContent = t.impactCulture1Text;
-            cultureCards[1].querySelector('h3').textContent = t.impactCulture2Title;
-            cultureCards[1].querySelector('p').textContent = t.impactCulture2Text;
-            cultureCards[2].querySelector('h3').textContent = t.impactCulture3Title;
-            cultureCards[2].querySelector('p').textContent = t.impactCulture3Text;
-
-            // Perspective
-            document.querySelector('#perspective h2').textContent = t.perspectiveTitle;
-            const perspectiveParas = document.querySelectorAll('#perspective .custom-prose');
-            perspectiveParas[0].textContent = t.perspectiveText1;
-            perspectiveParas[1].textContent = t.perspectiveText2;
-            perspectiveParas[2].textContent = t.perspectiveText3;
-
-            // Footer
-            const footerParas = document.querySelectorAll('footer p');
-            footerParas[0].textContent = t.footerText;
-            footerParas[1].textContent = t.footerCredit;
-          } else {
-            location.reload();
-          }
-        }
-
-        const langBtn = document.getElementById('langSwitcherBtn');
-        const langDropdown = document.getElementById('langDropdown');
-        if (langBtn && langDropdown) {
-            langBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                langDropdown.classList.toggle('hidden');
-                langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
-            });
-            document.addEventListener('click', function(e) {
-                if (!langBtn.contains(e.target)) {
-                    langDropdown.classList.add('hidden');
-                    langBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
+    // Page-specific translations hook used by core site.js
+    window._pageSetLanguage = function(lang) {
+        if (lang !== 'fa' && lang !== 'ar' && lang !== 'ps') return;
+        const t = Object.assign({}, window.pageTranslations || {});
+        if (t.title) document.title = t.title;
+        // Header labels
+        const ids = ['nav-foundation','nav-reality','nav-impact','nav-perspective','nav-library'];
+        const keys = ['navFoundation','navReality','navImpact','navPerspective','navLibrary'];
+        ids.forEach((id, i) => { const el = document.getElementById(id); if (el && t[keys[i]]) el.textContent = t[keys[i]]; });
+        const donateNav = document.querySelector('a[href="donate.html"]'); if (donateNav && t.navDonate) donateNav.textContent = t.navDonate;
+        // Mobile menu
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        if (mobileLinks[0] && t.navFoundation) mobileLinks[0].textContent = t.navFoundation;
+        if (mobileLinks[1] && t.navReality) mobileLinks[1].textContent = t.navReality;
+        if (mobileLinks[2] && t.navImpact) mobileLinks[2].textContent = t.navImpact;
+        if (mobileLinks[3] && t.navPerspective) mobileLinks[3].textContent = t.navPerspective;
+        // Hero
+        const heroH = document.querySelector('#hero h1'); if (heroH && t.heroTitle) heroH.textContent = t.heroTitle;
+        const heroP = document.querySelector('#hero p'); if (heroP && t.heroSubtitle) heroP.textContent = t.heroSubtitle;
+        // Foundation
+        const fTitle = document.querySelector('#foundation h2'); if (fTitle && t.foundationTitle) fTitle.textContent = t.foundationTitle;
+        const fSub = document.querySelector('#foundation .text-lg'); if (fSub && t.foundationSubtitle) fSub.textContent = t.foundationSubtitle;
+        const foundationCards = document.querySelectorAll('#foundation .group');
+        if (foundationCards[0]) { const h=foundationCards[0].querySelector('h3'); const p=foundationCards[0].querySelector('p'); if (h && t.foundationCard1Title) h.textContent=t.foundationCard1Title; if (p && t.foundationCard1Text) p.textContent=t.foundationCard1Text; }
+        if (foundationCards[1]) { const h=foundationCards[1].querySelector('h3'); const p=foundationCards[1].querySelector('p'); if (h && t.foundationCard2Title) h.textContent=t.foundationCard2Title; if (p && t.foundationCard2Text) p.textContent=t.foundationCard2Text; }
+        if (foundationCards[2]) { const h=foundationCards[2].querySelector('h3'); const p=foundationCards[2].querySelector('p'); if (h && t.foundationCard3Title) h.textContent=t.foundationCard3Title; if (p && t.foundationCard3Text) p.textContent=t.foundationCard3Text; }
+        if (foundationCards[3]) { const h=foundationCards[3].querySelector('h3'); const p=foundationCards[3].querySelector('p'); if (h && t.foundationCard4Title) h.textContent=t.foundationCard4Title; if (p && t.foundationCard4Text) p.textContent=t.foundationCard4Text; }
+        // Reality
+        const rTitle = document.querySelector('#reality h2'); if (rTitle && t.realityTitle) rTitle.textContent = t.realityTitle;
+        const rSub = document.querySelector('#reality .text-lg'); if (rSub && t.realitySubtitle) rSub.textContent = t.realitySubtitle;
+        const realityCards = document.querySelectorAll('#reality .grid > div');
+        if (realityCards[0]) { const h=realityCards[0].querySelector('h3'); const p=realityCards[0].querySelector('p'); if (h && t.realityChart1Title) h.textContent=t.realityChart1Title; if (p && t.realityChart1Subtitle) p.textContent=t.realityChart1Subtitle; }
+        if (realityCards[1]) { const h=realityCards[1].querySelector('h3'); const p=realityCards[1].querySelector('p'); if (h && t.realityChart2Title) h.textContent=t.realityChart2Title; if (p && t.realityChart2Subtitle) p.textContent=t.realityChart2Subtitle; }
+        if (realityCards[2]) { const h=realityCards[2].querySelector('h3'); if (h && t.realityChart3Title) h.textContent=t.realityChart3Title; const blocks=realityCards[2].querySelectorAll('div'); if (blocks[0]) { const ps=blocks[0].querySelectorAll('p'); if (ps[0] && t.realityChart3Stat1) ps[0].textContent=t.realityChart3Stat1; if (ps[1] && t.realityChart3Stat1Subtitle) ps[1].textContent=t.realityChart3Stat1Subtitle;} if (blocks[1]) { const ps=blocks[1].querySelectorAll('p'); if (ps[0] && t.realityChart3Stat2) ps[0].textContent=t.realityChart3Stat2; if (ps[1] && t.realityChart3Stat2Subtitle) ps[1].textContent=t.realityChart3Stat2Subtitle; } }
+        if (realityCards[3]) { const h=realityCards[3].querySelector('h3'); if (h && t.realityChart4Title) h.textContent=t.realityChart4Title; const blocks=realityCards[3].querySelectorAll('div'); if (blocks[0]) { const ps=blocks[0].querySelectorAll('p'); if (ps[0] && t.realityChart4Stat1) ps[0].textContent=t.realityChart4Stat1; if (ps[1] && t.realityChart4Stat1Subtitle) ps[1].textContent=t.realityChart4Stat1Subtitle;} if (blocks[1]) { const ps=blocks[1].querySelectorAll('p'); if (ps[0] && t.realityChart4Stat2) ps[0].textContent=t.realityChart4Stat2; if (ps[1] && t.realityChart4Stat2Subtitle) ps[1].textContent=t.realityChart4Stat2Subtitle; } }
+        // Impact
+        const iTitle = document.querySelector('#impact h2'); if (iTitle && t.impactTitle) iTitle.textContent = t.impactTitle;
+        const iSub = document.querySelector('#impact .text-lg'); if (iSub && t.impactSubtitle) iSub.textContent = t.impactSubtitle;
+        const impactTabs = document.querySelectorAll('.tab-button'); if (impactTabs[0] && t.impactTab1) impactTabs[0].textContent = t.impactTab1; if (impactTabs[1] && t.impactTab2) impactTabs[1].textContent = t.impactTab2;
+        const interventionCards = document.querySelectorAll('#intervention-content .grid > div');
+        if (interventionCards[0]) { const h=interventionCards[0].querySelector('h3'); const p=interventionCards[0].querySelector('p'); if (h && t.impactIntervention1Title) h.textContent=t.impactIntervention1Title; if (p && t.impactIntervention1Text) p.textContent=t.impactIntervention1Text; }
+        if (interventionCards[1]) { const h=interventionCards[1].querySelector('h3'); const p=interventionCards[1].querySelector('p'); if (h && t.impactIntervention2Title) h.textContent=t.impactIntervention2Title; if (p && t.impactIntervention2Text) p.textContent=t.impactIntervention2Text; }
+        if (interventionCards[2]) { const h=interventionCards[2].querySelector('h3'); const p=interventionCards[2].querySelector('p'); if (h && t.impactIntervention3Title) h.textContent=t.impactIntervention3Title; if (p && t.impactIntervention3Text) p.textContent=t.impactIntervention3Text; }
+        const cultureCards = document.querySelectorAll('#culture-content .grid > div');
+        if (cultureCards[0]) { const h=cultureCards[0].querySelector('h3'); const p=cultureCards[0].querySelector('p'); if (h && t.impactCulture1Title) h.textContent=t.impactCulture1Title; if (p && t.impactCulture1Text) p.textContent=t.impactCulture1Text; }
+        if (cultureCards[1]) { const h=cultureCards[1].querySelector('h3'); const p=cultureCards[1].querySelector('p'); if (h && t.impactCulture2Title) h.textContent=t.impactCulture2Title; if (p && t.impactCulture2Text) p.textContent=t.impactCulture2Text; }
+        if (cultureCards[2]) { const h=cultureCards[2].querySelector('h3'); const p=cultureCards[2].querySelector('p'); if (h && t.impactCulture3Title) h.textContent=t.impactCulture3Title; if (p && t.impactCulture3Text) p.textContent=t.impactCulture3Text; }
+        // Perspective
+        const pTitle = document.querySelector('#perspective h2'); if (pTitle && t.perspectiveTitle) pTitle.textContent = t.perspectiveTitle;
+        const perspectiveParas = document.querySelectorAll('#perspective .custom-prose');
+        if (perspectiveParas[0] && t.perspectiveText1) perspectiveParas[0].textContent = t.perspectiveText1;
+        if (perspectiveParas[1] && t.perspectiveText2) perspectiveParas[1].textContent = t.perspectiveText2;
+        if (perspectiveParas[2] && t.perspectiveText3) perspectiveParas[2].textContent = t.perspectiveText3;
+        // Footer
+        const footerParas = document.querySelectorAll('footer p');
+        if (footerParas[0] && t.footerText) footerParas[0].textContent = t.footerText;
+        if (footerParas[1] && t.footerCredit) footerParas[1].textContent = t.footerCredit;
+    };
     </script>
 </body>
+<script src="assets/js/site.js"></script>
+<script>
+// Mobile menu toggle for All Infographics page
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+        btn.addEventListener('click', function () {
+            const isHidden = menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', (!isHidden).toString());
+        });
+    }
+});
+</script>
 </html>

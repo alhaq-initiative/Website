@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeenShield - Main Product Hub | Alhaq Digital Services</title>
+    <meta name="description" content="DeenShield: Unified Islamic digital ecosystem. Explore the web app, mobile apps, browser extension, desktop manager, and desktop app. Features, privacy, terms, and support links for all products.">
+    <meta name="keywords" content="DeenShield, Islamic productivity, web app, mobile app, browser extension, desktop app, privacy, terms, support">
+    <link rel="icon" type="image/svg+xml" href="/deenshield/images/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* light default */
+            color: #0A2540;
+            margin: 0;
+            transition: background-color .3s, color .3s;
+        }
+        .dark body { background-color: #00172e; color: #f1f5f9; }
+        .bg-brand-blue { background-color: #0A2540; }
+        .text-brand-blue { color: #0A2540; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .text-brand-gold { color: #D4AF37; }
+        .border-brand-gold { border-color: #D4AF37; }
+        .backdrop-blur-nav {
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .islamic-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .islamic-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(10, 37, 64, 0.15); }
+        .app-embed { border: none; border-radius: 16px; box-shadow: 0 20px 60px rgba(10, 37, 64, 0.15); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .feature-icon i { font-size: 1.8rem; color: white; }
+        .install-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease; }
+        .install-btn:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .install-btn.chrome { background: rgba(66, 133, 244, 0.9); }
+        .install-btn.firefox { background: rgba(255, 149, 0, 0.9); }
+        .install-btn.edge { background: rgba(0, 120, 212, 0.9); }
+        .app-store-btn { background: linear-gradient(135deg, #000, #333); border: 1px solid #333; border-radius: 12px; padding: 12px 20px; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .app-store-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+        .google-play-btn { background: linear-gradient(135deg, #01875f, #4caf50); border: 1px solid #4caf50; }
+        .tab-button { padding: 1rem 2rem; border: none; background: rgba(255, 255, 255, 0.1); color: white; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; }
+        .tab-button.active { background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .integration-highlight { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; position: relative; overflow: hidden; }
+        .hidden-section {
+            display: none;
+        }
+        .main-container {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0A2540;
+        }
+        .main-description {
+            font-size: 1.2rem;
+            color: #444;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    .ecosystem-section { max-width: 1200px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+    .ecosystem-grid { display: grid; gap: 2rem; }
+    @media (min-width: 900px) { .ecosystem-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+    .value-card { background:#ffffff; border:1px solid rgba(10,37,64,0.08); border-radius: 18px; padding:1.5rem 1.4rem 1.7rem; box-shadow:0 4px 16px rgba(10,37,64,.06); position:relative; overflow:hidden; }
+    .value-card:before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(118,75,162,.08)); opacity:.65; mix-blend-mode:multiply; pointer-events:none; }
+    .value-card h3 { margin:.2rem 0 0.75rem; font-size:1.05rem; font-weight:700; letter-spacing:.5px; }
+    .value-card p, .value-card li { font-size:.85rem; line-height:1.35rem; }
+    .gold-accent { background:linear-gradient(90deg,#d4af37,#f5e6b3); -webkit-background-clip:text; color:transparent; }
+    .section-heading { font-size:2.1rem; font-weight:800; letter-spacing:-.5px; margin:0 0 1.1rem; }
+    .timeline { position:relative; margin:2rem 0 3rem; padding-left:1.25rem; }
+    .timeline:before { content:""; position:absolute; top:0; bottom:0; left:6px; width:2px; background:linear-gradient(#d4af37,#764ba2); }
+    .timeline-item { position:relative; margin-bottom:1.4rem; padding-left:1.4rem; }
+    .timeline-item:last-child { margin-bottom:0; }
+    .timeline-item:before { content:""; position:absolute; left:-1px; top:.3rem; width:14px; height:14px; background:#fff; border:3px solid #d4af37; border-radius:50%; box-shadow:0 0 0 2px #fff; }
+    .support-cta { display:flex; flex-wrap:wrap; gap: .9rem; margin-top:1.25rem; }
+    .support-btn { background:#0A2540; color:#fff; padding:.85rem 1.25rem; border-radius:12px; font-weight:600; font-size:.9rem; text-decoration:none; display:inline-flex; align-items:center; gap:.55rem; position:relative; overflow:hidden; }
+    .support-btn:before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(212,175,55,.22)); opacity:0; transition:.35s; }
+    .support-btn:hover:before { opacity:1; }
+    .dual-grid { display:grid; gap:2rem; }
+    @media (min-width: 960px){ .dual-grid { grid-template-columns: 1fr 1fr; } }
+    .pillars-list { list-style:none; padding:0; margin:0; display:grid; gap:.9rem; }
+    .pillar { background:#f8fafc; border:1px solid #e3e8ef; border-radius:14px; padding:.9rem 1rem; font-size:.9rem; display:flex; gap:.65rem; align-items:flex-start; }
+    .pillar i { color:#d4af37; margin-top:.15rem; }
+    .goals-cols { display:grid; gap:1.5rem; }
+    @media (min-width: 800px){ .goals-cols { grid-template-columns: repeat(2,1fr); } }
+    .goal-card { background:#0A2540; color:#f1f5f9; border-radius:18px; padding:1.4rem 1.4rem 1.7rem; position:relative; overflow:hidden; }
+    .goal-card:after { content:""; position:absolute; inset:0; background:radial-gradient(circle at 30% 20%,rgba(212,175,55,.25),transparent 70%); pointer-events:none; }
+    .goal-card h3 { margin:0 0 .8rem; font-size:1.05rem; letter-spacing:.5px; font-weight:700; }
+    .goal-card ul { margin:0; padding-left:1.1rem; font-size:.85rem; line-height:1.3rem; }
+    .verse-box { background:#0A2540; color:#f1f5f9; padding:1.25rem 1.4rem 1.4rem; border-radius:18px; margin:2.2rem 0; position:relative; overflow:hidden; }
+    .verse-box:before { content:" ﷽ "; position:absolute; font-family:'Amiri',serif; font-size:3.5rem; opacity:.07; top:.3rem; right:.6rem; }
+    .subtle { color:#64748b; font-size:.85rem; }
+        /* Top tabs for quick navigation */
+        .top-product-tabs { display:flex; gap:.55rem; flex-wrap:wrap; justify-content:center; margin-top:.65rem; }
+        .top-product-tabs button.top-tab { background:#f1f5f9; border:1px solid transparent; color:#0A2540; font-weight:600; font-size:.72rem; letter-spacing:.5px; padding:.55rem .85rem; border-radius:999px; text-transform:uppercase; display:inline-flex; align-items:center; gap:.35rem; transition:.25s; }
+        .dark .top-product-tabs button.top-tab { background:#0f2740; color:#f1f5f9; }
+        .top-product-tabs button.top-tab:hover { background:#e2e8f0; }
+        .dark .top-product-tabs button.top-tab:hover { background:#173553; }
+        .top-product-tabs button.top-tab.border-brand-gold { border-color:#D4AF37; box-shadow:0 0 0 1px rgba(212,175,55,.4); }
+        .top-product-tabs button.top-tab i { font-size:.85rem; }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .tab-button { padding: 0.75rem 1rem; font-size: 0.9rem; }
+            .top-product-tabs button.top-tab { font-size:.6rem; padding:.45rem .7rem; }
+        }
+        /* Readability enhancements appended */
+        body { line-height:1.6; font-size:16px; }
+        .value-card p, .value-card li { font-size:.95rem; line-height:1.45rem; }
+        .pillar { border-color:#dde3ea; padding:.85rem 1rem; font-size:.92rem; }
+        .goal-card ul { font-size:.9rem; line-height:1.4rem; }
+        .support-btn { padding:.85rem 1.15rem; font-size:.88rem; }
+        .product-links { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.2rem 0 0; }
+        .product-links a { background:#0A2540; color:#fff; padding:.55rem .95rem; border-radius:10px; font-size:.7rem; letter-spacing:.5px; font-weight:600; text-decoration:none; text-transform:uppercase; display:inline-flex; gap:.4rem; align-items:center; transition:.25s; }
+        .product-links a:hover { background:#133554; }
+        .dark .product-links a { background:#173553; }
+        .dark .product-links a:hover { background:#23486d; }
+        .feature-list { list-style:disc; padding-left:1.1rem; margin:.75rem 0 0; }
+        .feature-list li { margin-bottom:.4rem; font-size:.9rem; line-height:1.4rem; }
+        .product-section p { font-size:.98rem; line-height:1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="flex flex-col items-center space-y-3">
+                <div class="flex items-center space-x-4">
+                    <img src="images/logo.png" onerror="this.onerror=null;this.src='/deenshield/images/logo.png';" alt="DeenShield Product Logo" class="h-14 w-14 rounded-xl border border-gray-200 shadow-sm" />
+                    <span class="text-4xl font-extrabold text-brand-blue dark:text-white">DeenShield</span>
+                    <span class="text-gray-300 font-medium">by</span>
+                    <img src="https://www.alhaqds.software/assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Company Logo" class="h-12 w-12 rounded-full border border-gray-300 shadow" />
+                </div>
+                <!-- Top Tab Navigation -->
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation">
+                    <button type="button" role="tab" aria-label="Home" class="top-tab product-nav-btn border-brand-gold" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <h1 class="main-title text-brand-blue dark:text-white">🛡️ Unified Faith‑Aligned Digital Ecosystem</h1>
+            </div>
+            <p class="main-description text-gray-700 dark:text-gray-200">Unified Islamic digital ecosystem: Web app, mobile apps, browser extension, desktop manager, and desktop app. Explore features, privacy, terms, and support for every product.</p>
+        </header>
+        <div class="section-divider"></div>
+        <section id="ecosystem-overview" class="ecosystem-section">
+            <h2 class="section-heading text-brand-blue dark:text-white">DeenShield Ecosystem</h2>
+            <p class="leading-relaxed text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+                DeenShield is a <span class="gold-accent">faith‑aligned, privacy‑first digital ecosystem</span> designed to help Muslims live with focus, balance, and ihsān (excellence). Rather than another distracting platform, it is a quiet companion: prayer times, Qur'an study, mindful tasks, filtered browsing, and protection tools—<strong>unified</strong> across web, mobile, desktop, and extensions. Built with the principles of <em>amanah</em> (trust), <em>tazkiyah</em> (purification), and <em>maslahah</em> (benefit) at its core.
+            </p>
+            <div class="verse-box">
+                <p class="font-semibold text-sm md:text-base mb-2">“Verily, in the remembrance of Allah do hearts find rest.” <span class="block text-xs opacity-80">Qur'an 13:28 (translation for meaning)</span></p>
+                <p class="text-xs opacity-80">Reminder: This translation is provided for understanding; consult authentic tafsīr for deeper reflection.</p>
+            </div>
+            <div class="ecosystem-grid cols-3 mb-12">
+                <div class="value-card">
+                    <h3>Islamic Design Ethics</h3>
+                    <p>Reduce distraction, support purposeful use, avoid manipulative patterns, and encourage remembrance & beneficial action.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Privacy & Stewardship</h3>
+                    <p>No invasive tracking. Local‑first storage where feasible. Data is an amanah; sensitive spiritual routines are never a target for monetization.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Openness & Accountability</h3>
+                    <p>Progressively opening core components for community review. Welcoming feedback from scholars, developers, and users.</p>
+                </div>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-brand-blue dark:text-white">Journey & Milestones</h3>
+            <div class="timeline">
+                <div class="timeline-item"><strong>Concept Spark</strong> – Identified fragmentation between worship tools, productivity apps, and digital protection.</div>
+                <div class="timeline-item"><strong>Core Prayer & Qur'an Module</strong> – Implemented accurate prayer time engine & multi‑translation recitation view.</div>
+                <div class="timeline-item"><strong>Protection Layer (Extension)</strong> – Ethical content filtering with user‑controlled scopes & no remote logging.</div>
+                <div class="timeline-item"><strong>Unified UI & Sync Strategy</strong> – Building consistent components & offline‑first data model.</div>
+                <div class="timeline-item"><strong>Community Onboarding</strong> – Opening pathways for dua, feedback, QA testing, and translations.</div>
+            </div>
+            <div class="dual-grid mb-14">
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-blue dark:text-white">Unified Feature Pillars</h3>
+                    <ul class="pillars-list">
+                        <li class="pillar"><i class="fas fa-mosque"></i> Precise prayer times, smart reminders, quiet modes for khushūʿ.</li>
+                        <li class="pillar"><i class="fas fa-book-quran"></i> Qur'an reading with bookmarking, translations, progress memory.</li>
+                        <li class="pillar"><i class="fas fa-compass"></i> Calibrated Qibla & dhikr counters encouraging consistency.</li>
+                        <li class="pillar"><i class="fas fa-shield-alt"></i> Browser protection: filter, intentional breaks, reduce harmful exposure.</li>
+                        <li class="pillar"><i class="fas fa-tasks"></i> Focus & task alignment: schedule around salāh rather than despite it.</li>
+                        <li class="pillar"><i class="fas fa-heart"></i> Mindful habits – small wins, no gamification loops that dilute intention.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-blue dark:text-white">Development Principles</h3>
+                    <ul class="pillars-list">
+                        <li class="pillar"><i class="fas fa-check-circle"></i> Ihsān: Craft quality & clarity in UX over feature bloat.</li>
+                        <li class="pillar"><i class="fas fa-balance-scale"></i> Wasatiyyah: Balanced design—utility without over‑dependence.</li>
+                        <li class="pillar"><i class="fas fa-lock"></i> Amanah: Respect user privacy; minimal data retention.</li>
+                        <li class="pillar"><i class="fas fa-leaf"></i> Tazkiyah: Encourage purification—reduce temptations, guide focus.</li>
+                        <li class="pillar"><i class="fas fa-people-group"></i> Shūrā: Invite community review, iterate with feedback.</li>
+                        <li class="pillar"><i class="fas fa-hands-helping"></i> Maslahah: Prioritize features with clear benefit to users' dīn & daily life.</li>
+                    </ul>
+                </div>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-brand-blue dark:text-white">Goals</h3>
+            <div class="goals-cols mb-14">
+                <div class="goal-card">
+                    <h3>Near Term</h3>
+                    <ul>
+                        <li>Finalize cross‑platform design tokens & accessibility checks.</li>
+                        <li>Expand multi‑language Qur'an & UI translation coverage.</li>
+                        <li>Strengthen extension filtering strategy with transparent lists.</li>
+                        <li>Introduce offline‑sync for recurring dhikr & tasks.</li>
+                        <li>Initial community feedback cycles & scholar advisory input.</li>
+                    </ul>
+                </div>
+                <div class="goal-card">
+                    <h3>Vision Path</h3>
+                    <ul>
+                        <li>Adaptive spiritual planning assistant (privacy preserved).</li>
+                        <li>Learning modules integrating tafsīr excerpts & memorization pacing.</li>
+                        <li>Collaborative family dashboards with secure sharing.</li>
+                        <li>Expanded open modules & third‑party extension points.</li>
+                        <li>Sustainable, halal funding models without attention capture.</li>
+                    </ul>
+                </div>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-brand-blue dark:text-white">Support & Participate</h3>
+            <p class="text-gray-700 dark:text-gray-300 max-w-3xl mb-4">You can strengthen this effort through sincere <em>duʿā</em>, constructive feedback, responsible sharing, and ethical contribution. We avoid manipulative growth tactics—your intention matters more than metrics.</p>
+            <div class="support-cta">
+                <a class="support-btn" href="#" title="Make a du'a for barakah"><i class="fas fa-hands-praying"></i><span>Dua for Barakah</span></a>
+                <a class="support-btn" href="support/en/index.html"><i class="fas fa-comment-dots"></i><span>Share Feedback</span></a>
+                <a class="support-btn" href="https://github.com/HabibGHub" target="_blank" rel="noopener"><i class="fab fa-github"></i><span>Contribute Code</span></a>
+                <a class="support-btn" href="#" title="Coming Soon"><i class="fas fa-hand-holding-heart"></i><span>Halal Sponsorship</span></a>
+            </div>
+            <p class="subtle mt-4">Note: Islamic guidance review is ongoing—please report issues or suggestions respectfully.</p>
+        </section>
+        <!-- Bottom Compact Product Tabs (replaces previous large cards) -->
+        <div id="product-navigator" class="mt-4 mb-10">
+            <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation duplicate">
+                <button type="button" role="tab" aria-label="Home" class="top-tab product-nav-btn border-brand-gold" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                <button type="button" role="tab" aria-label="Web App" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                <button type="button" role="tab" aria-label="Mobile Apps" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                <button type="button" role="tab" aria-label="Browser Extension" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                <button type="button" role="tab" aria-label="Desktop Manager" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                <button type="button" role="tab" aria-label="Desktop App" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+            </div>
+        </div>
+        <!-- Product Sections (SPA style, only one visible at a time) -->
+        <div id="product-sections">
+            <!-- Web App Section -->
+            <section id="webapp-section" class="product-section hidden-section">
+                <div class="product-header"><i class="fas fa-desktop"></i><span class="product-title">Web App</span></div>
+                <p>Your daily hub for worship, learning, and focus—fast, elegant, and privacy‑first right in your browser.</p>
+                <ul class="feature-list">
+                    <li>Precise prayer times with location methods and smart notifications</li>
+                    <li>Quran reader with translations, bookmarks, and reading progress</li>
+                    <li>Accurate Qibla compass with calibration guidance</li>
+                    <li>Digital dhikr (tasbih) with presets and history</li>
+                    <li>Prayer‑aligned task planning and reminders</li>
+                    <li>Built‑in protection when paired with the browser extension</li>
+                </ul>
+                <div class="product-links">
+                    <a href="web-app/src/index.html" target="_blank" rel="noopener noreferrer">Launch Web App</a>
+                    <a href="web-app/src/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                    <a href="support/en/index.html" target="_blank" rel="noopener noreferrer">Support</a>
+                </div>
+                <div class="w-full max-w-5xl mx-auto mt-8">
+                    <div class="islamic-card p-2">
+                        <iframe 
+                            src="web-app/src/index.html" 
+                            class="app-embed w-full h-[600px] md:h-[800px]"
+                            title="Deen Shield Productivity App"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+            <!-- Mobile Apps Section -->
+            <section id="mobile-section" class="product-section hidden-section">
+                <div class="product-header"><i class="fas fa-mobile-alt"></i><span class="product-title">Mobile Apps (iOS & Android)</span></div>
+                <p>Native experience built for speed, offline use, and privacy—take DeenShield with you everywhere.</p>
+                <ul class="feature-list">
+                    <li>Timely prayer alerts and Quran reading reminders</li>
+                    <li>Offline Quran and cached prayer times</li>
+                    <li>GPS‑accurate Qibla direction</li>
+                    <li>Biometric lock (Face/Touch ID)</li>
+                    <li>Family sharing and progress features</li>
+                    <li>On‑device content filtering</li>
+                </ul>
+                <div class="product-links">
+                    <a href="https://apps.apple.com/app/deen-shield" target="_blank" rel="noopener noreferrer">App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.alhaqds.deenshield" target="_blank" rel="noopener noreferrer">Google Play</a>
+                    <a href="privacy/en/index.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                    <a href="support/en/index.html" target="_blank" rel="noopener noreferrer">Support</a>
+                </div>
+            </section>
+            <!-- Browser Extension Section -->
+            <section id="extension-section" class="product-section hidden-section">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Browser Extension Features</h2>
+                    <p class="text-lg text-gray-700">Professional Islamic content blocking for all major browsers</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="islamic-card p-6">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-3">Smart Content Blocking</h3>
+                        <p class="text-gray-700">Automatically blocks inappropriate websites and content using advanced filtering algorithms. Protects against adult content, gambling sites, and other haram material.</p>
+                    </div>
+
+                    <div class="islamic-card p-6">
+                        <div class="feature-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-3">Social Media Control</h3>
+                        <p class="text-gray-700">Optional blocking of major social platforms to reduce distractions and improve focus. Customize which platforms to block based on your needs.</p>
+                    </div>
+
+                    <div class="islamic-card p-6">
+                        <div class="feature-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-3">Custom Keyword Filtering</h3>
+                        <p class="text-gray-700">Add your own keywords and terms to block. Create personalized filters that align with your Islamic values and family requirements.</p>
+                    </div>
+
+                    <div class="islamic-card p-6">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-3">Password Protection</h3>
+                        <p class="text-gray-700">Secure your settings with password protection to prevent unauthorized changes. Ideal for parents and self-control.</p>
+                    </div>
+
+                    <div class="islamic-card p-6">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-3">Cross-Browser Support</h3>
+                        <p class="text-gray-700">Works seamlessly across Chrome, Firefox, Edge, and other major browsers. Same protection everywhere you browse.</p>
+                    </div>
+
+                    <div class="islamic-card p-6">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-3">Privacy First</h3>
+                        <p class="text-gray-700">Zero data collection or tracking. All blocking happens locally on your device. Your browsing habits remain completely private.</p>
+                    </div>
+                </div>
+
+                <!-- Install Buttons -->
+                <div class="text-center mt-16">
+                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Install on Your Browser</h3>
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <a href="https://chromewebstore.google.com/detail/deen-shield-islamic-conte/adcgjaalckbeikpdpiacnjamfihalkmc" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+                            <i class="fab fa-chrome mr-2"></i>Chrome Web Store
+                        </a>
+                        <a href="https://addons.mozilla.org/firefox/addon/deen-shield" target="_blank" rel="noopener noreferrer" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+                            <i class="fab fa-firefox mr-2"></i>Firefox Add-ons
+                        </a>
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/deen-shield" target="_blank" rel="noopener noreferrer" class="bg-blue-800 hover:bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold transition">
+                            <i class="fab fa-edge mr-2"></i>Edge Add-ons
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Desktop Manager Section -->
+            <section id="manager-section" class="product-section hidden-section">
+                <div class="product-header"><i class="fas fa-window-maximize"></i><span class="product-title">Desktop Manager / Launcher</span></div>
+                <p>One lightweight launcher for everything DeenShield—open apps faster and manage them in one place.</p>
+                <ul class="feature-list">
+                    <li>Unified dashboard across all DeenShield products</li>
+                    <li>Quick launch shortcuts and global search</li>
+                    <li>Cross‑platform synchronization</li>
+                    <li>Smart, centralized notifications</li>
+                    <li>Centralized protection controls</li>
+                </ul>
+                <div class="product-links">
+                    <a href="support/en/index.html" target="_blank" rel="noopener noreferrer">Support</a>
+                    <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms</a>
+                    <a href="privacy/en/index.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+                </div>
+            </section>
+            <!-- Desktop App Section -->
+            <section id="desktop-section" class="product-section hidden-section">
+                <div class="product-header"><i class="fas fa-laptop"></i><span class="product-title">DeenShield Desktop App</span></div>
+                <p>Powerful desktop application with offline capability and deep OS integration for serious productivity.</p>
+                <ul class="feature-list">
+                    <li>Full offline Quran and localized prayer times</li>
+                    <li>Native desktop notifications</li>
+                    <li>System‑wide protection when combined with the extension</li>
+                    <li>Windows, macOS, and Linux support</li>
+                    <li>Unified dashboard and keyboard shortcuts</li>
+                </ul>
+                <div class="product-links">
+                    <a href="support/en/index.html" target="_blank" rel="noopener noreferrer">Support</a>
+                    <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms</a>
+                    <a href="privacy/en/index.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+                </div>
+            </section>
+        </div>
+        <script>
+            // SPA navigation logic with URL hash support
+            (function() {
+                const sections = document.querySelectorAll('#product-sections > section');
+                const buttons = document.querySelectorAll('.product-nav-btn');
+                const productKeys = new Set(['webapp','mobile','extension','manager','desktop']);
+
+                function showSection(key) {
+                    sections.forEach(sec => sec.classList.add('hidden-section'));
+                    const target = document.getElementById(key + '-section');
+                    if (target) target.classList.remove('hidden-section');
+                    buttons.forEach(b => b.classList.remove('border-brand-gold'));
+                    const activeBtn = document.querySelector(`.product-nav-btn[data-product="${key}"]`);
+                    if (activeBtn) activeBtn.classList.add('border-brand-gold');
+                }
+
+                function showFromHash() {
+                    const hash = (window.location.hash || '').replace('#','').toLowerCase();
+                    const overview = document.getElementById('ecosystem-overview');
+                    const homeBtns = document.querySelectorAll('.product-nav-btn[data-product="home"]');
+                    if (hash && hash !== 'home' && productKeys.has(hash)) {
+                        // show product section
+                        if (overview) overview.style.display = 'none';
+                        showSection(hash);
+                        homeBtns.forEach(b => b.classList.remove('border-brand-gold'));
+                    } else {
+                        // show overview as home
+                        if (overview) overview.style.display = '';
+                        sections.forEach(sec => sec.classList.add('hidden-section'));
+                        buttons.forEach(b => b.classList.remove('border-brand-gold'));
+                        homeBtns.forEach(b => b.classList.add('border-brand-gold'));
+                    }
+                }
+
+                // Wire up clicks: update URL hash and show section
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const product = btn.getAttribute('data-product');
+                        if (product === 'home') {
+                            // Clear hash to represent home
+                            if (window.location.hash) {
+                                history.pushState('', document.title, window.location.pathname + window.location.search);
+                            }
+                            showFromHash();
+                            return;
+                        }
+                        if (!productKeys.has(product)) return;
+                        if (window.location.hash !== '#' + product) {
+                            window.location.hash = product; // triggers hashchange
+                        } else {
+                            // Immediate feedback if same hash
+                            showFromHash();
+                        }
+                    });
+                });
+
+                // React to back/forward navigation
+                window.addEventListener('hashchange', showFromHash);
+
+                // Initial state from URL (fallback to webapp)
+                showFromHash();
+            })();
+        </script>
+    </div>
+            <footer class="mt-20 bg-gray-900 text-gray-300">
+                <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-5 gap-10">
+                    <div class="md:col-span-2 space-y-5">
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://www.alhaqds.software/assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Company Logo" class="h-10 w-10 rounded-full border border-gray-700" />
+                                <span class="text-lg font-semibold text-white">Alhaq Digital Services</span>
+                            </div>
+                            <p class="text-xs text-gray-400 tracking-wide">Parent company – ethical Islamic technology solutions.</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="/deenshield/images/logo.png" alt="DeenShield Product Logo" class="h-10 w-10 rounded-full border border-gray-700" />
+                                <span class="text-lg font-semibold text-white">DeenShield Suite</span>
+                            </div>
+                            <p class="text-sm leading-relaxed">Faith‑aligned productivity & protection. Local‑first. Privacy‑centric. Open to community review.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold tracking-wider text-gray-400 uppercase mb-3">Products</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#webapp" class="hover:text-white">Web App</a></li>
+                            <li><a href="#mobile" class="hover:text-white">Mobile</a></li>
+                            <li><a href="#extension" class="hover:text-white">Extension</a></li>
+                            <li><a href="#manager" class="hover:text-white">Manager</a></li>
+                            <li><a href="#desktop" class="hover:text-white">Desktop</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold tracking-wider text-gray-400 uppercase mb-3">Legal</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/deenshield/privacy/main-privacy.html" class="hover:text-white">Privacy Overview</a></li>
+                            <li><a href="/deenshield/terms/en/index.html" class="hover:text-white">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold tracking-wider text-gray-400 uppercase mb-3">Support</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="/deenshield/support/en/index.html" class="hover:text-white">Help Center</a></li>
+                            <li><a href="mailto:support@alhaqds.software" class="hover:text-white">Email Support</a></li>
+                            <li><a href="https://alhaqds.software/contact" target="_blank" rel="noopener" class="hover:text-white">Contact Form</a></li>
+                            <li><a href="https://alhaqds.software" target="_blank" rel="noopener" class="hover:text-white">Company Site</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 py-6 text-center text-xs text-gray-500">
+                    <p>© 2025 Alhaq Digital Services • DeenShield is an ADS product • <a href="/deenshield/privacy/main-privacy.html" class="hover:text-white">Privacy</a> • <a href="/deenshield/terms/en/index.html" class="hover:text-white">Terms</a> • <a href="/deenshield/support/en/index.html" class="hover:text-white">Support</a></p>
+                </div>
+            </footer>
+    <script src="/deenshield/js/theme-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+/* Main styles for Al-Haq Digital Services */
+
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #333333;
+}
+
+/* Brand colors */
+.bg-brand-blue {
+  background-color: #0a2540;
+}
+.text-brand-blue {
+  color: #0a2540;
+}
+.bg-brand-gold {
+  background-color: #d4af37;
+}
+.text-brand-gold {
+  color: #d4af37;
+}
+.border-brand-gold {
+  border-color: #d4af37;
+}
+
+/* Islamic Styling */
+.islamic-header {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.9)
+  );
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  -ms-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.islamic-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  position: relative;
+}
+
+.islamic-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+}
+
+.islamic-footer {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  border-top: 3px solid #d4af37;
+}
+
+.islamic-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Modern Navigation Styles */
+.active-nav {
+  position: relative;
+}
+
+.active-nav:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #d4af37;
+  border-radius: 4px;
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #d4af37;
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+/* Icons */
+.inline-icon {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+/* Ko-fi button */
+.kofi-button {
+  background-color: #29abe0;
+  color: white !important;
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Language switcher */
+.lang-switcher-btn:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+.lang-option[aria-selected='true'] {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Mobile menu button */
+.mobile-menu-button:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Cross-browser compatibility */
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .glass-effect {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* RTL support: keep layout and spacing consistent in Arabic/Dari */
+/* Direction is also set via <html dir>, but we add a class for scoped overrides */
+body.rtl {
+  direction: rtl;
+}
+
+/* Text alignment swaps */
+body.rtl .text-left {
+  text-align: right !important;
+}
+body.rtl .text-right {
+  text-align: left !important;
+}
+
+/* Common margin swaps */
+body.rtl .ml-1 {
+  margin-left: 0 !important;
+  margin-right: 0.25rem !important;
+}
+body.rtl .ml-2 {
+  margin-left: 0 !important;
+  margin-right: 0.5rem !important;
+}
+body.rtl .ml-3 {
+  margin-left: 0 !important;
+  margin-right: 0.75rem !important;
+}
+body.rtl .ml-4 {
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
+body.rtl .mr-1 {
+  margin-right: 0 !important;
+  margin-left: 0.25rem !important;
+}
+body.rtl .mr-2 {
+  margin-right: 0 !important;
+  margin-left: 0.5rem !important;
+}
+body.rtl .mr-3 {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+body.rtl .mr-4 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+/* Common padding swaps */
+body.rtl .pl-2 {
+  padding-left: 0 !important;
+  padding-right: 0.5rem !important;
+}
+body.rtl .pl-3 {
+  padding-left: 0 !important;
+  padding-right: 0.75rem !important;
+}
+body.rtl .pl-4 {
+  padding-left: 0 !important;
+  padding-right: 1rem !important;
+}
+body.rtl .pr-2 {
+  padding-right: 0 !important;
+  padding-left: 0.5rem !important;
+}
+body.rtl .pr-3 {
+  padding-right: 0 !important;
+  padding-left: 0.75rem !important;
+}
+body.rtl .pr-4 {
+  padding-right: 0 !important;
+  padding-left: 1rem !important;
+}
+
+/* Border side swaps (as used in quotes/notes) */
+body.rtl .border-l-4 {
+  border-left-width: 0 !important;
+  border-right-width: 4px !important;
+}
+body.rtl .border-r-4 {
+  border-right-width: 0 !important;
+  border-left-width: 4px !important;
+}
+
+/* Flex gap reversal for Tailwind space-x utilities */
+/* Tailwind uses --tw-space-x-reverse variable; set it to 1 in RTL to flip */
+body.rtl .space-x-0,
+body.rtl .space-x-1,
+body.rtl .space-x-2,
+body.rtl .space-x-3,
+body.rtl .space-x-4,
+body.rtl .space-x-6,
+body.rtl .space-x-8 {
+  --tw-space-x-reverse: 1;
+}
+
+/* Ensure lists with list-inside align bullets properly */
+body.rtl .list-inside {
+  padding-right: 1rem;
+  padding-left: 0;
+}

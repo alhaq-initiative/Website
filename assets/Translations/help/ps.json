@@ -1,0 +1,100 @@
+{
+  "title": "لارښود",
+  "navHome": "کورپاڼه",
+  "navAbout": "زموږ په اړه",
+  "navServices": "خدمتونه",
+  "navLibrary": "کتابتون",
+  "navHelp": "لارښود",
+  "navContact": "اړیکه",
+  "navDonate": "بسپنه",
+  "mainHeading": "عامې پوښتنې",
+  "mainSub": "د ویبپاڼې او خدمتونو په اړه عامو پوښتنو ځوابونه.",
+  "faqCategories": [
+    {
+      "category": "د الحق ډیجیټل خدماتو (ADS) په اړه",
+      "items": [
+        {
+          "q": "الحق ډیجیټل خدمات څه دي؟",
+          "a": "الحق ډیجیټل خدمات (ADS) اسلامي سرچینې، تعلیمي وسایل او ډیجیټلي خدمات وړاندې کوي څو ټولنې ځواکمنې او زده کړه وده وکړي. نور معلومات د <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">زموږ په اړه</a> پاڼه کې وګورئ."
+        },
+        {
+          "q": "د الحق ډیجیټل خدماتو موخه څه ده؟",
+          "a": "زموږ موخه دا ده چې اسلامي سرچینې، تعلیمي وسایل او ډیجیټلي خدمات په اسانه بڼه وړاندې کړو څو ټولنې ځواکمنې او زده کړه پیاوړې شي. جزئیات د <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">زموږ په اړه</a> برخه کې وګورئ."
+        }
+      ]
+    },
+    {
+      "category": "کتابتون",
+      "items": [
+        {
+          "q": "کتابتون ته څنګه لاسرسی کولی شم؟ ایا وړیا دی؟",
+          "a": "هو، ټول انفګرافیکونه او ډېری سرچینې په کتابتون کې ټولو کاروونکو ته وړیا دي. د <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابتون</a> پاڼه وګورئ."
+        },
+        {
+          "q": "د قرآن او حدیث برخو ته څنګه لاسرسی وکړم؟",
+          "a": "د <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابتون</a> پاڼې ته ولاړ شئ او د قرآن یا حدیث برخه وټاکئ ترڅو ژباړې، تفسیر او باوري ټولګې مشاهده کړئ."
+        }
+      ]
+    },
+    {
+      "category": "کارونه",
+      "items": [
+        {
+          "q": "له تعلیم AI څخه څنګه کار واخلم؟",
+          "a": "زموږ اپلیکیشن (Taleem AI) له <a href=\"https://play.google.com/store\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">Google Play Store</a> یا <a href=\"https://www.apple.com/app-store/\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">App Store</a> څخه ډاونلوډ کړئ. تر نصب وروسته، لارښوونې تعقیب کړئ څو پر وخت فیډبک ترلاسه کړئ."
+        }
+      ]
+    },
+    {
+      "category": "بسپنې",
+      "items": [
+        {
+          "q": "ستاسو د کار د ملاتړ لپاره څنګه بسپنه ورکړم؟",
+          "a": "زموږ د <a href=\"donate.html\" class=\"text-brand-blue underline hover:text-brand-gold\">بسپنې</a> پاڼې ته لاړ شئ څو د Ko-fi یا نورو لارو له لارې خوندي آنلاین بسپنه وکړئ."
+        }
+      ]
+    },
+    {
+      "category": "اړیکه او ملاتړ",
+      "items": [
+        {
+          "q": "د ملاتړ یا همکارۍ لپاره څنګه له تاسو سره اړیکه ونیسم؟",
+          "a": "مهرباني وکړئ د <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اړیکې</a> پاڼه وکاروئ، یا د ویبپاڼې په کونج کې د فلوټینګ تڼۍ له لارې موږ ته پیغام راولېږئ."
+        },
+        {
+          "q": "ستونزه څنګه راپور کړم یا کومه ځانګړنه وړاندیز کړم؟",
+          "a": "مهرباني وکړئ د <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اړیکې</a> پاڼه یا ایمیل وکاروئ او د ستونزې یا وړاندیز جزئیات راسره شریک کړئ. ستاسو نظر زموږ لپاره ارزښتناک دی!"
+        }
+      ]
+    },
+    {
+      "category": "محرمیت او معلومات",
+      "items": [
+        {
+          "q": "ایا زما معلومات خوندي دي؟",
+          "a": "هو، موږ محرمیت جدي نیسو او ستاسو معلومات له دریمو اړخونو سره نه شریکوو. ټول معلومات خوندي مدیریت کېږي. د نورو جزیاتو لپاره، د <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اړیکې</a> پاڼه وګورئ."
+        }
+      ]
+    },
+    {
+      "category": "ځانګړتیاوې او نوي کول",
+      "items": [
+        {
+          "q": "ایا د لا زیاتو کتابونو یا ځانګړنو د زیاتولو پلان شته؟",
+          "a": "هو، موږ پرلپسې خپل <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابتون</a> پراخوو او نوې ځانګړنې ورزیاتوو. د تازه معلوماتو لپاره ترې خبر اوسئ!"
+        }
+      ]
+    }
+  ],
+  "supportNotFound": "خپل ځواب مو ونه موند؟",
+  "supportStillNeed": "لا هم مرستې ته اړتیا لرئ؟ دلته پوښتنو ته ځوابونه ومومئ او که اړتیا وي مرسته ترلاسه کړئ.",
+  "supportContact": "له ملاتړ سره اړیکه",
+  "footerSlogan": "ډیجیټل راتلونکی، په ایمان ولاړ.",
+  "footerHome": "کورپاڼه",
+  "footerAbout": "زموږ په اړه",
+  "footerServices": "خدمتونه",
+  "footerLibrary": "کتابتون",
+  "footerHelp": "لارښود",
+  "footerContact": "اړیکه",
+  "footerDonate": "بسپنه"
+}

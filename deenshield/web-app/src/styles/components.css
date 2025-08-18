@@ -1,0 +1,156 @@
+/* Component Styles */
+
+/* Button Styles */
+.form-button {
+  margin: 0.5rem;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+/* External Links */
+.external-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.external-link:hover {
+  opacity: 0.8;
+}
+
+/* Lists */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+/* ARIA Menus */
+[role='menu'] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+[role='menuitem'] {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+[role='menuitem']:hover {
+  background-color: #f5f5f5;
+}
+
+/* Form Elements */
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+/* Buttons with titles */
+[title] {
+  position: relative;
+}
+
+/* Add noopener for external links */
+a[target='_blank']::after {
+  content: '';
+}
+
+/* Dashboard widgets (cards used by auto-mount components) */
+.dashboard-grid {
+  position: relative;
+  min-height: 300px;
+}
+
+.dashboard-widget-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(10, 37, 64, 0.08);
+  padding: 0;
+}
+
+.dashboard-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-widget-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.dashboard-widget-body {
+  padding: 10px 14px;
+}
+
+/* Status indicator styles for extension widget */
+.status-indicator {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.status-indicator i {
+  font-size: 10px;
+}
+.status-indicator.active i {
+  color: #2e7d32;
+}
+.status-indicator.inactive i {
+  color: #d32f2f;
+}
+
+/* Simple radial progress helper */
+.circle-progress {
+  --progress: 0;
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-color, #4a90e2) calc(var(--progress) * 1%),
+    rgba(0, 0, 0, 0.08) 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle-text {
+  text-align: center;
+}
+.circle-text .percentage {
+  font-weight: 700;
+}

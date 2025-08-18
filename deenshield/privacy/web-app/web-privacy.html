@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DeenShield Web App Privacy Policy</title>
+	<link rel="icon" type="image/svg+xml" href="/deenshield/images/favicon.svg">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+	<header class="bg-white shadow py-4 px-6 flex items-center justify-between">
+		<a href="/deenshield/main.html#webapp" class="flex items-center space-x-3">
+			<img src="../../images/logo.png" onerror="this.onerror=null;this.src='/deenshield/images/logo.png';" alt="DeenShield Logo" class="h-8 w-8 rounded-md border border-gray-200" />
+			<span class="text-lg font-bold text-brand-blue">Web App</span>
+			<span class="text-xs text-gray-400">by</span>
+			<img src="https://www.alhaqds.software/assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services" class="h-6 w-6 rounded-full border border-gray-200" />
+		</a>
+		<div class="flex items-center space-x-6">
+			<nav class="text-sm space-x-4 font-semibold hidden md:block">
+				<a href="/deenshield/main.html" class="hover:underline">Home</a>
+				<a href="/deenshield/privacy/main-privacy.html" class="hover:underline">Privacy Overview</a>
+				<span class="text-brand-gold">Product Privacy</span>
+				<a href="/deenshield/terms/en/index.html" class="hover:underline">Terms</a>
+				<a href="/deenshield/support/en/index.html" class="hover:underline">Support</a>
+			</nav>
+			<div class="relative" id="langSwitcherWebApp">
+				<button class="px-3 py-1.5 border border-gray-300 rounded-md text-sm bg-white hover:border-brand-blue flex items-center gap-1" aria-haspopup="true" aria-expanded="false"><span class="font-medium">EN</span><svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 6 5-6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+				<ul class="hidden absolute right-0 mt-1 w-32 bg-white border border-gray-200 rounded-md shadow-lg text-sm z-10" role="list">
+					<li><a class="block px-3 py-2 hover:bg-gray-100" href="/deenshield/privacy/web-app/web-privacy.html">English</a></li>
+					<li><a class="block px-3 py-2 hover:bg-gray-100" href="/deenshield/privacy/web-app/ar/index.html" hreflang="ar">العربية</a></li>
+					<li><a class="block px-3 py-2 hover:bg-gray-100" href="/deenshield/privacy/web-app/fa/index.html" hreflang="fa">فارسی</a></li>
+					<li><a class="block px-3 py-2 hover:bg-gray-100" href="/deenshield/privacy/web-app/ps/index.html" hreflang="ps">پښتو</a></li>
+				</ul>
+			</div>
+		</div>
+		<script>(function(){const w=document.getElementById('langSwitcherWebApp');if(!w)return;const b=w.querySelector('button'),l=w.querySelector('ul');function t(e){e&&e.preventDefault();const o=l.classList.toggle('hidden')===false;b.setAttribute('aria-expanded',o);if(o)document.addEventListener('click',c);}function c(ev){if(!w.contains(ev.target)){l.classList.add('hidden');b.setAttribute('aria-expanded','false');document.removeEventListener('click',c);}}b.addEventListener('click',t);})();</script>
+	</header>
+	<main class="max-w-2xl mx-auto py-10 px-4">
+		<h1 class="text-3xl font-extrabold text-brand-blue mb-4">Web Application Privacy Policy</h1>
+		<p class="mb-2 text-sm text-gray-500"><strong>Product:</strong> DeenShield Web App • <strong>Developer:</strong> Alhaq Digital Services (ADS)<br><strong>Effective Date:</strong> August 12, 2025 • <span class="font-medium">Version 1.1</span></p>
+		<h2 class="text-xl font-bold mt-8 mb-2">Introduction</h2>
+		<p>The DeenShield Web App provides prayer times, Quran reading, dhikr counter, and productivity tools. We designed it to run entirely client‑side with settings stored locally to preserve your privacy.</p>
+		<h2 class="text-xl font-bold mt-8 mb-2">What Information We Collect</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li><strong>Local Preferences:</strong> Theme, last active section, calculation method selections.</li>
+			<li><strong>Prayer Location Data:</strong> If you allow location (future feature) it is processed in-browser to compute prayer times; coordinates are not transmitted to ADS.</li>
+			<li><strong>Quran Reading State:</strong> Last surah / ayah, bookmarks, and progress markers stored in <code>localStorage</code>.</li>
+			<li><strong>Tasbih / Dhikr Counts:</strong> Stored locally for your reference only.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">What We Do NOT Collect</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li>No account credentials (accounts not required in current version).</li>
+			<li>No remote logging of prayer times usage, Quran progress, or dhikr counts.</li>
+			<li>No advertising or behavioral analytics scripts.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">How We Use Your Data</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li>Preferences personalize interface and calculations.</li>
+			<li>Reading progress enables continuity across sessions on the same device.</li>
+			<li>Dhikr counters exist solely for your on‑device reflection.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">Permissions / APIs</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li><strong>Local Storage:</strong> Save settings, state, and counters.</li>
+			<li><strong>Geolocation (Future Optional):</strong> Only used client‑side to compute prayer times; not sent externally.</li>
+			<li><strong>Notification API (Planned):</strong> Local prayer reminders – no server push.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">Data Security</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li>Runs as a static client app: no server session state.</li>
+			<li>Clearing browser data removes all stored values.</li>
+			<li>No centralized database to breach for current version.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">Your Rights</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li>Clear data by using browser storage clearing tools.</li>
+			<li>No account means no central profile to delete—control resides entirely with you.</li>
+			<li>Open / auditable source fosters trust.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">Children & Age Guidance</h2>
+		<p class="mb-4">Family-friendly. We do not knowingly collect personal data from children. Parents supervising use can clear the browser storage anytime. Should future sync or profiles launch, additional safeguards and parental controls will be documented.</p>
+		<h2 class="text-xl font-bold mt-8 mb-2">Islamic Compliance</h2>
+		<ul class="list-disc list-inside mb-4">
+			<li>Amanah & integrity: No hidden trackers.</li>
+			<li>Focus on beneficial knowledge & productivity.</li>
+			<li>Respect for user autonomy and modesty.</li>
+		</ul>
+		<h2 class="text-xl font-bold mt-8 mb-2">Updates</h2>
+		<p>Future new features (cloud sync, multi‑device) will include an explicit in‑app notice before collecting any additional data.</p>
+		<h2 class="text-xl font-bold mt-8 mb-2">Contact</h2>
+		<ul class="mb-4">
+			<li><strong>Email:</strong> <a href="mailto:support@alhaqds.software" class="text-brand-blue hover:underline">support@alhaqds.software</a></li>
+			<li><strong>Website:</strong> <a href="https://alhaqds.software" class="text-brand-blue hover:underline">https://alhaqds.software</a></li>
+			<li><strong>Contact Page:</strong> <a href="https://alhaqds.software/contact" class="text-brand-blue hover:underline">https://alhaqds.software/contact</a></li>
+		</ul>
+		<hr class="my-8">
+		<p class="text-sm text-gray-500">Developed by Alhaq Digital Services (ADS) – Islamic Technology Solutions<br>Committed to an ethical, privacy‑first Muslim productivity platform.</p>
+	</main>
+	<footer class="bg-gray-800 text-white mt-20">
+		<div class="container mx-auto px-6 py-8 text-center">
+			<h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
+			<p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
+			<p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
+		</div>
+	</footer>
+	<script src="/deenshield/js/theme-toggle.js"></script>
+</body>
+</html>

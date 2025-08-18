@@ -1,0 +1,143 @@
+/* Components CSS - Extracted from inline styles */
+
+/* Hidden Elements */
+.hidden {
+  display: none;
+}
+
+/* Hidden form inputs (honeypot) */
+.hidden-input {
+  display: none;
+}
+
+/* Security Questions Section */
+.security-questions-container {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* Small Text Elements */
+.small-text {
+  color: #666;
+  font-size: 11px;
+}
+
+/* Link Styling */
+.standard-link {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 12px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+/* Button States */
+.button-margin {
+  margin-top: 12px;
+}
+
+/* Recovery Question */
+.recovery-question {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Task Highlight */
+.task-highlight {
+  background-color: #e0f2f1;
+  color: #004d40;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* Notification Elements */
+.notification {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.notification-unsaved {
+  color: #dc3545;
+}
+
+.notification-saving {
+  color: #ffc107;
+}
+
+/* RTL support utilities */
+html[dir='rtl'] body {
+  direction: rtl;
+  text-align: right;
+}
+html[dir='rtl'] nav,
+html[dir='rtl'] .container,
+html[dir='rtl'] header,
+html[dir='rtl'] footer {
+  direction: rtl;
+}
+html[dir='rtl'] .ml-1 {
+  margin-left: 0 !important;
+  margin-right: 0.25rem !important;
+}
+html[dir='rtl'] .mr-1 {
+  margin-right: 0 !important;
+  margin-left: 0.25rem !important;
+}
+html[dir='rtl'] .pl-10 {
+  padding-left: 0 !important;
+  padding-right: 2.5rem !important;
+}
+html[dir='rtl'] .pr-4 {
+  padding-right: 0 !important;
+  padding-left: 1rem !important;
+}
+html[dir='rtl'] .text-left {
+  text-align: right !important;
+}
+html[dir='rtl'] .text-right {
+  text-align: left !important;
+}
+/* Prevent icon/text spacing from flipping oddly */
+html[dir='rtl'] .inline-flex .mr-1 {
+  margin-left: 0.25rem !important;
+  margin-right: 0 !important;
+}
+
+/* Global active navigation tab styling */
+.active-tab {
+  position: relative;
+  color: #d4af37 !important; /* brand gold */
+}
+.active-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #d4af37;
+  border-radius: 9999px;
+}
+
+/* Make plain dropdown buttons neutral (avoid colorful defaults) */
+#langDropdown button {
+  color: #0a2540; /* brand blue text */
+  background-color: #ffffff;
+}
+#langDropdown button:hover {
+  background-color: #f3f4f6; /* Tailwind gray-100 equivalent */
+}
