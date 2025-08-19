@@ -56,6 +56,14 @@ $rootFiles = @(
 Copy-List $repoRoot $rootFiles $mainDst
 Copy-Tree (Join-Path $repoRoot "assets") (Join-Path $mainDst "assets")
 
+# 1.1) Main site: also host shared deenshield legal/support content under root paths (/privacy, /terms, /support)
+$sharedPrivacy = Join-Path $repoRoot "deenshield\privacy"
+$sharedSupport = Join-Path $repoRoot "deenshield\support"
+$sharedTerms   = Join-Path $repoRoot "deenshield\terms"
+if (Test-Path $sharedPrivacy) { Copy-Tree $sharedPrivacy (Join-Path $mainDst "deenshield\privacy") }
+if (Test-Path $sharedSupport) { Copy-Tree $sharedSupport (Join-Path $mainDst "deenshield\support") }
+if (Test-Path $sharedTerms)   { Copy-Tree $sharedTerms   (Join-Path $mainDst "deenshield\terms") }
+
 # 2) DeenShield site: landing + dedicated brand assets and localized content
 $shieldPage = Join-Path $repoRoot "deenshield\main.html"
 if (Test-Path $shieldPage) {
