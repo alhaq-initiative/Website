@@ -640,5 +640,77 @@
 
   // Header language dropdown removed; no binding necessary
 
+    // Floating Feedback/Report button and modal (inject if missing)
+    (function ensureFeedbackUI() {
+      try {
+        const BTN_ID = 'feedback-btn';
+        const MODAL_ID = 'feedback-modal';
+        const CLOSE_ID = 'close-feedback';
+        const ENDPOINT = 'https://prod-10.ukwest.logic.azure.com:443/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg';
+
+        let btn = document.getElementById(BTN_ID);
+        let modal = document.getElementById(MODAL_ID);
+
+        if (!btn || !modal) {
+          // Build button
+          if (!btn) {
+            btn = document.createElement('button');
+            btn.id = BTN_ID;
+            btn.type = 'button';
+            btn.textContent = 'Report / Feedback';
+            Object.assign(btn.style, {
+              position: 'fixed', right: '1.25rem', bottom: '1.25rem', zIndex: '9999',
+              background: 'var(--brand-gold, #EAB308)', color: 'var(--brand-blue, #0A2540)',
+              fontWeight: '700', padding: '0.75rem 1.5rem', borderRadius: '9999px',
+              boxShadow: '0 10px 20px rgba(0,0,0,0.15)', border: 'none', cursor: 'pointer'
+            });
+            document.body.appendChild(btn);
+          }
+
+          // Build modal
+          if (!modal) {
+            modal = document.createElement('div');
+            modal.id = MODAL_ID;
+            Object.assign(modal.style, {
+              position: 'fixed', inset: '0', background: 'rgba(0,0,0,0.4)',
+              display: 'none', alignItems: 'center', justifyContent: 'center', zIndex: '9999'
+            });
+            modal.innerHTML = (
+              '<div role="dialog" aria-modal="true" aria-labelledby="feedback-title" style="background:#fff; border-radius:16px; box-shadow:0 25px 50px rgba(0,0,0,0.25); padding:2rem; width:100%; max-width:560px; position:relative">\n'
+              + '  <button id="' + CLOSE_ID + '" aria-label="Close" style="position:absolute; top:.75rem; right:.75rem; background:transparent; border:none; font-size:1.5rem; color:#9CA3AF; cursor:pointer">&times;</button>\n'
+              + '  <h2 id="feedback-title" style="margin:0 0 .5rem 0; color:#0A2540; font-size:1.5rem; font-weight:800">Report / Feedback</h2>\n'
+              + '  <form action="' + ENDPOINT + '" method="POST" autocomplete="off" style="display:flex; flex-direction:column; gap:.75rem">\n'
+              + '    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Do not fill this field" style="position:absolute; left:-10000px; width:1px; height:1px; opacity:0;" />\n'
+              + '    <input type="text" name="Name" placeholder="Your Name (optional)" class="glass-input" style="padding:.5rem .75rem; border:1px solid #e5e7eb; border-radius:.5rem" />\n'
+              + '    <input type="email" name="Email" placeholder="Your Email (optional)" class="glass-input" style="padding:.5rem .75rem; border:1px solid #e5e7eb; border-radius:.5rem" />\n'
+              + '    <textarea name="Message" placeholder="Your feedback or report..." required rows="4" class="glass-input" style="padding:.5rem .75rem; border:1px solid #e5e7eb; border-radius:.5rem"></textarea>\n'
+              + '    <button type="submit" class="glass-button" style="align-self:flex-start; background:#EAB308; color:#0A2540; font-weight:800; padding:.5rem 1rem; border-radius:.5rem; border:none; cursor:pointer">Send</button>\n'
+              + '  </form>\n'
+              + '</div>'
+            );
+            document.body.appendChild(modal);
+          }
+        }
+
+        // Wire events (once)
+        if (btn && !btn.dataset.bound) {
+          const show = () => { modal && (modal.style.display = 'flex'); };
+          btn.addEventListener('click', (e) => { e.preventDefault(); show(); });
+          btn.dataset.bound = 'true';
+        }
+        const closeBtn = document.getElementById(CLOSE_ID);
+        const hide = () => { modal && (modal.style.display = 'none'); };
+        if (closeBtn && !closeBtn.dataset.bound) {
+          closeBtn.addEventListener('click', (e) => { e.preventDefault(); hide(); });
+          closeBtn.dataset.bound = 'true';
+        }
+        if (modal && !modal.dataset.bound) {
+          modal.addEventListener('click', (e) => { if (e.target === modal) hide(); });
+          document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
+          modal.dataset.bound = 'true';
+        }
+      } catch(_) {}
+    })();
+
   });
 })();
