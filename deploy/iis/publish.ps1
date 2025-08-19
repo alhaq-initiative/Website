@@ -59,7 +59,7 @@ Copy-Tree (Join-Path $repoRoot "assets") (Join-Path $mainDst "assets")
 # 2) DeenShield site: landing + dedicated brand assets and localized content
 $shieldPage = Join-Path $repoRoot "deenshield\main.html"
 if (Test-Path $shieldPage) {
-  Copy-List $repoRoot @("deenshield\main.html") $shieldDst
+  Copy-List $repoRoot @("deenshield\main.html","deenshield\web.config") $shieldDst
   # Brand-specific assets used by the landing
   $shieldStyles = Join-Path $repoRoot "deenshield\styles"
   $shieldJs     = Join-Path $repoRoot "deenshield\js"
