@@ -8,140 +8,135 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/quran.css">
 </head>
 <body class="antialiased">
-    <script src="assets/Quran_Data/Metadata.js"></script>
-    <header id="header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
-        <div class="container mx-auto px-4 py-1 flex justify-between items-center">
+    <!-- Header -->
+    <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <!-- Logo -->
             <a href="index.html" class="flex items-center space-x-2">
-                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <span class="icon-bg relative block h-8 w-8">
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=100&q=80" alt="Islamic pattern background" class="absolute inset-0 w-full h-full object-cover opacity-40 z-0" />
-                        <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="relative h-full w-full object-cover z-10" />
-                    <!-- Metadata.js already loaded at top of body -->
-                    const surahNum = document.getElementById('surah-dropdown').value;
-                    
-                    if (surahNum) {
-                        const surahNumber = surahNum.toString().padStart(3, '0');
-                        const reciterUrls = {
-                            'mishary': `https://server8.mp3quran.net/afs/${surahNumber}.mp3`,
-                            'sudais': `https://server7.mp3quran.net/sds/${surahNumber}.mp3`,
-                            'ghamdi': `https://server7.mp3quran.net/s_gmd/${surahNumber}.mp3`
-                        };
-                        audio.src = reciterUrls[reciter] || reciterUrls['mishary'];
-                        audio.play();
-                    }
-                }
+                <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-full w-full object-cover" />
+                </div>
+                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
+            </a>
 
-                Promise.all([
-                    fetch('assets/Quran_Data/Quran.txt').then(r => r.text()),
-                    fetch('assets/Translations/en-maulana-wahiduddin-khan-inline-footnotes.json')
-                      .then(r => r.text())
-                      .then(text => {
-                        try {
-                          translations['en'] = JSON.parse(text);
-                        } catch (e) {
-                          console.error('Invalid JSON in en-maulana-wahiduddin-khan-inline-footnotes.json:', e);
-                        }
-                      }),
-                    fetch('assets/Translations/pashto-sarfaraz-simple.json')
-                      .then(r => r.text())
-                      .then(text => {
-                        try {
-                          translations['ps'] = JSON.parse(text);
-                        } catch (e) {
-                          console.error('Invalid JSON in pashto-sarfaraz-simple.json:', e);
-                        }
-                      })
-                ]).then(([txt]) => {
-                  console.log('Quran.txt loaded, length:', txt.length);
-                  let lines = txt.split('\n');
-                  console.log('Total lines:', lines.length);
-                  let matchCount = 0;
-                  lines.forEach(line => {
-                    let m = line.match(/^(\d+)\|(\d+)\|(.*)$/);
-                    if (m) {
-                      let s = m[1], a = m[2], t = m[3];
-                      if (!QuranText[s]) QuranText[s] = [];
-                      QuranText[s][a - 1] = t;
-                      matchCount++;
-                    }
-                  });
-                  console.log('Matched lines:', matchCount);
-                  console.log('QuranText[1]:', QuranText[1]);
-                  console.log('QuranText[2]:', QuranText[2]);
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none"
+                    aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
 
-                  document.getElementById('hifzBtn').onclick = function() { renderDropdown('hifz'); };
-                  document.getElementById('madinahBtn').onclick = function() { renderDropdown('madinah'); };
-                  document.getElementById('surah-search').addEventListener('input', function() {
-                    renderDropdown(currentLayout);
-                  });
-                  document.getElementById('surah-dropdown').addEventListener('change', function() {
-                    const surahNum = this.value;
-                    if (surahNum) loadSurah(surahNum);
-                  });
-                  document.getElementById('translation-dropdown').addEventListener('change', function() {
-                    const surahNum = document.getElementById('surah-dropdown').value;
-                    if (surahNum) loadSurah(surahNum);
-                  });
-                  renderDropdown('hifz');
-                  let firstSurah = document.getElementById('surah-dropdown').options[0]?.value;
-                  if (firstSurah) loadSurah(firstSurah);
-                });
-                </script>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center justify-between flex-1 pl-10" role="navigation" aria-label="Main navigation">
+                <div class="flex space-x-1" role="list">
+                    <div role="listitem"><a href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></div>
+                    <div role="listitem"><a href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></div>
+                    <div role="listitem"><a href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a></div>
+                    <div role="listitem"><a href="products.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Products</a></div>
+                    <div role="listitem"><a href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></div>
+                    <div role="listitem"><a href="media.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Media</a></div>
+                    <div role="listitem"><a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>
+                    <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2">
+                <nav class="flex flex-col space-y-1" aria-label="Mobile navigation">
+                    <ul class="flex flex-col space-y-1" role="menu">
+                        <li role="none"><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Home</a></li>
+                        <li role="none"><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">About</a></li>
+                        <li role="none"><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Services</a></li>
+                        <li role="none"><a href="products.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Products</a></li>
+                        <li role="none"><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Library</a></li>
+                        <li role="none"><a href="media.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Media</a></li>
+                        <li role="none"><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Help & FAQ</a></li>
+                        <li role="none"><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Contact</a></li>
+                        <li role="none"><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md block" role="menuitem">Donate</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 islamic-section">
+        <!-- Controls -->
+        <section class="fade-in-section">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            <button id="hifzBtn" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 transition">Hifz Layout</button>
+                            <button id="madinahBtn" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Madinah Layout</button>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <input id="surah-search" type="text" class="border rounded px-3 py-2 w-56" placeholder="Search surah by name or number" />
+                            <select id="surah-dropdown" class="border rounded px-3 py-2 w-56">
+                                <option value="">Select a Surah...</option>
+                            </select>
+                            <select id="translation-dropdown" class="border rounded px-3 py-2 w-56">
+                                <option value="">No Translation</option>
+                                <option value="en">English (Maulana Wahiduddin Khan)</option>
+                                <option value="ps">Pashto (Sarfaraz)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Quran Display -->
-                <div class="max-w-6xl mx-auto">
-                    <div class="bg-white rounded-lg shadow-lg p-8">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <!-- Arabic Text -->
-                            <div>
-                                <h3 class="text-xl font-bold text-brand-blue mb-4">Arabic Text</h3>
-                                <div id="arabic-scroll" class="overflow-y-auto max-h-[400px]">
-                                  <div id="arabic-text" class="arabic-text text-right text-lg leading-loose bg-gray-50 p-6 rounded-lg min-h-[400px]">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Arabic Text -->
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-blue mb-4">Arabic Text</h3>
+                            <div id="arabic-scroll" class="overflow-y-auto max-h-[400px]">
+                                <div id="arabic-text" class="arabic-text text-right text-lg leading-loose bg-gray-50 p-6 rounded-lg min-h-[400px]">
                                     <p class="text-center text-gray-500">Select a surah to begin reading</p>
-                                  </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Translation -->
-                            <div>
-                                <h3 class="text-xl font-bold text-brand-blue mb-4">English Translation</h3>
-                                <div id="translation-text" class="text-left text-lg leading-relaxed bg-gray-50 p-6 rounded-lg min-h-[400px]">
-                                    <p class="text-center text-gray-500">Translation will appear here</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Audio Player -->
-                        <div class="mt-8" id="recitations">
-                            <h3 class="text-xl font-bold text-brand-blue mb-4">Audio Recitation</h3>
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <audio id="quran-audio" controls class="w-full">
-                                    <source src="" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                                <div class="mt-4 flex flex-wrap gap-2">
-                                    <button onclick="playRecitation('mishary')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Mishary Rashid</button>
-                                    <button onclick="playRecitation('sudais')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Abdur-Rahman As-Sudais</button>
-                                    <button onclick="playRecitation('ghamdi')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Saad Al-Ghamdi</button>
-                                </div>
+                        <!-- Translation -->
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-blue mb-4">Translation</h3>
+                            <div id="translation-text" class="text-left text-lg leading-relaxed bg-gray-50 p-6 rounded-lg min-h-[400px]">
+                                <p class="text-center text-gray-500">Translation will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Player -->
+                    <div class="mt-8" id="recitations">
+                        <h3 class="text-xl font-bold text-brand-blue mb-4">Audio Recitation</h3>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <audio id="quran-audio" controls class="w-full">
+                                <source src="" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <button onclick="playRecitation('mishary')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Mishary Rashid</button>
+                                <button onclick="playRecitation('sudais')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Abdur-Rahman As-Sudais</button>
+                                <button onclick="playRecitation('ghamdi')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Saad Al-Ghamdi</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
-
-        <!-- Quran Resources Section -->
 
         <!-- Tafsir Section -->
         <section class="islamic-section py-16 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12">Tafsir & Commentary</h2>
-                
                 <div class="max-w-6xl mx-auto">
                     <div class="bg-white rounded-lg shadow-lg p-8">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -166,7 +161,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <!-- Contemporary Tafsir -->
                             <div>
                                 <h3 class="text-xl font-bold text-brand-blue mb-4">Contemporary Tafsir</h3>
@@ -183,7 +177,7 @@
                                         </div>
                                         <div class="border-l-4 border-brand-gold pl-4">
                                             <h4 class="font-semibold text-brand-blue">Tafsir Al-Qurtubi</h4>
-                                            <p class="text-sm text-gray-600">A detailed tafsir that focuses on legal rulings and practical applications of Quranic verses.</p>
+                                            <p class="text-sm text-gray-600">A detailed tafir that focuses on legal rulings and practical applications of Quranic verses.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,74 +192,28 @@
         <section class="islamic-section py-16 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12">Additional Resources</h2>
-                
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Quran Memorization -->
                     <div class="islamic-card p-6">
                         <h3 class="text-xl font-bold text-brand-blue mb-4">📖 Quran Memorization</h3>
                         <div class="space-y-3">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Hifz Programs</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Tajweed Rules</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Memorization Techniques</span>
-                            </div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Hifz Programs</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Tajweed Rules</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Memorization Techniques</span></div>
                         </div>
                     </div>
-
-                    <!-- Islamic Studies -->
                     <div class="islamic-card p-6">
                         <h3 class="text-xl font-bold text-brand-blue mb-4">🎓 Islamic Studies</h3>
                         <div class="space-y-3">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Aqeedah (Creed)</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Fiqh (Jurisprudence)</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Seerah (Prophet's Life)</span>
-                            </div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 0 0 16zm3.707-9.293a1 1 0 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Aqeedah (Creed)</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Fiqh (Jurisprudence)</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Seerah (Prophet's Life)</span></div>
                         </div>
                     </div>
-
-                    <!-- Prayer Times -->
                     <div class="islamic-card p-6">
                         <h3 class="text-xl font-bold text-brand-blue mb-4">🕌 Prayer Times</h3>
                         <div class="space-y-3">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Daily Prayers</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Qibla Direction</span>
-                            </div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Daily Prayers</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Qibla Direction</span></div>
                         </div>
                     </div>
                 </div>
@@ -273,29 +221,30 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="islamic-footer bg-gray-800 text-white mt-20">
-
-    <!-- Library Links Section -->
-    <section class="bg-white py-8 border-t border-gray-200">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-2xl font-bold text-brand-blue mb-4">Explore Our Library</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Quran Hub</a>
-          <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Hadith</a>
-          <a href="media.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Media</a>
-          <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Articles</a>
-          <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Books</a>
-          <a href="all-infographics.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">InfoGraphics</a>
-        </div>
-      </div>
-    </section>
+        <!-- Library Links Section -->
+        <section class="bg-white py-8 border-t border-gray-200">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl font-bold text-brand-blue mb-4">Explore Our Library</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Quran Hub</a>
+                    <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Hadith</a>
+                    <a href="media.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Media</a>
+                    <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Articles</a>
+                    <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Books</a>
+                    <a href="all-infographics.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">InfoGraphics</a>
+                </div>
+            </div>
+        </section>
         <div class="container mx-auto px-6 py-8 text-center">
             <h3 class="text-2xl font-bold">Alhaq Digital Services</h3>
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="index.html#about" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="index.html#services" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                <a href="products.html" class="text-gray-300 hover:text-brand-gold transition">Products</a>
                 <a href="library.html" class="text-gray-300 hover:text-brand-gold transition">Library</a>
                 <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
@@ -315,6 +264,9 @@
             <p class="mt-6 text-gray-500 text-xs">&copy; 2025 Alhaq Digital Services. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scripts: Metadata must load before quran.js -->
+    <script src="assets/Quran_Data/Metadata.js"></script>
     <script src="assets/js/site.js"></script>
     <script src="assets/js/quran.js"></script>
 </body>

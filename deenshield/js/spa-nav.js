@@ -15,32 +15,29 @@
     sections.forEach(sec => sec.classList.add('hidden-section'));
     const target = document.getElementById(key + '-section');
     if (target) target.classList.remove('hidden-section');
-    buttons.forEach(b => b.classList.remove('border-brand-gold'));
-    const activeBtn = document.querySelector(`.product-nav-btn[data-product="${key}"]`);
-    if (activeBtn) {
-      activeBtn.classList.add('border-brand-gold');
-    }
-    // Update ARIA state
-    buttons.forEach(b => b.setAttribute('aria-selected', 'false'));
-    if (activeBtn) activeBtn.setAttribute('aria-selected', 'true');
+    // Update all matching buttons (top and bottom bars)
+    buttons.forEach(b => {
+      const match = b.getAttribute('data-product') === key;
+      b.classList.toggle('border-brand-gold', match);
+      b.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
   }
 
   function showFromHash() {
     const hash = (window.location.hash || '').replace('#','').toLowerCase();
     const overview = document.getElementById('ecosystem-overview');
-    const homeBtns = document.querySelectorAll('.product-nav-btn[data-product="home"]');
+  const homeBtns = document.querySelectorAll('.product-nav-btn[data-product="home"]');
     if (hash && hash !== 'home' && productKeys.has(hash)) {
       // show product section
       if (overview) overview.style.display = 'none';
       showSection(hash);
-      homeBtns.forEach(b => b.classList.remove('border-brand-gold'));
-      homeBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
+  homeBtns.forEach(b => { b.classList.remove('border-brand-gold'); b.setAttribute('aria-selected', 'false'); });
     } else {
       // show overview as home
       if (overview) overview.style.display = '';
       sections.forEach(sec => sec.classList.add('hidden-section'));
-      buttons.forEach(b => { b.classList.remove('border-brand-gold'); b.setAttribute('aria-selected','false'); });
-      homeBtns.forEach(b => { b.classList.add('border-brand-gold'); b.setAttribute('aria-selected','true'); });
+  buttons.forEach(b => { b.classList.remove('border-brand-gold'); b.setAttribute('aria-selected','false'); });
+  homeBtns.forEach(b => { b.classList.add('border-brand-gold'); b.setAttribute('aria-selected','true'); });
     }
   }
 

@@ -24,6 +24,11 @@
   max-width: 500px;
   margin: auto;
 }
+html.dark .modal-content {
+  background: #0f1a2b !important;
+  color: #e5e7eb !important;
+  border: 1px solid #334155 !important;
+}
 
 /* Small Text Elements */
 .small-text {
@@ -141,3 +146,5 @@ html[dir='rtl'] .inline-flex .mr-1 {
 #langDropdown button:hover {
   background-color: #f3f4f6; /* Tailwind gray-100 equivalent */
 }
+html.dark #langDropdown button { color:#e5e7eb; background-color:#0f1a2b; border-color:#334155; }
+html.dark #langDropdown button:hover { background-color:#16253c; }

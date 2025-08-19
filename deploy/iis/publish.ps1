@@ -46,7 +46,7 @@ $appDst        = Join-Path $DestRoot "deenshield_app"
 # Source groups
 $rootFiles = @(
   "index.html","about.html","contact.html","donate.html","help.html",
-  "library.html","services.html","quran.html","projects.html","media.html",
+  "library.html","services.html","quran.html","products.html","media.html","legal\docs.html",
   "introduction.html","all-infographics.html","taleem-ai.html",
   # PWA/offline and IIS config
   "offline.html","sw.js","web.config"

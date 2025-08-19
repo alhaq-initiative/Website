@@ -12,6 +12,8 @@ html.dark body {
   background-color: #0b1220; /* deep navy */
   color: #e5e7eb; /* light text */
 }
+/* Hint browsers to render form controls in dark where supported */
+html.dark { color-scheme: dark; }
 /* Support pages that use body.dark selectors */
 body.dark { background-color: #0b1220; color: #e5e7eb; }
 html.dark a { color: #dbeafe; }
@@ -31,6 +33,66 @@ html.dark .border-gray-200,
 html.dark .border-gray-300 { border-color: #334155 !important; }
 html.dark .divide-gray-100,
 html.dark .divide-gray-200 { border-color: #334155 !important; }
+
+/* Dark mode for glassmorphism elements used across pages */
+html.dark .glass-container,
+html.dark .glass-card,
+html.dark .glass-card-with-logo,
+html.dark .project-glass-card {
+  background: rgba(17, 34, 64, 0.75) !important; /* deep indigo glass */
+  -webkit-backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45) !important;
+  color: #e5e7eb !important;
+}
+/* Tame the faint logo watermark in dark */
+html.dark .glass-container-with-logo::before,
+html.dark .glass-card-with-logo::before,
+html.dark .project-glass-card::before {
+  opacity: 0.03 !important;
+  filter: grayscale(100%) blur(1px) !important;
+}
+
+/* Inputs inside glass surfaces */
+html.dark .glass-input,
+html.dark input.glass-input,
+html.dark textarea.glass-input {
+  background: rgba(17, 34, 64, 0.85) !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+html.dark .glass-input::placeholder { color: #94a3b8 !important; }
+
+/* Buttons on glass */
+html.dark .glass-button {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(184, 148, 31, 0.9)) !important;
+  color: #0a2540 !important;
+  border-color: rgba(212,175,55,0.55) !important;
+}
+html.dark .glass-button:hover { box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35) !important; }
+html.dark .glass-button-gray {
+  background: rgba(71, 85, 105, 0.85) !important; /* slate-600 */
+  border-color: rgba(71, 85, 105, 0.5) !important;
+  color: #f8fafc !important;
+}
+
+/* Misc glass surfaces */
+html.dark .glass-verse-display {
+  background: rgba(17, 34, 64, 0.6) !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+}
+html.dark .glass-feedback {
+  background: rgba(17, 34, 64, 0.5) !important;
+  border-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+/* Navigation and headers with blur */
+html.dark .backdrop-blur-nav {
+  background: rgba(11, 18, 32, 0.7) !important;
+  -webkit-backdrop-filter: saturate(160%) blur(16px) !important;
+  backdrop-filter: saturate(160%) blur(16px) !important;
+}
 
 /* Form controls */
 html.dark input[type="text"],
@@ -159,12 +221,18 @@ html.dark .islamic-card {
 html.dark .islamic-card h3 { color: #f8fafc !important; }
 html.dark .islamic-card p, html.dark .islamic-card li { color: #e5e7eb !important; }
 
+/* Components baseline dark tweaks */
+html.dark .modal-content { background-color: #0f1a2b !important; color: #e5e7eb !important; border-color: #334155 !important; }
+html.dark .small-text { color: #cbd5e1 !important; }
+html.dark .standard-link { color: #dbeafe !important; }
+
 /* Generic card/section overrides for pages with custom inline styles */
 html.dark .card, html.dark .panel, html.dark .box, html.dark .value-card, html.dark .feature-card, html.dark .content-card {
   background-color: #0f1a2b !important;
   color: #e5e7eb !important;
   border-color: #334155 !important;
 }
+
 
 /* Gradients and highlights */
 html.dark .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #111827 100%) !important; }

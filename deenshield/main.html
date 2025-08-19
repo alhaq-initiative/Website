@@ -14,37 +14,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/deenshield/styles/main.css">
 </head>
 <body>
     <div class="main-container">
     <header class="header islamic-header py-6">
-            <div class="flex flex-col items-center space-y-3">
-                <div class="flex items-center space-x-4">
-                    <img src="/images/logo.png" onerror="this.onerror=null;this.src='/deenshield/images/logo.png';" alt="DeenShield Product Logo" class="h-14 w-14 rounded-xl border border-gray-200 shadow-sm" loading="lazy" />
-                    <span class="text-4xl font-extrabold text-brand-blue dark:text-white">DeenShield</span>
-                    <span class="text-gray-300 font-medium">by</span>
-                    <img src="https://www.alhaqds.software/assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Company Logo" class="h-12 w-12 rounded-full border border-gray-300 shadow" loading="lazy" />
+            <div class="flex flex-col items-center space-y-4">
+                <div class="nav-card" role="navigation" aria-label="DeenShield brand and product navigation">
+                    <div class="brand-group">
+                        <img src="/images/logo.png" onerror="this.onerror=null;this.src='/deenshield/images/logo.png';" alt="DeenShield Product Logo" class="h-14 w-14 rounded-xl border border-gray-200 shadow-sm" loading="lazy" />
+                        <span class="text-2xl md:text-3xl font-extrabold text-brand-blue dark:text-white">DeenShield</span>
+                        <span class="text-gray-300 font-medium">by</span>
+                        <img src="https://www.alhaqds.software/assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Company Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border border-gray-300 shadow" loading="lazy" />
+                    </div>
+                    <!-- Top Tab Navigation -->
+                    <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation">
+                        <button type="button" role="tab" aria-label="Home" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                        <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                        <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                        <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                        <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                        <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                    </div>
+                    <!-- Secondary product links: Privacy / Terms / Support -->
+                    <div class="secondary-links-bar" aria-label="DeenShield legal and support links">
+                        <a class="sec-link" href="/deenshield/privacy/en/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                        <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                        <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                    </div>
                 </div>
-                <!-- Top Tab Navigation -->
-                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation">
-                    <button type="button" role="tab" aria-label="Home" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
-                    <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
-                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
-                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
-                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
-                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
-                </div>
-                <h1 class="main-title text-brand-blue dark:text-white">🛡️ Unified Faith‑Aligned Digital Ecosystem</h1>
+                <h1 class="main-title text-brand-blue dark:text-white">Unified FaithAligned Digital Ecosystem</h1>
             </div>
-            <p class="main-description text-gray-700 dark:text-gray-200">Unified Islamic digital ecosystem: web app, mobile apps, browser extension, desktop manager, and desktop app. Explore features, privacy, terms, and support—organized and easy to navigate.</p>
         </header>
         <div class="section-divider"></div>
     <section id="ecosystem-overview" class="ecosystem-section islamic-section">
-            <h2 class="section-heading text-brand-blue dark:text-white">DeenShield Ecosystem</h2>
-            <p class="leading-relaxed text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-                DeenShield is a <span class="gold-accent">faith‑aligned, privacy‑first digital ecosystem</span> designed to help Muslims live with focus, balance, and ihsān (excellence). Rather than another distracting platform, it is a quiet companion: prayer times, Qur'an study, mindful tasks, filtered browsing, and protection tools—<strong>unified</strong> across web, mobile, desktop, and extensions. Built with the principles of <em>amanah</em> (trust), <em>tazkiyah</em> (purification), and <em>maslahah</em> (benefit) at its core.
-            </p>
             <div class="verse-box">
                 <p class="font-semibold text-sm md:text-base mb-2">“Verily, in the remembrance of Allah do hearts find rest.” <span class="block text-xs opacity-80">Qur'an 13:28 (translation for meaning)</span></p>
                 <p class="text-xs opacity-80">Reminder: This translation is provided for understanding; consult authentic tafsīr for deeper reflection.</p>
@@ -127,6 +130,22 @@
                 <a class="support-btn" href="#" title="Coming Soon"><i class="fas fa-hand-holding-heart"></i><span>Halal Sponsorship</span></a>
             </div>
             <p class="subtle mt-4">Note: Islamic guidance review is ongoing—please report issues or suggestions respectfully.</p>
+            <!-- Bottom product tabs for quick navigation from end of overview -->
+            <div class="bottom-tabs-wrap">
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation (bottom)">
+                    <button type="button" role="tab" aria-label="Home" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <div class="secondary-links-bar" aria-label="DeenShield legal and support links">
+                    <a class="sec-link" href="/deenshield/privacy/en/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                    <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                </div>
+            </div>
         </section>
     <!-- Removed duplicate bottom product tabs for cleaner UI -->
         <!-- Product Sections (SPA style, only one visible at a time) -->
@@ -159,6 +178,22 @@
                         </iframe>
                     </div>
                 </div>
+            <!-- bottom tabs for Web App -->
+            <div class="bottom-tabs-wrap">
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation (bottom)">
+                    <button type="button" role="tab" aria-label="Home" aria-selected="false" class="top-tab product-nav-btn" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <div class="secondary-links-bar" aria-label="Web App legal and support links">
+                    <a class="sec-link" href="/deenshield/privacy/web-app/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                    <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                </div>
+            </div>
             </section>
             <!-- Mobile Apps Section -->
             <section id="mobile-section" class="product-section hidden-section">
@@ -179,6 +214,22 @@
                     <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
                     <a href="support/en/index.html" target="_blank" rel="noopener noreferrer">Support</a>
                 </div>
+            <!-- bottom tabs for Mobile -->
+            <div class="bottom-tabs-wrap">
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation (bottom)">
+                    <button type="button" role="tab" aria-label="Home" aria-selected="false" class="top-tab product-nav-btn" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <div class="secondary-links-bar" aria-label="Mobile Apps legal and support links">
+                    <a class="sec-link" href="/deenshield/privacy/mobile/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                    <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                </div>
+            </div>
             </section>
             <!-- Browser Extension Section -->
         <section id="extension-section" class="product-section hidden-section">
@@ -252,6 +303,22 @@
                         </a>
                     </div>
                 </div>
+            <!-- bottom tabs for Extension -->
+            <div class="bottom-tabs-wrap">
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation (bottom)">
+                    <button type="button" role="tab" aria-label="Home" aria-selected="false" class="top-tab product-nav-btn" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <div class="secondary-links-bar" aria-label="Extension legal and support links">
+                    <a class="sec-link" href="/deenshield/privacy/extension/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                    <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                </div>
+            </div>
             </section>
             <!-- Desktop Manager Section -->
             <section id="manager-section" class="product-section hidden-section">
@@ -269,6 +336,22 @@
                     <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms</a>
                     <a href="privacy/en/index.html" target="_blank" rel="noopener noreferrer">Privacy</a>
                 </div>
+            <!-- bottom tabs for Manager -->
+            <div class="bottom-tabs-wrap">
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation (bottom)">
+                    <button type="button" role="tab" aria-label="Home" aria-selected="false" class="top-tab product-nav-btn" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="false" class="top-tab product-nav-btn" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <div class="secondary-links-bar" aria-label="Manager legal and support links">
+                    <a class="sec-link" href="/deenshield/privacy/manager/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                    <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                </div>
+            </div>
             </section>
             <!-- Desktop App Section -->
             <section id="desktop-section" class="product-section hidden-section">
@@ -286,9 +369,25 @@
                     <a href="terms/en/index.html" target="_blank" rel="noopener noreferrer">Terms</a>
                     <a href="privacy/en/index.html" target="_blank" rel="noopener noreferrer">Privacy</a>
                 </div>
+            <!-- bottom tabs for Desktop -->
+            <div class="bottom-tabs-wrap">
+                <div class="top-product-tabs" role="tablist" aria-label="DeenShield product navigation (bottom)">
+                    <button type="button" role="tab" aria-label="Home" aria-selected="false" class="top-tab product-nav-btn" data-product="home"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></button>
+                    <button type="button" role="tab" aria-label="Web App" aria-selected="false" class="top-tab product-nav-btn" data-product="webapp"><i class="fas fa-desktop" aria-hidden="true"></i><span>Web App</span></button>
+                    <button type="button" role="tab" aria-label="Mobile Apps" aria-selected="false" class="top-tab product-nav-btn" data-product="mobile"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Mobile</span></button>
+                    <button type="button" role="tab" aria-label="Browser Extension" aria-selected="false" class="top-tab product-nav-btn" data-product="extension"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Extension</span></button>
+                    <button type="button" role="tab" aria-label="Desktop Manager" aria-selected="false" class="top-tab product-nav-btn" data-product="manager"><i class="fas fa-window-maximize" aria-hidden="true"></i><span>Manager</span></button>
+                    <button type="button" role="tab" aria-label="Desktop App" aria-selected="true" class="top-tab product-nav-btn border-brand-gold" data-product="desktop"><i class="fas fa-laptop" aria-hidden="true"></i><span>Desktop</span></button>
+                </div>
+                <div class="secondary-links-bar" aria-label="Desktop legal and support links">
+                    <a class="sec-link" href="/deenshield/privacy/desktop/index.html" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a class="sec-link" href="/deenshield/terms/en/index.html" target="_blank" rel="noopener">Terms of Service</a>
+                    <a class="sec-link" href="/deenshield/support/en/index.html" target="_blank" rel="noopener">Support</a>
+                </div>
+            </div>
             </section>
         </div>
-    <script src="/js/spa-nav.js"></script>
+    <script src="/deenshield/js/spa-nav.js"></script>
     </div>
             <footer class="mt-20 islamic-footer text-gray-300">
                 <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-5 gap-10">
@@ -302,7 +401,7 @@
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center space-x-3">
-                                <img src="/images/logo.png" alt="DeenShield Product Logo" class="h-10 w-10 rounded-full border border-gray-700" />
+                                <img src="/images/logo.png" onerror="this.onerror=null;this.src='/deenshield/images/logo.png';" alt="DeenShield Product Logo" class="h-10 w-10 rounded-full border border-gray-700" />
                                 <span class="text-lg font-semibold text-white">DeenShield Suite</span>
                             </div>
                             <p class="text-sm leading-relaxed">Faith‑aligned productivity & protection. Local‑first. Privacy‑centric. Open to community review.</p>
@@ -336,7 +435,7 @@
                     </div>
                 </div>
                 <div class="border-t border-gray-800 py-6 text-center text-xs text-gray-500">
-                    <p>© 2025 Alhaq Digital Services • DeenShield is an ADS product • <a href="/privacy/main-privacy.html" class="hover:text-white">Privacy</a> • <a href="/terms/en/index.html" class="hover:text-white">Terms</a> • <a href="/support/en/index.html" class="hover:text-white">Support</a></p>
+                    <p>© 2025 Alhaq Digital Services • DeenShield is an ADS product • <a href="/legal/docs.html" class="hover:text-white">Legal / Docs</a></p>
                 </div>
             </footer>
     

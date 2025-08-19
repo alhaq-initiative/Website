@@ -62,8 +62,15 @@
     // Ensure global stylesheet is last in head so overrides (including dark mode) take precedence
     try {
       const links = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
-      const globalLink = links.find(l => (l.getAttribute('href') || '').includes('/assets/css/styles.css'));
-      if (globalLink && globalLink.parentElement) {
+      let globalLink = links.find(l => (l.getAttribute('href') || '').includes('/assets/css/styles.css') || (l.getAttribute('href') || '').includes('assets/css/styles.css'));
+      if (!globalLink) {
+        // Inject if missing so site-wide dark theme is available on all pages
+        globalLink = document.createElement('link');
+        globalLink.rel = 'stylesheet';
+        globalLink.href = (location.pathname.startsWith('/deenshield/') ? '/assets/css/styles.css' : 'assets/css/styles.css');
+        globalLink.setAttribute('data-injected-styles', 'true');
+        document.head.appendChild(globalLink);
+      } else if (globalLink.parentElement) {
         // Move to end of head
         document.head.appendChild(globalLink);
       }
@@ -82,15 +89,11 @@
       document.head.appendChild(style);
     } catch(_) {}
 
-    // Global dark-mode readability: boost contrast for common text classes and brand blue
+    // Minimal dark-mode helpers for floating preferences UI only (main palette is in styles.css)
     try {
       const darkStyle = document.createElement('style');
       darkStyle.setAttribute('data-global-dark-styles', 'true');
       darkStyle.textContent = `
-        html.dark body { background-color:#00172e; color:#e2e8f0; }
-        html.dark .text-gray-700, html.dark .text-gray-600, html.dark .text-gray-500 { color:#e2e8f0 !important; }
-        html.dark .text-brand-blue { color:#f1f5f9 !important; }
-        /* Preferences dock buttons in dark */
         html.dark #global-preferences-dock #global-theme-btn,
         html.dark #global-lang-switcher #global-lang-btn { background:rgba(17,34,64,0.9) !important; color:#ffffff !important; border-color:rgba(212,175,55,0.6) !important; }
         html.dark #global-lang-switcher #global-lang-menu { background:rgba(23,53,83,0.98) !important; border-color:rgba(212,175,55,0.5) !important; }
@@ -103,12 +106,28 @@
       try {
         const STORAGE_KEY = 'siteTheme';
         const root = document.documentElement;
-        const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ds-theme'); // unify with DeenShield legacy
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = (saved === 'dark' || saved === 'light') ? saved : (prefersDark ? 'dark' : 'light');
-  root.classList.toggle('dark', initial === 'dark');
-  if (document.body) document.body.classList.toggle('dark', initial === 'dark');
-        try { localStorage.setItem(STORAGE_KEY, initial); localStorage.setItem('ds-theme', initial); } catch(_) {}
+  const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ds-theme'); // unify with DeenShield legacy
+  // Default to light unless user has explicitly chosen
+  const initial = (saved === 'dark' || saved === 'light') ? saved : 'light';
+
+        function applyTheme(mode) {
+          const isDark = mode === 'dark';
+          root.classList.toggle('dark', isDark);
+          if (document.body) document.body.classList.toggle('dark', isDark);
+          // Update browser UI theme color to match background
+          try {
+            const meta = document.querySelector('meta[name="theme-color"]') || (function(){
+              const m = document.createElement('meta');
+              m.name = 'theme-color';
+              document.head.appendChild(m);
+              return m;
+            })();
+            meta.setAttribute('content', isDark ? '#0b1220' : '#ffffff');
+          } catch(_) {}
+          try { localStorage.setItem(STORAGE_KEY, mode); localStorage.setItem('ds-theme', mode); } catch(_) {}
+        }
+
+        applyTheme(initial);
 
         // Build bottom-left preferences dock with Theme + Language shortcuts
         if (!document.getElementById('global-preferences-dock')) {
@@ -141,9 +160,7 @@
           themeBtn.addEventListener('click', (e) => {
             e.preventDefault();
             const nowDark = !root.classList.contains('dark');
-            root.classList.toggle('dark', nowDark);
-            if (document.body) document.body.classList.toggle('dark', nowDark);
-            try { localStorage.setItem(STORAGE_KEY, nowDark ? 'dark':'light'); localStorage.setItem('ds-theme', nowDark ? 'dark':'light'); } catch(_) {}
+            applyTheme(nowDark ? 'dark' : 'light');
             updateThemeBtnIcon();
           });
 
@@ -379,7 +396,7 @@
         if (name.includes('services')) return 'services';
         if (name.includes('quran')) return 'quran';
         if (name.includes('media')) return 'media';
-        if (name.includes('projects')) return 'projects';
+  if (name.includes('products')) return 'products';
         if (name.includes('introduction')) return 'introduction';
         if (name.includes('taleem-ai')) return 'taleem-ai';
   // DeenShield pages: handle both correct and legacy misspelling used in assets/Translations
@@ -435,7 +452,7 @@
             { href: 'help.html', key: 'navHelp' },
             { href: 'contact.html', key: 'navContact' },
             { href: 'donate.html', key: 'navDonate' },
-            { href: 'projects.html', key: 'navProjects' }
+            { href: 'products.html', key: 'navProducts' }
           ];
           navMap.forEach(item => {
             const link = document.querySelector(`nav a[href='${item.href}']`);

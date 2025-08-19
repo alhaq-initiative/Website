@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const base = process.env.BASE_URL || 'http://localhost:8080';
-const pages = ['/', '/about.html', '/services.html', '/library.html', '/donate.html', '/quran.html', '/media.html', '/projects.html'];
+const pages = ['/', '/about.html', '/services.html', '/library.html', '/donate.html', '/quran.html', '/media.html', '/products.html', '/legal/docs.html'];
 
 import http from 'node:http';
 import https from 'node:https';
