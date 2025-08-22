@@ -1,16 +1,12 @@
 // Injects a compact product tab bar near the footer if an element with id product-tab-mount exists.
 (function() {
-  // Compute base path depending on host. If we're on the deenshield subdomain, main.html is at root.
-  // Otherwise (main site), it's under /deenshield.
-  const isDeenShieldHost = /(^|\.)deenshield\./i.test(location.hostname);
-  const base = isDeenShieldHost ? '' : '/deenshield';
   const PRODUCTS = [
-    { key: 'home', label: 'Home', icon: 'fa-home', href: `${base}/main.html` },
-    { key: 'webapp', label: 'Web App', icon: 'fa-desktop', href: `${base}/main.html#webapp` },
-    { key: 'mobile', label: 'Mobile', icon: 'fa-mobile-alt', href: `${base}/main.html#mobile` },
-    { key: 'extension', label: 'Extension', icon: 'fa-shield-alt', href: `${base}/main.html#extension` },
-    { key: 'manager', label: 'Manager', icon: 'fa-window-maximize', href: `${base}/main.html#manager` },
-    { key: 'desktop', label: 'Desktop', icon: 'fa-laptop', href: `${base}/main.html#desktop` }
+    { key: 'home', label: 'Home', icon: 'fa-home', href: '/deenshield/main.html' },
+    { key: 'webapp', label: 'Web App', icon: 'fa-desktop', href: '/deenshield/main.html#webapp' },
+    { key: 'mobile', label: 'Mobile', icon: 'fa-mobile-alt', href: '/deenshield/main.html#mobile' },
+    { key: 'extension', label: 'Extension', icon: 'fa-shield-alt', href: '/deenshield/main.html#extension' },
+    { key: 'manager', label: 'Manager', icon: 'fa-window-maximize', href: '/deenshield/main.html#manager' },
+    { key: 'desktop', label: 'Desktop', icon: 'fa-laptop', href: '/deenshield/main.html#desktop' }
   ];
   function buildTabs(activeKey){
     const wrap=document.createElement('div');

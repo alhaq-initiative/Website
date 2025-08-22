@@ -31,18 +31,33 @@
                 </div>
                 <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
             </a>
-            <nav class="hidden md:flex space-x-8 items-center">
+            <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
                 <a href="about.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
                 <a href="services.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
                 <a href="products.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Products</a>
-                <a href="https://deenshield.alhaqds.software/" class="text-gray-800 font-semibold hover:text-brand-blue transition">Deen Shield</a>
                 <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
                 <a href="help.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
             </nav>
-            <div class="hidden md:flex items-center space-x-2">
-                <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>
+            <div class="flex justify-end mb-4">
+                <!-- Modern Language Switcher -->
+                <div class="relative">
+                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
+                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
+                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
+                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
+                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,7 +70,6 @@
             <a href="about.html" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
             <a href="services.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
             <a href="products.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Products</a>
-            <a href="https://deenshield.alhaqds.software/" class="block text-gray-600 hover:text-brand-blue transition py-2">Deen Shield</a>
 
             <a href="help.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Help & FAQ</a>
             <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
