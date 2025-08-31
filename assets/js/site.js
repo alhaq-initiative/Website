@@ -642,3 +642,58 @@
 
   });
 })();
+
+// --- Unified Logic App form submission handler (Name/Email/Message) ---
+// Some pages include lightweight feedback/contact forms that were submitting
+// as urlencoded with inconsistent field casing, resulting in empty values in
+// the Azure Logic App (JSON schema mismatch). We intercept and send clean JSON.
+(function initLogicAppForms(){
+  const LOGIC_APP_SIGNATURE = 'workflows/2a3b358e4c614e2aaeb81efadcf9fa42';
+  function extractValue(map, keys){
+    for(const k of keys){ if(map.has(k)) return map.get(k).value.trim(); }
+    return '';
+  }
+  function bindForm(form){
+    if(form.dataset.logicBound) return; // already processed
+    form.dataset.logicBound = 'true';
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const inputs = Array.from(form.querySelectorAll('input,textarea'));
+      const byName = new Map();
+      inputs.forEach(el=>{ if(el.name) byName.set(el.name.toLowerCase(), el); });
+      // Honeypot (spam) field named 'website' (common pattern) – abort silently if filled
+      if(byName.get('website') && byName.get('website').value.trim() !== '') { return; }
+      const name = extractValue(byName, ['name','fullname']);
+      const email = extractValue(byName, ['email','e-mail']);
+      const message = extractValue(byName, ['message','msg','feedback']);
+      const source = form.getAttribute('data-source') || location.pathname;
+      // Visual feedback elements
+      let statusEl = form.querySelector('.form-status');
+      if(!statusEl){
+        statusEl = document.createElement('div');
+        statusEl.className = 'form-status text-sm mt-1';
+        form.appendChild(statusEl);
+      }
+      const submitBtn = form.querySelector('button[type="submit"],input[type="submit"]');
+      const origBtnText = submitBtn ? (submitBtn.textContent || submitBtn.value) : '';
+      function setState(txt,color){ if(statusEl){ statusEl.textContent = txt; statusEl.style.color = color || 'inherit'; } }
+      try {
+        if(submitBtn){ submitBtn.disabled = true; submitBtn.classList.add('opacity-60','pointer-events-none'); if(submitBtn.textContent) submitBtn.textContent = 'Sending...'; }
+        setState('Sending...','gray');
+        const payload = { Name: name, Email: email, Message: message, Source: source, Agent: navigator.userAgent };
+        const res = await fetch(form.action, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        setState('Submitted successfully. JazakAllahu khairan.','green');
+        form.reset();
+      } catch(err){
+        console.error('Form submit failed', err);
+        setState('Submission failed. Please retry later.','red');
+      } finally {
+        if(submitBtn){ submitBtn.disabled = false; submitBtn.classList.remove('opacity-60','pointer-events-none'); if(submitBtn.textContent) submitBtn.textContent = origBtnText; }
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll(`form[action*='${LOGIC_APP_SIGNATURE}']`).forEach(bindForm);
+  });
+})();

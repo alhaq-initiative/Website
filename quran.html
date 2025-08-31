@@ -1,3 +1,7 @@
+        <!-- Quran Fullscreen Overlay -->
+                    <div class="absolute top-4 right-4 z-40">
+                        <button id="fullscreen-toggle" class="px-3 py-2 rounded bg-brand-blue text-white hover:bg-brand-gold transition" title="Fullscreen"><svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h7V2H2v9h2V4zm16 0h-7V2h9v9h-2V4zm0 16h-7v2h9v-9h-2v7zm-16 0h7v2H2v-9h2v7z" /></svg></button>
+                    </div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/ayah-tooltip-fix.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/quran.css">
 </head>
@@ -74,57 +79,78 @@
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
                     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                        <div class="flex items-center gap-2">
-                            <button id="hifzBtn" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 transition">Hifz Layout</button>
-                            <button id="madinahBtn" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">Madinah Layout</button>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-3">
-                            <input id="surah-search" type="text" class="border rounded px-3 py-2 w-56" placeholder="Search surah by name or number" />
-                            <select id="surah-dropdown" class="border rounded px-3 py-2 w-56">
-                                <option value="">Select a Surah...</option>
-                            </select>
-                            <select id="translation-dropdown" class="border rounded px-3 py-2 w-56">
-                                <option value="">No Translation</option>
-                                <option value="en">English (Maulana Wahiduddin Khan)</option>
-                                <option value="ps">Pashto (Sarfaraz)</option>
-                            </select>
+                        <div class="flex flex-wrap items-center gap-3 w-full">
+                            <!-- Removed surah & translation selects moved to pane title bars -->
+                            <!-- Translation toggle removed from main controller bar; only present in unified view -->
+                            <div class="flex items-center gap-2">
+                                <input id="go-to-verse" type="number" min="1" class="border rounded px-2 py-2 w-24" placeholder="Verse #" />
+                                <button id="go-to-btn" class="px-3 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Go</button>
+                            </div>
+                            <div class="flex items-center gap-2 ml-auto">
+                                <button id="print-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Print current page">Print</button>
+                                <button id="share-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Share current page">Share</button>
+                                
+                            </div>
+                            <span id="quran-status" class="text-xs text-gray-500 mt-2 md:mt-0" aria-live="polite"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Quran Display -->
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Arabic Text -->
-                        <div>
-                            <h3 class="text-xl font-bold text-brand-blue mb-4">Arabic Text</h3>
-                            <div id="arabic-scroll" class="overflow-y-auto max-h-[400px]">
-                                <div id="arabic-text" class="arabic-text text-right text-lg leading-loose bg-gray-50 p-6 rounded-lg min-h-[400px]">
-                                    <p class="text-center text-gray-500">Select a surah to begin reading</p>
-                                </div>
-                            </div>
+                <div id="quran-viewer" class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="absolute top-4 right-4 z-40">
+                        <button id="open-quran-overlay" class="px-3 py-2 rounded bg-brand-blue text-white hover:bg-brand-gold transition" title="Fullscreen Overlay"><svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h7V2H2v9h2V4zm16 0h-7V2h9v9h-2V4zm0 16h-7v2h9v-9h-2v7zm-16 0h7v2H2v-9h2v7z" /></svg></button>
+                    </div>
+                    <div id="quran-unified" class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center gap-3 mb-4">
+                            <h3 class="text-xl font-bold text-brand-blue" id="arabic-surah-title">Quran</h3>
+                            <select id="surah-dropdown" class="border rounded px-2 py-1 text-sm w-48">
+                                <option value="">Select a Surah...</option>
+                            </select>
+                            <select id="translation-dropdown" class="border rounded px-2 py-1 text-sm w-56">
+                                <option value="">No Translation</option>
+                                <option value="en">English (Maulana Wahiduddin Khan)</option>
+                                <option value="ps">Pashto (Sarfaraz)</option>
+                            </select>
+                            <label class="inline-flex items-center gap-2 text-sm select-none ml-4">
+                                <input type="checkbox" id="toggle-translation" class="accent-brand-blue h-4 w-4" />
+                                <span>Show Translation</span>
+                            </label>
                         </div>
-                        <!-- Translation -->
-                        <div>
-                            <h3 class="text-xl font-bold text-brand-blue mb-4">Translation</h3>
-                            <div id="translation-text" class="text-left text-lg leading-relaxed bg-gray-50 p-6 rounded-lg min-h-[400px]">
-                                <p class="text-center text-gray-500">Translation will appear here</p>
-                            </div>
+                        <div id="arabic-surah-meta" class="text-xs text-gray-500 mb-4"></div>
+                        <div id="quran-unified-list"></div>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            <button id="pager-prev" class="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-40 disabled:cursor-not-allowed" disabled>Previous Page</button>
+                            <button id="pager-next" class="px-4 py-2 rounded bg-brand-blue text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed" disabled>Next Page</button>
                         </div>
+                        <div id="pager-info" class="text-sm text-gray-600">Page 1 / 1</div>
                     </div>
 
                     <!-- Audio Player -->
                     <div class="mt-8" id="recitations">
+                        <div id="audio-player-bar"></div>
                         <h3 class="text-xl font-bold text-brand-blue mb-4">Audio Recitation</h3>
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <audio id="quran-audio" controls class="w-full">
-                                <source src="" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <button onclick="playRecitation('mishary')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Mishary Rashid</button>
-                                <button onclick="playRecitation('sudais')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Abdur-Rahman As-Sudais</button>
-                                <button onclick="playRecitation('ghamdi')" class="bg-brand-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition">Saad Al-Ghamdi</button>
+                            <div class="flex flex-col gap-4">
+                                <div class="flex flex-col md:flex-row md:items-center gap-4">
+                                    <div class="flex items-center gap-2">
+                                        <label for="reciter-select" class="text-sm font-medium text-brand-blue">Reciter:</label>
+                                        <select id="reciter-select" class="border rounded px-3 py-2 text-sm w-64"></select>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button id="play-surah" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Play Surah</button>
+                                        <button id="play-full-quran" class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 text-sm" title="Play Full Quran">Play Full Quran</button>
+                                        <button id="stop-audio" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm" title="Stop audio">Stop</button>
+                                        <button id="reload-audio" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Reload audio">Reload</button>
+                                    </div>
+                                    <div id="audio-status" class="text-xs text-gray-500" aria-live="polite"></div>
+                                </div>
+                                <audio id="quran-audio" controls preload="none" class="w-full rounded bg-white">
+                                    <source src="" type="audio/mpeg" />
+                                    Your browser does not support the audio element.
+                                </audio>
                             </div>
                         </div>
                     </div>
@@ -204,9 +230,9 @@
                     <div class="islamic-card p-6">
                         <h3 class="text-xl font-bold text-brand-blue mb-4">🎓 Islamic Studies</h3>
                         <div class="space-y-3">
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 0 0 16zm3.707-9.293a1 1 0 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Aqeedah (Creed)</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Fiqh (Jurisprudence)</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Seerah (Prophet's Life)</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="text-sm text-gray-600">Aqeedah (Creed)</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="text-sm text-gray-600">Fiqh (Jurisprudence)</span></div>
+                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="text-sm text-gray-600">Seerah (Prophet's Life)</span></div>
                         </div>
                     </div>
                     <div class="islamic-card p-6">

@@ -19,35 +19,8 @@
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') feedbackModal.classList.add('hidden'); });
   }
 
-  function initContactForm() {
-    const form = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    if (!form) return;
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (formStatus) { formStatus.textContent = 'Sending...'; formStatus.style.color = 'gray'; }
-      const name = document.getElementById('name')?.value || '';
-      const email = document.getElementById('email')?.value || '';
-      const message = document.getElementById('message')?.value || '';
-      const logicAppUrl = "https://prod-10.ukwest.logic.azure.com/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg";
-      try {
-        const response = await fetch(logicAppUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message }),
-        });
-        if (response.ok) {
-          if (formStatus) { formStatus.textContent = 'Feedback submitted successfully.'; formStatus.style.color = 'green'; }
-          form.reset();
-        } else {
-          if (formStatus) { formStatus.textContent = 'Submission failed. Please check your Logic App configuration.'; formStatus.style.color = 'red'; }
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        if (formStatus) { formStatus.textContent = 'An unexpected error occurred. Please try again later.'; formStatus.style.color = 'red'; }
-      }
-    });
-  }
+  // Contact form submission handled globally in site.js (unified Logic App handler).
+  function initContactForm() { /* no-op: legacy hook retained for backward compatibility */ }
 
   // Page-specific translations hook used by core site.js
   window._pageSetLanguage = function(lang) {
@@ -78,6 +51,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initFeedbackModal();
-    initContactForm();
+  initContactForm(); // intentionally empty – unified handler in site.js
   });
 })();
