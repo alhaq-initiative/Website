@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ads-site-v1';
+const CACHE_NAME = 'alhaq-initiative-site-v2';
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',

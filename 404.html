@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found - Alhaq Initiative</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body { min-height: 100vh; display: grid; place-items: center; background: #0A2540; color: #fff; margin: 0; }
+    .card { width: min(92%, 720px); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 18px; padding: 28px; box-shadow: 0 12px 28px rgba(0,0,0,.25); text-align: center; }
+    .brand { display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom: 12px; }
+    .brand img { width: 48px; height: 48px; border-radius: 50%; background:#fff; border:1px solid rgba(0,0,0,.1); }
+    h1 { font-size: clamp(1.6rem, 2.6vw + 1rem, 2.2rem); margin: 6px 0 8px; }
+    p { color: #e5e7eb; margin: 0 0 14px; }
+    a.btn { display:inline-block; background:#D4AF37; color:#0A2540; font-weight:700; padding:10px 16px; border-radius: 12px; text-decoration:none; }
+    .grid { display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: 16px; }
+    .tile { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 12px; }
+    .tile a { color: #D4AF37; text-decoration: none; font-weight:600; }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <div class="brand">
+      <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative" />
+      <div>
+        <div style="font-weight:800; font-size: 1.1rem;">Alhaq Initiative</div>
+        <div style="opacity:.8; font-size:.9rem;">Page not found (404)</div>
+      </div>
+    </div>
+    <h1>We couldn’t find that page</h1>
+    <p>The link may be broken or the page may have moved.</p>
+    <p>
+      <a class="btn" href="/index.html">Go to Home</a>
+    </p>
+    <div class="grid" aria-label="Quick links">
+      <div class="tile"><a href="/about.html">About</a></div>
+      <div class="tile"><a href="/services.html">Services</a></div>
+      <div class="tile"><a href="/library.html">Library</a></div>
+      <div class="tile"><a href="/quran.html">Quran Hub</a></div>
+      <div class="tile"><a href="/help.html">Help & FAQ</a></div>
+      <div class="tile"><a href="/contact.html">Contact</a></div>
+    </div>
+  </main>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

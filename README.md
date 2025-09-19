@@ -1,14 +1,14 @@
-# Alhaq Digital Services Website
+# Alhaq Initiative Website
 
-This is the official website for Alhaq Digital Services (ADS).
+This is the official website for Alhaq Initiative.
 
 ## Features
 
 - Modern, responsive design using Tailwind CSS
-- Main pages: Home, About, Services, Library, Help & FAQ, Contact, Donate, Media, Quran, Taleem AI
+- Main pages: Home, About, Services, Library, Help & FAQ, Contact, Donate, Media, Quran, quranhub
 - Consistent navigation bar across all pages
 - "Explore Our Library" section at the bottom of main pages
-- Language switcher (English, Arabic, Dari)
+- Language switcher (English, Arabic, Dari, Pashto)
 - Donation and contact forms
 
 ## Development Workflow
@@ -39,4 +39,4 @@ This project is licensed under the MIT License.
 
 ---
 
-For questions or support, contact the Alhaq Digital Services team.
+For questions or support, contact the Alhaq Initiative team.

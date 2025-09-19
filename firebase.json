@@ -1,0 +1,43 @@
+{
+  "hosting": [
+    {
+      "site": "alhaq-initiative",
+      "public": ".",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "deploy/**", "api/**"],
+      "redirects": [
+        { "source": "/ar", "destination": "/", "type": 302 },
+        { "source": "/ar/", "destination": "/", "type": 302 },
+        { "source": "/ar/:path*", "destination": "/:path", "type": 302 },
+        { "source": "/fa", "destination": "/", "type": 302 },
+        { "source": "/fa/", "destination": "/", "type": 302 },
+        { "source": "/fa/:path*", "destination": "/:path", "type": 302 },
+        { "source": "/ps", "destination": "/", "type": 302 },
+        { "source": "/ps/", "destination": "/", "type": 302 },
+        { "source": "/ps/:path*", "destination": "/:path", "type": 302 },
+        { "source": "/deensheild", "destination": "/deenshield/main.html", "type": 301 },
+        { "source": "/deensheild/", "destination": "/deenshield/main.html", "type": 301 },
+        { "source": "/deensheild/**", "destination": "/deenshield/:splat", "type": 301 },
+        { "source": "/deenshield", "destination": "/deenshield/main.html", "type": 302 },
+  { "source": "/deenshield/", "destination": "/deenshield/main.html", "type": 302 },
+  { "source": "/deenshield/privacy/web-app/web-privacy.html", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 },
+  { "source": "/deenshield/privacy/web-app", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 },
+  { "source": "/deenshield/privacy/web-app/", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 },
+  { "source": "/deenshield/privacy/web-app/:path*", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 }
+      ],
+      "headers": [
+        {
+          "source": "/sw.js",
+          "headers": [
+            { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+          ]
+        },
+        {
+          "source": "/assets/**",
+          "headers": [
+            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+          ]
+        }
+      ]
+    }
+  ]
+}

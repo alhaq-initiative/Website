@@ -74,7 +74,7 @@ app.post('/api/ai/chat', (req, res) => {
   
   // Placeholder AI response
   const response = {
-    response: `Thank you for your question: "${message}". This is a placeholder response from Taleem AI. In the full implementation, this would provide Islamic guidance and answers.`,
+    response: `Thank you for your question: "${message}". This is a placeholder response from quranhub. In the full implementation, this would provide Islamic guidance and answers.`,
     confidence: 0.85,
     sources: [
       'Placeholder source 1',
@@ -134,7 +134,7 @@ app.use('*', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Alhaq Digital Services API running on port ${PORT}`);
+  console.log(`🚀 Alhaq Initiative API running on port ${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
   console.log(`🕌 Prayer times: http://localhost:${PORT}/api/prayer-times?lat=40.7128&lng=-74.0060`);
   console.log(`📖 Quran verse: http://localhost:${PORT}/api/quran/verse/1/1`);

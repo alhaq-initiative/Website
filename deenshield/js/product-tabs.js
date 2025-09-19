@@ -2,7 +2,6 @@
 (function() {
   const PRODUCTS = [
     { key: 'home', label: 'Home', icon: 'fa-home', href: '/deenshield/main.html' },
-    { key: 'webapp', label: 'Web App', icon: 'fa-desktop', href: '/deenshield/main.html#webapp' },
     { key: 'mobile', label: 'Mobile', icon: 'fa-mobile-alt', href: '/deenshield/main.html#mobile' },
     { key: 'extension', label: 'Extension', icon: 'fa-shield-alt', href: '/deenshield/main.html#extension' },
     { key: 'manager', label: 'Manager', icon: 'fa-window-maximize', href: '/deenshield/main.html#manager' },

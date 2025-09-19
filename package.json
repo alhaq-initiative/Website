@@ -1,7 +1,7 @@
 {
-  "name": "alhaq-digital-services-website",
+  "name": "alhaq-initiative-website",
   "version": "1.0.0",
-  "description": "Alhaq Digital Services website with AI demo functionality",
+  "description": "Alhaq Initiative website with AI demo functionality",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

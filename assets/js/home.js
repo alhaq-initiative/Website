@@ -103,14 +103,14 @@
       const serviceCards = document.querySelectorAll('#services .glass-card');
       if (serviceCards[0]) {
         const h3 = serviceCards[0].querySelector('h3');
-        if (h3 && t.taleemAI_Title) h3.textContent = t.taleemAI_Title;
+        if (h3 && t.quranhub_Title) h3.textContent = t.quranhub_Title;
         const p = serviceCards[0].querySelector('p');
-        if (p && t.taleemAI_Description) p.textContent = t.taleemAI_Description;
-        const taleemFeatures = serviceCards[0].querySelectorAll('li');
-        if (taleemFeatures[0] && t.taleemAI_Feature1) taleemFeatures[0].textContent = t.taleemAI_Feature1;
-        if (taleemFeatures[1] && t.taleemAI_Feature2) taleemFeatures[1].textContent = t.taleemAI_Feature2;
-        if (taleemFeatures[2] && t.taleemAI_Feature3) taleemFeatures[2].textContent = t.taleemAI_Feature3;
-        if (taleemFeatures[3] && t.taleemAI_Feature4) taleemFeatures[3].textContent = t.taleemAI_Feature4;
+        if (p && t.quranhub_Description) p.textContent = t.quranhub_Description;
+        const quranhubFeatures = serviceCards[0].querySelectorAll('li');
+        if (quranhubFeatures[0] && t.quranhub_Feature1) quranhubFeatures[0].textContent = t.quranhub_Feature1;
+        if (quranhubFeatures[1] && t.quranhub_Feature2) quranhubFeatures[1].textContent = t.quranhub_Feature2;
+        if (quranhubFeatures[2] && t.quranhub_Feature3) quranhubFeatures[2].textContent = t.quranhub_Feature3;
+        if (quranhubFeatures[3] && t.quranhub_Feature4) quranhubFeatures[3].textContent = t.quranhub_Feature4;
       }
       if (serviceCards[1]) {
         const h3 = serviceCards[1].querySelector('h3');

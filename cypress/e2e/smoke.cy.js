@@ -5,7 +5,7 @@ describe('Alhaq website smoke', () => {
     cy.get('link[rel="stylesheet"]').should('have.length.at.least', 1);
     // Global site script present
     cy.get('script[src*="assets/js/site.js"]').should('exist');
-    cy.contains('Alhaq Digital Services');
+  cy.contains('Alhaq Initiative');
   });
 
   it('navigates to About/Services/Library/Donate/Quran', () => {
@@ -19,7 +19,7 @@ describe('Alhaq website smoke', () => {
 
   it('language switch reflects RTL and resets on English', () => {
     cy.visit('/services.html');
-    // open global language switcher menu
+    // open floating language switcher menu
     cy.get('#global-lang-btn').click();
     cy.get('#global-lang-menu').contains('العربية').click();
     cy.get('html').should('have.attr', 'dir', 'rtl');

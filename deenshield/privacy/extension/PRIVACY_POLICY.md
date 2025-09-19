@@ -58,8 +58,8 @@ We may update this policy to reflect changes in our practices or legal requireme
 For privacy questions or support:
 
 - **Email:** support@alhaqds.software
-- **Website:** https://alhaqds.software
-- **Contact Page:** https://alhaqds.software/contact
+- **Website:** https://alhaq-initiative.org
+- **Contact Page:** https://alhaq-initiative.org/contact.html
 
 ---
 

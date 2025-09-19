@@ -59,6 +59,27 @@
 
   // Init on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
+    // Ensure a canonical link pointing to the primary domain for SEO
+    try {
+      const CANON_HOST = 'https://alhaq-initiative.org';
+      const existing = document.querySelector('link[rel="canonical"]');
+      const url = new URL(location.href);
+      // Build canonical path: drop hash, keep pathname (including language prefixes), keep no query
+      let canonicalPath = url.pathname || '/';
+      // Normalize default index.html to '/'
+      if (canonicalPath.toLowerCase().endsWith('/index.html')) {
+        canonicalPath = canonicalPath.slice(0, -('/index.html'.length)) || '/';
+      }
+      const canonicalHref = CANON_HOST + (canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath);
+      if (existing) {
+        if (existing.getAttribute('href') !== canonicalHref) existing.setAttribute('href', canonicalHref);
+      } else {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        link.setAttribute('href', canonicalHref);
+        document.head.appendChild(link);
+      }
+    } catch(_) {}
     // Ensure global stylesheet is last in head so overrides (including dark mode) take precedence
     try {
       const links = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
@@ -398,7 +419,7 @@
         if (name.includes('media')) return 'media';
   if (name.includes('products')) return 'products';
         if (name.includes('introduction')) return 'introduction';
-        if (name.includes('taleem-ai')) return 'taleem-ai';
+        if (name.includes('quranhub')) return 'quranhub';
   // DeenShield pages: handle both correct and legacy misspelling used in assets/Translations
   if (name.includes('deenshield-app')) return 'deenshield-app';
   // If path uses correct spelling, map to legacy folder name to avoid 404

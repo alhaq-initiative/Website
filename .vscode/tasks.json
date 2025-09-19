@@ -1,23 +1,52 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Run DeenShield Desktop Manager",
-      "type": "shell",
-      "command": "npm",
-      "args": ["start", "--prefix", "DeenShield-Desktop-Manager"],
-      "isBackground": false,
-      "problemMatcher": ["$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run DeenShield Desktop Manager",
-      "type": "shell",
-      "command": "npm",
-      "args": ["start", "--prefix", "DeenShield-Desktop-Manager"],
-      "isBackground": false,
-      "problemMatcher": ["$eslint-stylish"],
-      "group": "build"
-    }
-  ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run DeenShield Desktop Manager",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"start",
+				"--prefix",
+				"DeenShield-Desktop-Manager"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run DeenShield Desktop Manager",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"start",
+				"--prefix",
+				"DeenShield-Desktop-Manager"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run Cypress smoke tests",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"cypress",
+				"run",
+				"--browser",
+				"chrome",
+				"--headless"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		}
+	]
 }
