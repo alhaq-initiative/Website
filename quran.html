@@ -14,60 +14,7 @@
     <link rel="stylesheet" href="assets/css/quran.css">
 </head>
 <body class="antialiased">
-    <!-- Header -->
-    <header class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
-        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative Logo" class="h-full w-full object-cover" />
-                </div>
-                <span class="text-xl font-bold text-brand-blue">Alhaq Initiative</span>
-            </a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none"
-                    aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center justify-between flex-1 pl-10" role="navigation" aria-label="Main navigation">
-                <div class="flex space-x-1" role="list">
-                    <div role="listitem"><a href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></div>
-                    <div role="listitem"><a href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></div>
-                    <div role="listitem"><a href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a></div>
-                    <div role="listitem"><a href="products.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Products</a></div>
-                    <div role="listitem"><a href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></div>
-                    <div role="listitem"><a href="media.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Media</a></div>
-                    <div role="listitem"><a href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></div>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>
-                    <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>
-                </div>
-            </nav>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2">
-                <nav class="flex flex-col space-y-1" aria-label="Mobile navigation">
-                    <ul class="flex flex-col space-y-1" role="menu">
-                        <li role="none"><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Home</a></li>
-                        <li role="none"><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">About</a></li>
-                        <li role="none"><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Services</a></li>
-                        <li role="none"><a href="products.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Products</a></li>
-                        <li role="none"><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Library</a></li>
-                        <li role="none"><a href="media.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Media</a></li>
-                        <li role="none"><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Help & FAQ</a></li>
-                        <li role="none"><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md block" role="menuitem">Contact</a></li>
-                        <li role="none"><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md block" role="menuitem">Donate</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <header id="global-header"></header>
 
     <main class="pt-32 pb-20 islamic-section">
         <!-- Controls -->

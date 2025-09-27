@@ -1,3 +1,16 @@
+// Inline minimal setup (fallback because jest.config setupFilesAfterEnv not resolving in current environment)
+require('@testing-library/jest-dom');
+// Fallback fetch mock
+if (typeof global.fetch !== 'function') {
+  try { global.fetch = require('jest-fetch-mock'); } catch(_) {}
+}
+// Basic navigator mock if absent
+if (!window.navigator || !window.navigator.geolocation) {
+  Object.defineProperty(window, 'navigator', {
+    value: { userAgent: 'jest-inline', geolocation: { getCurrentPosition: jest.fn() } },
+    configurable: true
+  });
+}
 // Basic test for the website functionality
 describe('Alhaq Initiative Website', () => {
   test('should load basic HTML structure', () => {

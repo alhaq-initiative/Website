@@ -1,3 +1,4 @@
+require('@testing-library/jest-dom');
 const fs = require('fs');
 const path = require('path');
 

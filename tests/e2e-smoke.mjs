@@ -1,9 +1,25 @@
 #!/usr/bin/env node
 const base = process.env.BASE_URL || 'http://localhost:8080';
-const pages = ['/', '/about.html', '/services.html', '/library.html', '/donate.html', '/quran.html', '/media.html', '/products.html', '/legal/docs.html'];
+const pages = [
+  '/',
+  '/about.html',
+  '/services.html',
+  '/library.html',
+  '/donate.html',
+  '/quran.html',
+  '/media.html',
+  '/products.html',
+  // Legal & docs hubs
+  '/legal/docs.html',
+  '/legal/privacy.html',
+  '/legal/terms.html',
+  '/legal/support.html'
+];
 
 import http from 'node:http';
 import https from 'node:https';
+import fs from 'node:fs';
+import path from 'node:path';
 
 function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
 
@@ -37,6 +53,48 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
 }
 
 (async () => {
+  // Attempt to ensure a server is available; if not, start a minimal static server.
+  let startedServer = null;
+  async function probeRoot() {
+    try {
+      const res = await fetchWithRetry(new URL('/', base).toString(), 1, 0);
+      return res.ok;
+    } catch { return false; }
+  }
+  async function ensureServer() {
+    const ok = await probeRoot();
+    if (ok) return; // Existing server running.
+    const rootDir = process.cwd();
+    startedServer = http.createServer((req, res) => {
+      // Normalize URL -> file path
+      const urlPath = decodeURIComponent(req.url.split('?')[0]);
+      let filePath = urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
+      // Prevent directory traversal
+      if (filePath.includes('..')) { res.writeHead(400); return res.end('Bad Request'); }
+      const abs = path.join(rootDir, filePath);
+      fs.readFile(abs, (err, data) => {
+        if (err) {
+          res.writeHead(404, { 'Content-Type': 'text/plain' });
+          return res.end('Not found');
+        }
+        const ext = path.extname(abs).toLowerCase();
+        const type = ({
+          '.html': 'text/html; charset=utf-8',
+          '.js': 'application/javascript; charset=utf-8',
+          '.css': 'text/css; charset=utf-8',
+          '.json': 'application/json; charset=utf-8',
+          '.png': 'image/png',
+          '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml',
+          '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8'
+        })[ext] || 'application/octet-stream';
+        res.writeHead(200, { 'Content-Type': type });
+        res.end(data);
+      });
+    }).listen(8080);
+    await wait(200); // brief settle
+  }
+
+  await ensureServer();
   let failures = 0;
   for (const p of pages) {
     const url = new URL(p, base).toString();
@@ -55,6 +113,9 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
       failures++;
       console.error(`FAIL ${p}: ${e.message}`);
     }
+  }
+  if (startedServer) {
+    startedServer.close();
   }
   if (failures > 0) {
     console.error(`Smoke check failed: ${failures} page(s) had issues`);
