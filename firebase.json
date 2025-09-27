@@ -3,7 +3,17 @@
     {
       "site": "alhaq-initiative",
       "public": ".",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "deploy/**", "api/**"],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "deploy/**",
+        "api/**",
+        ".git/**",
+        ".github/**",
+        ".vscode/**",
+        ".firebase/**"
+      ],
       "redirects": [
         { "source": "/ar", "destination": "/", "type": 302 },
         { "source": "/ar/", "destination": "/", "type": 302 },
@@ -18,11 +28,8 @@
         { "source": "/deensheild/", "destination": "/deenshield/main.html", "type": 301 },
         { "source": "/deensheild/**", "destination": "/deenshield/:splat", "type": 301 },
         { "source": "/deenshield", "destination": "/deenshield/main.html", "type": 302 },
-  { "source": "/deenshield/", "destination": "/deenshield/main.html", "type": 302 },
-  { "source": "/deenshield/privacy/web-app/web-privacy.html", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 },
-  { "source": "/deenshield/privacy/web-app", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 },
-  { "source": "/deenshield/privacy/web-app/", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 },
-  { "source": "/deenshield/privacy/web-app/:path*", "destination": "/deenshield/privacy/main-privacy.html", "type": 301 }
+  { "source": "/deenshield/", "destination": "/deenshield/main.html", "type": 302 }
+  
       ],
       "headers": [
         {
