@@ -23,64 +23,22 @@
     <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 <body class="antialiased">
-    <header id="header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative Logo" class="h-full w-full object-cover" />
-                </div>
-                <span class="text-xl font-bold text-brand-blue">Alhaq Initiative</span>
-            </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Home</a>
-                <a href="about.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">About</a>
-                <a href="services.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Services</a>
-                <a href="products.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Products</a>
-                <a href="library.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Library</a>
-                <a href="help.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Help & FAQ</a>
-                <a href="contact.html" class="text-gray-800 font-semibold hover:text-brand-blue transition">Contact</a>
-            </nav>
-            <div class="flex justify-end mb-4">
-                <!-- Modern Language Switcher -->
-                <div class="relative">
-                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
-                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
-                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </button>
-                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex items-center space-x-2">
-                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
-            <a href="index.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Home</a>
-            <a href="about.html" class="block text-gray-600 hover:text-brand-blue transition py-2">About</a>
-            <a href="services.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Services</a>
-            <a href="products.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Products</a>
-
-            <a href="help.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Help & FAQ</a>
-            <a href="contact.html" class="block text-gray-600 hover:text-brand-blue transition py-2">Contact</a>
-            <a href="donate.html" class="block text-green-600 hover:text-green-800 transition py-2 font-bold" role="button" aria-label="Donate"> Donate </a>
-        </div>
-    </header>
+    <header id="global-header"></header>
     <main class="pt-32 pb-20 bg-gray-50 min-h-screen islamic-section">
         <section class="fade-in-section">
             <div class="container mx-auto px-6 text-center max-w-xl">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">Contact Us</h1>
-                <p class="text-lg text-gray-700 mb-8">Have a question, suggestion, or want to collaborate? Fill out the form below and we’ll get back to you as soon as possible.</p>
+                <p class="text-lg text-gray-700 mb-4">Have a question, suggestion, or want to collaborate? Fill out the form below and we’ll get back to you as soon as possible.</p>
+                <!-- Direct Email Contacts -->
+                <div class="mb-8 bg-white/70 rounded-lg border border-gray-200 p-4 text-left shadow-sm" aria-labelledby="direct-email-heading">
+                    <h2 id="direct-email-heading" class="text-xl font-bold text-brand-blue mb-2">Email Contacts</h2>
+                    <ul class="space-y-1 text-gray-700 text-sm md:text-base">
+                        <li><strong>General Info:</strong> <a class="text-brand-blue underline hover:text-brand-gold" href="mailto:info@alhaq-initiative.org">info@alhaq-initiative.org</a></li>
+                        <li><strong>Inquiries & Collaboration:</strong> <a class="text-brand-blue underline hover:text-brand-gold" href="mailto:contact@alhaq-initiative.org">contact@alhaq-initiative.org</a></li>
+                        <li><strong>Support:</strong> <a class="text-brand-blue underline hover:text-brand-gold" href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a></li>
+                    </ul>
+                    <p class="mt-3 text-xs text-gray-500">We usually respond within 1–2 business days. For urgent technical issues, please use the support email.</p>
+                </div>
                 <form id="contact-form" class="flex flex-col gap-4 glass-card p-6 shadow-lg" autocomplete="off" action="https://prod-10.ukwest.logic.azure.com/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg" method="POST" data-source="/contact.html">
                     <div>
                         <label for="name" class="block text-left font-semibold mb-1">Name:</label>

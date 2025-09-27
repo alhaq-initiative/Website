@@ -199,6 +199,29 @@ html.dark .islamic-footer {
   color: #cbd5e1;
 }
 
+/* Accessibility: Skip link */
+.skip-link {
+  position: absolute;
+  top: -1000px;
+  left: 0;
+  padding: 0.75rem 1rem;
+  background: #0a2540;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0 0 6px 0;
+  z-index: 10000;
+  text-decoration: none;
+  transform: translateY(0);
+  transition: top .2s ease, background .2s ease;
+}
+.skip-link:focus, .skip-link:active {
+  top: 0;
+  outline: 3px solid #d4af37;
+  background: #0a2540;
+}
+html.dark .skip-link { background:#d4af37; color:#0a2540; }
+html.dark .skip-link:focus { outline:3px solid #ffffff; }
+
 .islamic-card {
   background: linear-gradient(
     135deg,

@@ -59,6 +59,50 @@
 
   // Init on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
+    // Inject unified navigation only on non-DeenShield paths.
+    // DeenShield pages manage their own complex header/SPA tabs and should not receive the global site nav.
+    const pathLower = location.pathname.toLowerCase();
+    const skipGlobalNav = pathLower.startsWith('/deenshield/');
+    if (!skipGlobalNav) {
+      try {
+        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Alhaq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Alhaq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a></li>\n        <li role="none"><a role="menuitem" href="products.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Products</a></li>\n        <li role="none"><a role="menuitem" href="/deenshield/main.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Deen Shield</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Services</a></li>\n          <li><a href="products.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Products</a></li>\n          <li><a href="/deenshield/main.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Deen Shield</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
+        const already = document.getElementById('site-global-header');
+        if (!already) {
+          const placeholder = document.getElementById('global-header');
+          if (placeholder) {
+            placeholder.outerHTML = NAV_HTML;
+          } else {
+            const temp = document.createElement('div');
+            temp.innerHTML = NAV_HTML;
+            const headerEl = temp.firstElementChild;
+            if (document.body.firstChild) {
+              document.body.insertBefore(headerEl, document.body.firstChild);
+            } else {
+              document.body.appendChild(headerEl);
+            }
+          }
+        }
+      } catch(_) { /* nav injection failure should not break page */ }
+    }
+    // Accessibility: inject skip link (non-DeenShield) & ensure main landmarks
+    try {
+      if (!skipGlobalNav) {
+        const existingSkip = document.querySelector('.skip-link');
+        if (!existingSkip) {
+          const skip = document.createElement('a');
+          skip.href = '#main-content';
+          skip.className = 'skip-link';
+          skip.textContent = 'Skip to main content';
+          document.body.insertBefore(skip, document.body.firstChild);
+        }
+      }
+      const mainEl = document.querySelector('main');
+      if (mainEl) {
+        if (!mainEl.id) mainEl.id = 'main-content';
+        mainEl.setAttribute('role', 'main');
+        if (!mainEl.hasAttribute('tabindex')) mainEl.setAttribute('tabindex', '-1');
+      }
+    } catch(_) {}
     // Ensure a canonical link pointing to the primary domain for SEO
     try {
       const CANON_HOST = 'https://alhaq-initiative.org';
@@ -418,10 +462,13 @@
         if (name.includes('quran')) return 'quran';
         if (name.includes('media')) return 'media';
   if (name.includes('products')) return 'products';
-        if (name.includes('introduction')) return 'introduction';
-        if (name.includes('quranhub')) return 'quranhub';
+    if (name.includes('introduction')) return 'introduction';
+    if (name.includes('quranhub')) return 'quranhub';
+    if (name.includes('privacy')) return 'privacy';
+    if (name.includes('terms')) return 'terms';
+    if (name.includes('support')) return 'support';
   // DeenShield pages: handle both correct and legacy misspelling used in assets/Translations
-  if (name.includes('deenshield-app')) return 'deenshield-app';
+  // Deprecated: historic 'deenshield-app' (standalone web app) removed – keep only legacy misspelling mapping below.
   // If path uses correct spelling, map to legacy folder name to avoid 404
   if (name.includes('deenshield-extension')) return 'deensheild-extension';
   if (name.includes('deenshield')) return 'deensheild';
@@ -660,6 +707,63 @@
     })();
 
   // Header language dropdown removed; no binding necessary
+
+    // Inject global footer email contacts + legal/docs hub + baseline privacy/terms (excluding contact page which has its own section)
+    try {
+      const path = location.pathname.toLowerCase();
+      const isContactPage = path.endsWith('/contact.html') || path.endsWith('contact.html') || path === '/contact' || path.endsWith('/contact');
+      if (!isContactPage) {
+        const footer = document.querySelector('footer');
+        if (footer) {
+          // Emails block
+          if (!footer.querySelector('[data-global-email-contacts]')) {
+            const block = document.createElement('div');
+            block.setAttribute('data-global-email-contacts', 'true');
+            block.style.marginTop = '1.5rem';
+            block.style.fontSize = '0.875rem';
+            block.style.lineHeight = '1.4';
+            block.innerHTML = `
+              <div style="max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;color:#d1d5db;">
+                <div><strong style=\"color:#fef08a;\">Info:</strong> <a href=\"mailto:info@alhaq-initiative.org\" style=\"color:#93c5fd;\">info@alhaq-initiative.org</a></div>
+                <div><strong style=\"color:#fef08a;\">Contact:</strong> <a href=\"mailto:contact@alhaq-initiative.org\" style=\"color:#93c5fd;\">contact@alhaq-initiative.org</a></div>
+                <div><strong style=\"color:#fef08a;\">Support:</strong> <a href=\"mailto:support@alhaq-initiative.org\" style=\"color:#93c5fd;\">support@alhaq-initiative.org</a></div>
+              </div>`;
+            const insertionPoint = footer.querySelector('p.mt-8, p.text-sm, p.text-xs');
+            if (insertionPoint && insertionPoint.parentElement) {
+              insertionPoint.parentElement.insertBefore(block, insertionPoint);
+            } else {
+              footer.appendChild(block);
+            }
+          }
+          // Legal/Docs hub link (avoid duplicates)
+          if (!footer.querySelector('[data-global-legal]')) {
+            const legal = document.createElement('div');
+            legal.setAttribute('data-global-legal', 'true');
+            legal.style.marginTop = '0.75rem';
+            legal.style.fontSize = '0.75rem';
+            legal.style.textAlign = 'center';
+            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> · <a href="/legal/privacy.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> · <a href="/legal/terms.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> · <a href="/legal/support.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
+            footer.appendChild(legal);
+          }
+          // Baseline privacy/terms if the footer does not already contain obvious links (skip DeenShield which has its own detailed set)
+            const isDeenShield = path.startsWith('/deenshield/');
+            if (!isDeenShield && !footer.querySelector('[data-global-privacy-terms]')) {
+              const hasPrivacy = /privacy/i.test(footer.innerHTML);
+              const hasTerms = /terms/i.test(footer.innerHTML);
+              if (!hasPrivacy || !hasTerms) {
+                const pt = document.createElement('div');
+                pt.setAttribute('data-global-privacy-terms', 'true');
+                pt.style.marginTop = '0.5rem';
+                pt.style.fontSize = '0.7rem';
+                pt.style.opacity = '0.85';
+                pt.style.textAlign = 'center';
+                pt.innerHTML = `<a href="/legal/privacy.html" style="color:#d1d5db;">Privacy</a> • <a href="/legal/terms.html" style="color:#d1d5db;">Terms</a>`;
+                footer.appendChild(pt);
+              }
+            }
+        }
+      }
+    } catch(_) {}
 
   });
 })();

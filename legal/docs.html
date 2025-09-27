@@ -30,24 +30,24 @@
     </div>
   </header>
 
-  <main class="pt-28 pb-20">
+  <main id="main-content" role="main" tabindex="-1" class="pt-28 pb-20">
     <section class="container mx-auto px-6 max-w-5xl">
       <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-3">Legal & Documentation</h1>
       <p class="text-lg text-gray-700 mb-8">Central hub for Privacy, Terms, Support, and product‑specific legal documents.</p>
 
       <!-- Company-wide policies -->
       <div class="grid md:grid-cols-3 gap-6">
-        <a href="/privacy/main-privacy.html" class="glass-card p-6 block group">
-          <h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Privacy Overview</h3>
-          <p class="text-gray-700">Company‑wide privacy practices and links to product policies.</p>
+        <a href="/legal/privacy.html" class="glass-card p-6 block group">
+          <h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Privacy Hub</h3>
+          <p class="text-gray-700">Centralized privacy overview + product-specific notices.</p>
         </a>
-        <a href="/terms/en/index.html" class="glass-card p-6 block group">
-          <h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Terms of Service</h3>
-          <p class="text-gray-700">Unified terms (EN). Translations available as reference.</p>
+        <a href="/legal/terms.html" class="glass-card p-6 block group">
+          <h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Terms Hub</h3>
+          <p class="text-gray-700">Unified terms with product breakdowns & conditions.</p>
         </a>
-        <a href="/support/en/index.html" class="glass-card p-6 block group">
-          <h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Support Center</h3>
-          <p class="text-gray-700">Help articles and contact options.</p>
+        <a href="/legal/support.html" class="glass-card p-6 block group">
+          <h3 class="text-2xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Support Hub</h3>
+          <p class="text-gray-700">Help center, contact paths, feedback, contribution.</p>
         </a>
       </div>
 
@@ -92,7 +92,13 @@
       </div>
 
       <div class="mt-10 text-sm text-gray-500">
-        <p>Email: <a class="text-blue-600 underline" href="mailto:privacy@alhaq-initiative.org">privacy@alhaq-initiative.org</a> • <a class="text-blue-600 underline" href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a></p>
+        <p class="space-y-1">
+          <span class="block">Email: 
+            <a class="text-blue-600 underline" href="mailto:privacy@alhaq-initiative.org">privacy@alhaq-initiative.org</a> • 
+            <a class="text-blue-600 underline" href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>
+          </span>
+          <span class="block">General Info: <a class="text-blue-600 underline" href="mailto:info@alhaq-initiative.org">info@alhaq-initiative.org</a> • Inquiries: <a class="text-blue-600 underline" href="mailto:contact@alhaq-initiative.org">contact@alhaq-initiative.org</a></span>
+        </p>
       </div>
     </section>
   </main>
@@ -119,6 +125,20 @@
   <p class="mt-2 text-sm text-gray-400">© 2025 Alhaq Initiative.</p>
     </div>
   </footer>
+
+  <!-- Anchor detail sections (referenced by hubs) -->
+  <section id="local-first" class="sr-only focus:not-sr-only">
+    <h2 class="text-xl font-bold mb-2">Local-First Philosophy</h2>
+    <p class="text-sm text-gray-600 max-w-3xl">We prioritize on-device processing and storage whenever practical to reduce centralized data retention risk. This section will be expanded with implementation notes (caching strategies, offline behavior, and explicit non-collection assertions) in future revisions.</p>
+  </section>
+  <section id="forms" class="sr-only focus:not-sr-only">
+    <h2 class="text-xl font-bold mb-2">Form Handling & Submission Flow</h2>
+    <p class="text-sm text-gray-600 max-w-3xl">Contact and feedback forms are submitted to a secure Logic App endpoint and processed transiently. We do not build marketing profiles; messages are used solely for direct response and improvement tracking. Spam mitigation includes a honeypot field and selective rate limiting.</p>
+  </section>
+  <section id="ethics" class="sr-only focus:not-sr-only mb-10">
+    <h2 class="text-xl font-bold mb-2">Ethical & Faith-Aligned Standards</h2>
+    <p class="text-sm text-gray-600 max-w-3xl">Core principles: truthful representation, privacy stewardship, non-extractive design, avoidance of dark patterns, and alignment with Islamic ethical guidance. Enforcement details and escalation process will be documented here in a future expansion.</p>
+  </section>
 
   <script src="/assets/js/site.js"></script>
 </body>

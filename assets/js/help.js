@@ -2,12 +2,7 @@
 (function(){
   'use strict';
 
-  function initMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (!mobileMenuButton || !mobileMenu) return;
-    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  }
+  // (Removed duplicate mobile menu logic – handled globally in site.js)
 
   // Page-specific translations hook used by core site.js
   window._pageSetLanguage = function(lang) {
@@ -67,7 +62,5 @@
     }
   };
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
-  });
+  document.addEventListener('DOMContentLoaded', () => {/* global nav handles menu */});
 })();

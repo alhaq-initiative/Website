@@ -37,17 +37,7 @@
     }
   });
 
-  // Mobile menu toggle
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', function () {
-        const isHidden = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', (!isHidden).toString());
-      });
-    }
-  });
+  // Mobile menu handled globally in site.js now (removed duplicate logic)
 
   // Quran reader logic (simplified - single layout)
   let QuranText = {}; // { surahNumber: [ verses ] }

@@ -76,50 +76,7 @@
 </head>
 <body class="antialiased">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="h-8 w-8 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">
-                    <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Digital Services Logo" class="h-10 w-auto object-contain" />
-                </div>
-                <span class="text-xl font-bold text-brand-blue">Alhaq Digital Services</span>
-            </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#foundation" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-foundation">The Foundation</a>
-                <a href="#reality" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-reality">The Reality Within</a>
-                <a href="#impact" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-impact">The Global Impact</a>
-                <a href="#perspective" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-perspective">A New Perspective</a>
-                <a href="library.html" class="nav-link text-gray-800 font-semibold hover:text-brand-blue transition" id="nav-library">Library</a>
-            </nav>
-            <div class="flex items-center space-x-2">
-                <a href="donate.html" class="hidden md:inline-block bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition shadow-sm">Donate</a>
-                <div class="relative ml-4">
-                    <button id="langSwitcherBtn" class="flex items-center px-3 py-2 bg-white border border-brand-gold rounded-lg shadow hover:bg-yellow-100 focus:outline-none" aria-haspopup="true" aria-expanded="false">
-                        <span class="font-semibold text-brand-blue mr-2">🌐</span>
-                        <span id="currentLang" class="font-bold text-brand-blue">English</span>
-                        <svg class="ml-2 w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </button>
-                    <ul id="langDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-brand-gold rounded-lg shadow-lg hidden z-50">
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('en')">English</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ar')">عربی</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('fa')">دری</button></li>
-                        <li><button class="w-full text-left px-4 py-2 hover:bg-yellow-100 font-bold text-brand-blue flex items-center" onclick="setLanguage('ps')">پښتو</button></li>
-                    </ul>
-                </div>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue hover:bg-gray-100" aria-label="Toggle mobile menu" title="Open mobile menu">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#foundation" class="block py-2 text-gray-600">The Foundation</a>
-            <a href="#reality" class="block py-2 text-gray-600">The Reality Within</a>
-            <a href="#impact" class="block py-2 text-gray-600">The Global Impact</a>
-            <a href="#perspective" class="block py-2 text-gray-600">A New Perspective</a>
-        </div>
-    </header>
+    <header id="global-header"></header>
 
     <main>
         <section id="hero" class="hero-bg relative">
@@ -538,17 +495,4 @@
     </script>
 </body>
 <script src="assets/js/site.js"></script>
-<script>
-// Mobile menu toggle for All Infographics page
-document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-        btn.addEventListener('click', function () {
-            const isHidden = menu.classList.toggle('hidden');
-            btn.setAttribute('aria-expanded', (!isHidden).toString());
-        });
-    }
-});
-</script>
 </html>

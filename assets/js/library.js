@@ -20,21 +20,7 @@
       });
     }
 
-    // Minimal mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', function () {
-        const isHidden = mobileMenu.classList.toggle('hidden');
-        mobileMenuButton.setAttribute('aria-expanded', (!isHidden).toString());
-      });
-      document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          mobileMenuButton.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
+    // (Removed duplicate mobile menu logic – handled globally in site.js)
   });
 
   // Page-specific language hook used by core site.js

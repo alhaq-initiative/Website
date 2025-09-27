@@ -11,15 +11,7 @@
       window.addEventListener('keydown', (e) => { if (e.key === 'Escape') feedbackModal.classList.add('hidden'); });
     }
 
-    // Mobile menu toggle
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', function () {
-        const isHidden = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', (!isHidden).toString());
-      });
-    }
+    // (Removed duplicate mobile menu toggle – handled globally in site.js)
   });
 
   // Page-specific translations hook used by core site.js

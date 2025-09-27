@@ -2,12 +2,7 @@
 (function(){
   'use strict';
 
-  function initMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (!mobileMenuButton || !mobileMenu) return;
-    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  }
+  // (Removed duplicate mobile menu logic – handled globally in site.js)
 
   function initFeedbackModal() {
     const feedbackBtn = document.getElementById('feedback-btn');
@@ -49,7 +44,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
+  // mobile menu handled globally
     initFeedbackModal();
   initContactForm(); // intentionally empty – unified handler in site.js
   });

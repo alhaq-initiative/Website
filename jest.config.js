@@ -1,6 +1,7 @@
+const path = require('path');
 module.exports = {
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
+  // Note: inline setup in tests to avoid Windows path resolution issues
   testMatch: [
     '<rootDir>/tests/**/*.test.js',
     '<rootDir>/**/__tests__/**/*.js'
