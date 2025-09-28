@@ -58,3 +58,53 @@ body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333;
 	top: 0.5rem;
 	right: 0.75rem;
 }
+
+/* Responsive edge-to-edge tweaks */
+@media (max-width: 640px) {
+  .container { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* Arabic typography polish */
+:root { --quran-font-scale: 1; }
+.ayah-text[dir="rtl"] { font-family: 'Amiri', serif; font-size: calc(1.375rem * var(--quran-font-scale)); line-height: calc(2.25rem * var(--quran-font-scale)); }
+.ayah-translation { font-size: calc(1rem * var(--quran-font-scale)); line-height: calc(1.75rem * var(--quran-font-scale)); }
+
+/* Ayah row spacing and hover affordance */
+.ayah { transition: background-color .15s ease; }
+.ayah:hover { background-color: rgba(212, 175, 55, 0.06); }
+.ayah .ayah-num { box-shadow: 0 2px 6px rgba(10, 37, 64, 0.12); }
+
+/* Sticky controls/pager for mobile comfort */
+#q-controls { position: sticky; top: calc(64px + env(safe-area-inset-top)); z-index: 20; }
+#pager-bar { position: sticky; bottom: 0; background: #fff; padding-top: .5rem; padding-bottom: calc(.5rem + env(safe-area-inset-bottom)); z-index: 15; box-shadow: 0 -6px 16px rgba(0,0,0,0.05); }
+
+/* Audio status readability */
+#audio-status { min-height: 1rem; }
+
+/* Buttons polish */
+button#pager-prev, button#pager-next { transition: transform .07s ease, box-shadow .15s ease; }
+button#pager-prev:active, button#pager-next:active { transform: translateY(1px); }
+
+/* Tooltip text wrapping */
+.ayah-tooltip { word-wrap: break-word; }
+
+/* Mobile touch target sizing */
+@media (max-width: 640px) {
+	#q-controls button,
+	#q-controls input,
+	#q-controls select,
+	#pager-bar button,
+	#recitations button,
+	#recitations select {
+		min-height: 44px;
+	}
+	/* Ensure unified list has breathing room */
+	#quran-unified-list { padding-bottom: 0.5rem; }
+}
+
+/* App-like UI in standalone display */
+@media all and (display-mode: standalone) {
+	#site-global-header,
+	footer { display: none !important; }
+	main { padding-top: calc(1rem + env(safe-area-inset-top)); padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+}

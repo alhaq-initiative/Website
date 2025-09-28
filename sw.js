@@ -1,4 +1,4 @@
-const CACHE_NAME = 'alhaq-initiative-site-v2';
+const CACHE_NAME = 'alhaq-initiative-site-v4-20250927';
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
@@ -8,10 +8,17 @@ const ASSETS = [
   '/library.html',
   '/help.html',
   '/contact.html',
+  '/quran.html',
   '/assets/images/favicon.svg',
   '/assets/images/favicon.ico',
   '/assets/images/apple-touch-icon.png',
   '/assets/images/favicon-96x96.png',
+  '/assets/css/styles.css',
+  '/assets/css/quran.css',
+  '/assets/js/site.js',
+  '/assets/js/quran.js',
+  '/assets/Quran_Data/Metadata.js',
+  '/assets/Quran_Data/Quran.txt'
 ];
 
 self.addEventListener('install', (event) => {

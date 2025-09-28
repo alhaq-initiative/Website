@@ -42,6 +42,8 @@ function extractRefs(html, dir) {
   }
   // resolve paths relative to page dir
   const resolved = refs
+    .map((r) => r.split('#')[0])
+    .map((r) => r.split('?')[0])
     .filter((r) => !/^https?:\/\//i.test(r) && !/^data:/i.test(r))
     .map((r) => (r.startsWith('/') ? path.join(ROOT, r) : path.join(dir, r)))
     .map((p) => path.normalize(p));
@@ -69,7 +71,7 @@ function run() {
     const html = fs.readFileSync(fp, 'utf8');
     const refs = extractRefs(html, dir);
     const missing = refs.filter((r) => !fileExistsCaseSensitive(r));
-    const hasSiteJs = /<script[^>]+src=["']([^"']*assets\/js\/site\.js)["'][^>]*><\/script>/i.test(html);
+  const hasSiteJs = /assets\/js\/site\.js(\b|[?#])/i.test(html);
     const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
     const issues = [];
     if (!hasSiteJs) issues.push('Missing assets/js/site.js include');

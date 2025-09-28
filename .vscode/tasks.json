@@ -47,6 +47,50 @@
 				"$eslint-stylish"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Run local smoke checks",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"smoke"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run local smoke checks",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"smoke"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run local smoke checks",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"smoke"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run local smoke checks",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"smoke"
+			],
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

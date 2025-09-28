@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quran Hub - Alhaq Initiative</title>
     <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png">
+    <link rel="manifest" href="assets/images/manifest-quran.webmanifest">
+    <meta name="theme-color" content="#ffffff">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -19,20 +21,33 @@
     <main class="pt-32 pb-20 islamic-section">
         <!-- Controls -->
         <section class="fade-in-section">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+                <div id="q-controls" class="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-8">
                     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                        <div class="flex flex-wrap items-center gap-3 w-full">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full">
                             <!-- Removed surah & translation selects moved to pane title bars -->
                             <!-- Translation toggle removed from main controller bar; only present in unified view -->
                             <div class="flex items-center gap-2">
-                                <input id="go-to-verse" type="number" min="1" class="border rounded px-2 py-2 w-24" placeholder="Verse #" />
-                                <button id="go-to-btn" class="px-3 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Go</button>
+                                <label for="go-to-verse" class="sr-only">Go to verse</label>
+                                <input id="go-to-verse" type="number" min="1" class="border rounded px-3 py-2 w-28" placeholder="Verse #" />
+                                <button id="go-to-btn" class="px-3 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm" aria-label="Go to verse">Go</button>
                             </div>
-                            <div class="flex items-center gap-2 ml-auto">
-                                <button id="print-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Print current page">Print</button>
-                                <button id="share-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Share current page">Share</button>
-                                <button id="fs-both" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Full screen both panes">Full Both</button>
+                            <div class="flex items-center gap-2">
+                                <label for="font-scale" class="text-sm text-gray-700">Font</label>
+                                <select id="font-scale" class="border rounded px-2 py-2 text-sm w-32" title="Adjust font size">
+                                    <option value="0.9">Small</option>
+                                    <option value="1">Normal</option>
+                                    <option value="1.1">Large</option>
+                                    <option value="1.25">Larger</option>
+                                    <option value="1.5">X-Large</option>
+                                </select>
+                                <button id="resume-reading" class="px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm" title="Resume last reading" aria-label="Resume last reading">Resume</button>
+                            </div>
+                            <div class="flex items-center gap-2 sm:ml-auto">
+                                <button id="print-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Print current page" aria-label="Print current page">Print</button>
+                                <button id="share-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Share current page" aria-label="Share current page">Share</button>
+                                <button id="fs-both" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Full screen reader" aria-label="Full screen reader">Full Both</button>
+                                <button id="install-app-btn" class="hidden px-3 py-2 bg-brand-gold text-brand-blue rounded hover:bg-yellow-400 text-sm" title="Install Quran Hub" aria-label="Install Quran Hub">Install App</button>
                             </div>
                             <span id="quran-status" class="text-xs text-gray-500 mt-2 md:mt-0" aria-live="polite"></span>
                         </div>
@@ -40,27 +55,34 @@
                 </div>
 
                 <!-- Quran Display -->
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <div id="quran-unified" class="bg-gray-50 p-6 rounded-lg">
-                        <div class="flex items-center gap-3 mb-4">
+                <div class="bg-white rounded-lg shadow-lg p-4 sm:p-8">
+                    <div id="quran-grid" class="grid grid-cols-1 gap-4">
+                    <div id="quran-unified" class="bg-gray-50 p-4 sm:p-6 rounded-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
                             <h3 class="text-xl font-bold text-brand-blue" id="arabic-surah-title">Quran</h3>
-                            <select id="surah-dropdown" class="border rounded px-2 py-1 text-sm w-48">
+                            <label for="surah-search" class="sr-only">Search Surah</label>
+                            <input id="surah-search" type="search" class="border rounded px-2 py-2 text-sm w-full sm:w-60" placeholder="Search by name or number" />
+                            <label for="surah-dropdown" class="sr-only">Select Surah</label>
+                            <select id="surah-dropdown" class="border rounded px-2 py-2 text-sm w-full sm:w-48">
                                 <option value="">Select a Surah...</option>
                             </select>
-                            <select id="translation-dropdown" class="border rounded px-2 py-1 text-sm w-56">
+                            <label for="translation-dropdown" class="sr-only">Select Translation</label>
+                            <select id="translation-dropdown" class="border rounded px-2 py-2 text-sm w-full sm:w-56">
                                 <option value="">No Translation</option>
                                 <option value="en">English (Maulana Wahiduddin Khan)</option>
                                 <option value="ps">Pashto (Sarfaraz)</option>
                             </select>
-                            <label class="inline-flex items-center gap-2 text-sm select-none ml-4">
+                            <label class="inline-flex items-center gap-2 text-sm select-none sm:ml-4">
                                 <input type="checkbox" id="toggle-translation" class="accent-brand-blue h-4 w-4" />
                                 <span>Show Translation</span>
                             </label>
                         </div>
-                        <div id="arabic-surah-meta" class="text-xs text-gray-500 mb-4"></div>
-                        <div id="quran-unified-list"></div>
+                                                <div id="arabic-surah-meta" class="text-xs text-gray-500 mb-4"></div>
+                                                <div id="arabic-text">
+                                                    <div id="quran-unified-list"></div>
+                                                </div>
                     </div>
-                    <div class="mt-6 flex items-center justify-between gap-4">
+                    <div id="pager-bar" class="mt-6 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-2">
                             <button id="pager-prev" class="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-40 disabled:cursor-not-allowed" disabled>Previous Page</button>
                             <button id="pager-next" class="px-4 py-2 rounded bg-brand-blue text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed" disabled>Next Page</button>
@@ -71,12 +93,12 @@
                     <!-- Audio Player -->
                     <div class="mt-8" id="recitations">
                         <h3 class="text-xl font-bold text-brand-blue mb-4">Audio Recitation</h3>
-                        <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="bg-gray-50 p-4 sm:p-6 rounded-lg">
                             <div class="flex flex-col gap-4">
                                 <div class="flex flex-col md:flex-row md:items-center gap-4">
                                     <div class="flex items-center gap-2">
                                         <label for="reciter-select" class="text-sm font-medium text-brand-blue">Reciter:</label>
-                                        <select id="reciter-select" class="border rounded px-3 py-2 text-sm w-64"></select>
+                                        <select id="reciter-select" class="border rounded px-3 py-2 text-sm w-full sm:w-64"></select>
                                     </div>
                                     <div class="flex items-center gap-2">
                                         <button id="play-surah" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Play Surah</button>
@@ -92,6 +114,7 @@
                                 </audio>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
 
@@ -234,5 +257,40 @@
     <script src="assets/Quran_Data/Metadata.js"></script>
     <script src="assets/js/site.js"></script>
     <script src="assets/js/quran.js"></script>
+        <script>
+            // PWA Install flow for Quran Hub
+            (function(){
+                let deferredPrompt = null;
+                const installBtn = document.getElementById('install-app-btn');
+                function isStandalone(){
+                    return window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone === true);
+                }
+                function updateInstallVisibility(){
+                    if(!installBtn) return;
+                    installBtn.classList.toggle('hidden', isStandalone());
+                }
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    // Prevent mini-infobar
+                    e.preventDefault();
+                    deferredPrompt = e;
+                    if(installBtn && !isStandalone()) installBtn.classList.remove('hidden');
+                });
+                if (installBtn) {
+                    installBtn.addEventListener('click', async () => {
+                        try {
+                            if (!deferredPrompt) return;
+                            deferredPrompt.prompt();
+                            const { outcome } = await deferredPrompt.userChoice;
+                            if (outcome === 'accepted') {
+                                installBtn.classList.add('hidden');
+                            }
+                            deferredPrompt = null;
+                        } catch (_) { /* noop */ }
+                    });
+                }
+                window.matchMedia('(display-mode: standalone)').addEventListener('change', updateInstallVisibility);
+                document.addEventListener('DOMContentLoaded', updateInstallVisibility);
+            })();
+        </script>
 </body>
 </html>

@@ -19,5 +19,15 @@
   "background_color": "#6d5f5f",
   "display": "standalone",
   "start_url": "/",
-  "scope": "/"
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Quran Hub",
+      "short_name": "Quran",
+      "url": "/quran.html",
+      "icons": [
+        { "src": "/assets/images/quranhub-icon.png", "sizes": "96x96", "type": "image/png" }
+      ]
+    }
+  ]
 }

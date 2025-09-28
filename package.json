@@ -13,6 +13,7 @@
     "lint": "eslint . --ext .js,.html",
     "lint:fix": "eslint . --ext .js,.html --fix",
     "format": "prettier --write .",
+    "deploy": "npx firebase deploy --only hosting:alhaq-initiative",
   "test": "jest",
   "smoke": "node tests/e2e-smoke.mjs",
   "integrity": "node tests/local-integrity.mjs",

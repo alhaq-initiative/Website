@@ -46,6 +46,8 @@
   let currentPage = 0;
   let VERSES_PER_PAGE = 20; // adjustable page size (can be overridden by data attribute)
   const LS_KEY = 'quranReaderState';
+  const LS_FONT = 'quranFontScale';
+  const LS_TRANSLATION = 'quranTranslation';
   // Reciters config (id, display, base URL pattern where {surah} is 3-digit surah number)
   const RECITERS = [
     { id: 'Alafasy_64kbps', name: 'Mishary Rashid Alafasy', surah: true, ayah: true },
@@ -71,6 +73,42 @@
     const attr = wrap && wrap.getAttribute('data-verses-per-page');
     const n = attr ? parseInt(attr,10) : NaN;
     if(!isNaN(n) && n>0 && n<300){ VERSES_PER_PAGE = n; }
+  });
+
+  // Apply font scale from localStorage
+  function applyFontScale(scale){
+    const s = (typeof scale === 'number') ? scale : parseFloat(scale);
+    if(!isNaN(s) && s>0 && s<3){
+      document.documentElement.style.setProperty('--quran-font-scale', s.toString());
+      try{ localStorage.setItem(LS_FONT, s.toString()); }catch(_){ }
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    try{ const v = parseFloat(localStorage.getItem(LS_FONT)); if(!isNaN(v)) applyFontScale(v); }catch(_){ }
+    const fs = document.getElementById('font-scale');
+    if(fs){
+      const v = (function(){ try{ return localStorage.getItem(LS_FONT) || '1'; }catch(_){ return '1'; }})();
+      fs.value = v;
+      fs.addEventListener('change', ()=> applyFontScale(fs.value));
+    }
+  });
+
+  // Resume reading helper (uses LS state or #resume=1)
+  function resumeReading(){
+    const st = loadState();
+    const dropdown = document.getElementById('surah-dropdown');
+    if(st && QuranText[st.s]){
+      if(dropdown) dropdown.value = st.s.toString();
+      currentSurah = st.s.toString();
+      currentPage = Math.min(st.p||0, totalPagesFor(st.s)-1);
+      renderCurrentPage();
+      return true;
+    }
+    return false;
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    const resumeBtn = document.getElementById('resume-reading');
+    if(resumeBtn){ resumeBtn.addEventListener('click', ()=> resumeReading()); }
   });
 
   // Precompute structural index maps (Juz, Hizb Quarter, Ruku) once Metadata is available
@@ -111,6 +149,11 @@
     const dropdown = document.getElementById('surah-dropdown');
     if (!dropdown) return;
   dropdown.innerHTML = buildSurahOptions('');
+    const search = document.getElementById('surah-search');
+    if(search && !search.dataset.bound){
+      search.addEventListener('input', ()=>{ dropdown.innerHTML = buildSurahOptions(search.value || ''); });
+      search.dataset.bound = '1';
+    }
   }
 
   function paginateAyahs(all, page){
@@ -188,12 +231,18 @@
           const key = surahNum+':'+globalIndex;
           translation = translations[transCode][key]?.t || '';
         }
-        unifiedHtml += `<div class=\"ayah group py-3 border-b border-gray-100 last:border-none\" data-ayah=\"${globalIndex}\">
-            <div class=\"flex items-start gap-3\">
-              <span class=\"ayah-num flex-none w-8 h-8 leading-8 text-center rounded-full bg-brand-blue text-white text-sm font-semibold shadow\" title=\"Ayah ${globalIndex}\">${globalIndex}</span>
-              <span class=\"ayah-text flex-1 text-xl leading-loose\" data-ayah-arabic=\"${globalIndex}\" dir=\"rtl\" lang=\"ar\">${a}</span>
-              <button class=\"play-ayah-btn ml-2 px-2 py-1 rounded bg-green-500 text-white text-xs hover:bg-green-600 transition\" data-play-ayah=\"${globalIndex}\" title=\"Play Ayah ${globalIndex}\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"inline w-4 h-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 3v18l15-9-15-9z\" /></svg></button>
-            </div>
+        unifiedHtml += `<div class=\"ayah group py-3 border-b border-gray-100 last:border-none\" data-ayah=\"${globalIndex}\">\
+            <div class=\"flex items-start gap-3\">\
+              <span class=\"ayah-num flex-none w-8 h-8 leading-8 text-center rounded-full bg-brand-blue text-white text-sm font-semibold shadow\" title=\"Ayah ${globalIndex}\">${globalIndex}</span>\
+              <span class=\"ayah-text flex-1 text-xl leading-loose\" data-ayah-arabic=\"${globalIndex}\" dir=\"rtl\" lang=\"ar\">${a}</span>\
+              <div class=\"flex flex-col items-end gap-1 ml-2\">\
+                <button class=\"play-ayah-btn px-2 py-1 rounded bg-green-500 text-white text-xs hover:bg-green-600 transition\" data-play-ayah=\"${globalIndex}\" title=\"Play Ayah ${globalIndex}\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"inline w-4 h-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 3v18l15-9-15-9z\" /></svg></button>\
+                <div class=\"flex items-center gap-1\">\
+                  <button class=\"copy-ayah-btn px-2 py-1 rounded bg-gray-200 text-gray-800 text-[11px] hover:bg-gray-300 transition\" data-copy-ayah=\"${globalIndex}\" title=\"Copy Ayah ${globalIndex}\">Copy</button>\
+                  <button class=\"share-ayah-btn px-2 py-1 rounded bg-gray-200 text-gray-800 text-[11px] hover:bg-gray-300 transition\" data-share-ayah=\"${globalIndex}\" title=\"Share Ayah ${globalIndex}\">Share</button>\
+                </div>\
+              </div>\
+            </div>\
             ${showTranslation && translation !== '' ? `<div class=\"ayah-translation text-base text-gray-700 mt-2\" data-ayah-translation=\"${globalIndex}\">${translation}</div>` : ''}
           </div>`;
       });
@@ -259,6 +308,37 @@
           span._moveTip = null;
         }
       });
+      // One-time bind for ayah Copy/Share actions using event delegation
+      if(!unified.dataset.actionsBound){
+        unified.addEventListener('click', async function(e){
+          const copyBtn = e.target.closest('[data-copy-ayah]');
+          const shareBtn = e.target.closest('[data-share-ayah]');
+          if(!copyBtn && !shareBtn) return;
+          const ayahNum = parseInt((copyBtn||shareBtn).getAttribute('data-copy-ayah') || (copyBtn||shareBtn).getAttribute('data-share-ayah'),10);
+          if(isNaN(ayahNum)) return;
+          // Gather text for this ayah
+          const ar = unified.querySelector(`[data-ayah-arabic="${ayahNum}"]`);
+          const tr = unified.querySelector(`[data-ayah-translation="${ayahNum}"]`);
+          const arTxt = ar ? ar.innerText.trim() : '';
+          const trTxt = tr ? tr.innerText.trim() : '';
+          const surahData = QuranData.Sura[currentSurah];
+          const surahName = surahData ? surahData[5] : currentSurah;
+          const ref = `${surahName} ${currentSurah}:${ayahNum}`;
+          const baseUrl = location.href.split('#')[0];
+          const url = `${baseUrl}#s=${currentSurah}&p=${(Math.floor((ayahNum-1)/VERSES_PER_PAGE)+1)}&a=${ayahNum}`;
+          const text = `${arTxt}${trTxt ? `\n\n${trTxt}` : ''}\n\n(${ref})\n${url}`.trim();
+          if(copyBtn){
+            try{ await navigator.clipboard.writeText(text); copyBtn.textContent='Copied'; setTimeout(()=> copyBtn.textContent='Copy', 1400); }catch(_){ copyBtn.textContent='Error'; setTimeout(()=> copyBtn.textContent='Copy', 1400); }
+          } else if(shareBtn){
+            if(navigator.share){
+              try{ await navigator.share({ title: ref, text, url }); shareBtn.textContent='Shared'; setTimeout(()=> shareBtn.textContent='Share', 1400);}catch(_){ /* user cancelled */ }
+            } else {
+              try{ await navigator.clipboard.writeText(text); shareBtn.textContent='Copied'; setTimeout(()=> shareBtn.textContent='Share', 1400);}catch(_){ shareBtn.textContent='Error'; setTimeout(()=> shareBtn.textContent='Share', 1400);}            
+            }
+          }
+        });
+        unified.dataset.actionsBound = '1';
+      }
     }
     // Populate index badges in title bar (first ayah of current page determines which markers appear)
     (function(){
@@ -554,6 +634,20 @@
       if(autoPlay){ audioEl.play().catch(()=>setAudioStatus('Autoplay blocked. Press play.', false)); }
     }
     if(reciterSelect && audioEl){
+      // Wake Lock support
+      let wakeLock = null;
+      async function requestWakeLock(){
+        try{
+          if('wakeLock' in navigator && !wakeLock){
+            wakeLock = await navigator.wakeLock.request('screen');
+            wakeLock.addEventListener && wakeLock.addEventListener('release', ()=>{ /* no-op */ });
+          }
+        }catch(_){ /* ignore */ }
+      }
+      async function releaseWakeLock(){
+        try{ if(wakeLock){ await wakeLock.release(); wakeLock = null; } }catch(_){ }
+      }
+      document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState !== 'visible') releaseWakeLock(); });
       populateReciters();
       reciterSelect.value = loadReciterPreference();
       reciterSelect.addEventListener('change', ()=>{ saveReciterPreference(reciterSelect.value); refreshAudio(false); });
@@ -572,9 +666,10 @@
       if(reloadBtn) reloadBtn.addEventListener('click', ()=> refreshAudio(false));
       if(playAyahsBtn) playAyahsBtn.addEventListener('click', ()=>{ if(!currentSurah){ setAudioStatus('Select a surah first', false); return;} startAyahPlayback(); });
       if(stopAudioBtn) stopAudioBtn.addEventListener('click', stopAyahPlayback);
-      audioEl.addEventListener('canplay', ()=> setAudioStatus('Ready')); 
-      audioEl.addEventListener('playing', ()=> setAudioStatus('Playing')); 
-      audioEl.addEventListener('ended', ()=> setAudioStatus('Ended')); 
+  audioEl.addEventListener('canplay', ()=> setAudioStatus('Ready')); 
+  audioEl.addEventListener('playing', ()=> { setAudioStatus('Playing'); requestWakeLock(); }); 
+  audioEl.addEventListener('pause', ()=> { setAudioStatus('Paused'); releaseWakeLock(); });
+  audioEl.addEventListener('ended', ()=> { setAudioStatus('Ended'); releaseWakeLock(); }); 
       audioEl.addEventListener('error', ()=> setAudioStatus('Audio error (try another reciter).', false));
       audioEl.addEventListener('ended', ()=>{
         if(ayahPlaybackActive){
@@ -803,6 +898,14 @@
     fetch('assets/Quran_Data/Quran-Translations/en-maulana-wahiduddin-khan-inline-footnotes.json').then(r => r.ok ? r.json() : null).catch(()=>null),
     fetch('assets/Quran_Data/Quran-Translations/pashto-sarfaraz-simple.json').then(r => r.ok ? r.json() : null).catch(()=>null)
   ]).then(([txt, enTrans, psTrans]) => {
+    // Skeleton during first render
+    (function(){
+      const wrap = document.getElementById('quran-unified-list');
+      if(!wrap) return;
+      let s = '';
+      for(let i=0;i<6;i++){ s += '<div class="skeleton-line mb-2"></div>'; }
+      wrap.innerHTML = s;
+    })();
     // BEGIN patched parsing block
     const rawLength = txt.length;
     let lines = txt.replace(/\r/g,'').split('\n');
@@ -826,8 +929,15 @@
     if(psTrans && psTrans['1:1']) translations['ps'] = psTrans;
   const dropdown = document.getElementById('surah-dropdown');
     const translationDropdown = document.getElementById('translation-dropdown');
-  if (dropdown) dropdown.addEventListener('change', function(){ if (this.value) loadSurah(this.value); });
-  if (translationDropdown) translationDropdown.addEventListener('change', function(){ renderCurrentPage(); });
+    if (dropdown) dropdown.addEventListener('change', function(){ if (this.value) loadSurah(this.value); });
+    if (translationDropdown) {
+      // Initialize from LS
+      try { const stored = localStorage.getItem(LS_TRANSLATION); if(stored && translationDropdown.querySelector(`option[value="${stored}"]`)) translationDropdown.value = stored; } catch(_) { }
+      translationDropdown.addEventListener('change', function(){
+        try { localStorage.setItem(LS_TRANSLATION, translationDropdown.value || ''); } catch(_) { }
+        renderCurrentPage();
+      });
+    }
   const translationToggle = document.getElementById('toggle-translation');
   if (translationToggle) translationToggle.addEventListener('change', function(){ renderCurrentPage(); });
 
@@ -837,7 +947,8 @@
     const firstSurah = dropdown && dropdown.options.length ? dropdown.options[0].value : '';
     if (firstSurah && dropdown) {
       const restored = loadState();
-      if(restored && QuranText[restored.s]){
+      const wantsResume = /resume=1/i.test(location.hash);
+      if((wantsResume || restored) && restored && QuranText[restored.s]){
         dropdown.value = restored.s.toString();
         currentSurah = restored.s.toString();
         currentPage = Math.min(restored.p||0, totalPagesFor(restored.s)-1);

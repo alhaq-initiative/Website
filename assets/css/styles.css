@@ -199,6 +199,12 @@ html.dark .islamic-footer {
   color: #cbd5e1;
 }
 
+/* Layout safety: when the global fixed header is present, add top padding to prevent overlap */
+body.has-global-header main,
+body.has-global-header #main-content {
+  padding-top: 5.5rem; /* approximate header height incl. borders */
+}
+
 /* Accessibility: Skip link */
 .skip-link {
   position: absolute;
