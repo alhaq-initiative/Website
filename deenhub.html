@@ -8,113 +8,218 @@
   <meta name="description" content="DeenHub — Islamic productivity and spiritual growth app by Alhaq Initiative." />
   <meta name="theme-color" content="#0f172a" />
 
+  <!-- Favicons / Manifest -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <link rel="manifest" href="assets/images/site.webmanifest" />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Tailwind (utility classes used throughout) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Site styles -->
   <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="bg-white text-slate-800">
-  <!-- Header / Navigation -->
-  <header class="fixed top-0 inset-x-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
-    <div class="container mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-extrabold text-xl text-brand-blue no-underline">
-        <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative logo" class="h-8 w-8" />
-        <span>Alhaq Initiative</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-brand-gold">Home</a>
-        <a href="products.html" class="hover:text-brand-gold">Products</a>
-        <a href="library.html" class="hover:text-brand-gold">Library</a>
-        <a href="quran.html" class="hover:text-brand-gold">Quran Hub</a>
-        <a href="media.html" class="hover:text-brand-gold">Media Hub</a>
-        <a href="services.html" class="hover:text-brand-gold">Services</a>
-        <a href="/legal/docs.html" class="hover:text-brand-gold">Docs/Legal</a>
-      </nav>
-    </div>
-  </header>
+<body class="antialiased bg-white text-slate-800">
+  <!-- Global header placeholder (injected by assets/js/site.js) -->
+  <header id="global-header"></header>
 
   <main class="pt-24 pb-20">
-    <section class="container mx-auto px-6 max-w-4xl">
-      <div class="mb-6 p-4 rounded-xl border border-amber-300 bg-amber-50 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-        <div>
-          <p class="text-sm font-semibold text-amber-800">Beta available</p>
-          <p class="text-slate-800">Join the DeenHub beta to test prayer times, Qibla, adhkaar, and productivity features.</p>
+    <!-- Hero -->
+    <section class="container mx-auto px-6 max-w-5xl">
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-blue to-slate-900 text-white">
+        <div class="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
+          <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#F7C948" offset="0%"/>
+                <stop stop-color="#facc15" offset="100%"/>
+              </linearGradient>
+            </defs>
+            <circle cx="120" cy="80" r="120" fill="url(#g)"/>
+            <circle cx="720" cy="540" r="140" fill="url(#g)"/>
+          </svg>
         </div>
-        <div class="shrink-0">
-          <a href="/deenhub_join_beta.html" class="inline-flex items-center gap-2 bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded-full hover:bg-yellow-400 transition">
-            Join DeenHub Beta
-          </a>
+        <div class="relative z-10 p-8 md:p-12">
+          <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full">New • Beta</p>
+          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">DeenHub — Your daily deen companion</h1>
+          <p class="mt-4 text-lg md:text-xl text-white/90 max-w-3xl">Prayer times, Qibla, adhkaar, and gentle focus tools—in a simple, privacy‑first mobile app.</p>
+          <div class="mt-6 flex flex-wrap gap-3 items-center">
+            <a href="/deenhub_join_beta.html" class="inline-flex items-center gap-2 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition shadow">
+              Join DeenHub Beta
+            </a>
+            <a href="#features" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-6 rounded-full transition">
+              Learn more
+            </a>
+          </div>
+          <div class="mt-6 text-sm text-white/80 flex flex-wrap gap-2">
+            <span class="px-2 py-1 rounded bg-white/10">Accurate prayer times</span>
+            <span class="px-2 py-1 rounded bg-white/10">Qibla direction</span>
+            <span class="px-2 py-1 rounded bg-white/10">Hisnul Muslim adhkaar</span>
+            <span class="px-2 py-1 rounded bg-white/10">Streaks & reminders</span>
+            <span class="px-2 py-1 rounded bg-white/10">Minimal, private</span>
+          </div>
+        </div>
+        <!-- Screenshot placeholders -->
+        <div class="relative z-10 px-8 pb-10 md:px-12">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="rounded-xl bg-white/90 text-slate-700 p-4 border border-slate-200 shadow-md">
+              <div class="aspect-[9/16] rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center text-sm text-slate-500">App screenshot placeholder</div>
+              <p class="mt-2 text-sm text-slate-600">Prayer times & home</p>
+            </div>
+            <div class="rounded-xl bg-white/90 text-slate-700 p-4 border border-slate-200 shadow-md">
+              <div class="aspect-[9/16] rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center text-sm text-slate-500">App screenshot placeholder</div>
+              <p class="mt-2 text-sm text-slate-600">Qibla & adhkaar</p>
+            </div>
+          </div>
         </div>
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-2">DeenHub Mobile App</h1>
-      <p class="text-lg text-slate-700 mb-8">Islamic productivity and spiritual growth app.</p>
+    </section>
 
-      <div class="space-y-10">
-        <!-- Workflows -->
-        <section id="workflows" class="glass-card p-6">
-          <h2 class="text-2xl md:text-3xl font-bold text-brand-blue mb-3">Workflows</h2>
-          <ul class="list-disc pl-6 text-slate-800 space-y-1">
-            <li>Get started: run <code class="code">flutter pub get</code> then launch on a device/emulator.</li>
-            <li>Analyze: run the VS Code task “Analyze after Quran removal” or <code class="code">flutter analyze</code>.</li>
-            <li>Tests: <code class="code">flutter test</code>.</li>
-          </ul>
-        </section>
-
-        <!-- Production build -->
-        <section id="production-build" class="glass-card p-6">
-          <h2 class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">Production build</h2>
-
-          <h3 class="text-xl font-semibold text-brand-blue mb-2">Android (Play Store)</h3>
-          <ol class="list-decimal pl-6 text-slate-800 space-y-1 mb-3">
-            <li>Create <code class="code">android/key.properties</code> from <code class="code">android/key.properties.example</code> and set your keystore values.</li>
-            <li>Build a release APK/AAB:</li>
-          </ol>
-          <pre class="code-block"><code>flutter build appbundle --release
-# or
-flutter build apk --release</code></pre>
-          <div class="text-slate-700 mt-3">
-            <p class="font-semibold">Notes:</p>
-            <ul class="list-disc pl-6 space-y-1">
-              <li>We enabled code shrinking (R8) and resource shrinking; proguard rules live at <code class="code">android/app/proguard-rules.pro</code>.</li>
-              <li>If <code class="code">key.properties</code> is missing, the release build will fall back to the debug signing config for local runs only.</li>
-            </ul>
-          </div>
-
-          <h3 class="text-xl font-semibold text-brand-blue mt-6 mb-2">iOS (App Store)</h3>
-          <ol class="list-decimal pl-6 text-slate-800 space-y-1 mb-3">
-            <li>Open <code class="code">ios/Runner.xcworkspace</code> in Xcode.</li>
-            <li>Set your Team and a unique Bundle Identifier (e.g., <code class="code">com.alhaqds.deenhub</code>).</li>
-            <li>Archive (Product → Archive) and distribute for TestFlight/App Store.</li>
-          </ol>
-          <div class="text-slate-700 mt-3">
-            <p class="font-semibold">Notes:</p>
-            <ul class="list-disc pl-6 space-y-1">
-              <li><code class="code">Info.plist</code> includes privacy usage strings for location and notifications.</li>
-              <li>Minimum iOS version is 12.0.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Regenerating assets -->
-        <section id="assets" class="glass-card p-6">
-          <h2 class="text-2xl md:text-3xl font-bold text-brand-blue mb-3">Regenerating Hisnul Muslim assets (optional)</h2>
-          <p class="text-slate-800 mb-3">We vendor the Hisnul Muslim dataset under <code class="code">assets/hisnulmuslim/</code>. To regenerate from the public dataset at M-AI-C/hisnulmuslim on Hugging Face, run the generator script (requires internet):</p>
-          <pre class="code-block"><code>dart run bin/generate_hisnulmuslim.dart</code></pre>
-          <p class="text-slate-800 mt-3">This writes two JSON files used by <code class="code">AdhkaarService</code>:</p>
-          <ul class="list-disc pl-6 text-slate-800 space-y-1">
-            <li><code class="code">assets/hisnulmuslim/hisnulmuslim.json</code> (Arabic text and references)</li>
-            <li><code class="code">assets/hisnulmuslim/hisnulmuslim-en.json</code> (English translations)</li>
-          </ul>
-          <p class="text-slate-800 mt-3">Then rebuild the app so Flutter picks up the updated assets.</p>
-        </section>
+    <!-- Features -->
+    <section id="features" class="container mx-auto px-6 max-w-6xl mt-16">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">Everything you need, thoughtfully designed</h2>
+        <p class="mt-3 text-slate-700">Clean, focused, and respectful of your attention.
+        </p>
       </div>
-
-      <div class="mt-10 text-sm text-slate-500">
-        <p>Architecture and conventions: see <code class="code">.github/copilot-instructions.md</code> in the app repository.</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card p-6">
+          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-blue mb-1">Accurate prayer times</h3>
+          <p class="text-slate-700">Multiple methods and adjustments. Gentle notifications you control.</p>
+        </div>
+        <div class="glass-card p-6">
+          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-9l4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-blue mb-1">Qibla direction</h3>
+          <p class="text-slate-700">Fast, reliable compass with calibration tips and fallbacks.</p>
+        </div>
+        <div class="glass-card p-6">
+          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-blue mb-1">Hisnul Muslim adhkaar</h3>
+          <p class="text-slate-700">Beautiful Arabic with translations. Favorite, track, and revisit.</p>
+        </div>
+        <div class="glass-card p-6">
+          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 12h12M3 17h6"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-blue mb-1">Focus & reminders</h3>
+          <p class="text-slate-700">Streaks, goals, and mindful nudges that respect your time.</p>
+        </div>
+        <div class="glass-card p-6">
+          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15l-3.5 2 1-4L6 9.5l4-.5L12 5l2 4 4 .5L14.5 13l1 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-blue mb-1">Beautiful Arabic</h3>
+          <p class="text-slate-700">Crafted typography with Amiri. Crisp on all screens.</p>
+        </div>
+        <div class="glass-card p-6">
+          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15c-3.866 0-7-1.79-7-4V7l7-4 7 4v4c0 2.21-3.134 4-7 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-blue mb-1">Privacy‑first</h3>
+          <p class="text-slate-700">No ads, no tracking. Location stays on your device for calculations.</p>
+        </div>
       </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="container mx-auto px-6 max-w-5xl mt-16">
+      <div class="glass-card p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-blue">How it works</h2>
+        <div class="mt-6 grid md:grid-cols-3 gap-6">
+          <div>
+            <div class="text-sm font-semibold text-brand-blue/80">Step 1</div>
+            <h3 class="font-bold mt-1">Pick your location</h3>
+            <p class="text-slate-700 mt-1">Allow one‑time access or set your city manually.</p>
+          </div>
+          <div>
+            <div class="text-sm font-semibold text-brand-blue/80">Step 2</div>
+            <h3 class="font-bold mt-1">Choose a method</h3>
+            <p class="text-slate-700 mt-1">Select your preferred calculation and asr method, with fine‑tuning.</p>
+          </div>
+          <div>
+            <div class="text-sm font-semibold text-brand-blue/80">Step 3</div>
+            <h3 class="font-bold mt-1">Build your routine</h3>
+            <p class="text-slate-700 mt-1">Add reminders, track streaks, and explore adhkaar throughout the day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy & values -->
+    <section class="container mx-auto px-6 max-w-5xl mt-16">
+      <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-emerald-800">Private by design</h2>
+        <p class="mt-2 text-emerald-900/90">We don’t sell your data, and we don’t clutter your worship with ads. DeenHub runs core features on‑device and stores only what’s needed for your experience.</p>
+        <ul class="mt-4 space-y-2 text-emerald-900/90 list-disc pl-6">
+          <li>Location usage stays on your phone for prayer time/Qibla calculation.</li>
+          <li>Opt‑in reminders with simple controls and quiet hours.</li>
+          <li>Clear data controls: reset or export, anytime.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container mx-auto px-6 max-w-5xl mt-16" id="faq">
+      <h2 class="text-3xl font-bold text-brand-blue text-center">Frequently asked questions</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="glass-card p-5">
+          <h3 class="font-semibold text-brand-blue">Is DeenHub free?</h3>
+          <p class="text-slate-700 mt-1">During beta, DeenHub is free. We may offer a free core with optional supporter features later to sustain the project.</p>
+        </div>
+        <div class="glass-card p-5">
+          <h3 class="font-semibold text-brand-blue">Which platforms are supported?</h3>
+          <p class="text-slate-700 mt-1">iOS and Android are targeted for launch. Beta invites roll out in waves as we expand testing.</p>
+        </div>
+        <div class="glass-card p-5">
+          <h3 class="font-semibold text-brand-blue">Does it work offline?</h3>
+          <p class="text-slate-700 mt-1">Yes—core features like stored prayer times, Qibla (with cached calibration), and adhkaar browsing work without internet.</p>
+        </div>
+        <div class="glass-card p-5">
+          <h3 class="font-semibold text-brand-blue">How accurate are the prayer times?</h3>
+          <p class="text-slate-700 mt-1">We support multiple established calculation methods with offsets for local adjustments. You’re in control.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="container mx-auto px-6 max-w-5xl mt-16" id="roadmap">
+      <div class="glass-card p-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-blue">Roadmap</h2>
+        <ul class="mt-4 space-y-3">
+          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span> Beta: prayer times, Qibla, adhkaar, reminders, basic streaks</li>
+          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-amber-500"></span> Coming soon: widgets, richer stats, goals, more languages</li>
+          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-sky-500"></span> Explore: lightweight Quran reading, community challenges</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="container mx-auto px-6 max-w-4xl mt-16">
+      <div class="text-center rounded-2xl border border-amber-300 bg-amber-50 p-8">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-blue">Help shape DeenHub</h2>
+        <p class="mt-2 text-slate-700">Join the beta and tell us what would best serve your routine.</p>
+        <a href="/deenhub_join_beta.html" class="mt-5 inline-flex items-center gap-2 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition shadow">
+          Join DeenHub Beta
+        </a>
+      </div>
+      <p class="mt-4 text-center text-sm text-slate-500">By joining, you agree to our <a href="/legal/deenhub_terms.html" class="underline text-brand-blue">Terms</a> and <a href="/legal/deenhub_privacy_policy.html" class="underline text-brand-blue">Privacy Policy</a>.</p>
     </section>
   </main>
 
