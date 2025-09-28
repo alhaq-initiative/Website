@@ -37,7 +37,8 @@
     <!-- Hero -->
     <section class="container mx-auto px-6 max-w-5xl">
       <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-blue to-slate-900 text-white">
-        <div class="absolute inset-0 opacity-15 pointer-events-none" aria-hidden="true">
+        <!-- subtle accent shapes -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
           <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -49,10 +50,12 @@
             <circle cx="720" cy="540" r="140" fill="url(#g)"/>
           </svg>
         </div>
+        <!-- gradient overlay to boost contrast on top of bg -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
         <div class="relative z-10 p-8 md:p-12">
           <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full">New • Beta</p>
-          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">DeenHub — Your daily deen companion</h1>
-          <p class="mt-4 text-lg md:text-xl text-white/90 max-w-3xl">Prayer times, Qibla, adhkaar, and gentle focus tools—in a simple, privacy‑first mobile app.</p>
+          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-md">DeenHub — Your daily deen companion</h1>
+          <p class="mt-4 text-lg md:text-xl text-white/95 max-w-3xl drop-shadow-sm">Prayer times, Qibla, adhkaar, and gentle focus tools—in a simple, privacy‑first mobile app.</p>
           <div class="mt-6 flex flex-wrap gap-3 items-center">
             <a href="/deenhub_join_beta.html" class="inline-flex items-center gap-2 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition shadow">
               Join DeenHub Beta
@@ -61,7 +64,7 @@
               Learn more
             </a>
           </div>
-          <div class="mt-6 text-sm text-white/80 flex flex-wrap gap-2">
+          <div class="mt-6 text-sm text-white/90 flex flex-wrap gap-2">
             <span class="px-2 py-1 rounded bg-white/10">Accurate prayer times</span>
             <span class="px-2 py-1 rounded bg-white/10">Qibla direction</span>
             <span class="px-2 py-1 rounded bg-white/10">Hisnul Muslim adhkaar</span>
@@ -72,11 +75,11 @@
         <!-- Screenshot placeholders -->
         <div class="relative z-10 px-8 pb-10 md:px-12">
           <div class="grid sm:grid-cols-2 gap-4">
-            <div class="rounded-xl bg-white/90 text-slate-700 p-4 border border-slate-200 shadow-md">
+            <div class="rounded-xl bg-white text-slate-700 p-4 border border-slate-200 shadow-md">
               <div class="aspect-[9/16] rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center text-sm text-slate-500">App screenshot placeholder</div>
               <p class="mt-2 text-sm text-slate-600">Prayer times & home</p>
             </div>
-            <div class="rounded-xl bg-white/90 text-slate-700 p-4 border border-slate-200 shadow-md">
+            <div class="rounded-xl bg-white text-slate-700 p-4 border border-slate-200 shadow-md">
               <div class="aspect-[9/16] rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 flex items-center justify-center text-sm text-slate-500">App screenshot placeholder</div>
               <p class="mt-2 text-sm text-slate-600">Qibla & adhkaar</p>
             </div>
@@ -94,42 +97,42 @@
       </div>
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="glass-card p-6">
-          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+          <div class="h-10 w-10 rounded bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
           </div>
           <h3 class="text-xl font-bold text-brand-blue mb-1">Accurate prayer times</h3>
           <p class="text-slate-700">Multiple methods and adjustments. Gentle notifications you control.</p>
         </div>
         <div class="glass-card p-6">
-          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+          <div class="h-10 w-10 rounded bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-9l4-4"/></svg>
           </div>
           <h3 class="text-xl font-bold text-brand-blue mb-1">Qibla direction</h3>
           <p class="text-slate-700">Fast, reliable compass with calibration tips and fallbacks.</p>
         </div>
         <div class="glass-card p-6">
-          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+          <div class="h-10 w-10 rounded bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8z"/></svg>
           </div>
           <h3 class="text-xl font-bold text-brand-blue mb-1">Hisnul Muslim adhkaar</h3>
           <p class="text-slate-700">Beautiful Arabic with translations. Favorite, track, and revisit.</p>
         </div>
         <div class="glass-card p-6">
-          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+          <div class="h-10 w-10 rounded bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 12h12M3 17h6"/></svg>
           </div>
           <h3 class="text-xl font-bold text-brand-blue mb-1">Focus & reminders</h3>
           <p class="text-slate-700">Streaks, goals, and mindful nudges that respect your time.</p>
         </div>
         <div class="glass-card p-6">
-          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+          <div class="h-10 w-10 rounded bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15l-3.5 2 1-4L6 9.5l4-.5L12 5l2 4 4 .5L14.5 13l1 4z"/></svg>
           </div>
           <h3 class="text-xl font-bold text-brand-blue mb-1">Beautiful Arabic</h3>
           <p class="text-slate-700">Crafted typography with Amiri. Crisp on all screens.</p>
         </div>
         <div class="glass-card p-6">
-          <div class="h-10 w-10 rounded bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-3">
+          <div class="h-10 w-10 rounded bg-blue-50 text-blue-700 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15c-3.866 0-7-1.79-7-4V7l7-4 7 4v4c0 2.21-3.134 4-7 4z"/></svg>
           </div>
           <h3 class="text-xl font-bold text-brand-blue mb-1">Privacy‑first</h3>
