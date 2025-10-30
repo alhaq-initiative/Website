@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "The Miracle of the Qur'an",
+    "author": "Nouman Ali Khan",
+    "categories": ["Qur’an"],
+    "tags": ["eloquence", "guidance", "reflection"],
+    "youtubeId": "M6gKNtKoAOM",
+    "description": "Reflections on Quranic eloquence and guidance."
+  },
+  {
+    "id": 2,
+    "title": "Introduction to Hadith Sciences",
+    "author": "Dr. Yasir Qadhi",
+    "categories": ["Hadith"],
+    "tags": ["authentication", "collections", "methodology"],
+    "youtubeId": "Ek5t5m4JzRk",
+    "description": "Overview of authenticity, collections, and methodology."
+  },
+  {
+    "id": 3,
+    "title": "Principles of Daʿwah",
+    "author": "Abdul Raheem McCarthy",
+    "categories": ["Dawa"],
+    "tags": ["outreach", "wisdom", "compassion"],
+    "youtubeId": "0e2f0eKB-eU",
+    "description": "Practical steps for inviting with wisdom and compassion."
+  },
+  {
+    "id": 4,
+    "title": "Seerah: The Early Years",
+    "author": "Omar Suleiman",
+    "categories": ["Seerah", "Qur’an"],
+    "tags": ["biography", "lessons", "makkah"],
+    "youtubeId": "dGzFQeZrsZ0",
+    "description": "Lessons from the early biography of the Prophet ﷺ."
+  },
+  {
+    "id": 5,
+    "title": "Purification of the Heart",
+    "author": "Hamza Yusuf",
+    "categories": ["Tazkiyah"],
+    "tags": ["spirituality", "heart", "diseases"],
+    "youtubeId": "T2YxHq1mmnE",
+    "description": "On spiritual diseases and their cures."
+  },
+  {
+    "id": 6,
+    "title": "Qur'an & Science: Signs in Creation",
+    "author": "Zakir Naik",
+    "categories": ["Qur’an", "Science"],
+    "tags": ["nature", "signs", "reflection"],
+    "youtubeId": "hIYv5v_N2wY",
+    "description": "Exploring verses that reflect on the natural world."
+  }
+]

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Hub - Alhaq Initiative</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <meta name="theme-color" content="#ffffff">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="antialiased">
+  <header id="global-header"></header>
+  <main id="main-content" role="main" tabindex="-1" class="pt-32 pb-20">
+    <section class="container mx-auto px-6 max-w-5xl">
+  <h1 class="text-4xl font-extrabold text-brand-blue mb-2">Privacy Hub</h1>
+  <p class="mb-6"><a href="/legal/docs.html" class="text-sm inline-flex items-center text-brand-blue hover:underline" aria-label="Back to Legal & Documentation hub">← Back to Legal & Documentation</a></p>
+      <p class="text-lg text-gray-700 mb-10 max-w-3xl">This page centralizes privacy information for Alhaq Initiative products and services. Each product may have its own dedicated privacy notice reflecting its scope and data handling model. We aim for minimal data collection and a strong local-first approach.</p>
+      <div class="grid md:grid-cols-2 gap-8 mb-14">
+        <div class="glass-card p-6">
+          <h2 class="text-2xl font-bold text-brand-blue mb-3">General Privacy Overview</h2>
+          <p class="text-gray-700 mb-4">Explains our core privacy principles, data minimization, local-first storage philosophy, and how we handle user feedback or contact submissions.</p>
+          <a href="/legal/deenshield_docs/privacy-policies/en/main-privacy.html" class="text-brand-gold font-semibold hover:underline">Read Overview →</a>
+        </div>
+        <div class="glass-card p-6">
+          <h2 class="text-2xl font-bold text-brand-blue mb-3">Why Local-First</h2>
+          <p class="text-gray-700 mb-4">A brief rationale for preferring on-device storage where feasible to protect user intent, religious practice data, and usage patterns.</p>
+          <a href="/legal/docs.html#local-first" class="text-brand-gold font-semibold hover:underline">Learn More →</a>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-brand-blue mb-4">Product Specific Privacy Notices</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm border border-gray-200 rounded-lg overflow-hidden">
+          <thead class="bg-gray-50 text-gray-700">
+            <tr>
+              <th class="py-3 px-4 font-semibold">Product / Area</th>
+              <th class="py-3 px-4 font-semibold">Privacy Document</th>
+              <th class="py-3 px-4 font-semibold">Scope</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="py-3 px-4 font-medium">DeenShield Suite (Unified)</td>
+              <td class="py-3 px-4"><a href="/legal/deenshield_docs/privacy-policies/en/main-privacy.html" class="text-brand-blue hover:underline">Main Privacy Policy</a></td>
+              <td class="py-3 px-4 text-gray-600">Umbrella policy; links to per-platform details.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">DeenShield Mobile Apps</td>
+              <td class="py-3 px-4"><a href="/legal/deenshield_docs/privacy-policies/mobile/index.html" class="text-brand-blue hover:underline">Mobile Privacy</a></td>
+              <td class="py-3 px-4 text-gray-600">Device storage, permissions, notification data.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">DeenShield Browser Extension</td>
+              <td class="py-3 px-4"><a href="/legal/deenshield_docs/privacy-policies/extension/index.html" class="text-brand-blue hover:underline">Extension Privacy</a></td>
+              <td class="py-3 px-4 text-gray-600">Filtering logic, local rules, no remote tracking.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">DeenShield Desktop Manager</td>
+              <td class="py-3 px-4"><a href="/legal/deenshield_docs/privacy-policies/manager/index.html" class="text-brand-blue hover:underline">Manager Privacy</a></td>
+              <td class="py-3 px-4 text-gray-600">Launcher interactions, update checks.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">DeenShield Desktop App</td>
+              <td class="py-3 px-4"><a href="/legal/deenshield_docs/privacy-policies/desktop/index.html" class="text-brand-blue hover:underline">Desktop Privacy</a></td>
+              <td class="py-3 px-4 text-gray-600">Offline cache, Qur'an session data, settings.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">Qur'an Hub / Quran Reader</td>
+              <td class="py-3 px-4 text-gray-400 italic">(No personal data stored)</td>
+              <td class="py-3 px-4 text-gray-600">Static delivery, optional audio streaming.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">Contact & Feedback Forms</td>
+              <td class="py-3 px-4"><a href="/legal/docs.html#forms" class="text-brand-blue hover:underline">Form Handling</a></td>
+              <td class="py-3 px-4 text-gray-600">Transient processing via Logic Apps.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-14 grid md:grid-cols-2 gap-8">
+        <div class="glass-card p-6">
+          <h3 class="text-xl font-bold text-brand-blue mb-2">Data Requests</h3>
+          <p class="text-gray-700 mb-3">For removal, clarification, or questions, email: <a href="mailto:privacy@alhaq-initiative.org" class="text-brand-blue underline">privacy@alhaq-initiative.org</a></p>
+          <p class="text-xs text-gray-500">We typically respond within 7 business days.</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="text-xl font-bold text-brand-blue mb-2">Future Transparency</h3>
+          <p class="text-gray-700 mb-3">We plan to open-source relevant privacy-impacting modules and expand automated transparency logs.</p>
+          <p class="text-xs text-gray-500">(Roadmap subject to refinement)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-gray-800 text-white mt-20">
+    <div class="container mx-auto px-6 py-8 text-center">
+      <h3 class="text-2xl font-bold">Alhaq Initiative</h3>
+      <p class="mt-2 text-sm text-gray-500">© 2025 Alhaq Initiative. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
