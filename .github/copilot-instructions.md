@@ -39,8 +39,18 @@ These notes help AI agents work productively in this codebase. Keep guidance con
 
 - Serve the site locally (required for Cypress and PWA): use `npm run dev` (live-server on port 8080) or `npm run serve` (Python http.server on 8080). Cypress assumes `http://localhost:8080` (`cypress.config.js`).
 - Unit tests (Jest + jsdom): `npm test`. Setup is in `tests/setup.js`; coverage excludes DeenShield web-app paths.
-- Lightweight smoke check (Node HTTP pinger): `npm run smoke`. It verifies HTML pages reference `assets/js/site.js` and at least one stylesheet.
-- Cypress smoke tests: run via `npx cypress run --browser chrome --headless` or the workspace task “Run Cypress smoke tests”. Ensure the local server is running first.
+- Lightweight smoke check (Node HTTP pinger): `npm run smoke`. It verifies HTML pages reference `assets/js/site.js` and at least one stylesheet. Tests 30 key pages.
+- **Comprehensive tests (auto-discovery)**: `npm run test:comprehensive`. Automatically discovers all HTML files and tests:
+  - Required global scripts and stylesheets
+  - HTML structure and meta tags
+  - Accessibility basics (alt tags, semantic HTML, heading hierarchy)
+  - Performance hints (inline styles, script defer/async)
+  - i18n support (lang attributes, RTL)
+  - Internal link validation (checks all links are not broken)
+  - Runs on all ~52 HTML pages automatically
+  - Use `npm run test:comprehensive:verbose` for detailed info output
+  - Use `npm run test:all` to run Jest, smoke, and comprehensive tests in sequence
+- Cypress smoke tests: run via `npx cypress run --browser chrome --headless` or the workspace task "Run Cypress smoke tests". Ensure the local server is running first.
 - Optional API server for placeholders/demos: `npm run api` (or `npm run api:dev` for nodemon).
 
 ## Deployment
