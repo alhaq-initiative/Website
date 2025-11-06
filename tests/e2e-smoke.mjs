@@ -11,9 +11,9 @@ const pages = [
   '/products.html',
   // Legal & docs hubs
   '/legal/docs.html',
-  '/legal/privacy.html',
-  '/legal/terms.html',
-  '/legal/support.html'
+  '/legal/privacy_hub.html',
+  '/legal/terms_hub.html',
+  '/legal/support_hub.html'
 ];
 
 import http from 'node:http';
