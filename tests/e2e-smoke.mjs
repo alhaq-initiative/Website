@@ -1,19 +1,46 @@
 #!/usr/bin/env node
 const base = process.env.BASE_URL || 'http://localhost:8080';
 const pages = [
+  // Main pages
   '/',
   '/about.html',
+  '/contact.html',
+  '/donate.html',
+  '/help.html',
+  
+  // Services & Sub-services
   '/services.html',
   '/library.html',
-  '/donate.html',
   '/quran.html',
   '/media.html',
+  '/all-infographics.html',
+  '/golden-speech.html',
+  
+  // Products & Sub-products
   '/products.html',
+  '/deenshield/main.html',
+  '/deenhub.html',
+  '/deenhub_join_beta.html',
+  '/quranhub.html',
+  
   // Legal & docs hubs
   '/legal/docs.html',
   '/legal/privacy_hub.html',
   '/legal/terms_hub.html',
-  '/legal/support_hub.html'
+  '/legal/support_hub.html',
+  
+  // DeenHub legal docs
+  '/legal/deenhub_docs/deenhub_privacy_policy.html',
+  '/legal/deenhub_docs/deenhub_terms.html',
+  
+  // DeenShield legal docs (English main pages)
+  '/legal/deenshield_docs/privacy-policies/mobile/index.html',
+  '/legal/deenshield_docs/privacy-policies/desktop/index.html',
+  '/legal/deenshield_docs/privacy-policies/extension/index.html',
+  '/legal/deenshield_docs/privacy-policies/manager/index.html',
+  '/legal/deenshield_docs/privacy-policies/en/main-privacy.html',
+  '/legal/deenshield_docs/terms/en/index.html',
+  '/legal/deenshield_docs/support/en/index.html'
 ];
 
 import http from 'node:http';
@@ -102,8 +129,8 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
       const res = await fetchWithRetry(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
-      // Check that global site.js is referenced
-      const hasSiteJs = /<script[^>]+src=["']([^"']*assets\/js\/site\.js)["'][^>]*><\/script>/i.test(html);
+      // Check that global site.js is referenced (relative or absolute path)
+      const hasSiteJs = /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(html);
       if (!hasSiteJs) throw new Error('Missing global script assets/js/site.js');
       // At least one stylesheet link
       const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
