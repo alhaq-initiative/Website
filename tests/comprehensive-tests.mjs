@@ -284,15 +284,15 @@ class PageTester {
 
   report() {
     if (this.errors.length > 0) {
-      log(colors.red, `  ✗ ERRORS (${this.errors.length}):`);
+      log(colors.red, `  [X] ERRORS (${this.errors.length}):`);
       this.errors.forEach(err => log(colors.red, `    - ${err}`));
     }
     if (this.warnings.length > 0) {
-      log(colors.yellow, `  ⚠ WARNINGS (${this.warnings.length}):`);
+      log(colors.yellow, `  [!] WARNINGS (${this.warnings.length}):`);
       this.warnings.forEach(warn => log(colors.yellow, `    - ${warn}`));
     }
     if (this.info.length > 0 && process.env.VERBOSE) {
-      log(colors.cyan, `  ℹ INFO (${this.info.length}):`);
+      log(colors.cyan, `  [i] INFO (${this.info.length}):`);
       this.info.forEach(info => log(colors.cyan, `    - ${info}`));
     }
   }
@@ -380,7 +380,7 @@ async function ensureServer() {
       const res = await fetchWithRetry(url, 2, 500);
       
       if (!res.ok) {
-        log(colors.red, `✗ ${page} - HTTP ${res.status}`);
+        log(colors.red, `[FAIL] ${page} - HTTP ${res.status}`);
         results.failed++;
         failedPages.push({ page, error: `HTTP ${res.status}` });
         continue;
@@ -395,23 +395,23 @@ async function ensureServer() {
       links.forEach(link => allInternalLinks.add(link));
 
       if (tester.hasErrors()) {
-        log(colors.red, `✗ ${page}`);
+        log(colors.red, `[FAIL] ${page}`);
         tester.report();
         results.failed++;
         failedPages.push({ page, tester });
       } else if (tester.warnings.length > 0) {
-        log(colors.yellow, `⚠ ${page}`);
+        log(colors.yellow, `[WARN] ${page}`);
         tester.report();
         results.warnings++;
         results.passed++;
       } else {
-        log(colors.green, `✓ ${page}`);
+        log(colors.green, `[PASS] ${page}`);
         if (process.env.VERBOSE) tester.report();
         results.passed++;
       }
 
     } catch (err) {
-      log(colors.red, `✗ ${page} - ${err.message}`);
+      log(colors.red, `[FAIL] ${page} - ${err.message}`);
       results.failed++;
       failedPages.push({ page, error: err.message });
     }
@@ -434,13 +434,13 @@ async function ensureServer() {
       
       if (!res.ok) {
         brokenLinks.push({ link, status: res.status });
-        log(colors.red, `✗ ${link} - HTTP ${res.status}`);
+        log(colors.red, `[FAIL] ${link} - HTTP ${res.status}`);
       } else if (process.env.VERBOSE) {
-        log(colors.green, `✓ ${link}`);
+        log(colors.green, `[PASS] ${link}`);
       }
     } catch (err) {
       brokenLinks.push({ link, error: err.message });
-      log(colors.red, `✗ ${link} - ${err.message}`);
+      log(colors.red, `[FAIL] ${link} - ${err.message}`);
     }
   }
 
@@ -458,7 +458,7 @@ async function ensureServer() {
   if (brokenLinks.length > 0) {
     log(colors.red, `Broken links: ${brokenLinks.length}`);
   } else {
-    log(colors.green, `All ${allInternalLinks.size} internal links valid ✓`);
+    log(colors.green, `All ${allInternalLinks.size} internal links valid [PASS]`);
   }
 
   // Cleanup
@@ -468,10 +468,10 @@ async function ensureServer() {
 
   // Exit with error if tests failed
   if (results.failed > 0 || brokenLinks.length > 0) {
-    log(colors.red, '\nTests FAILED ✗');
+    log(colors.red, '\nTests FAILED [X]');
     process.exit(1);
   } else {
-    log(colors.green, '\nAll tests PASSED ✓');
+    log(colors.green, '\nAll tests PASSED [PASS]');
     process.exit(0);
   }
 })();
