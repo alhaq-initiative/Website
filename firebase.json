@@ -24,11 +24,11 @@
         { "source": "/ps", "destination": "/", "type": 302 },
         { "source": "/ps/", "destination": "/", "type": 302 },
         { "source": "/ps/:path*", "destination": "/:path", "type": 302 },
-        { "source": "/deensheild", "destination": "/deenshield/main.html", "type": 301 },
-        { "source": "/deensheild/", "destination": "/deenshield/main.html", "type": 301 },
-        { "source": "/deensheild/**", "destination": "/deenshield/:splat", "type": 301 },
-        { "source": "/deenshield", "destination": "/deenshield/main.html", "type": 302 },
-  { "source": "/deenshield/", "destination": "/deenshield/main.html", "type": 302 }
+        { "source": "/deensheild", "destination": "/shield/main.html", "type": 301 },
+        { "source": "/deensheild/", "destination": "/shield/main.html", "type": 301 },
+        { "source": "/deensheild/**", "destination": "/shield/:splat", "type": 301 },
+        { "source": "/shield", "destination": "/shield/main.html", "type": 302 },
+  { "source": "/shield/", "destination": "/shield/main.html", "type": 302 }
   
       ],
       "headers": [

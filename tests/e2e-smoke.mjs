@@ -18,7 +18,7 @@ const pages = [
   
   // Products & Sub-products
   '/products.html',
-  '/deenshield/main.html',
+  '/shield/main.html',
   '/deenhub.html',
   '/deenhub_join_beta.html',
   '/quranhub.html',
@@ -33,14 +33,14 @@ const pages = [
   '/legal/deenhub_docs/deenhub_privacy_policy.html',
   '/legal/deenhub_docs/deenhub_terms.html',
   
-  // DeenShield legal docs (English main pages)
-  '/legal/deenshield_docs/privacy-policies/mobile/index.html',
-  '/legal/deenshield_docs/privacy-policies/desktop/index.html',
-  '/legal/deenshield_docs/privacy-policies/extension/index.html',
-  '/legal/deenshield_docs/privacy-policies/manager/index.html',
-  '/legal/deenshield_docs/privacy-policies/en/main-privacy.html',
-  '/legal/deenshield_docs/terms/en/index.html',
-  '/legal/deenshield_docs/support/en/index.html'
+  // Shield legal docs (English main pages)
+  '/legal/shield_docs/privacy-policies/mobile/index.html',
+  '/legal/shield_docs/privacy-policies/desktop/index.html',
+  '/legal/shield_docs/privacy-policies/extension/index.html',
+  '/legal/shield_docs/privacy-policies/manager/index.html',
+  '/legal/shield_docs/privacy-policies/en/main-privacy.html',
+  '/legal/shield_docs/terms/en/index.html',
+  '/legal/shield_docs/support/en/index.html'
 ];
 
 import http from 'node:http';
