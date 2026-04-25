@@ -1,17 +1,34 @@
 {
-  "name": "Quran Hub — Alhaq Initiative",
+  "id": "/quran.html",
+  "name": "Quran Hub - Alhaq Initiative",
   "short_name": "Quran Hub",
-  "description": "Read, listen, and study the Quran offline with a modern, mobile-friendly reader.",
+  "description": "A modern Quran browser app for reading, listening, and studying across Windows, phones, tablets, and browsers.",
+  "lang": "en-GB",
+  "dir": "ltr",
   "start_url": "/quran.html",
   "scope": "/",
   "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#0A2540",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "orientation": "any",
+  "theme_color": "#0A2540",
+  "background_color": "#F8FAFC",
+  "categories": [
+    "books",
+    "education",
+    "lifestyle"
+  ],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/assets/images/quranhub-icon.png",
       "sizes": "96x96",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/assets/images/web-app-manifest-192x192.png",
@@ -30,8 +47,44 @@
     {
       "name": "Continue reading",
       "short_name": "Continue",
+      "description": "Jump back into your last Quran reading session.",
       "url": "/quran.html#resume=1",
-      "icons": [ { "src": "/assets/images/quranhub-icon.png", "sizes": "96x96", "type": "image/png" } ]
+      "icons": [
+        {
+          "src": "/assets/images/quranhub-icon.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Open audio recitation",
+      "short_name": "Audio",
+      "description": "Open Quran Hub with the recitation section ready.",
+      "url": "/quran.html#recitations",
+      "icons": [
+        {
+          "src": "/assets/images/quranhub-icon.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/QuranHub.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Quran Hub desktop reading view"
+    },
+    {
+      "src": "/assets/images/Screenshot_virtical.Taleem AI.png",
+      "sizes": "664x1430",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Quran Hub mobile reading layout"
     }
   ]
 }

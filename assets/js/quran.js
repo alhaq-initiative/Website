@@ -508,15 +508,64 @@
     function go(){ const v = parseInt(goInput.value,10); if(!isNaN(v)) jumpToVerse(v); }
     if(goBtn) goBtn.addEventListener('click', go);
     if(goInput) goInput.addEventListener('keydown', e=>{ if(e.key==='Enter') go(); });
+    function flashButtonLabel(btn, text){
+      if(!btn) return;
+      const original = btn.dataset.originalLabel || btn.textContent;
+      btn.dataset.originalLabel = original;
+      btn.textContent = text;
+      setTimeout(()=>{ btn.textContent = original; }, 1400);
+    }
+    function getReaderShareUrl(){
+      const base = location.href.split('#')[0];
+      if(!currentSurah) return base;
+      return `${base}#s=${currentSurah}&p=${currentPage+1}`;
+    }
+    async function copyTextWithFeedback(text, btn){
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          await navigator.clipboard.writeText(text);
+        } else {
+          const helper = document.createElement('textarea');
+          helper.value = text;
+          helper.setAttribute('readonly', '');
+          helper.style.position = 'fixed';
+          helper.style.opacity = '0';
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand('copy');
+          document.body.removeChild(helper);
+        }
+        flashButtonLabel(btn, 'Copied');
+        return true;
+      }catch(_){
+        flashButtonLabel(btn, 'Error');
+        return false;
+      }
+    }
     // Print & Share
-    const printBtn = document.getElementById('print-page'); if(printBtn) printBtn.addEventListener('click', ()=>window.print());
+    const printBtn = document.getElementById('print-page');
+    if(printBtn) printBtn.addEventListener('click', ()=>window.print());
     const shareBtn = document.getElementById('share-page');
+    const copyLinkBtn = document.getElementById('copy-quran-link');
+    if(copyLinkBtn){
+      copyLinkBtn.addEventListener('click', async ()=>{
+        await copyTextWithFeedback(getReaderShareUrl(), copyLinkBtn);
+      });
+    }
     if(shareBtn){
-      if(navigator.share){
-        shareBtn.addEventListener('click', async ()=>{
-          try{ await navigator.share({ title: 'Quran Surah '+currentSurah+' Page '+(currentPage+1), url: location.href.split('#')[0]+'#s='+currentSurah+'&p='+(currentPage+1) }); }catch(_){ }
-        });
-      } else { shareBtn.disabled = true; shareBtn.title = 'Sharing not supported'; }
+      shareBtn.addEventListener('click', async ()=>{
+        const shareUrl = getReaderShareUrl();
+        const shareTitle = currentSurah ? `Quran Surah ${currentSurah} Page ${currentPage+1}` : 'Quran Hub';
+        if(navigator.share){
+          try{
+            await navigator.share({ title: shareTitle, text: 'Continue reading in Quran Hub.', url: shareUrl });
+            flashButtonLabel(shareBtn, 'Shared');
+            return;
+          }catch(_){ /* user cancelled or unsupported path */ }
+        }
+        await copyTextWithFeedback(shareUrl, shareBtn);
+      });
+      shareBtn.title = 'Share or copy current reading page';
     }
 
     // Translation show/hide toggle

@@ -764,7 +764,7 @@
             legal.style.marginTop = '0.75rem';
             legal.style.fontSize = '0.75rem';
             legal.style.textAlign = 'center';
-            legal.innerHTML = `<a href="/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> · <a href="/legal/privacy.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> · <a href="/legal/terms.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> · <a href="/legal/support.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
+            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> · <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> · <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> · <a href="/legal/support_hub.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
             footer.appendChild(legal);
           }
           // Baseline privacy/terms if the footer does not already contain obvious links (skip DeenShield which has its own detailed set)
@@ -779,7 +779,7 @@
                 pt.style.fontSize = '0.7rem';
                 pt.style.opacity = '0.85';
                 pt.style.textAlign = 'center';
-                pt.innerHTML = `<a href="/legal/privacy.html" style="color:#d1d5db;">Privacy</a> • <a href="/legal/terms.html" style="color:#d1d5db;">Terms</a>`;
+                pt.innerHTML = `<a href="/legal/privacy_hub.html" style="color:#d1d5db;">Privacy</a> • <a href="/legal/terms_hub.html" style="color:#d1d5db;">Terms</a>`;
                 footer.appendChild(pt);
               }
             }
