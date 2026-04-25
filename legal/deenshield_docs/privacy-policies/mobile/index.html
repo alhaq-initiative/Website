@@ -26,7 +26,7 @@
   </header>
   <main class="max-w-3xl mx-auto py-10 px-4 leading-relaxed">
     <h1 class="text-3xl font-extrabold text-brand-blue mb-2">Privacy Policy for DeenShield Mobile Apps</h1>
-    <p class="text-sm text-gray-500 mb-6"><strong>Last Updated:</strong> 2025-10-30</p>
+    <p class="text-sm text-gray-500 mb-6"><strong>Last Updated:</strong> 2026-04-25</p>
     
     <!-- Table of Contents -->
     <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8">
@@ -40,11 +40,12 @@
         <li><a href="#data-sharing" class="text-blue-600 hover:underline">6. Data Sharing and Third Parties</a></li>
         <li><a href="#data-retention" class="text-blue-600 hover:underline">7. Data Retention and Deletion</a></li>
         <li><a href="#user-data_protection-policy" class="text-blue-600 hover:underline font-semibold">📋 User Data Protection & Deletion Policy</a></li>
-        <li><a href="#your-rights" class="text-blue-600 hover:underline">8. Your Rights and Choices</a></li>
-        <li><a href="#security" class="text-blue-600 hover:underline">9. Security</a></li>
-        <li><a href="#children" class="text-blue-600 hover:underline">10. Children's Privacy</a></li>
-        <li><a href="#changes" class="text-blue-600 hover:underline">11. Changes to This Privacy Policy</a></li>
-        <li><a href="#contact" class="text-blue-600 hover:underline">12. Contact Us</a></li>
+        <li><a href="#error-reporting" class="text-blue-600 hover:underline">8. Error Reporting and Feedback Controls</a></li>
+        <li><a href="#your-rights" class="text-blue-600 hover:underline">9. Your Rights and Choices</a></li>
+        <li><a href="#security" class="text-blue-600 hover:underline">10. Security</a></li>
+        <li><a href="#children" class="text-blue-600 hover:underline">11. Children's Privacy</a></li>
+        <li><a href="#changes" class="text-blue-600 hover:underline">12. Changes to This Privacy Policy</a></li>
+        <li><a href="#contact" class="text-blue-600 hover:underline">13. Contact Us</a></li>
       </ul>
     </div>
 
@@ -73,7 +74,8 @@
           <li><strong>Crucially, all this analysis happens locally.</strong> The text, images, and videos from other apps never leave your device.</li>
         </ul>
       </li>
-      <li><strong>Crash Logs:</strong> The application generates logs if it crashes. These logs contain information about the error but do not contain personal identifiers. We only have access to this information if you <strong>explicitly choose</strong> to share it with us via the "Share Crash Log" feature.</li>
+      <li><strong>Crash Logs and Error Diagnostics:</strong> The app can store crash and non-fatal error diagnostics locally on your device (for example stack trace details, app version, Android version, and memory state). These reports do not include blocked keyword lists, on-screen content, or media from other apps. We only receive reports when you <strong>explicitly choose</strong> to export/share them.</li>
+      <li><strong>User Feedback (Optional):</strong> You may optionally submit feedback notes and a contact email in recovery/error screens. This content is stored locally until you choose to export it.</li>
     </ul>
     <h2 id="permissions" class="text-xl font-bold mt-8 mb-2">3. Justification for Permissions</h2>
     <p>We require certain permissions to provide the features of DeenShield. Here is a detailed explanation of why we need each of the key permissions:</p>
@@ -110,6 +112,10 @@
           <li><strong>We do not log or monitor your network traffic.</strong> All filtering is done on your device.</li>
         </ul>
       </li>
+      <li><strong>Notification Permission (Android 13+):</strong> Used to deliver reminders, protection notices, and operational alerts that you enable.</li>
+      <li><strong>Boot Completed:</strong> Used to restore protection settings (such as blocker/focus configurations) after device restart.</li>
+      <li><strong>Query All Packages:</strong> Used to detect installed apps for app-blocking configuration and category protection. This supports selecting apps and auto-protection behavior.</li>
+      <li><strong>Internet Permission:</strong> Used for Google Sign-In, Google Play Billing verification, optional update checks, and any report/feedback export action that <strong>you</strong> initiate.</li>
     </ul>
     <h2 id="how-we-use" class="text-xl font-bold mt-8 mb-2">4. How We Use Your Information</h2>
     <p>We use the information we collect solely to provide and improve the functionality of the DeenShield app.</p>
@@ -118,6 +124,8 @@
       <li><strong>To Display Your Stats:</strong> App usage data is used to generate the charts and statistics you see on the "Stats" screen.</li>
       <li><strong>To Authenticate and Manage Your Account:</strong> Your Google Account information is used to sign you in and verify your premium status.</li>
       <li><strong>For On-Device Smart Features:</strong> Text and image data are used locally by the on-device machine learning models to provide smart content moderation.</li>
+      <li><strong>To Maintain Reliability:</strong> Local diagnostics help you and our support team troubleshoot failures when you choose to share reports.</li>
+      <li><strong>To Run App Protection Workflows:</strong> Install-event handling, boot recovery, reminders, and widgets operate from local settings stored on your device.</li>
       <li><strong>To Improve the App:</strong> Anonymized crash logs, which you voluntarily share, help us diagnose and fix bugs.</li>
     </ul>
     <h2 id="how-we-do-not-use" class="text-xl font-bold mt-8 mb-2">5. How We Do NOT Use Your Information (On-Device Processing)</h2>
@@ -132,6 +140,7 @@
     <ul class="list-disc list-inside mb-4">
       <li><strong>Google Sign-In:</strong> If you sign in, you are sharing information directly with Google, subject to Google's Privacy Policy. We only receive a token to verify your identity.</li>
       <li><strong>Google Play Billing:</strong> If you purchase a premium subscription, the transaction is processed by the Google Play Store. We do not collect or store your payment card information.</li>
+      <li><strong>User-Initiated Report Sharing:</strong> If you export error logs/feedback, data is shared only through the app you select (for example email or cloud storage) and only at your direction.</li>
       <li><strong>Legal Requirements:</strong> We may disclose information if required to do so by law or in the good faith belief that such action is necessary to comply with a legal obligation.</li>
     </ul>
     <h2 id="data-retention" class="text-xl font-bold mt-8 mb-2">7. Data Retention and Deletion</h2>
@@ -141,6 +150,7 @@
       <li><strong>Clearing App Data:</strong> You can go to your device's Settings -> Apps -> DeenShield -> Storage and tap "Clear Data." This will permanently delete all data associated with the app.</li>
       <li><strong>Uninstalling the App:</strong> Uninstalling the DeenShield application will remove the app and all of its associated data from your device.</li>
     </ol>
+    <p>Locally stored error reports and optional feedback remain on your device until you delete them, clear app data, uninstall the app, or manually export/share and then remove them.</p>
     <!-- User Data Protection & Deletion Policy Section -->
     <div class="bg-green-50 border-2 border-green-500 rounded-lg p-6 my-8">
       <h2 id="user-data_protection-policy" class="text-2xl font-bold text-green-800 mb-4">📋 User Data Protection & Deletion Policy</h2>
@@ -216,19 +226,25 @@
       <h3 class="font-semibold mt-6 mb-2">Unlinking Your Google Account</h3>
       <p>If you have signed in with Google, you can unlink your account by signing out from the navigation menu within the DeenShield app. This will remove the authentication link between the app and your Google Account. You can also manage app permissions directly in your Google Account security settings.</p>
     </div>
-    <h2 id="your-rights" class="text-xl font-bold mt-8 mb-2">8. Your Rights and Choices</h2>
+    <h2 id="error-reporting" class="text-xl font-bold mt-8 mb-2">8. Error Reporting and Feedback Controls</h2>
+    <ul class="list-disc list-inside mb-4">
+      <li><strong>Local-by-Default:</strong> Crash diagnostics and feedback are stored locally and are not auto-sent to us.</li>
+      <li><strong>Opt-In Sharing:</strong> You can choose if and when to export/share diagnostics.</li>
+      <li><strong>Visibility and Deletion:</strong> You can review and clear locally stored reports in app settings.</li>
+    </ul>
+    <h2 id="your-rights" class="text-xl font-bold mt-8 mb-2">9. Your Rights and Choices</h2>
     <ul class="list-disc list-inside mb-4">
       <li><strong>Access and Modify:</strong> You can access and modify your configuration data at any time within the app's settings.</li>
       <li><strong>Disable Permissions:</strong> You can disable the Accessibility Service or other permissions for DeenShield at any time through your device's settings. Please note that doing so will cause the core features of the app to stop working.</li>
       <li><strong>Opt-out of Account Sync:</strong> You can use the app without signing into a Google account, though premium features may require it.</li>
     </ul>
-    <h2 id="security" class="text-xl font-bold mt-8 mb-2">9. Security</h2>
+    <h2 id="security" class="text-xl font-bold mt-8 mb-2">10. Security</h2>
     <p>We take reasonable measures to protect the information stored locally on your device. The app is built on standard Android platform security features. However, no method of electronic storage is 100% secure, especially as the data resides on your personal device, the security of which is outside our control.</p>
-    <h2 id="children" class="text-xl font-bold mt-8 mb-2">10. Children's Privacy</h2>
+    <h2 id="children" class="text-xl font-bold mt-8 mb-2">11. Children's Privacy</h2>
     <p>DeenShield is not aimed at children under the age of 13 (or the relevant age in your jurisdiction). We do not knowingly collect personal information from children.</p>
-    <h2 id="changes" class="text-xl font-bold mt-8 mb-2">11. Changes to This Privacy Policy</h2>
+    <h2 id="changes" class="text-xl font-bold mt-8 mb-2">12. Changes to This Privacy Policy</h2>
     <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy within the app and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.</p>
-    <h2 id="contact" class="text-xl font-bold mt-8 mb-2">12. Contact Us</h2>
+    <h2 id="contact" class="text-xl font-bold mt-8 mb-2">13. Contact Us</h2>
     <p>If you have any questions or concerns about this Privacy Policy, please contact us at:<br><strong>contact@alhaq-initiative.org</strong></p>
     <hr class="my-10" />
     <p class="text-sm text-gray-500">&copy; 2025 Alhaq Digital Services (ADS). All rights reserved.</p>

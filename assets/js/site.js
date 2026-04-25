@@ -263,7 +263,7 @@
           const parts = location.pathname.split('/').filter(Boolean);
           // Drop locale prefix if present
           const first = parts[0];
-          const rest = ['ar','fa','ps'].includes(first) ? parts.slice(1) : parts;
+          const rest = ['ar','fa','ps','ur'].includes(first) ? parts.slice(1) : parts;
           const name = (rest[rest.length - 1] || '').toLowerCase();
           if (!name || name === 'index' || name === 'index.html') return 'index.html';
           return name.endsWith('.html') ? name : name + '.html';
@@ -388,29 +388,30 @@
       // no-op: do not break other enhancements if menu setup fails
     }
 
-    // Modern, floating language selector (English / العربية / دری / پښتو)
+    // Modern, floating language selector (English / العربية / دری / پښتو / اردو)
   (function setupLanguageSelector() {
       const LANGS = [
         { code: 'en', label: 'English', short: 'EN', rtl: false },
         { code: 'ar', label: 'العربية', short: 'AR', rtl: true },
         { code: 'fa', label: 'دری', short: 'FA', rtl: true },
-        { code: 'ps', label: 'پښتو', short: 'PS', rtl: true }
+        { code: 'ps', label: 'پښتو', short: 'PS', rtl: true },
+        { code: 'ur', label: 'اردو', short: 'UR', rtl: true }
       ];
       function getLangFromPath() {
         try {
           const parts = location.pathname.split('/').filter(Boolean);
           const first = parts[0];
-          if (first && ['ar','fa','ps'].includes(first)) return first;
+          if (first && ['ar','fa','ps','ur'].includes(first)) return first;
           return null;
         } catch (_) { return null; }
       }
       const getLangFromUrl = () => {
-        // Prefer path segment (/ar/, /fa/, /ps), fallback to ?lang
+        // Prefer path segment (/ar/, /fa/, /ps, /ur), fallback to ?lang
         const fromPath = getLangFromPath();
         if (fromPath) return fromPath;
         try {
           const qp = new URLSearchParams(location.search).get('lang');
-          if (qp && ['ar','fa','ps'].includes(qp)) return qp;
+          if (qp && ['ar','fa','ps','ur'].includes(qp)) return qp;
         } catch (_) {}
         return null;
       };
@@ -419,7 +420,7 @@
         // Keep leading '' for root when splitting
         const filtered = parts.filter((p, idx) => {
           if (idx === 0) return true; // leading ''
-          return !['ar','fa','ps'].includes(p) && p !== '';
+          return !['ar','fa','ps','ur'].includes(p) && p !== '';
         });
         // Ensure we at least have '/'
         let path = filtered.join('/');
@@ -571,9 +572,9 @@
           document.documentElement.setAttribute('dir', lang.rtl ? 'rtl' : 'ltr');
           document.body && document.body.classList.toggle('rtl', !!lang.rtl);
         } catch (_) {}
-        // Only fetch translation files for ar, fa, ps
+        // Only fetch translation files for non-English supported languages
         const pageKey = getPageKey();
-        if (pageKey && (lang.code === 'ar' || lang.code === 'fa' || lang.code === 'ps')) {
+        if (pageKey && (lang.code === 'ar' || lang.code === 'fa' || lang.code === 'ps' || lang.code === 'ur')) {
           const t = await fetchPageTranslations(pageKey, lang.code);
           // Map common home keys to generic ones for consistent application
           let mapped = t ? { ...t } : {};
@@ -626,7 +627,7 @@
         });
       } catch (_) {}
 
-  // Determine initial language: honor explicit URL (/ar|/fa|/ps or ?lang=ar|fa|ps).
+  // Determine initial language: honor explicit URL (/ar|/fa|/ps|/ur or ?lang=ar|fa|ps|ur).
       // Do NOT auto-switch to a stored preference when landing at root — English is default.
   const explicit = getLangFromUrl();
   const storedPref = (function(){ try { return localStorage.getItem('siteLang'); } catch(_) { return null; }})();
