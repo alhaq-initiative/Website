@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="assets/images/manifest-quran.webmanifest">
-    <meta name="theme-color" content="#0A2540">
     <meta name="application-name" content="Quran Hub">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -158,26 +157,94 @@
                     <!-- Audio Player -->
                     <div class="mt-8" id="recitations">
                         <h3 class="text-xl font-bold text-brand-blue mb-4">Audio Recitation</h3>
-                        <div class="quran-reader-panel">
-                            <div class="flex flex-col gap-4">
-                                <div class="flex flex-col xl:flex-row xl:items-center gap-4">
-                                    <div class="flex items-center gap-2">
-                                        <label for="reciter-select" class="text-sm font-medium text-brand-blue">Reciter:</label>
-                                        <select id="reciter-select" class="border rounded px-3 py-2 text-sm w-full sm:w-72"></select>
-                                    </div>
-                                    <div class="flex flex-wrap items-center gap-2">
-                                        <button id="play-surah" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Play Surah</button>
-                                        <button id="play-ayahs" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm" title="Play ayah-by-ayah">Play Ayahs</button>
-                                        <button id="stop-audio" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm" title="Stop audio">Stop</button>
-                                        <button id="reload-audio" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Reload audio">Reload</button>
+                        <div class="quran-audio-grid">
+                            <section class="quran-reader-panel quran-audio-panel">
+                                <div class="quran-audio-head">
+                                    <div>
+                                        <p class="quran-panel-label">Media Controls</p>
+                                        <h4 class="text-lg font-bold text-brand-blue">Recitation Player</h4>
                                     </div>
                                     <div id="audio-status" class="text-xs text-gray-500" aria-live="polite"></div>
                                 </div>
+
+                                <div class="quran-audio-controls-wrap">
+                                    <div class="quran-control-field">
+                                        <label for="reciter-select" class="quran-field-label">Reciter</label>
+                                        <select id="reciter-select" class="border rounded px-3 py-2 text-sm w-full"></select>
+                                    </div>
+                                    <div class="quran-control-field quran-control-field-sm">
+                                        <label for="audio-speed" class="quran-field-label">Speed</label>
+                                        <select id="audio-speed" class="border rounded px-3 py-2 text-sm w-full">
+                                            <option value="0.75">0.75x</option>
+                                            <option value="1" selected>1x</option>
+                                            <option value="1.25">1.25x</option>
+                                            <option value="1.5">1.5x</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="quran-media-actions">
+                                    <button id="play-surah" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Play Surah</button>
+                                    <button id="play-ayahs" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm" title="Play ayah-by-ayah">Play Page Ayahs</button>
+                                    <button id="media-play-pause" class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 text-sm" title="Play/Pause">Play/Pause</button>
+                                    <button id="media-prev-ayah" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Previous ayah">Prev Ayah</button>
+                                    <button id="media-next-ayah" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Next ayah">Next Ayah</button>
+                                    <button id="media-back-5" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Back 5 seconds">-5s</button>
+                                    <button id="media-forward-5" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Forward 5 seconds">+5s</button>
+                                    <button id="reload-audio" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Reload audio">Reload</button>
+                                    <button id="stop-audio" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm" title="Stop audio">Stop</button>
+                                </div>
+
+                                <div id="audio-now-playing" class="quran-audio-now-playing">Ready to play.</div>
+
                                 <audio id="quran-audio" controls preload="none" class="w-full rounded bg-white">
                                     <source src="" type="audio/mpeg" />
                                     Your browser does not support the audio element.
                                 </audio>
-                            </div>
+                            </section>
+
+                            <section class="quran-reader-panel quran-audio-panel quran-hifz-panel">
+                                <div class="quran-audio-head">
+                                    <div>
+                                        <p class="quran-panel-label">Hifz Loop</p>
+                                        <h4 class="text-lg font-bold text-brand-blue">Memorization Range</h4>
+                                    </div>
+                                    <div id="hifz-status" class="text-xs text-gray-500" aria-live="polite"></div>
+                                </div>
+
+                                <div class="quran-control-field">
+                                    <label for="reciter-select-hifz" class="quran-field-label">Reciter (Hifz)</label>
+                                    <select id="reciter-select-hifz" class="border rounded px-3 py-2 text-sm w-full"></select>
+                                </div>
+
+                                <div class="quran-hifz-range-grid">
+                                    <div class="quran-control-field">
+                                        <label for="hifz-loop-start" class="quran-field-label">Start Ayah</label>
+                                        <input id="hifz-loop-start" type="number" min="1" class="border rounded px-3 py-2 text-sm w-full" placeholder="1" />
+                                    </div>
+                                    <div class="quran-control-field">
+                                        <label for="hifz-loop-end" class="quran-field-label">End Ayah</label>
+                                        <input id="hifz-loop-end" type="number" min="1" class="border rounded px-3 py-2 text-sm w-full" placeholder="7" />
+                                    </div>
+                                    <div class="quran-control-field">
+                                        <label for="hifz-repeat-count" class="quran-field-label">Repeat</label>
+                                        <select id="hifz-repeat-count" class="border rounded px-3 py-2 text-sm w-full">
+                                            <option value="3">3x</option>
+                                            <option value="5" selected>5x</option>
+                                            <option value="10">10x</option>
+                                            <option value="0">Infinite</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="quran-media-actions">
+                                    <button id="hifz-set-page-range" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Set start/end to current page">Use Current Page</button>
+                                    <button id="start-hifz-loop" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Start Hifz Loop</button>
+                                    <button id="stop-hifz-loop" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm">Stop Hifz Loop</button>
+                                </div>
+
+                                <p class="quran-hifz-help">Tip: choose a short range, set repeat count, then use Prev/Next Ayah to test memorization flow.</p>
+                            </section>
                         </div>
                     </div>
                 </div>

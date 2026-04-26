@@ -18,29 +18,35 @@ const pages = [
   
   // Products & Sub-products
   '/products.html',
-  '/shield/main.html',
+  '/amn-site/index.html',
+  '/amn-site/download/index.html',
+  '/amn-site/faq/index.html',
+  '/amn-site/support/index.html',
+  '/amn-site/docs/index.html',
+  '/amn-site/legal/privacy/index.html',
+  '/amn-site/legal/terms/index.html',
   '/deenhub.html',
   '/deenhub_join_beta.html',
   '/quranhub.html',
   
   // Legal & docs hubs
-  '/legal/docs.html',
+  '/docs.html',
   '/legal/privacy_hub.html',
   '/legal/terms_hub.html',
-  '/legal/support_hub.html',
+  '/support_hub.html',
   
   // DeenHub legal docs
   '/legal/deenhub_docs/deenhub_privacy_policy.html',
   '/legal/deenhub_docs/deenhub_terms.html',
-  
-  // Shield legal docs (English main pages)
-  '/legal/shield_docs/privacy-policies/mobile/index.html',
-  '/legal/shield_docs/privacy-policies/desktop/index.html',
-  '/legal/shield_docs/privacy-policies/extension/index.html',
-  '/legal/shield_docs/privacy-policies/manager/index.html',
-  '/legal/shield_docs/privacy-policies/en/main-privacy.html',
-  '/legal/shield_docs/terms/en/index.html',
-  '/legal/shield_docs/support/en/index.html'
+
+  // Canonical Amn legal docs under amn-site/
+  '/amn-site/legal/privacy/mobile/index.html',
+  '/amn-site/legal/privacy/desktop/index.html',
+  '/amn-site/legal/privacy/extension/index.html',
+  '/amn-site/legal/privacy/manager/index.html',
+  '/amn-site/legal/privacy/en/main-privacy.html',
+  '/amn-site/legal/terms/en/index.html',
+  '/amn-site/support/index.html'
 ];
 
 import http from 'node:http';
@@ -135,6 +141,12 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
       // At least one stylesheet link
       const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
       if (!hasCss) throw new Error('No stylesheet link found');
+      if (p === '/amn-site/index.html') {
+        const hasAmnCss = /\/amn-site\/assets\/css\/amn-redesign\.css/i.test(html);
+        const hasAmnLogo = /\/amn-site\/assets\/images\/logo\.png/i.test(html);
+        if (!hasAmnCss) throw new Error('Missing Amn stylesheet /amn-site/assets/css/amn-redesign.css');
+        if (!hasAmnLogo) throw new Error('Missing Amn logo /amn-site/assets/images/logo.png');
+      }
       console.log(`PASS ${p}`);
     } catch (e) {
       failures++;
@@ -150,3 +162,4 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
   }
   console.log('Smoke check passed');
 })();
+

@@ -82,9 +82,9 @@ The site now uses a single source‑of‑truth navigation template injected at r
 
 If the canonical domain changes, also update the `CANON_HOST` logic in `site.js` so the injected `<link rel="canonical">` remains correct.
 
-## AlHaq Shield Suite Notes (September 2025 Cleanup)
+## AmnShield Suite Notes (September 2025 Cleanup)
 
-The legacy "web app" surface for AlHaq Shield has been deprecated. The ecosystem now explicitly consists of:
+The legacy "web app" surface for AmnShield has been deprecated. The ecosystem now explicitly consists of:
 
 - Browser Extension
 - Mobile Apps (planned)
@@ -93,20 +93,20 @@ The legacy "web app" surface for AlHaq Shield has been deprecated. The ecosystem
 
 Key cleanup actions applied:
 
-1. Removed obsolete references to a generic "web app"; meta descriptions standardized to say "AlHaq Shield suite: Browser Extension, Mobile Apps, Desktop Manager & Desktop App".
-2. Standardized official contact emails across all AlHaq Shield pages:
+1. Removed obsolete references to a generic "web app"; meta descriptions standardized to say "AmnShield suite: Browser Extension, Mobile Apps, Desktop Manager & Desktop App".
+2. Standardized official contact emails across all AmnShield pages:
    - info@alhaq-initiative.org (general information)
    - contact@alhaq-initiative.org (general inquiries)
    - support@alhaq-initiative.org (technical/support)
 3. Replaced all instances of the legacy domain `support@alhaqds.software`.
-4. Injected the global `/assets/js/site.js` script into AlHaq Shield privacy/support/terms & product privacy pages for consistent:
+4. Injected the global `/assets/js/site.js` script into AmnShield privacy/support/terms & product privacy pages for consistent:
    - Canonical link handling
    - Lazy image & theme behaviors
    - Future global footer/email injection
-5. Added Contact + Donate quick links to AlHaq Shield footers for parity with the main site.
+5. Added Contact + Donate quick links to AmnShield footers for parity with the main site.
 6. Added Info / Contact / Support triad sections (or localized variants) to all privacy/support pages.
 
-If adding new AlHaq Shield product pages:
+If adding new AmnShield product pages:
 
 - Always include: `<script src="/assets/js/site.js" defer></script>` before other product scripts.
 - Use suite-consistent meta description pattern.
@@ -119,5 +119,5 @@ Testing:
 
 Future follow-ups:
 
-- Add automated smoke tests for AlHaq Shield localized pages (currently only core site pages covered).
+- Add automated smoke tests for AmnShield localized pages (currently only core site pages covered).
 - Introduce a shared partial/template system if duplication grows.

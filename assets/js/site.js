@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   'use strict';
   // Global site version (bump on big deploys)
   const SITE_VERSION = '20250927';
@@ -62,13 +62,16 @@
 
   // Init on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
-    // Inject unified navigation only on non-DeenShield paths.
-    // DeenShield pages manage their own complex header/SPA tabs and should not receive the global site nav.
+    // Inject unified navigation only on non-AmnShield paths.
+    // AmnShield pages manage their own complex header/SPA tabs and should not receive the global site nav.
     const pathLower = location.pathname.toLowerCase();
-    const skipGlobalNav = pathLower.startsWith('/shield/') || pathLower.startsWith('/legal/shield_docs/');
+    const hostLower = location.hostname.toLowerCase();
+    const isAmnHost = hostLower === 'amn.alhaq-initiative.org' || hostLower.endsWith('.amn.alhaq-initiative.org');
+    const isAmnExperience = isAmnHost || pathLower.startsWith('/amn-site') || !!document.querySelector('.amn-topbar');
+    const skipGlobalNav = pathLower.startsWith('/shield/') || pathLower.startsWith('/amn-site') || pathLower.startsWith('/legal/shield_docs/');
     if (!skipGlobalNav) {
       try {
-        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(229,231,235,0.9);">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Alhaq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Alhaq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a></li>\n        <li role="none"><a role="menuitem" href="products.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Products</a></li>\n        <li role="none"><a role="menuitem" href="shield/main.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">AlHaq Shield</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation" style="display:none;">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Services</a></li>\n          <li><a href="products.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Products</a></li>\n          <li><a href="shield/main.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">AlHaq Shield</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
+        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(229,231,235,0.9);">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Alhaq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Al-Haq_Logo.png" alt="Alhaq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Alhaq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Services</a></li>\n        <li role="none"><a role="menuitem" href="products.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Products</a></li>\n        <li role="none"><a role="menuitem" href="/amn-site/" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">AmnShield</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation" style="display:none;">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Services</a></li>\n          <li><a href="products.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Products</a></li>\n          <li><a href="/amn-site/" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">AmnShield</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
         const already = document.getElementById('site-global-header');
         if (!already) {
           const placeholder = document.getElementById('global-header');
@@ -102,7 +105,7 @@
         }
       } catch(_) { /* nav injection failure should not break page */ }
     }
-    // Accessibility: inject skip link (non-DeenShield) & ensure main landmarks
+    // Accessibility: inject skip link (non-AmnShield) & ensure main landmarks
     try {
       if (!skipGlobalNav) {
         const existingSkip = document.querySelector('.skip-link');
@@ -185,11 +188,12 @@
       document.head.appendChild(darkStyle);
     } catch(_) {}
     // 1) Apply saved theme or system preference and add bottom-left toggle
-    (function initGlobalTheme() {
+    if (!isAmnExperience) {
+      (function initGlobalTheme() {
       try {
         const STORAGE_KEY = 'siteTheme';
         const root = document.documentElement;
-  const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ds-theme'); // unify with DeenShield legacy
+  const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ds-theme'); // unify with AmnShield legacy
   // Default to light unless user has explicitly chosen
   const initial = (saved === 'dark' || saved === 'light') ? saved : 'light';
 
@@ -236,7 +240,7 @@
           });
           const updateThemeBtnIcon = () => {
             const dark = root.classList.contains('dark');
-            themeBtn.textContent = dark ? '☀️' : '🌙';
+            themeBtn.textContent = dark ? '\u2600\uFE0F' : '\uD83C\uDF19';
             themeBtn.setAttribute('aria-pressed', dark ? 'true':'false');
           };
           updateThemeBtnIcon();
@@ -251,7 +255,8 @@
           document.body.appendChild(dock);
         }
       } catch(_) {}
-    })();
+      })();
+    }
     hardenExternalLinks();
     enableLazyImages();
     prefetchOnHover();
@@ -388,18 +393,23 @@
       // no-op: do not break other enhancements if menu setup fails
     }
 
-    // Modern, floating language selector (English / العربية / دری / پښتو / اردو)
+    // Modern, floating language selector (English / Arabic / Dari / Pashto / Urdu)
+  if (!isAmnExperience) {
   (function setupLanguageSelector() {
       const LANGS = [
         { code: 'en', label: 'English', short: 'EN', rtl: false },
-        { code: 'ar', label: 'العربية', short: 'AR', rtl: true },
-        { code: 'fa', label: 'دری', short: 'FA', rtl: true },
-        { code: 'ps', label: 'پښتو', short: 'PS', rtl: true },
-        { code: 'ur', label: 'اردو', short: 'UR', rtl: true }
+        { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', short: 'AR', rtl: true },
+        { code: 'fa', label: '\u062F\u0631\u06CC', short: 'FA', rtl: true },
+        { code: 'ps', label: '\u067E\u069A\u062A\u0648', short: 'PS', rtl: true },
+        { code: 'ur', label: '\u0627\u0631\u062F\u0648', short: 'UR', rtl: true }
       ];
       function getLangFromPath() {
         try {
-          const parts = location.pathname.split('/').filter(Boolean);
+          const p = location.pathname.toLowerCase();
+          const amnLegalMatch = p.match(/^\/amn-site\/legal\/(privacy|terms)\/(en|ar|fa|ps)\/(index\.html|main-privacy\.html)$/);
+          if (amnLegalMatch) return amnLegalMatch[2];
+
+          const parts = p.split('/').filter(Boolean);
           const first = parts[0];
           if (first && ['ar','fa','ps','ur'].includes(first)) return first;
           return null;
@@ -444,21 +454,98 @@
           }
         } catch (_) {}
       }
-      function rewriteInternalLinks(_) {
-        // No-op: we only decorate the visible URL via history API to avoid breaking static hosting
+      function rewriteInternalLinks(langCode) {
+        try {
+          const here = location.pathname.toLowerCase();
+          const onAmnLegal = /^\/amn-site\/legal\/(privacy|terms)(\/|$)/.test(here);
+
+          document.querySelectorAll('a[href]').forEach((link) => {
+            const rawHref = link.getAttribute('href');
+            if (!rawHref || rawHref.startsWith('#') || /^(mailto:|tel:|javascript:)/i.test(rawHref)) return;
+
+            let url;
+            try {
+              url = new URL(rawHref, location.href);
+            } catch (_) {
+              return;
+            }
+
+            if (url.origin !== location.origin) return;
+            if (/\.(png|jpe?g|webp|svg|gif|css|js|json|pdf|xml|txt|zip|webmanifest)$/i.test(url.pathname)) return;
+
+            if (onAmnLegal) {
+              const target = url.pathname.toLowerCase();
+              const toPrivacy = /^\/amn-site\/legal\/privacy(\/|$)/.test(target);
+              const toTerms = /^\/amn-site\/legal\/terms(\/|$)/.test(target);
+              const supportedPathLang = ['ar', 'fa', 'ps'].includes(langCode);
+              if (toPrivacy || toTerms) {
+                if (toPrivacy) {
+                  url.pathname = supportedPathLang
+                    ? `/amn-site/legal/privacy/${langCode}/index.html`
+                    : '/amn-site/legal/privacy/index.html';
+                } else {
+                  url.pathname = supportedPathLang
+                    ? `/amn-site/legal/terms/${langCode}/index.html`
+                    : '/amn-site/legal/terms/index.html';
+                }
+                if (langCode && langCode !== 'en' && !supportedPathLang) {
+                  url.searchParams.set('lang', langCode);
+                } else {
+                  url.searchParams.delete('lang');
+                }
+                const rewritten = url.pathname + url.search + url.hash;
+                if (rawHref !== rewritten) link.setAttribute('href', rewritten);
+                return;
+              }
+            }
+
+            if (langCode && langCode !== 'en') {
+              url.searchParams.set('lang', langCode);
+            } else {
+              url.searchParams.delete('lang');
+            }
+
+            const normalized = url.pathname + url.search + url.hash;
+            if (rawHref !== normalized) {
+              link.setAttribute('href', normalized);
+            }
+          });
+        } catch (_) {}
       }
       const setLangInUrl = (code) => {
         try {
-          const pathWithout = getPathWithoutLang();
-          const targetPath = (code && code !== 'en') ? `/${code}${pathWithout === '/index.html' ? '/' : pathWithout}` : pathWithout;
           const url = new URL(location.href);
-          url.search = '';
-          url.pathname = targetPath;
+          const path = url.pathname.toLowerCase();
+          const onPrivacy = /^\/amn-site\/legal\/privacy(\/|$)/.test(path);
+          const onTerms = /^\/amn-site\/legal\/terms(\/|$)/.test(path);
+          const supportedPathLang = ['ar', 'fa', 'ps'].includes(code);
+
+          if (onPrivacy || onTerms) {
+            url.pathname = onPrivacy
+              ? (supportedPathLang ? `/amn-site/legal/privacy/${code}/index.html` : '/amn-site/legal/privacy/index.html')
+              : (supportedPathLang ? `/amn-site/legal/terms/${code}/index.html` : '/amn-site/legal/terms/index.html');
+
+            if (code && code !== 'en' && !supportedPathLang) {
+              url.searchParams.set('lang', code);
+            } else {
+              url.searchParams.delete('lang');
+            }
+            history.replaceState(null, '', url.toString());
+            return;
+          }
+
+          const pathWithout = getPathWithoutLang();
+          url.pathname = pathWithout;
+          if (code && code !== 'en') {
+            url.searchParams.set('lang', code);
+          } else {
+            url.searchParams.delete('lang');
+          }
           history.replaceState(null, '', url.toString());
         } catch (_) {}
       };
 
-  const getLang = () => getLangFromUrl() || localStorage.getItem('siteLang') || 'en';
+  const getLang = () => getLangFromUrl() || 'en';
       const findLang = (code) => LANGS.find(l => l.code === code) || LANGS[0];
 
       function reflectCurrentLangLabel(langCode) {
@@ -473,6 +560,10 @@
 
     const cache = {};
       function getPageKey() {
+        try {
+          const path = location.pathname.toLowerCase();
+          if (path.startsWith('/amn-site/')) return null;
+        } catch (_) {}
         const name = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
         if (name === '' || name === 'index.html') return 'home';
         if (name.includes('library')) return 'library';
@@ -490,8 +581,8 @@
     if (name.includes('privacy')) return 'privacy';
     if (name.includes('terms')) return 'terms';
     if (name.includes('support')) return 'support';
-  // DeenShield pages: handle both correct and legacy misspelling used in assets/Translations
-  // Deprecated: historic 'deenshield-app' (standalone web app) removed – keep only legacy misspelling mapping below.
+  // AmnShield pages: handle both correct and legacy misspelling used in assets/Translations
+  // Deprecated: historic 'deenshield-app' (standalone web app) removed â€“ keep only legacy misspelling mapping below.
   // If path uses correct spelling, map to legacy folder name to avoid 404
   if (name.includes('deenshield-extension')) return 'deensheild-extension';
   if (name.includes('deenshield')) return 'deensheild';
@@ -563,7 +654,7 @@
       async function applyLang(langCode) {
         // Capture previous language to avoid reload loops on EN
         const prevLang = (function(){
-          try { return getLangFromUrl() || localStorage.getItem('siteLang') || 'en'; } catch(_) { return 'en'; }
+          try { return getLangFromUrl() || 'en'; } catch(_) { return 'en'; }
         })();
         const lang = findLang(langCode);
         try { localStorage.setItem('siteLang', lang.code); } catch (_) {}
@@ -628,25 +719,21 @@
       } catch (_) {}
 
   // Determine initial language: honor explicit URL (/ar|/fa|/ps|/ur or ?lang=ar|fa|ps|ur).
-      // Do NOT auto-switch to a stored preference when landing at root — English is default.
+      // Do NOT auto-switch to a stored preference when landing at root â€” English is default.
   const explicit = getLangFromUrl();
   const storedPref = (function(){ try { return localStorage.getItem('siteLang'); } catch(_) { return null; }})();
   const initialLang = explicit || storedPref || 'en';
       // Ensure base and links are correct for initial load before applying
   ensureBaseForLangPrefix(initialLang);
   rewriteInternalLinks(initialLang);
-  if (explicit && initialLang !== 'en') {
+  if (initialLang !== 'en') {
         // Apply and normalize visible URL to path-prefix style
         applyLang(initialLang);
         setLangInUrl(initialLang);
-      } else if (!explicit && storedPref && storedPref !== 'en') {
-        // Honor stored language across the whole site when explicit is absent
-        applyLang(storedPref);
-        setLangInUrl(storedPref);
       } else {
         // Keep default English at '/'
         reflectCurrentLangLabel('en');
-        // Do not rewrite URL to '/index.html' for English
+        setLangInUrl('en');
       }
 
   // Inject floating language switcher (bottom-left) for consistency across pages
@@ -728,6 +815,7 @@
         document.body.appendChild(wrap);
       }
     })();
+  }
 
   // Header language dropdown removed; no binding necessary
 
@@ -765,12 +853,12 @@
             legal.style.marginTop = '0.75rem';
             legal.style.fontSize = '0.75rem';
             legal.style.textAlign = 'center';
-            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> · <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> · <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> · <a href="/legal/support_hub.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
+            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> &middot; <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> &middot; <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> &middot; <a href="/legal/support_hub.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
             footer.appendChild(legal);
           }
-          // Baseline privacy/terms if the footer does not already contain obvious links (skip DeenShield which has its own detailed set)
-            const isDeenShield = path.startsWith('/shield/');
-            if (!isDeenShield && !footer.querySelector('[data-global-privacy-terms]')) {
+          // Baseline privacy/terms if the footer does not already contain obvious links (skip AmnShield which has its own detailed set)
+            const isAmnShield = path.startsWith('/shield/');
+            if (!isAmnShield && !footer.querySelector('[data-global-privacy-terms]')) {
               const hasPrivacy = /privacy/i.test(footer.innerHTML);
               const hasTerms = /terms/i.test(footer.innerHTML);
               if (!hasPrivacy || !hasTerms) {
@@ -780,7 +868,7 @@
                 pt.style.fontSize = '0.7rem';
                 pt.style.opacity = '0.85';
                 pt.style.textAlign = 'center';
-                pt.innerHTML = `<a href="/legal/privacy_hub.html" style="color:#d1d5db;">Privacy</a> • <a href="/legal/terms_hub.html" style="color:#d1d5db;">Terms</a>`;
+                pt.innerHTML = `<a href="/legal/privacy_hub.html" style="color:#d1d5db;">Privacy</a> &middot; <a href="/legal/terms_hub.html" style="color:#d1d5db;">Terms</a>`;
                 footer.appendChild(pt);
               }
             }
@@ -809,7 +897,7 @@
       const inputs = Array.from(form.querySelectorAll('input,textarea'));
       const byName = new Map();
       inputs.forEach(el=>{ if(el.name) byName.set(el.name.toLowerCase(), el); });
-      // Honeypot (spam) field named 'website' (common pattern) – abort silently if filled
+      // Honeypot (spam) field named 'website' (common pattern) â€“ abort silently if filled
       if(byName.get('website') && byName.get('website').value.trim() !== '') { return; }
       const name = extractValue(byName, ['name','fullname']);
       const email = extractValue(byName, ['email','e-mail']);
@@ -845,3 +933,4 @@
     document.querySelectorAll(`form[action*='${LOGIC_APP_SIGNATURE}']`).forEach(bindForm);
   });
 })();
+

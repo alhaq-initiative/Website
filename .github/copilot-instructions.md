@@ -4,85 +4,88 @@ These notes help AI agents work productively in this codebase. Keep guidance con
 
 ## Big picture
 
-- Static multi-page site in root HTML files with shared assets under `assets/`. No bundler; vanilla JS and CSS.
-- A tiny optional Express API for local/demo endpoints (`api/server.js`, port 3001). Not required to serve the site.
-- PWA: `sw.js` caches core routes and serves `offline.html` on navigation failure. The service worker is registered in `assets/js/site.js`. Note: current hosting config redirects to the canonical domain; the SW mainly benefits local/offline preview.
-- i18n is client-side and file-based. For non-English (ar/fa/ps), per-page JSON is loaded from `assets/Translations/<pageKey>/<lang>.json` by `assets/js/site.js`. English is the static DOM and does not use JSON.
+- This is a static multi-page website served from the repo root. There is no bundler; pages are plain HTML with shared CSS and vanilla JS.
+- The primary shared site shell lives under `assets/`. Most root pages load `assets/js/site.js` plus at least one stylesheet from `assets/css/`.
+- The optional demo API lives in `api/server.js` and is not required for serving the site locally.
+- The root PWA service worker is `sw.js`. It caches shared site assets and falls back to `offline.html` for failed navigations.
+- Client-side i18n for the main site loads JSON from `assets/Translations/<pageKey>/<lang>.json` for non-English languages. English is authored directly in the HTML.
 
-## Key conventions and patterns
+## Main areas
 
-- Every HTML page must include the global script `assets/js/site.js` (Cypress and smoke checks require it) and at least one stylesheet link.
-- Global behaviors live in `assets/js/site.js`: service worker registration, canonical `<link rel="canonical">` injection (CANON_HOST `https://alhaq-initiative.org`), global theme toggle, floating language switcher, lazy images, nav active-state, and mobile menu toggle.
-- Page-specific scripts (when needed) live in `assets/js/<page>.js` (e.g., `home.js`, `quran.js`).
-- i18n mapping uses a per-page "pageKey" derived in `site.js` (see `getPageKey()`):
-	- Examples: `services.html → services`, `about.html → about`, `quran.html → quran`.
-	- DeenShield legacy spelling: `deenshield*` pages map to `deensheild` (and `deenshield-extension → deensheild-extension`) to match existing translation folder names.
-- Page-specific i18n hook: if a page defines `window._pageSetLanguage = (lang) => { ... }`, `site.js` calls it after core translations apply. Do not overwrite `window.setLanguage` directly—`site.js` virtualizes it.
-- RTL handling: switching to ar/fa/ps sets `<html dir="rtl" lang="…">` and toggles `body.rtl`.
-- Logic App forms: any `form[action*='workflows/2a3b358e4c614e2aaeb81efadcf9fa42']` is intercepted and submitted as JSON `{Name, Email, Message, Source}` with a `website` honeypot field.
+- Root pages: `index.html`, `about.html`, `services.html`, `products.html`, `library.html`, `help.html`, `contact.html`, `donate.html`, `quran.html`, `media.html`, and related pages in the repo root.
+- Shared main-site assets:
+  - JS: `assets/js/site.js` and page scripts like `assets/js/home.js`, `assets/js/quran.js`
+  - CSS: `assets/css/*.css`
+  - translations: `assets/Translations/**`
+- Amn site: `amn-site/`
+  - Canonical Amn landing page: `amn-site/index.html`
+  - Canonical Amn service routes: `amn-site/download/index.html`, `amn-site/faq/index.html`, `amn-site/support/index.html`, `amn-site/docs/index.html`
+  - Canonical Amn legal routes: `amn-site/legal/privacy/index.html`, `amn-site/legal/terms/index.html`
+  - Amn assets are namespaced under `amn-site/assets/` and should be referenced with `/amn-site/assets/...`
+- Legal hubs and long-form product legal docs live under `legal/`
+  - `legal/docs.html`, `legal/privacy_hub.html`, `legal/terms_hub.html`, `legal/support_hub.html`
+  - `legal/deenhub_docs/` for DeenHub legal pages
+  - `legal/deenshield_docs/` and `legal/shield_docs/` both exist in the repo; treat `legal/deenshield_docs/` as the maintained structure and `legal/shield_docs/` as compatibility/legacy unless the current page links require otherwise.
 
-## File layout highlights
+## Current Amn conventions
 
-- Global JS: `assets/js/site.js` (core), plus optional page scripts like `assets/js/home.js`, `assets/js/quran.js`.
-- Translations: `assets/Translations/<pageKey>/{ar,fa,ps}.json`. A Jest test (`tests/i18n-integrity.test.js`) enforces presence and minimal keys (must include `title`).
-- Quran reader: `assets/js/quran.js` consumes `assets/Quran_Data/Metadata.js` and `Quran.txt`, and streams audio from EveryAyah. It expects specific element IDs in `quran.html` (e.g., `surah-dropdown`, `quran-unified-list`, `translation-dropdown`).
-- DeenShield pages live under `/deenshield/` with their own assets and localized policy folders.
-- **Legal documents**: Organized under `/legal/` with two main subdirectories:
-  - `/legal/deenshield_docs/` - All DeenShield product legal documents (privacy policies, terms, support)
-    - `privacy-policies/` - Privacy policies for all DeenShield products (mobile, desktop, extension, manager) with multilingual versions (ar, fa, ps, en)
-    - `terms/` - Terms of service documents for all products with multilingual versions
-    - `support/` - Support documentation with multilingual versions
-  - `/legal/deenhub_docs/` - DeenHub product legal documents (privacy policy, terms)
-  - Legacy hub files in `/legal/` root: `privacy_hub.html`, `terms_hub.html`, `support_hub.html`, `docs.html` (central navigation pages)
+- Keep Amn site pages contained inside `amn-site/`.
+- Do not reintroduce `/shield/main.html` references.
+- Do not create new root-level Amn compatibility pages unless the user explicitly asks for them.
+- For Amn pages, prefer links like `/amn-site/...`.
+- For Amn assets, prefer:
+  - CSS: `/amn-site/assets/css/...`
+  - images: `/amn-site/assets/images/...`
+- The Amn site has its own service worker at `amn-site/sw.js`.
+- If you add or remove Amn assets, update `amn-site/sw.js` cache entries so they match the actual files on disk.
 
-## Developer workflows
+## Shared JS conventions
 
-- Serve the site locally (required for Cypress and PWA): use `npm run dev` (live-server on port 8080) or `npm run serve` (Python http.server on 8080). Cypress assumes `http://localhost:8080` (`cypress.config.js`).
-- Unit tests (Jest + jsdom): `npm test`. Setup is in `tests/setup.js`; coverage excludes DeenShield web-app paths.
-- Lightweight smoke check (Node HTTP pinger): `npm run smoke`. It verifies HTML pages reference `assets/js/site.js` and at least one stylesheet. Tests 30 key pages.
-- **Comprehensive tests (auto-discovery)**: `npm run test:comprehensive`. Automatically discovers all HTML files and tests:
-  - Required global scripts and stylesheets
-  - HTML structure and meta tags
-  - Accessibility basics (alt tags, semantic HTML, heading hierarchy)
-  - Performance hints (inline styles, script defer/async)
-  - i18n support (lang attributes, RTL)
-  - Internal link validation (checks all links are not broken)
-  - Runs on all ~52 HTML pages automatically
-  - Use `npm run test:comprehensive:verbose` for detailed info output
-  - Use `npm run test:all` to run Jest, smoke, and comprehensive tests in sequence
-- Cypress smoke tests: run via `npx cypress run --browser chrome --headless` or the workspace task "Run Cypress smoke tests". Ensure the local server is running first.
-- Optional API server for placeholders/demos: `npm run api` (or `npm run api:dev` for nodemon).
+- Every HTML page should include a global script reference to `assets/js/site.js` unless there is a very strong reason not to. Existing smoke checks expect it.
+- Global behavior for root pages lives in `assets/js/site.js`: service worker registration, canonical link injection, theme toggle, language switcher, lazy images, nav active state, and mobile menu behavior.
+- Main-site page-specific scripts live in `assets/js/<page>.js`.
+- Do not overwrite `window.setLanguage` directly. The shared script virtualizes language switching.
+- RTL languages (`ar`, `fa`, `ps`) should set `dir="rtl"` and update body/document state consistently.
 
-## Deployment
+## i18n notes
 
-- Firebase Hosting: serves static files from the repo root. `sw.js` is sent with `no-store` and assets under `/assets/**` with long-lived caching headers. If you need domain-level redirects to the canonical host, implement them at DNS/edge (not via a blanket Firebase redirect to avoid loops).
-- IIS on Azure VM (for subdomains): see `deploy/iis/README.md` for folder layout and bindings. Copy root site to `C:\inetpub\main`; DeenShield variants go to their respective folders.
+- Page keys are derived in `assets/js/site.js`.
+- Example mappings: `services.html -> services`, `about.html -> about`, `quran.html -> quran`.
+- Legacy spelling still matters for some translation folders: `deenshield*` routes/pages can map to `deensheild*` translation folders. Do not rename those translation directories unless you also update the mapping logic.
+- When adding a new translated page, add `ar.json`, `fa.json`, and `ps.json` with at least a non-empty `title` key.
 
-## Gotchas and tips
+## Tests and workflows
 
-- Adding a new page with translations: create the page HTML, ensure it includes `assets/js/site.js`, add `assets/Translations/<pageKey>/{ar,fa,ps}.json` with at least `{"title": "..."}`, and update `getPageKey()` in `assets/js/site.js` if your filename isn't auto-detected.
-- English is the default content; switching from a non-English language back to English triggers a one-time reload to restore static DOM content.
-- Service worker will cache aggressively; when editing PWA-related files locally, hard-reload or unregister the SW, or bump `CACHE_NAME` in `sw.js` to invalidate.
-- DeenShield translation folders intentionally use the legacy `deensheild` spelling—don't rename without updating the mapping and existing files.
-- If the canonical domain changes, update the CANON_HOST logic in `assets/js/site.js` so the injected `<link rel="canonical">` stays correct.
-- **Legal document navigation paths** (as of October 2025 restructuring):
-  - DeenShield privacy policies: `/legal/deenshield_docs/privacy-policies/{product}/index.html` (where product = mobile, desktop, extension, manager)
-  - DeenShield terms: `/legal/deenshield_docs/terms/{lang}/index.html` (where lang = en, ar, fa, ps)
-  - DeenShield support: `/legal/deenshield_docs/support/{lang}/index.html`
-  - Main privacy hub (all products): `/legal/deenshield_docs/privacy-policies/en/main-privacy.html`
-  - When updating legal documents, verify all internal navigation links use these canonical paths.
-  - Each product-specific privacy policy should include a comprehensive table of contents with anchor links to all major sections.
+- Local dev server: `npm run dev` on port 8080.
+- Optional simple server: `npm run serve`.
+- Jest tests: `npm test`.
+- Smoke checks: `npm run smoke`
+  - Verifies a curated set of important pages return HTML that includes `assets/js/site.js` and at least one stylesheet.
+  - Keep the smoke page list aligned with current canonical routes, especially for `amn-site/`.
+- Comprehensive checks: `npm run test:comprehensive`
+  - Auto-discovers HTML files and validates structure, stylesheets, scripts, accessibility basics, and internal links.
+  - If you change how directories are served, ensure the built-in test server still resolves directory URLs to `index.html`.
+- Full test pass: `npm run test:all`
 
-## Examples (from this repo)
+## Practical gotchas
 
-- `assets/js/site.js` injects the global stylesheet last to preserve theme overrides and installs the floating language switcher that the Cypress test uses.
-- `tests/i18n-integrity.test.js` enforces that each page folder under `assets/Translations/` has `ar.json`, `fa.json`, and `ps.json`, each with a non-empty `title`.
-- `tests/e2e-smoke.mjs` fetches `/, /about.html, /services.html, /library.html, …` and asserts a `<script src="assets/js/site.js">` tag exists.
-- Legal document structure example: `/legal/deenshield_docs/privacy-policies/mobile/index.html` includes:
-  - Blue-bordered table of contents linking to all sections via anchor IDs
-  - Green-highlighted User Data Protection Policy section with visual prominence
-  - Navigation header linking to terms, support, and main privacy hub using canonical paths
-  - Last updated date in format: `YYYY-MM-DD` (e.g., 2025-10-30)
+- Root pages and Amn pages use different asset namespaces. Do not mix them accidentally.
+- When fixing Amn styling issues, check for broken absolute paths first. `/assets/...` is usually wrong for Amn-specific CSS/images; `/amn-site/assets/...` is usually correct.
+- When removing files from `amn-site/`, verify they are not still listed in `amn-site/sw.js`.
+- The repo contains historical Amn/Shield artifacts. Before deleting anything, confirm the target is not referenced by smoke tests, legal hub pages, or service worker cache lists.
+- Service workers cache aggressively. After PWA-related changes, bump `CACHE_NAME` and hard-refresh the browser.
 
-If anything above is unclear or incomplete (e.g., missing pageKey mappings or new pages not covered), tell me which page or area you’re updating and I’ll refine these rules.
+## What to preserve
 
+- Keep changes minimal and scoped to the area being updated.
+- Preserve existing page structure and legal navigation unless the user asked for a structural cleanup.
+- Prefer canonical Amn routes under `amn-site/` over legacy shield-era paths.
+
+## Examples
+
+- A correct Amn stylesheet reference looks like: `/amn-site/assets/css/amn-redesign.css?v=20260426`
+- A correct Amn logo reference looks like: `/amn-site/assets/images/logo.png`
+- A correct Amn home link looks like: `/amn-site/`
+- A root-page global script reference looks like: `assets/js/site.js`
+
+If any of this becomes stale, update this file together with the affected tests so repo guidance and automation stay aligned.

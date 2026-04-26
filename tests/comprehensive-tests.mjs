@@ -309,20 +309,37 @@ async function ensureServer() {
   const server = http.createServer((req, res) => {
     const urlPath = decodeURIComponent(req.url.split('?')[0]);
     let filePath = urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
+    if (filePath.endsWith('/')) {
+      filePath += 'index.html';
+    }
     
     if (filePath.includes('..')) {
       res.writeHead(400);
       return res.end('Bad Request');
     }
     
-    const abs = path.join(rootDir, filePath);
-    fs.readFile(abs, (err, data) => {
+    let abs = path.join(rootDir, filePath);
+    let resolved = abs;
+    if (fs.existsSync(abs) && fs.statSync(abs).isDirectory()) {
+      resolved = path.join(abs, 'index.html');
+    }
+    if (!fs.existsSync(resolved) && !path.extname(resolved)) {
+      const htmlCandidate = resolved + '.html';
+      const dirCandidate = path.join(resolved, 'index.html');
+      if (fs.existsSync(htmlCandidate)) {
+        resolved = htmlCandidate;
+      } else if (fs.existsSync(dirCandidate)) {
+        resolved = dirCandidate;
+      }
+    }
+
+    fs.readFile(resolved, (err, data) => {
       if (err) {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         return res.end('Not found');
       }
       
-      const ext = path.extname(abs).toLowerCase();
+      const ext = path.extname(resolved).toLowerCase();
       const type = {
         '.html': 'text/html; charset=utf-8',
         '.js': 'application/javascript; charset=utf-8',
@@ -356,7 +373,7 @@ async function ensureServer() {
 
   // Discover all HTML files
   log(colors.cyan, 'Discovering HTML files...');
-  const excludeDirs = ['node_modules', '.git', 'tests', 'cypress', 'deploy', 'DeenShield-Desktop-Manager'];
+  const excludeDirs = ['node_modules', '.git', 'tests', 'cypress', 'deploy', 'AmnShield-Desktop-Manager'];
   const allPages = discoverHtmlFiles(rootDir, rootDir, excludeDirs);
   
   log(colors.green, `Found ${allPages.length} HTML pages\n`);

@@ -2,13 +2,13 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Run DeenShield Desktop Manager",
+			"label": "Run AmnShield Desktop Manager",
 			"type": "shell",
 			"command": "npm",
 			"args": [
 				"start",
 				"--prefix",
-				"DeenShield-Desktop-Manager"
+				"AmnShield-Desktop-Manager"
 			],
 			"isBackground": false,
 			"problemMatcher": [
