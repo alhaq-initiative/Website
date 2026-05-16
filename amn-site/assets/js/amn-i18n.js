@@ -583,9 +583,190 @@
     if (key === 'terms') applyTerms(lang);
   }
 
+  function buildLangUrl(lang) {
+    const p = location.pathname.toLowerCase();
+    const q = new URLSearchParams(location.search);
+    q.delete('lang');
+
+    if (/^\/amn-site\/legal\/privacy(\/|$)/.test(p)) {
+      if (lang === 'en') return '/amn-site/legal/privacy/index.html';
+      if (lang === 'ar' || lang === 'fa' || lang === 'ps') return '/amn-site/legal/privacy/' + lang + '/index.html';
+      return '/amn-site/legal/privacy/index.html?lang=' + encodeURIComponent(lang);
+    }
+
+    if (/^\/amn-site\/legal\/terms(\/|$)/.test(p)) {
+      if (lang === 'en') return '/amn-site/legal/terms/index.html';
+      if (lang === 'ar' || lang === 'fa' || lang === 'ps') return '/amn-site/legal/terms/' + lang + '/index.html';
+      return '/amn-site/legal/terms/index.html?lang=' + encodeURIComponent(lang);
+    }
+
+    if (lang !== 'en') q.set('lang', lang);
+    const query = q.toString();
+    return location.pathname + (query ? '?' + query : '');
+  }
+
+  function getInitialThemeMode() {
+    try {
+      const saved = localStorage.getItem('siteTheme') || localStorage.getItem('ds-theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (_) {}
+    return 'light';
+  }
+
+  function applyThemeMode(mode) {
+    const dark = mode === 'dark';
+
+    document.documentElement.classList.toggle('dark', dark);
+    if (document.body) document.body.classList.toggle('dark', dark);
+
+    try {
+      localStorage.setItem('siteTheme', mode);
+      localStorage.setItem('ds-theme', mode);
+    } catch (_) {}
+  }
+
+  function mountAmnFloatingControls(initialLang) {
+    const oldDock = document.getElementById('amn-preferences-dock');
+    if (oldDock) oldDock.remove();
+
+    let dock = document.getElementById('global-preferences-dock');
+    if (!dock) {
+      dock = document.createElement('div');
+      dock.id = 'global-preferences-dock';
+      Object.assign(dock.style, {
+        position: 'fixed', left: '1rem', bottom: '1rem', zIndex: '9999',
+        display: 'flex', gap: '8px', alignItems: 'center'
+      });
+
+      const themeBtn = document.createElement('button');
+      themeBtn.id = 'global-theme-btn';
+      themeBtn.type = 'button';
+      themeBtn.title = 'Toggle theme';
+      themeBtn.setAttribute('aria-label', 'Toggle color theme');
+      themeBtn.setAttribute('aria-pressed', 'false');
+      Object.assign(themeBtn.style, {
+        width: '44px', height: '44px', borderRadius: '9999px', cursor: 'pointer',
+        border: '1px solid rgba(212, 175, 55, 0.5)',
+        background: 'rgba(255,255,255,0.9)', color: '#0A2540', fontWeight: '700',
+        backdropFilter: 'blur(8px)', boxShadow: '0 6px 16px rgba(0,0,0,0.12)'
+      });
+
+      const updateThemeBtnIcon = function () {
+        const dark = document.documentElement.classList.contains('dark');
+        themeBtn.textContent = dark ? '\u2600\uFE0F' : '\uD83C\uDF19';
+        themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      };
+
+      updateThemeBtnIcon();
+      themeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const nowDark = !document.documentElement.classList.contains('dark');
+        applyThemeMode(nowDark ? 'dark' : 'light');
+        updateThemeBtnIcon();
+      });
+
+      dock.appendChild(themeBtn);
+      document.body.appendChild(dock);
+    }
+
+    if (!document.getElementById('global-lang-switcher')) {
+      const wrap = document.createElement('div');
+      wrap.id = 'global-lang-switcher';
+      wrap.setAttribute('aria-live', 'polite');
+      wrap.style.position = 'fixed';
+      wrap.style.left = '1.0rem';
+      wrap.style.bottom = '4.5rem';
+      wrap.style.zIndex = '9999';
+
+      const btn = document.createElement('button');
+      btn.id = 'global-lang-btn';
+      btn.setAttribute('aria-haspopup', 'true');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.title = 'Change language';
+      Object.assign(btn.style, {
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        width: '44px', height: '44px', borderRadius: '9999px', cursor: 'pointer',
+        border: '1px solid rgba(212, 175, 55, 0.5)', background: 'rgba(255,255,255,0.9)',
+        backdropFilter: 'blur(8px)', boxShadow: '0 6px 16px rgba(0,0,0,0.12)', color: '#0A2540', fontWeight: '700'
+      });
+
+      const shortMap = { en: 'EN', ar: 'AR', fa: 'FA', ps: 'PS', ur: 'UR' };
+      btn.textContent = shortMap[initialLang] || 'EN';
+
+      const menu = document.createElement('div');
+      menu.id = 'global-lang-menu';
+      menu.setAttribute('role', 'menu');
+      Object.assign(menu.style, {
+        position: 'absolute', bottom: '56px', left: '0', minWidth: '160px', padding: '6px',
+        borderRadius: '12px', border: '1px solid rgba(212,175,55,0.4)', background: 'rgba(255,255,255,0.98)',
+        boxShadow: '0 12px 24px rgba(0,0,0,0.12)', display: 'none'
+      });
+
+      [
+        { code: 'en', label: 'English', short: 'EN' },
+        { code: 'ar', label: '\u0627\u0644\u0639\u0631\u0628\u064A\u0629', short: 'AR' },
+        { code: 'fa', label: '\u062F\u0631\u06CC', short: 'FA' },
+        { code: 'ps', label: '\u067E\u069A\u062A\u0648', short: 'PS' },
+        { code: 'ur', label: '\u0627\u0631\u062F\u0648', short: 'UR' }
+      ].forEach(function (l) {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.setAttribute('role', 'menuitem');
+        Object.assign(item.style, {
+          display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between',
+          gap: '8px', padding: '8px 10px', borderRadius: '8px', border: 'none', background: 'transparent',
+          cursor: 'pointer', color: '#0A2540', fontWeight: '600'
+        });
+        item.innerHTML = '<span>' + l.label + '</span><span style="opacity:.7;font-size:12px;">' + l.short + '</span>';
+        item.addEventListener('mouseenter', function () { item.style.background = 'rgba(212,175,55,0.08)'; });
+        item.addEventListener('mouseleave', function () { item.style.background = 'transparent'; });
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          btn.textContent = l.short;
+          try { localStorage.setItem('siteLang', l.code); } catch (_) {}
+          const url = buildLangUrl(l.code);
+          const current = location.pathname + location.search;
+          menu.style.display = 'none';
+          btn.setAttribute('aria-expanded', 'false');
+          if (url !== current) {
+            location.href = url;
+            return;
+          }
+          applyAmnLanguage(l.code);
+        });
+        menu.appendChild(item);
+      });
+
+      const toggleMenu = function (show) {
+        const want = typeof show === 'boolean' ? show : (menu.style.display === 'none');
+        menu.style.display = want ? 'block' : 'none';
+        btn.setAttribute('aria-expanded', want ? 'true' : 'false');
+      };
+
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      }, { capture: true });
+
+      document.addEventListener('click', function (e) {
+        if (!wrap.contains(e.target)) toggleMenu(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') toggleMenu(false);
+      });
+
+      wrap.appendChild(btn);
+      wrap.appendChild(menu);
+      document.body.appendChild(wrap);
+    }
+  }
+
   window.applyAmnLanguage = applyAmnLanguage;
   window.setLanguage = applyAmnLanguage;
 
   const initial = detectLang();
+  applyThemeMode(getInitialThemeMode());
+  mountAmnFloatingControls(initial);
   applyAmnLanguage(initial);
 })();

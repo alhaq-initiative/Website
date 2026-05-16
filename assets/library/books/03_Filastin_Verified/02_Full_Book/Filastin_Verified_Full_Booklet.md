@@ -5,4 +5,4 @@
 ---
 
 *Afrasyaab Meranai (Habibur Rahman)*  
-*Al-Haq Initiative · ADS Solutions (Alhaq Digital Services & Solutions — UK sole trader)*
+*Al-Haq Initiative · ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader)*

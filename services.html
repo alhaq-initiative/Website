@@ -1,101 +1,177 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="light scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Alhaq Initiative</title>
-    
+    <title>Projects — Al-Haq Initiative | Ongoing Research & Development</title>
+    <meta name="description" content="Al-Haq Initiative projects: ongoing research, software development, and media work — Faith Sellers, Lessons from Islamic Civilization, and more.">
+
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="assets/images/site.webmanifest">
-    <meta name="theme-color" content="#ffffff">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="theme-color" content="#0A2540">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN + design-system config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary:                  "#0A2540",
+                    "on-primary":             "#ffffff",
+                    "primary-container":      "#c8d8f0",
+                    "on-primary-container":   "#0A2540",
+                    secondary:                "#D4AF37",
+                    "on-secondary":           "#0A2540",
+                    "secondary-container":    "#fdf3c7",
+                    "on-secondary-container": "#5a460a",
+                    "surface-container-lowest":  "#ffffff",
+                    "surface-container-low":     "#f5f7fb",
+                    "surface-container":         "#edf0f6",
+                    "surface-container-high":    "#e3e8f0",
+                    "surface-container-highest": "#d6dce8",
+                    "surface-bright":            "#fafbfd",
+                    "on-surface":                "#111827",
+                    "on-surface-variant":        "#4b5563",
+                    "outline":                   "#6b7280",
+                    "outline-variant":           "#d1d5db",
+                    background:                  "#f8f9fc",
+                    "inverse-surface":           "#1e2a3a",
+                    "inverse-on-surface":        "#9ca3af",
+                    "error":                     "#b91c1c",
+                    "on-error":                  "#ffffff",
+                },
+                borderRadius: {
+                    DEFAULT: "0.125rem",
+                    lg:      "0.25rem",
+                    xl:      "0.5rem",
+                    full:    "0.75rem",
+                },
+                spacing: {
+                    "container-max":  "1280px",
+                    gutter:           "24px",
+                    "margin-desktop": "40px",
+                    "section-gap":    "80px",
+                    "margin-mobile":  "16px",
+                    base:             "8px",
+                    "content-gap":    "32px",
+                },
+                fontFamily: {
+                    display:  ["Source Serif 4", "Georgia", "serif"],
+                    headline: ["Source Serif 4", "Georgia", "serif"],
+                    body:     ["Inter", "sans-serif"],
+                    label:    ["Inter", "sans-serif"],
+                    arabic:   ["Amiri", "serif"],
+                },
+                fontSize: {
+                    "display-lg":  ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                    "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                    "body-lg":     ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                    "body-md":     ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                    "label-md":    ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                    "label-sm":    ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                },
+            }
+        }
+    };
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { background-color: #f8f9fc; color: #111827; }
+    </style>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/portfolio-layout.css">
 </head>
-<body class="antialiased">
+<body class="font-body text-body-md antialiased bg-background">
     <header id="global-header"></header>
-    <main class="pt-32 pb-20">
+    <main class="pt-20 pb-section-gap">
         <section class="fade-in-section">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="text-center mb-10">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-3">Projects</h1>
-                    <div class="w-24 h-1 bg-brand-gold mx-auto rounded mb-5"></div>
-                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">The Alhaq Initiative project portfolio &mdash; academic research, software, and media work. Things that are <strong>available today</strong> live on the <a href="products.html" class="text-brand-blue underline">Products &amp; Services</a> page.</p>
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="mb-12">
+                    <h1 class="font-display text-display-lg text-primary mb-4">Projects</h1>
+                    <p class="font-body-lg text-on-surface-variant max-w-3xl">The Al-Haq Initiative project portfolio — ongoing research, software development, and media work. <strong>Available products &amp; services</strong> are on the <a href="products.html" class="text-primary underline hover:text-secondary">Products & Services</a> page.</p>
                 </div>
 
                 <!-- Ongoing Projects -->
-                <h2 id="ongoing" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4 scroll-mt-28">Ongoing Projects</h2>
-                <p class="text-gray-700 mb-6">Active research and development, not yet released.</p>
-                <div class="grid md:grid-cols-2 gap-6 mb-12">
-                    <!-- Featured sprint -->
-                    <div class="glass-card p-6 text-left border-2 border-brand-gold">
-                        <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">⚡ Active Sprint &middot; Independent Book</span>
-                        <h3 class="text-2xl font-bold text-brand-blue mt-1 mb-1">Filastin Verified <span class="text-base text-gray-500">(فلسطين الموثّقة)</span></h3>
-                        <p class="text-gray-700">A primary-source investigation into the historical, legal, and moral status of Palestine &mdash; from the first 7th-century conquest through the Yusufian restoration and into modern international law. Evidence-led, source-cited.</p>
-                        <a href="library.html#books" class="inline-block mt-3 text-sm font-semibold text-brand-blue underline hover:text-brand-gold">View in Library &rarr;</a>
-                        <p class="text-xs text-gray-500 mt-2">Authored personally by Afrasyaab Meranai (Habibur Rahman).</p>
+                <h2 id="ongoing" class="font-headline text-headline-lg text-primary mb-3 scroll-mt-28">Ongoing Projects</h2>
+                <p class="text-on-surface-variant mb-8">Active research and development, not yet released. <a href="products.html" class="text-primary underline hover:text-secondary">Available products & services</a> are on the Products & Services page.</p>
+                <div class="grid md:grid-cols-2 gap-6 mb-16">
+                    <!-- Faith Sellers -->
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors">
+                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm">Academic · Translation · Book Library</span>
+                        <h3 class="font-headline text-headline-md text-primary mt-2 mb-2">Faith Sellers <span class="text-body-md font-body text-on-surface-variant">(بائعي القدر)</span></h3>
+                        <p class="text-on-surface-variant mb-3">Long-term translation and cross-referencing of Saladin's history against contemporary chroniclers (Ibn Shaddad, Ibn al-Athir, Ibn Khallikan).</p>
+                        <a href="library.html#books" class="text-secondary underline hover:text-primary font-label-md">Read episodes →</a>
                     </div>
-                    <div class="glass-card p-6 text-left">
-                        <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Academic &middot; Translation &middot; Book Library</span>
-                        <h3 class="text-2xl font-bold text-brand-blue mt-1 mb-1">Faith Sellers <span class="text-base text-gray-500">(بائعي القدر)</span></h3>
-                        <p class="text-gray-700">Long-term translation and cross-referencing of Saladin&rsquo;s history against contemporary chroniclers (Ibn Shaddad, Ibn al-Athir, Ibn Khallikan).</p>
-                        <a href="library.html#books" class="inline-block mt-3 text-sm font-semibold text-brand-blue underline hover:text-brand-gold">Read episodes &rarr;</a>
+                    <!-- Al-Nawadir al-Sultaniyya -->
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors">
+                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm">Academic · Translation · Book Library</span>
+                        <h3 class="font-headline text-headline-md text-primary mt-2 mb-2">Al-Nawadir al-Sultaniyya <span class="text-body-md font-body text-on-surface-variant">(النوادر السلطانية)</span></h3>
+                        <p class="text-on-surface-variant mb-3">Chapter-by-chapter translation of Ibn Shaddad's biography of Saladin, cross-referenced against parallel primary Arabic chronicles.</p>
+                        <a href="library.html#books" class="text-secondary underline hover:text-primary font-label-md">View in Library →</a>
                     </div>
-                    <div class="glass-card p-6 text-left">
-                        <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Academic &middot; Translation &middot; Book Library</span>
-                        <h3 class="text-2xl font-bold text-brand-blue mt-1 mb-1">Al-Nawadir al-Sultaniyya <span class="text-base text-gray-500">(النوادر السلطانية)</span></h3>
-                        <p class="text-gray-700">Chapter-by-chapter translation of Ibn Shaddad&rsquo;s biography of Saladin, cross-referenced against parallel primary Arabic chronicles.</p>
-                        <a href="library.html#books" class="inline-block mt-3 text-sm font-semibold text-brand-blue underline hover:text-brand-gold">View in Library &rarr;</a>
+                    <!-- Lessons from Islamic Civilization -->
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors">
+                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm">Academic · Booklet Series</span>
+                        <h3 class="font-headline text-headline-md text-primary mt-2 mb-2">Lessons from Islamic Civilization</h3>
+                        <p class="text-on-surface-variant mb-3">Multimedia companion booklets exploring academic and moral contributions of Islamic history.</p>
+                        <a href="library.html" class="text-secondary underline hover:text-primary font-label-md">Coming to Library →</a>
                     </div>
-                    <div class="glass-card p-6 text-left">
-                        <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Mobile App &middot; Beta &middot; AI</span>
-                        <h3 class="text-2xl font-bold text-brand-blue mt-1 mb-1">DeenHub Mobile App <span class="text-base text-gray-500">(includes Quran Hub)</span></h3>
-                        <p class="text-gray-700">Unified Islamic productivity companion &mdash; prayer times, Qibla, adhkaar, daily deen tools, and the <strong>Quran Hub</strong> feature: AI-assisted recitation feedback and memorization practice, powered by our in-house <strong>TaleemAI</strong> engine. Android-first beta today, with a companion web app planned. <a href="/deenhub.html" class="text-brand-blue underline">About DeenHub</a> &middot; <a href="/quranhub.html" class="text-brand-blue underline">Quran Hub feature</a> &middot; <a href="/deenhub_join_beta.html" class="text-brand-blue underline">Join the beta &rarr;</a></p>
-                        <p class="text-xs text-gray-500 mt-2">Developed by ADS Solutions (Alhaq Digital Services &amp; Solutions &mdash; UK sole trader).</p>
-                    </div>
-                    <div class="glass-card p-6 text-left">
-                        <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Media &middot; Research</span>
-                        <h3 class="text-2xl font-bold text-brand-blue mt-1 mb-1">Documentary Snippets</h3>
-                        <p class="text-gray-700">Visual breakdowns of primary-source manuscripts; companion content to the Book Library.</p>
+                    <!-- The Caretaker's Guide -->
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors">
+                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm">Educational · Survival Guide</span>
+                        <h3 class="font-headline text-headline-md text-primary mt-2 mb-2">The Caretaker's Guide</h3>
+                        <p class="text-on-surface-variant mb-3">Historical perspective and practical guidance for young people (14+) in high-tension environments.</p>
+                        <a href="library.html" class="text-secondary underline hover:text-primary font-label-md">Coming to Library →</a>
                     </div>
                 </div>
 
                 <!-- Future Missions -->
-                <h2 id="missions" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4 scroll-mt-28">Future Missions</h2>
-                <p class="text-gray-700 mb-6">Planned initiatives that align with the mission &mdash; Truth in history, Protection in the present, Resilience for the community.</p>
+                <h2 id="missions" class="font-headline text-headline-lg text-primary mb-3 scroll-mt-28">Future Missions</h2>
+                <p class="text-on-surface-variant mb-8">Planned initiatives aligned with our mission: Truth in history, Protection in the present, Resilience for the community.</p>
                 <div class="grid md:grid-cols-2 gap-6 mb-12">
-                    <div class="glass-card p-6 text-left">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Historical Media Series</h3>
-                        <p class="text-gray-700">Acapella / vocal-only video and audio narrating verified stories from primary sources. No instrumental music.</p>
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+                        <h3 class="font-headline text-headline-md text-primary mb-2">Historical Media Series</h3>
+                        <p class="text-on-surface-variant">Acapella / vocal-only video and audio narrating verified stories from primary sources. No instrumental music.</p>
                     </div>
-                    <div class="glass-card p-6 text-left">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Educational Series</h3>
-                        <p class="text-gray-700">Multimedia companions to Al-Haq Initiative book projects, connecting written research to accessible educational media.</p>
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+                        <h3 class="font-headline text-headline-md text-primary mb-2">Educational Series</h3>
+                        <p class="text-on-surface-variant">Multimedia companions to Al-Haq Initiative book projects, connecting written research to accessible educational media.</p>
                     </div>
-                    <div class="glass-card p-6 text-left">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Research Blog</h3>
-                        <p class="text-gray-700">Real-time updates on historical cross-referencing work and translation milestones.</p>
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+                        <h3 class="font-headline text-headline-md text-primary mb-2">Research Blog</h3>
+                        <p class="text-on-surface-variant">Real-time updates on historical cross-referencing work and translation milestones.</p>
                     </div>
-                    <div class="glass-card p-6 text-left">
-                        <h3 class="text-xl font-bold text-brand-blue mb-1">Organization Conversion</h3>
-                        <p class="text-gray-700">Long-term plan to convert the Alhaq Initiative into a registered <strong>organization</strong> (not a charity). Currently a personal effort hosted under ADS Solutions (UK sole trader).</p>
+                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+                        <h3 class="font-headline text-headline-md text-primary mb-2">Organization Conversion</h3>
+                        <p class="text-on-surface-variant">Long-term plan to convert Al-Haq Initiative into a registered <strong>organization</strong> (not a charity). Currently hosted under ADS Solutions (UK sole trader).</p>
                     </div>
                 </div>
 
-                <!-- Available Now -->
-                <div class="text-center mt-8">
-                    <a href="products.html" class="inline-block bg-brand-gold text-brand-blue font-semibold py-2 px-5 rounded-lg hover:bg-yellow-400 transition">See what&rsquo;s available today &rarr;</a>
+                <!-- Available Now CTA -->
+                <div class="text-center mt-12">
+                    <a href="products.html" class="inline-block bg-secondary text-primary font-label-md py-3 px-6 hover:bg-opacity-90 transition">See what's available today →</a>
                 </div>
             </div>
         </section>
@@ -116,7 +192,7 @@
       </div>
     </section>
         <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Alhaq Initiative</h3>
+            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
             <p class="mt-2">&copy; 2026 ADS Solutions &amp; Afrasyaab Meranai. All rights reserved.</p>
         </div>
     </footer>

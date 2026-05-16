@@ -12,11 +12,11 @@ if (!window.navigator || !window.navigator.geolocation) {
   });
 }
 // Basic test for the website functionality
-describe('Alhaq Initiative Website', () => {
+describe('Al-Haq Initiative Website', () => {
   test('should load basic HTML structure', () => {
     document.body.innerHTML = `
       <div id="test-container">
-  <h1>Alhaq Initiative</h1>
+  <h1>Al-Haq Initiative</h1>
         <p>Islamic Digital Solutions</p>
       </div>
     `;
@@ -25,7 +25,7 @@ describe('Alhaq Initiative Website', () => {
     const paragraph = document.querySelector('p');
     
     expect(heading).toBeInTheDocument();
-  expect(heading.textContent).toBe('Alhaq Initiative');
+  expect(heading.textContent).toBe('Al-Haq Initiative');
     expect(paragraph.textContent).toBe('Islamic Digital Solutions');
   });
 

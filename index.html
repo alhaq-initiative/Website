@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="light scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alhaq Initiative</title>
+    <title>Al-Haq Initiative — Seeking Truth in History, Protecting Health in the Present</title>
+    <meta name="description" content="The Al-Haq Initiative: primary-source historical research, Islamic digital tools, and community protection resources from ADS Solutions.">
 
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -13,194 +14,372 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="assets/images/site.webmanifest">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN + design-system config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary:                  "#0A2540",
+                    "on-primary":             "#ffffff",
+                    "primary-container":      "#c8d8f0",
+                    "on-primary-container":   "#0A2540",
+                    secondary:                "#D4AF37",
+                    "on-secondary":           "#0A2540",
+                    "secondary-container":    "#fdf3c7",
+                    "on-secondary-container": "#5a460a",
+                    "surface-container-lowest":  "#ffffff",
+                    "surface-container-low":     "#f5f7fb",
+                    "surface-container":         "#edf0f6",
+                    "surface-container-high":    "#e3e8f0",
+                    "surface-container-highest": "#d6dce8",
+                    "surface-bright":            "#fafbfd",
+                    "on-surface":                "#111827",
+                    "on-surface-variant":        "#4b5563",
+                    "outline":                   "#6b7280",
+                    "outline-variant":           "#d1d5db",
+                    background:                  "#f8f9fc",
+                    "inverse-surface":           "#1e2a3a",
+                    "inverse-on-surface":        "#9ca3af",
+                    "error":                     "#b91c1c",
+                    "on-error":                  "#ffffff",
+                },
+                borderRadius: {
+                    DEFAULT: "0.125rem",
+                    lg:      "0.25rem",
+                    xl:      "0.5rem",
+                    full:    "0.75rem",
+                },
+                spacing: {
+                    "container-max":  "1280px",
+                    gutter:           "24px",
+                    "margin-desktop": "40px",
+                    "section-gap":    "80px",
+                    "margin-mobile":  "16px",
+                    base:             "8px",
+                    "content-gap":    "32px",
+                },
+                fontFamily: {
+                    display: ["Source Serif 4", "Georgia", "serif"],
+                    headline: ["Source Serif 4", "Georgia", "serif"],
+                    body:     ["Inter", "sans-serif"],
+                    label:    ["Inter", "sans-serif"],
+                    arabic:   ["Amiri", "serif"],
+                },
+                fontSize: {
+                    "display-lg":  ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                    "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                    "body-lg":     ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                    "body-md":     ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                    "label-md":    ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                    "label-sm":    ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                },
+            }
+        }
+    };
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { background-color: #f8f9fc; color: #111827; }
+        /* Fade-in animation kept from existing site */
+        .fade-in-section { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+    </style>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/home.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
-    
 </head>
-<body class="antialiased">
+<body class="font-body text-body-md antialiased">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header id="global-header"></header>
-    <main>
-        <section class="islamic-hero bg-brand-blue text-white pt-32 pb-20">
-            <div class="hero-bg container mx-auto px-6 text-center relative rounded-2xl shadow-xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Islamic architecture" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
-                <div class="relative z-10 py-20">
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">Building a Digital Future, Rooted in Faith.</h1>
-                    <p class="mt-4 text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow">Alhaq Initiative leverages technology to create meaningful tools that enrich our connection to the Deen.</p>
-                                        <div class="mt-6">
-                                            <a href="/deenhub_join_beta.html" class="inline-flex items-center gap-2 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition shadow">
-                                                <span>Join DeenHub Beta</span>
-                                            </a>
-                                        </div>
+
+    <main id="main-content">
+
+        <!-- ══════════════════════════════════════
+             HERO
+        ══════════════════════════════════════ -->
+        <section class="relative bg-surface-container overflow-hidden pt-20 pb-32 fade-in-section">
+            <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-content-gap items-center relative z-10">
+                <!-- Left: headline + CTAs -->
+                <div class="lg:col-span-7">
+                    <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary mb-4 block">Al-Haq Initiative &mdash; مبادرة الحق</span>
+                    <h1 class="font-display text-display-lg text-primary mb-6 leading-tight">Seeking Truth in History, Protecting&nbsp;Health in&nbsp;the&nbsp;Present.</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">A digital and literary movement rooted in primary-source research and Islamic values &mdash; building tools that protect the community and preserve the truth of our past.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="library.html" class="bg-primary text-white px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-on-primary-container transition-colors">Explore the Library</a>
+                        <a href="deenhub_join_beta.html" class="border border-primary text-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Join DeenHub Beta</a>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-3" aria-label="Quick links">
+                        <a href="services.html" class="text-label-sm text-on-surface-variant underline hover:text-secondary">View Projects</a>
+                        <a href="products.html" class="text-label-sm text-on-surface-variant underline hover:text-secondary">View Products &amp; Services</a>
+                        <a href="contact.html" class="text-label-sm text-on-surface-variant underline hover:text-secondary">Contact</a>
+                    </div>
+                </div>
+                <!-- Right: feature card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="bg-primary text-white p-10 relative overflow-hidden">
+                        <span class="material-symbols-outlined text-secondary text-6xl mb-4 block" aria-hidden="true">auto_stories</span>
+                        <h2 class="font-headline text-headline-md mb-3">Faith Sellers</h2>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Our flagship research project &mdash; a cross-referenced translation of Saladin's era through the lenses of Ibn Shaddad, Ibn al-Athir, and contemporary chroniclers.</p>
+                        <a href="library.html#books" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary flex items-center hover:underline">Read the Research <span class="material-symbols-outlined ml-2 text-sm" aria-hidden="true">arrow_forward</span></a>
+                        <!-- decorative dot grid -->
+                        <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-secondary text-primary p-6 hidden md:block">
+                        <div class="text-3xl font-display mb-1">Free</div>
+                        <div class="font-label-sm text-label-sm uppercase tracking-wider text-primary/80">All Resources</div>
+                    </div>
+                </div>
+            </div>
+            <!-- background dot grid -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 32px 32px;"></div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             STATS BENTO
+        ══════════════════════════════════════ -->
+        <section class="py-section-gap max-w-container-max mx-auto px-margin-desktop fade-in-section" aria-label="Initiative highlights">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="md:col-span-2 bg-surface-container-lowest border border-outline-variant p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" aria-hidden="true">menu_book</span>
+                        <h3 class="font-headline text-headline-md text-primary mb-2">Book Library</h3>
+                        <p class="text-on-surface-variant">Primary-source research, verified translations, and historical investigations — all free to read and reference.</p>
+                    </div>
+                    <a href="library.html#books" class="mt-8 font-label-sm text-label-sm text-secondary uppercase tracking-widest flex items-center hover:underline">
+                        Enter Library <span class="material-symbols-outlined ml-2 text-sm" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="bg-primary text-white p-8">
+                    <h4 class="font-display text-4xl mb-4">3+</h4>
+                    <p class="font-label-sm text-label-sm uppercase tracking-widest opacity-70">Active Book Series</p>
+                </div>
+                <div class="bg-surface-container-high border border-outline-variant p-8">
+                    <h4 class="font-display text-4xl mb-4 text-primary">100%</h4>
+                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Free to Access</p>
+                </div>
+                <div class="bg-surface-container-lowest border border-outline-variant p-8">
+                    <span class="material-symbols-outlined text-secondary text-4xl mb-4" aria-hidden="true">shield</span>
+                    <h4 class="font-headline text-headline-md text-primary mb-2">AmnShield</h4>
+                    <p class="text-on-surface-variant text-sm">Digital protection tools for habit management and spiritual wellbeing.</p>
+                </div>
+                <div class="md:col-span-2 bg-surface-container-low border border-outline-variant p-8 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="font-headline text-headline-md text-primary mb-2">DeenHub Mobile App</h3>
+                        <p class="text-on-surface-variant max-w-sm">Prayer times, Qibla, adhkaar, productivity tools, and Quran Hub — AI recitation feedback powered by TaleemAI.</p>
+                        <a href="deenhub.html" class="mt-4 inline-flex items-center font-label-sm text-label-sm text-secondary uppercase tracking-widest hover:underline">Learn More <span class="material-symbols-outlined ml-2 text-sm" aria-hidden="true">arrow_forward</span></a>
+                    </div>
+                    <span class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl opacity-5 text-primary" aria-hidden="true">phone_android</span>
+                </div>
+                <div class="bg-secondary text-primary p-8">
+                    <h4 class="font-display text-4xl mb-4">Beta</h4>
+                    <p class="font-label-sm text-label-sm uppercase tracking-widest opacity-80">DeenHub — Join Now</p>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="islamic-section py-20 fade-in-section">
-            <div class="container mx-auto px-6 text-center max-w-4xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue">Our Mission</h2>
-                <div class="mt-4 w-24 h-1 bg-brand-gold mx-auto rounded"></div>
-                <p class="mt-8 text-lg text-gray-700 leading-relaxed">
-                    At Alhaq Initiative, our mission is to fuse state-of-the-art technology with the timeless wisdom of our faith. We are dedicated to developing innovative digital solutions that are not only technologically advanced but also spiritually enriching, helping users deepen their knowledge and practice of Islam in the modern world.
-                </p>
-            </div>
-        </section>
-
-                <section id="pillars" class="islamic-section py-20 bg-white fade-in-section">
-                        <div class="container mx-auto px-6 text-center">
-                                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Our Pillars</h2>
-                                <div class="mt-4 w-24 h-1 bg-brand-gold mx-auto rounded mb-6"></div>
-                                <p class="max-w-3xl mx-auto text-gray-700 mb-10">Seeking Truth in History, Protecting Health in the Present.</p>
-                                <div class="grid md:grid-cols-3 gap-8">
-                                    <div class="glass-card p-6 text-left">
-                                        <h3 class="text-xl font-bold text-brand-blue mb-2">Truth in History</h3>
-                                        <p class="text-gray-700">Validate historical narratives through primary-source research and cross-referencing.</p>
-                                    </div>
-                                    <div class="glass-card p-6 text-left">
-                                        <h3 class="text-xl font-bold text-brand-blue mb-2">Protection in the Present</h3>
-                                        <p class="text-gray-700">Tools that protect the mental and spiritual health of the community, like AmnShield.</p>
-                                    </div>
-                                    <div class="glass-card p-6 text-left">
-                                        <h3 class="text-xl font-bold text-brand-blue mb-2">Resilience for the Community</h3>
-                                        <p class="text-gray-700">Free educational works and media that strengthen identity and stewardship.</p>
-                                    </div>
-                                </div>
-                        </div>
-                </section>
-
-                <!-- Projects portfolio preview -->
-                <section id="projects-preview" class="islamic-section py-20 fade-in-section">
-                    <div class="container mx-auto px-6">
-                        <div class="text-center max-w-3xl mx-auto mb-10">
-                            <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-3">Projects Portfolio</h2>
-                            <div class="w-24 h-1 bg-brand-gold mx-auto rounded mb-5"></div>
-                            <p class="text-gray-700">Ongoing research and software, plus future missions. See the full <a href="services.html" class="text-brand-blue underline">Projects portfolio</a>.</p>
-                        </div>
-                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <a href="library.html#books" class="glass-card p-5 block group">
-                                <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Ongoing &middot; Book Library</span>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mt-1 mb-1">Faith Sellers</h3>
-                                <p class="text-gray-700 text-sm">Translation and cross-referencing of Saladin&rsquo;s history against contemporary chroniclers.</p>
-                            </a>
-                            <a href="library.html#books" class="glass-card p-5 block group">
-                                <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Ongoing &middot; Book Library</span>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mt-1 mb-1">Lessons from Islamic Civilization</h3>
-                                <p class="text-gray-700 text-sm">Booklets on academic and moral contributions of the past.</p>
-                            </a>
-                            <a href="library.html#books" class="glass-card p-5 block group">
-                                <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Ongoing &middot; Book Library</span>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mt-1 mb-1">The Caretaker&rsquo;s Guide</h3>
-                                <p class="text-gray-700 text-sm">Survival and historical perspective for young people (14+) in high-tension environments.</p>
-                            </a>
-                            <a href="services.html#ongoing" class="glass-card p-5 block group">
-                                <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Ongoing &middot; Media &middot; Research</span>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mt-1 mb-1">Documentary Snippets</h3>
-                                <p class="text-gray-700 text-sm">Visual manuscript breakdowns and short source-based explainers from active research tracks.</p>
-                            </a>
-                            <a href="services.html#missions" class="glass-card p-5 block group">
-                                <span class="text-xs uppercase tracking-wide text-brand-gold font-semibold">Future &middot; Mission</span>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mt-1 mb-1">Historical Media Series</h3>
-                                <p class="text-gray-700 text-sm">Acapella / vocal-only video and audio narrating verified stories. No instrumental music.</p>
-                            </a>
-                        </div>
-                        <div class="text-center mt-8">
-                            <a href="services.html" class="inline-block bg-brand-gold text-brand-blue font-semibold py-2 px-5 rounded-lg hover:bg-yellow-400 transition">Explore all projects</a>
-                        </div>
+        <!-- ══════════════════════════════════════
+             FEATURED PROJECTS
+        ══════════════════════════════════════ -->
+        <section class="bg-surface-container-low py-section-gap fade-in-section">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div class="max-w-2xl">
+                        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2 block">From the Library</span>
+                        <h2 class="font-headline text-headline-lg text-primary">Research Projects &amp; Books</h2>
                     </div>
-                </section>
+                    <a href="services.html" class="font-label-sm text-label-sm uppercase tracking-widest text-primary flex items-center hover:text-secondary transition-colors">
+                        View All Projects <span class="material-symbols-outlined ml-2" aria-hidden="true">list_alt</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 
-                <!-- Products overview / summary -->
-                <section id="products-overview" class="islamic-section py-16 bg-gray-50 fade-in-section">
-                    <div class="container mx-auto px-6">
-                        <div class="text-center max-w-3xl mx-auto">
-                            <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-3">Products &amp; Services</h2>
-                            <p class="text-gray-700 mb-8">Tools and services available today. Premium options on AmnShield and professional engagements from <strong>ADS Solutions</strong> help fund the initiative&rsquo;s ongoing projects. <span class="text-brand-blue font-semibold">Quran Hub (feature)</span> is part of DeenHub, while <span class="text-brand-blue font-semibold">Quran Hub Reader</span> is a separate web app.</p>
+                    <!-- Faith Sellers -->
+                    <div class="bg-surface-container-lowest border border-outline-variant group hover:border-secondary transition-colors">
+                        <div class="h-40 bg-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary text-7xl" aria-hidden="true">history_edu</span>
                         </div>
-                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                            <div class="glass-card p-5 block product-preview-group lg:col-span-2">
-                                <p class="text-xs uppercase tracking-wide text-brand-gold font-semibold mb-1">App Ecosystem &middot; Beta</p>
-                                <h3 class="text-2xl font-bold text-brand-blue mb-2">DeenHub Mobile App <span class="text-base text-gray-500">(includes Quran Hub feature)</span></h3>
-                                <p class="text-gray-700 text-sm mb-4">Prayer times, Qibla, adhkaar, productivity tools, and <strong>Quran Hub</strong> for AI recitation feedback and memorization practice (powered by our in-house <strong>TaleemAI</strong> engine).</p>
-                                <div class="product-preview-actions">
-                                    <a href="/deenhub.html" class="product-chip-link">Open DeenHub</a>
-                                    <a href="/quranhub.html" class="product-chip-link">Quran Hub feature</a>
-                                    <a href="/deenhub_join_beta.html" class="product-chip-link">Join beta</a>
-                                </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span class="bg-surface-container-high text-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-tighter">Ongoing · Book</span>
+                                <span class="bg-surface-container-high text-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-tighter">History</span>
                             </div>
-
-                            <a href="quran.html" class="glass-card p-5 block group">
-                                <p class="text-xs uppercase tracking-wide text-brand-gold font-semibold mb-1">Web App &middot; Free</p>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">Quran Hub Reader</h3>
-                                <p class="text-gray-700 text-sm">Standalone Quran web app for reading, translation, and recitation listening.</p>
-                            </a>
-
-                            <a href="products.html#amnshield" class="glass-card p-5 block group">
-                                <p class="text-xs uppercase tracking-wide text-brand-gold font-semibold mb-1">Protection Suite &middot; Freemium</p>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">AmnShield Suite</h3>
-                                <p class="text-gray-700 text-sm">Filtering and focus tools across browser, desktop, and mobile experiences.</p>
-                            </a>
-
-                            <a href="products.html#available-services" class="glass-card p-5 block group">
-                                <p class="text-xs uppercase tracking-wide text-brand-gold font-semibold mb-1">Professional Services</p>
-                                <h3 class="text-xl font-bold text-brand-blue group-hover:text-brand-gold mb-1">ADS Digital Solutions</h3>
-                                <p class="text-gray-700 text-sm">Web development, security hardening, infrastructure, and custom Islamic app delivery.</p>
-                            </a>
-                        </div>
-                        <div class="text-center mt-8">
-                            <a href="products.html" class="inline-block bg-brand-gold text-brand-blue font-semibold py-2 px-5 rounded-lg hover:bg-yellow-400 transition">Explore all products &amp; services</a>
+                            <h3 class="font-headline text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Faith Sellers <span class="font-arabic text-base font-normal">(بائعي القدر)</span></h3>
+                            <p class="text-on-surface-variant text-sm mb-6">A cross-referenced translation of Saladin's era, drawing on Ibn Shaddad, Ibn al-Athir, and contemporary primary sources.</p>
+                            <div class="pt-6 border-t border-outline-variant flex justify-between items-center">
+                                <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-widest">Free · Primary Sources</span>
+                                <a href="library.html#books" class="text-primary group-hover:text-secondary" aria-label="Read Faith Sellers"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span></a>
+                            </div>
                         </div>
                     </div>
-                </section>
 
-                <section id="support" class="islamic-section py-20 bg-gradient-to-br from-green-50 to-green-100 fade-in-section">
-            <div class="container mx-auto px-6 text-center max-w-2xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-4">Support Our Work</h2>
-                <div class="mt-4 w-24 h-1 bg-green-400 mx-auto rounded mb-8"></div>
-                <p class="text-lg text-gray-700 mb-6">Your donation helps us continue building meaningful digital tools for the community. Every contribution, big or small, makes a difference.</p>
-                <a href="donate.html" class="glass-button flex items-center justify-center gap-2 py-3 px-8 font-bold text-brand-blue bg-brand-gold hover:bg-yellow-400 rounded-full shadow-lg transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21C12 21 7 16.5 7 12.5C7 9.5 9.5 7 12 7C14.5 7 17 9.5 17 12.5C17 16.5 12 21 12 21Z" /></svg>
-                                    Support Us
-                </a>
+                    <!-- Lessons from Islamic Civilization -->
+                    <div class="bg-surface-container-lowest border border-outline-variant group hover:border-secondary transition-colors">
+                        <div class="h-40 bg-surface-container-high flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-7xl" aria-hidden="true">school</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span class="bg-surface-container-high text-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-tighter">Ongoing · Booklet</span>
+                                <span class="bg-surface-container-high text-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-tighter">Civilisation</span>
+                            </div>
+                            <h3 class="font-headline text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Lessons from Islamic Civilization</h3>
+                            <p class="text-on-surface-variant text-sm mb-6">Booklets exploring the academic, moral, and scientific contributions of Islamic civilization — grounded in verified sources.</p>
+                            <div class="pt-6 border-t border-outline-variant flex justify-between items-center">
+                                <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-widest">Free · Academic</span>
+                                <a href="library.html#books" class="text-primary group-hover:text-secondary" aria-label="Read Lessons from Islamic Civilization"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Caretaker's Guide -->
+                    <div class="bg-surface-container-lowest border border-outline-variant group hover:border-secondary transition-colors">
+                        <div class="h-40 bg-surface-container flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary text-7xl" aria-hidden="true">shield_person</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4">
+                                <span class="bg-surface-container-high text-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-tighter">Ongoing · Guide</span>
+                                <span class="bg-surface-container-high text-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-tighter">Youth 14+</span>
+                            </div>
+                            <h3 class="font-headline text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">The Caretaker's Guide</h3>
+                            <p class="text-on-surface-variant text-sm mb-6">A survival guide and historical perspective for young people (14+) navigating high-tension environments — with wisdom from Islamic sources.</p>
+                            <div class="pt-6 border-t border-outline-variant flex justify-between items-center">
+                                <span class="text-[11px] font-label-md text-on-surface-variant uppercase tracking-widest">Free · Youth</span>
+                                <a href="library.html#books" class="text-primary group-hover:text-secondary" aria-label="Read The Caretaker's Guide"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
-        <!-- Contact section removed; use contact.html page instead -->
+        <!-- ══════════════════════════════════════
+             MISSION PILLARS
+        ══════════════════════════════════════ -->
+        <section id="pillars" class="py-section-gap max-w-container-max mx-auto px-margin-desktop fade-in-section">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-content-gap items-center">
+                <div class="space-y-8">
+                    <div>
+                        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2 block">Our Focus</span>
+                        <h2 class="font-headline text-headline-lg text-primary mb-4">Three Mission Pillars</h2>
+                        <p class="text-body-lg text-on-surface-variant">Every project at the Al-Haq Initiative aligns with one of three pillars, ensuring our work serves both truth and community wellbeing.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-6 border border-outline-variant bg-surface-container-lowest flex gap-6 hover:bg-surface-container-low transition-colors">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary text-white flex items-center justify-center">
+                                <span class="material-symbols-outlined" aria-hidden="true">history_edu</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md font-bold text-primary uppercase tracking-wider mb-1">Truth in History</h4>
+                                <p class="text-sm text-on-surface-variant">Validate historical narratives through primary-source research and cross-referencing — free from political distortion.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 border border-outline-variant bg-surface-container-lowest flex gap-6 hover:bg-surface-container-low transition-colors">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary text-white flex items-center justify-center">
+                                <span class="material-symbols-outlined" aria-hidden="true">shield</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md font-bold text-primary uppercase tracking-wider mb-1">Protection in the Present</h4>
+                                <p class="text-sm text-on-surface-variant">Digital tools — like AmnShield — that protect mental and spiritual health, and help the community build positive habits.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 border border-outline-variant bg-surface-container-lowest flex gap-6 hover:bg-surface-container-low transition-colors">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary text-white flex items-center justify-center">
+                                <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md font-bold text-primary uppercase tracking-wider mb-1">Resilience for the Community</h4>
+                                <p class="text-sm text-on-surface-variant">Free educational works, media, and research that strengthen identity, scholarship, and communal stewardship.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <a href="products.html#amnshield" class="bg-surface-container-lowest border border-outline-variant p-8 group hover:border-secondary transition-colors block">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-4 block" aria-hidden="true">security</span>
+                        <h4 class="font-headline text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">AmnShield</h4>
+                        <p class="text-sm text-on-surface-variant">Freemium habit protection suite — browser, desktop, and mobile.</p>
+                    </a>
+                    <a href="deenhub.html" class="bg-primary text-white p-8 group hover:opacity-95 transition-opacity block">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-4 block" aria-hidden="true">phone_android</span>
+                        <h4 class="font-headline text-headline-md mb-2">DeenHub</h4>
+                        <p class="text-sm text-white/70">Islamic productivity app with Quran Hub (TaleemAI). Android beta.</p>
+                    </a>
+                    <a href="quran.html" class="bg-surface-container-high border border-outline-variant p-8 group hover:border-secondary transition-colors block">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block" aria-hidden="true">menu_book</span>
+                        <h4 class="font-headline text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Quran Hub Reader</h4>
+                        <p class="text-sm text-on-surface-variant">Standalone web app — read, translate, listen.</p>
+                    </a>
+                    <a href="products.html#available-services" class="bg-secondary text-primary p-8 group hover:opacity-95 transition-opacity block">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block" aria-hidden="true">code</span>
+                        <h4 class="font-headline text-headline-md mb-2">ADS Solutions</h4>
+                        <p class="text-sm text-primary/70">Web development, security, and Islamic app delivery.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             SUPPORT CTA
+        ══════════════════════════════════════ -->
+        <section id="support" class="bg-primary py-section-gap fade-in-section">
+            <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+                <h2 class="font-display text-4xl text-white mb-6">Support the Initiative</h2>
+                <p class="text-white/70 max-w-2xl mx-auto mb-10 text-body-lg">Donations and sponsorships support the founder's ongoing work on Al-Haq Initiative projects. Every contribution helps keep all resources free. <em>Delivered under ADS Solutions — UK sole trader.</em></p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="donate.html" class="bg-secondary text-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-opacity">Donate / Sponsor</a>
+                    <a href="about.html" class="border border-white/30 text-white px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-white/10 transition-colors">About the Initiative</a>
+                </div>
+                <p class="text-white/40 mt-8 text-[10px] uppercase tracking-widest">All resources remain free. Donations are personal sole-trader income reinvested in projects.</p>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Removed duplicate #donate section; use #support section for donations -->
-
-    <footer class="islamic-footer bg-gray-800 text-white mt-20">
+<footer class="islamic-footer bg-gray-800 text-white mt-20">
 
     <!-- Library Links Section -->
-    <section class="bg-white py-8 border-t border-gray-200">
+        <section class="bg-surface-container-lowest py-8 border-t border-outline-variant" aria-label="Library quick links">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-2xl font-bold text-brand-blue mb-4">Explore Our Library</h2>
         <div class="flex flex-wrap justify-center gap-4">
           <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Quran Hub</a>
-          <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Hadith</a>
+                    <a href="library.html#hadith" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Hadith</a>
           <a href="media.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Media</a>
-          <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Articles</a>
-          <a href="#" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Books</a>
-          <a href="all-infographics.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">InfoGraphics</a>
+                    <a href="library.html#articles" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Articles</a>
+                    <a href="library.html#books" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Books</a>
+                    <a href="all-infographics.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Infographics</a>
         </div>
       </div>
     </section>
         <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Alhaq Initiative</h3>
+            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
                 <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
-                <a href="products.html" class="text-gray-300 hover:text-brand-gold transition">Products</a>
+                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Projects</a>
+                <a href="products.html" class="text-gray-300 hover:text-brand-gold transition">Products &amp; Services</a>
                 <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
                 <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
                 <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
@@ -220,11 +399,11 @@
         </div>
     </footer>
 
-    <button id="feedback-btn" class="fixed z-50 bottom-6 right-6 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-400 transition-all">Report / Feedback</button>
-    <div id="feedback-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative">
+    <button id="feedback-btn" aria-controls="feedback-modal" aria-label="Open report and feedback form" class="fixed z-50 bottom-6 right-6 bg-brand-gold text-brand-blue font-bold py-3 px-6 rounded-full shadow-lg hover:bg-yellow-400 transition-all">Report / Feedback</button>
+    <div id="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative" tabindex="-1">
             <button id="close-feedback" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
-            <h2 class="text-2xl font-bold text-brand-blue mb-2">Report / Feedback</h2>
+            <h2 id="feedback-modal-title" class="text-2xl font-bold text-brand-blue mb-2">Report / Feedback</h2>
             <form id="contact-form" action="https://prod-10.ukwest.logic.azure.com/workflows/2a3b358e4c614e2aaeb81efadcf9fa42/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wvDTY-sb321VZ3q7R88UL5zGCYkJMBpU-X_MfNnnEqg" method="POST" autocomplete="off" class="flex flex-col gap-4" data-source="/index.html#feedback">
                 <input type="text" name="website" class="hidden-input" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Do not fill this field">
                 <input type="text" name="Name" placeholder="Your Name (optional)" class="glass-input py-2 px-3 border border-gray-300" />

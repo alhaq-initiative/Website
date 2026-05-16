@@ -134,7 +134,7 @@ app.use('*', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Alhaq Initiative API running on port ${PORT}`);
+  console.log(`🚀 Al-Haq Initiative API running on port ${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
   console.log(`🕌 Prayer times: http://localhost:${PORT}/api/prayer-times?lat=40.7128&lng=-74.0060`);
   console.log(`📖 Quran verse: http://localhost:${PORT}/api/quran/verse/1/1`);

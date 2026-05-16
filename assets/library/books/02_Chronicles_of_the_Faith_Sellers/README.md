@@ -83,4 +83,4 @@ carefully — anything you hand-edited in the repo will be lost.
 
 Authored by **Afrasyaab Meranai (Habibur Rahman)**.
 Delivered via the Al-Haq Initiative under **ADS Solutions**
-(*Alhaq Digital Services & Solutions* — UK sole trader).
+(*Al-Haq Digital Services & Solutions* — UK sole trader).

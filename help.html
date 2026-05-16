@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="light scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help & FAQ - Alhaq Initiative</title>
+    <title>Help & FAQ — Al-Haq Initiative</title>
+    <meta name="theme-color" content="#0A2540">
     
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -13,16 +14,21 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="assets/images/site.webmanifest">
-    <meta name="theme-color" content="#ffffff">
     
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+    tailwind.config = {darkMode:"class",theme:{extend:{colors:{primary:"#0A2540",secondary:"#D4AF37","surface-container":"#edf0f6","on-surface":"#111827","on-surface-variant":"#4b5563",background:"#f8f9fc"},fontFamily:{display:["Source Serif 4","Georgia","serif"],body:["Inter","sans-serif"],label:["Inter","sans-serif"]},spacing:{"container-max":"1280px","margin-desktop":"40px","section-gap":"80px"}}}};
+    </script>
+    <style>body{background-color:#f8f9fc;color:#111827}</style>
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/help.css">
 </head>
-<body class="antialiased">
+<body class="font-body text-body-md antialiased bg-background">
     <header id="global-header"></header>
     <main class="pt-32 pb-20 bg-gray-50 min-h-screen">
         <section class="fade-in-section">
@@ -32,22 +38,22 @@
                 <div class="glass-card p-6 text-left shadow-lg">
                     <h2 id="faqHeading" class="text-2xl font-bold text-brand-blue mb-4">Frequently Asked Questions</h2>
                     <!-- About (ADS) -->
-                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">About Alhaq Initiative</h3>
+                    <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">About Al-Haq Initiative</h3>
                     <div class="mb-4 faq-item">
-                        <h4 class="font-semibold text-brand-blue faq-q">What is Alhaq Initiative?</h4>
-                        <p class="text-gray-700 faq-a">Alhaq Initiative (مبادرة الحق) is a personal initiative for &ldquo;Seeking the Truth&rdquo; &mdash; truth in history and protection in the present. It publishes free academic research, booklets, and digital tools. Learn more on the <a href="about.html" class="text-brand-blue underline hover:text-brand-gold">About</a> page.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">What is Al-Haq Initiative?</h4>
+                        <p class="text-gray-700 faq-a">Al-Haq Initiative (مبادرة الحق) is a personal initiative for &ldquo;Seeking the Truth&rdquo; &mdash; truth in history and protection in the present. It publishes free academic research, booklets, and digital tools. Learn more on the <a href="about.html" class="text-brand-blue underline hover:text-brand-gold">About</a> page.</p>
                     </div>
                     <div class="mb-4 faq-item">
-                        <h4 class="font-semibold text-brand-blue faq-q">Who runs Alhaq Initiative?</h4>
-                        <p class="text-gray-700 faq-a"><strong>Afrasyaab Meranai</strong> &mdash; known casually as <strong>Habibur Rahman</strong> &mdash; is the sole founder, developer, and writer. He owns and operates both <strong>ADS Solutions</strong> (his UK sole-trader business) and the Alhaq Initiative brand.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">Who runs Al-Haq Initiative?</h4>
+                        <p class="text-gray-700 faq-a"><strong>Afrasyaab Meranai</strong> &mdash; known casually as <strong>Habibur Rahman</strong> &mdash; is the sole founder, developer, and writer. He owns and operates both <strong>ADS Solutions</strong> (his UK sole-trader business) and the Al-Haq Initiative brand.</p>
                     </div>
                     <div class="mb-4 faq-item">
-                        <h4 class="font-semibold text-brand-blue faq-q">Is Alhaq Initiative a charity, non-profit, or organization?</h4>
-                        <p class="text-gray-700 faq-a">No. Alhaq Initiative is <strong>not</strong> a charity, non-profit, NGO, or registered organization. It is a personal effort hosted under <strong>ADS Solutions</strong> (UK sole trader). The founder may later convert it into a registered organization, but that has not happened yet.</p>
+                        <h4 class="font-semibold text-brand-blue faq-q">Is Al-Haq Initiative a charity, non-profit, or organization?</h4>
+                        <p class="text-gray-700 faq-a">No. Al-Haq Initiative is <strong>not</strong> a charity, non-profit, NGO, or registered organization. It is a personal effort hosted under <strong>ADS Solutions</strong> (UK sole trader). The founder may later convert it into a registered organization, but that has not happened yet.</p>
                     </div>
                     <div class="mb-4 faq-item">
                         <h4 class="font-semibold text-brand-blue faq-q">What is ADS Solutions?</h4>
-                        <p class="text-gray-700 faq-a">ADS Solutions is the founder&rsquo;s UK sole-trader business. It builds and delivers all software, products, and professional services associated with Alhaq Initiative (web development, security, infrastructure, custom Islamic apps, consulting). See <a href="products.html" class="text-brand-blue underline hover:text-brand-gold">Products &amp; Services</a>.</p>
+                        <p class="text-gray-700 faq-a">ADS Solutions is the founder&rsquo;s UK sole-trader business. It builds and delivers all software, products, and professional services associated with Al-Haq Initiative (web development, security, infrastructure, custom Islamic apps, consulting). See <a href="products.html" class="text-brand-blue underline hover:text-brand-gold">Products &amp; Services</a>.</p>
                     </div>
                     <div class="mb-4 faq-item">
                         <h4 class="font-semibold text-brand-blue faq-q">Who writes the academic and literary work?</h4>
@@ -93,7 +99,7 @@
                     </div>
                     <div class="mb-4 faq-item">
                         <h4 class="font-semibold text-brand-blue faq-q">Where do donations actually go?</h4>
-                        <p class="text-gray-700 faq-a">Donations and sponsorships are received as personal income by the founder under his UK sole trader (<strong>ADS Solutions</strong>). They are <strong>not</strong> tax-deductible and they do <strong>not</strong> go to a charity or registered organization. The founder commits, as a Muslim, to spend that income on Alhaq Initiative projects.</p>
+                        <p class="text-gray-700 faq-a">Donations and sponsorships are received as personal income by the founder under his UK sole trader (<strong>ADS Solutions</strong>). They are <strong>not</strong> tax-deductible and they do <strong>not</strong> go to a charity or registered organization. The founder commits, as a Muslim, to spend that income on Al-Haq Initiative projects.</p>
                     </div>
                     <div class="mb-4 faq-item">
                         <h4 class="font-semibold text-brand-blue faq-q">Is AmnShield free or paid?</h4>
@@ -139,7 +145,7 @@
     </main>
     <footer class="bg-gray-800 text-white mt-20">
         <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Alhaq Initiative</h3>
+            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex justify-center space-x-4">
                 <a href="https://www.youtube.com/@Al-Haq-H" class="text-gray-400 hover:text-white transition" aria-label="YouTube" title="Subscribe on YouTube" target="_blank" rel="noopener"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>

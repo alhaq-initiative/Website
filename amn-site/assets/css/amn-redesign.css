@@ -1,11 +1,16 @@
 :root {
-  --bg: #f7f8fb;
+  --bg: #eef3fa;
+  --bg-deep: #e4ecf8;
   --card: #ffffff;
-  --ink: #132033;
-  --muted: #5c6a7d;
-  --line: #dfe5ee;
+  --ink: #0f2138;
+  --muted: #4f6482;
+  --line: #d5dfed;
   --brand: #0a2540;
   --accent: #d4af37;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --shadow-soft: 0 16px 42px rgba(10, 37, 64, 0.1);
+  --shadow-card: 0 10px 24px rgba(10, 37, 64, 0.08);
 }
 
 * {
@@ -15,7 +20,10 @@
 body {
   margin: 0;
   font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
-  background: radial-gradient(circle at 20% 0%, #ffffff 0%, var(--bg) 45%, #eef2f7 100%);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(212, 175, 55, 0.14) 0%, rgba(212, 175, 55, 0) 28%),
+    radial-gradient(circle at 88% 8%, rgba(10, 37, 64, 0.1) 0%, rgba(10, 37, 64, 0) 40%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg) 46%, var(--bg-deep) 100%);
   color: var(--ink);
   line-height: 1.6;
 }
@@ -55,17 +63,78 @@ body {
   min-width: 0;
 }
 
-.amn-brand img {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
+.amn-brand:hover,
+.amn-brand:focus-visible {
+  color: #1f4c7a;
+  text-decoration: underline;
+}
+
+.amn-brand-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.amn-brand-alhaq {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.amn-brand-alhaq:hover,
+.amn-brand-alhaq:focus-visible {
+  color: #1f4c7a;
+  text-decoration: underline;
+}
+
+.amn-brand-alhaq img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.amn-brand-separator {
+  color: var(--line);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.6;
 }
 
 .amn-links {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.amn-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.amn-select {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--brand);
+  border-radius: 10px;
+  padding: 8px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.amn-select:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.5);
+  outline-offset: 1px;
 }
 
 [data-company-brand-label],
@@ -102,31 +171,51 @@ body {
 }
 
 .amn-main {
-  padding: 36px 0 50px;
+  padding: 44px 0 64px;
 }
 
 .amn-hero {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 30px;
-  background: linear-gradient(145deg, #ffffff, #f3f6fb);
-  box-shadow: 0 12px 30px rgba(10, 37, 64, 0.06);
-  margin-bottom: 20px;
+  border-radius: var(--radius-lg);
+  padding: 34px;
+  background:
+    linear-gradient(120deg, rgba(212, 175, 55, 0.14) 0%, rgba(212, 175, 55, 0) 28%),
+    linear-gradient(145deg, #ffffff 0%, #f5f8fe 60%, #edf3fb 100%);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 24px;
+}
+
+.amn-hero::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -55px;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(10, 37, 64, 0.12) 0%, rgba(10, 37, 64, 0) 72%);
+  pointer-events: none;
 }
 
 .amn-kicker {
   display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #7a6a34;
+  color: #6f5a1e;
   font-weight: 800;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(212, 175, 55, 0.14);
+  border-radius: 999px;
+  padding: 5px 10px;
 }
 
 .amn-hero h1 {
   margin: 0 0 10px;
-  font-size: 34px;
+  font-size: clamp(30px, 3vw, 42px);
   line-height: 1.15;
   color: var(--brand);
 }
@@ -139,7 +228,7 @@ body {
 
 .amn-grid {
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .amn-grid.cols-2 {
@@ -151,14 +240,22 @@ body {
 }
 
 .amn-section-gap-sm {
-  margin-top: 14px;
+  margin-top: 18px;
 }
 
 .amn-card {
   border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--card);
-  padding: 18px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.amn-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(10, 37, 64, 0.28);
+  box-shadow: 0 14px 30px rgba(10, 37, 64, 0.12);
 }
 
 .amn-note-gap {
@@ -169,6 +266,7 @@ body {
 .amn-card h3 {
   margin: 0 0 8px;
   color: var(--brand);
+  letter-spacing: 0.1px;
 }
 
 .amn-card p,
@@ -180,6 +278,8 @@ body {
 .amn-card ul {
   margin: 0;
   padding-left: 18px;
+  display: grid;
+  gap: 6px;
 }
 
 .amn-actions {
@@ -194,22 +294,33 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
+  padding: 10px 15px;
   border-radius: 12px;
   border: 1px solid transparent;
   font-weight: 700;
   font-size: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
 .amn-btn.primary {
-  background: var(--brand);
+  background: linear-gradient(140deg, #0a2540 0%, #123a63 100%);
   color: #fff;
+  box-shadow: 0 8px 16px rgba(10, 37, 64, 0.25);
 }
 
 .amn-btn.secondary {
-  background: #fff;
+  background: #f7faff;
   color: var(--brand);
   border-color: var(--line);
+}
+
+.amn-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.amn-btn.primary:hover {
+  box-shadow: 0 10px 20px rgba(10, 37, 64, 0.3);
 }
 
 .amn-note {
@@ -218,15 +329,140 @@ body {
 }
 
 .amn-footer {
-  margin-top: 28px;
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 249, 255, 0.92));
   color: var(--muted);
   font-size: 13px;
 }
 
 .amn-footer a {
   color: var(--brand);
+}
+
+html.dark body,
+body.dark {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 30%),
+    linear-gradient(180deg, #0b1220 0%, #0f1b2d 55%, #13233b 100%);
+  color: #e8eef8;
+}
+
+html.dark .amn-topbar,
+body.dark .amn-topbar {
+  background: rgba(12, 23, 39, 0.9);
+  border-bottom-color: rgba(212, 175, 55, 0.22);
+}
+
+html.dark .amn-link,
+body.dark .amn-link {
+  background: #122239;
+  color: #f1f5fd;
+  border-color: #31435c;
+}
+
+html.dark .amn-link.active,
+body.dark .amn-link.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.55) inset;
+}
+
+html.dark .amn-select,
+body.dark .amn-select {
+  background: #13253e;
+  color: #f1f5fd;
+  border-color: #41536b;
+}
+
+html.dark .amn-brand,
+html.dark .amn-brand-alhaq,
+body.dark .amn-brand,
+body.dark .amn-brand-alhaq {
+  color: #f7fafc;
+}
+
+html.dark .amn-brand-separator,
+body.dark .amn-brand-separator {
+  color: rgba(241, 245, 253, 0.55);
+}
+
+html.dark .amn-hero,
+body.dark .amn-hero {
+  background:
+    linear-gradient(130deg, rgba(212, 175, 55, 0.13) 0%, rgba(212, 175, 55, 0) 32%),
+    linear-gradient(180deg, #14253d 0%, #1a2f49 100%);
+  border-color: #31435c;
+  box-shadow: 0 18px 34px rgba(3, 7, 18, 0.35);
+}
+
+html.dark .amn-kicker,
+body.dark .amn-kicker {
+  color: #fde68a;
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+html.dark .amn-hero h1,
+html.dark .amn-card h2,
+html.dark .amn-card h3,
+body.dark .amn-hero h1,
+body.dark .amn-card h2,
+body.dark .amn-card h3 {
+  color: #f8fafc;
+}
+
+html.dark .amn-hero p,
+html.dark .amn-card p,
+html.dark .amn-card li,
+html.dark .amn-note,
+body.dark .amn-hero p,
+body.dark .amn-card p,
+body.dark .amn-card li,
+body.dark .amn-note {
+  color: #d5deea;
+}
+
+html.dark .amn-card,
+body.dark .amn-card {
+  background: linear-gradient(180deg, #172b43 0%, #20354f 100%);
+  border-color: #33485f;
+  box-shadow: 0 10px 24px rgba(2, 6, 16, 0.3);
+}
+
+html.dark .amn-card:hover,
+body.dark .amn-card:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 14px 30px rgba(2, 6, 16, 0.42);
+}
+
+html.dark .amn-btn.secondary,
+body.dark .amn-btn.secondary {
+  background: #182c45;
+  color: #eff5ff;
+  border-color: #40526a;
+}
+
+html.dark .amn-footer,
+body.dark .amn-footer {
+  background: linear-gradient(180deg, rgba(23, 40, 61, 0.94), rgba(17, 31, 49, 0.94));
+  border-color: #33485f;
+  color: #d5deea;
+}
+
+html.dark .amn-footer a,
+html.dark .amn-card a,
+body.dark .amn-footer a,
+body.dark .amn-card a {
+  color: #bfdbfe;
+}
+
+html.dark .amn-footer a:hover,
+html.dark .amn-card a:hover,
+body.dark .amn-footer a:hover,
+body.dark .amn-card a:hover {
+  color: #fde68a;
 }
 
 @media (max-width: 900px) {
@@ -267,6 +503,17 @@ body {
     gap: 6px;
   }
 
+  .amn-controls {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .amn-select {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
   .amn-link {
     white-space: nowrap;
     flex: 0 0 auto;
@@ -279,7 +526,7 @@ body {
   }
 
   .amn-hero {
-    padding: 20px;
+    padding: 22px;
     border-radius: 16px;
   }
 
@@ -297,6 +544,10 @@ body {
 
   .amn-btn {
     min-height: 42px;
+  }
+
+  .amn-footer {
+    padding: 14px;
   }
 }
 

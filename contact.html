@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="light scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Alhaq Initiative</title>
-    
-    <!-- Favicon and App Icons -->
+    <title>Contact — Al-Haq Initiative</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-    
-    <!-- PWA Manifest -->
     <link rel="manifest" href="assets/images/site.webmanifest">
-    <meta name="theme-color" content="#ffffff">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="theme-color" content="#0A2540">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+    tailwind.config = {darkMode:"class",theme:{extend:{colors:{primary:"#0A2540","on-primary":"#ffffff",secondary:"#D4AF37","surface-container-lowest":"#ffffff","surface-container":"#edf0f6","on-surface":"#111827","on-surface-variant":"#4b5563","outline-variant":"#d1d5db",background:"#f8f9fc"},fontFamily:{display:["Source Serif 4","Georgia","serif"],body:["Inter","sans-serif"],label:["Inter","sans-serif"],arabic:["Amiri","serif"]},spacing:{"container-max":"1280px","margin-desktop":"40px","section-gap":"80px"}}}};
+    </script>
+    <style>body{background-color:#f8f9fc;color:#111827}</style>
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/contact.css">
 </head>
-<body class="antialiased">
+<body class="font-body text-body-md antialiased bg-background">
     <header id="global-header"></header>
     <main class="pt-32 pb-20 bg-gray-50 min-h-screen islamic-section">
         <section class="fade-in-section">
@@ -74,7 +75,7 @@
       </div>
     </section>
         <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Alhaq Initiative</h3>
+            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
             <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
             <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
                 <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>

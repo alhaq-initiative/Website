@@ -355,3 +355,118 @@
   font-size: 0.84rem;
   line-height: 1.6;
 }
+
+/* ── Dark mode readability ────────────────────────────────── */
+html.dark .cv-modal__panel {
+  background: #0f1a2b;
+  border: 1px solid #334155;
+  box-shadow: 0 24px 50px rgba(2, 6, 16, 0.55);
+}
+
+html.dark .cv-modal__head {
+  background: #132338;
+  border-bottom-color: rgba(212, 175, 55, 0.55);
+}
+
+html.dark .cv-modal__title,
+html.dark .cv-prose,
+html.dark .cv-prose p,
+html.dark .cv-prose li,
+html.dark .cv-series-title,
+html.dark .cv-shelf-section__title,
+html.dark .cv-book-card__title,
+html.dark .cv-card__title {
+  color: #e5edf9;
+}
+
+html.dark .cv-modal__close {
+  background: #1a2d45;
+  color: #dbe4f0;
+}
+
+html.dark .cv-loading { color: #cbd5e1; }
+
+html.dark .cv-prose h1,
+html.dark .cv-prose h2,
+html.dark .cv-prose h3 {
+  color: #f8fafc;
+}
+
+html.dark .cv-prose h2,
+html.dark .cv-prose hr,
+html.dark .cv-prose th,
+html.dark .cv-prose td {
+  border-color: #334155;
+}
+
+html.dark .cv-prose a,
+html.dark .cv-book-card__link {
+  color: #bfdbfe;
+}
+
+html.dark .cv-prose a:hover,
+html.dark .cv-book-card__link:hover {
+  color: #fde68a;
+}
+
+html.dark .cv-prose em,
+html.dark .cv-series-desc,
+html.dark .cv-shelf-empty,
+html.dark .cv-book-card__desc,
+html.dark .cv-book-card__link--muted,
+html.dark .cv-series-author {
+  color: #cbd5e1;
+}
+
+html.dark .cv-prose code,
+html.dark .cv-prose pre code {
+  background: #1a2d45;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark .cv-prose blockquote {
+  background: #15263b;
+  color: #dbe4f0;
+  border-left-color: #d4af37;
+}
+
+html.dark .cv-prose th { background: #172a41; }
+
+html.dark .cv-card,
+html.dark .cv-book-card {
+  background: linear-gradient(145deg, #13243a 0%, #1a2f49 100%);
+  border-color: #33485f;
+}
+
+html.dark .cv-card:hover,
+html.dark .cv-book-card:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 12px 28px rgba(2, 6, 16, 0.45);
+}
+
+html.dark .cv-filter-btn {
+  background: #1a2d45;
+  color: #dbe4f0;
+  border-color: #33485f;
+}
+
+html.dark .cv-filter-btn:hover {
+  background: #223854;
+}
+
+html.dark .cv-filter-btn--active {
+  background: #d4af37;
+  color: #0a2540;
+  border-color: #d4af37;
+}
+
+html.dark .cv-shelf-section,
+html.dark .cv-shelf-section--nested {
+  border-top-color: #334155;
+}
+
+html.dark .cv-shelf-empty {
+  border-color: #334155;
+  background: #0f1a2b;
+}

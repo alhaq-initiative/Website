@@ -1,6 +1,6 @@
-# Alhaq Initiative Website
+# Al-Haq Initiative Website
 
-This is the official website for Alhaq Initiative.
+This is the official website for Al-Haq Initiative.
 
 ## Features
 
@@ -33,13 +33,35 @@ This is the official website for Alhaq Initiative.
 2. Open the project folder in your code editor.
 3. Use a local server (e.g., Live Server extension for VS Code) to preview changes.
 
+## Import Books And Documents (MarkItDown)
+
+Use this workflow to convert source files (PDF, Word, PowerPoint, Excel, images, audio, text) into chapter Markdown files under the Library.
+
+1. Install converter dependency:
+   ```sh
+   npm run library:import:setup
+   ```
+2. Import one file or a folder of files:
+   ```sh
+   npm run library:import:docs -- --input "D:/Docs" --series faith-sellers --story-start 1
+   ```
+3. Rebuild the library index JSON used by the site:
+   ```sh
+   npm run content:index
+   ```
+
+Notes:
+- Default output path is `assets/library/books/<book-dir>/01_Chapters`.
+- You can override destination with `--book-dir` (example: `03_Filastin_Verified`).
+- Re-run with `--overwrite` to replace existing generated files.
+
 ## License
 
 This project is licensed under the MIT License.
 
 ---
 
-For questions or support, contact the Alhaq Initiative team.
+For questions or support, contact the Al-Haq Initiative team.
 
 ## Unified Global Navigation (October 2025)
 

@@ -27,6 +27,7 @@ const pages = [
   '/amn-site/legal/terms/index.html',
   '/deenhub.html',
   '/deenhub_join_beta.html',
+  '/amnshield_join_beta.html',
   '/quranhub.html',
   
   // Legal & docs hubs
@@ -143,9 +144,7 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
       if (!hasCss) throw new Error('No stylesheet link found');
       if (p === '/amn-site/index.html') {
         const hasAmnCss = /\/amn-site\/assets\/css\/amn-redesign\.css/i.test(html);
-        const hasAmnLogo = /\/amn-site\/assets\/images\/logo\.png/i.test(html);
         if (!hasAmnCss) throw new Error('Missing Amn stylesheet /amn-site/assets/css/amn-redesign.css');
-        if (!hasAmnLogo) throw new Error('Missing Amn logo /amn-site/assets/images/logo.png');
       }
       console.log(`PASS ${p}`);
     } catch (e) {

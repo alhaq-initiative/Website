@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Library | Al-Haq Initiative</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Four:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"error-container": "#fa746f", "on-primary-container": "#30436e", "on-tertiary-container": "#523f67", error: "#a83836", "surface-container-high": "#e7e7f1", "tertiary-fixed": "#e1c8f8", "surface-bright": "#faf8fe", "on-primary-fixed-variant": "#3a4c78", "inverse-on-surface": "#9d9ca2", "surface-container-low": "#f3f3fa", "on-secondary-fixed-variant": "#555b6e", outline: "#787a84", background: "#faf8fe", "inverse-surface": "#0d0e12", "tertiary-fixed-dim": "#d3bae9", "surface-container": "#ededf6", "outline-variant": "#b0b1bc", "on-tertiary-fixed-variant": "#5c4870", "on-error": "#fff7f6", "on-secondary": "#f9f8ff", "on-background": "#30323a", "surface-container-lowest": "#ffffff", "surface-container-highest": "#e1e2ed", "secondary-fixed": "#dce2f9", "on-surface": "#30323a", surface: "#faf8fe", "primary-fixed": "#b9cbff", "secondary-container": "#dce2f9", "surface-tint": "#4c5e8b", "primary-fixed-dim": "#abbdf0", "on-secondary-fixed": "#383f51", secondary: "#585f72", "on-surface-variant": "#5d5f68", tertiary: "#6b5780", "inverse-primary": "#b9cbff", "on-error-container": "#6e0a12", "on-secondary-container": "#4b5164", "on-primary": "#f9f8ff", "surface-variant": "#e1e2ed", "surface-dim": "#d8d9e4", "on-tertiary": "#fff6ff", "primary-container": "#b9cbff", primary: "#4c5e8b", "on-primary-fixed": "#1b2f59", "secondary-fixed-dim": "#ced4eb", "tertiary-container": "#e1c8f8", "on-tertiary-fixed": "#3e2c52", "error-dim": "#67040d", "tertiary-dim": "#5e4b73", "secondary-dim": "#4c5366", "primary-dim": "#40527e"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"container-max": "1280px", gutter: "24px", "margin-desktop": "40px", "section-gap": "80px", "margin-mobile": "16px", base: "8px", "content-gap": "32px"}, fontFamily: {"body-lg": ["Inter"], "body-md": ["Inter"], "display-lg": ["Source Serif 4"], "headline-lg-mobile": ["Source Serif 4"], "label-md": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Source Serif 4"], "headline-lg": ["Source Serif 4"], headline: ["Source Serif Four"], display: ["Source Serif Four"], body: ["Inter"], label: ["Inter"]}, fontSize: {"body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-lg-mobile": ["28px", {lineHeight: "36px", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "headline-lg": ["32px", {lineHeight: "40px", fontWeight: "600"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 w-full z-50">
+<div class="flex justify-between items-center w-full max-w-container-max mx-auto px-margin-desktop h-20">
+<div class="text-headline-md font-headline-md font-bold text-primary">
+                Al-Haq Initiative
+            </div>
+<nav class="hidden md:flex items-center gap-base">
+<a class="px-3 py-2 font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Home</a>
+<a class="px-3 py-2 font-label-sm text-label-sm tracking-widest uppercase text-primary border-b-2 border-secondary font-bold pb-1" href="#">Library</a>
+<a class="px-3 py-2 font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Reports</a>
+<a class="px-3 py-2 font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Archives</a>
+<a class="px-3 py-2 font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Initiatives</a>
+<a class="px-3 py-2 font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">About Us</a>
+</nav>
+<div class="flex items-center gap-content-gap">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="search">search</button>
+<button class="bg-secondary text-white font-label-sm text-label-sm px-6 py-2 rounded-DEFAULT hover:opacity-80 transition-all active:scale-95">
+                    Donate
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<!-- Library Header & Search Cluster -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-content-gap mb-12">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-4">Legal Research Library</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Access our comprehensive repository of legal briefs, human rights reports, and archival documentation documenting institutional accountability and global justice efforts.
+                        </p>
+</div>
+</div>
+<!-- Search and Filters -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end bg-surface-container-low p-base rounded-lg border border-outline-variant">
+<div class="lg:col-span-6">
+<label class="block font-label-md text-label-md font-bold mb-2 ml-1">Search the Archive</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-body-md outline-none" placeholder="Keywords, Case Numbers, or Authors..." type="text"/>
+</div>
+</div>
+<div class="lg:col-span-3">
+<label class="block font-label-md text-label-md font-bold mb-2 ml-1">Category</label>
+<select class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-body-md outline-none appearance-none cursor-pointer">
+<option>All Resources</option>
+<option>Legal Briefs</option>
+<option>Annual Reports</option>
+<option>Press Releases</option>
+<option>Case Studies</option>
+</select>
+</div>
+<div class="lg:col-span-2">
+<label class="block font-label-md text-label-md font-bold mb-2 ml-1">Sort By</label>
+<select class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-body-md outline-none appearance-none cursor-pointer">
+<option>Newest First</option>
+<option>Oldest First</option>
+<option>Most Cited</option>
+</select>
+</div>
+<div class="lg:col-span-1">
+<button class="w-full bg-primary text-white py-3 font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                            Filter
+                        </button>
+</div>
+</div>
+</section>
+<!-- Library Content Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors duration-300 flex flex-col">
+<div class="aspect-video overflow-hidden bg-surface-container">
+<img alt="Legal Brief Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dignified legal library with dark wood bookshelves filled with leather-bound books, soft morning light filtering through high windows, creating a scholarly and authoritative atmosphere in a minimalist high-end architectural setting. The lighting is clean and bright, emphasizing textures of paper and wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkDNlY4DhA-E88G3g3RHDbdRqKjsqx8ryfyt31_wS41aNXp3fAg0yyAQZSJfxB4iqePnxxE6QaIll6nouoQr07mZWXMZ0B32URhJMr7fkRYlNoY_yEsdSgvpk6o1XOyF5DnaqB3-KJ2aWfaKL6Oat1JrQ0-R4hZpJGGmroC5HIr42Yvj-s0s8TP3ApFF5EO9VsKOErRWFXA8DjUF27Tx3fNBw_G_jwfLcpMp6MCHKXVE9ndngJBaOfHXIa2pdg6_np5kZPtSCI"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Legal Brief</span>
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">2024</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Framework for Digital Sovereignty and Accountability</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                            A comprehensive analysis of international human rights law as applied to emerging digital infrastructure and state-sponsored surveillance protocols.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">PDF Document (2.4 MB)</span>
+<a class="text-secondary flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider font-bold" href="#">
+                                Download <span class="material-symbols-outlined text-[16px]">download</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors duration-300 flex flex-col">
+<div class="aspect-video overflow-hidden bg-surface-container">
+<img alt="Report Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a stacks of architectural blueprints and legal documents on a clean white desk, illuminated by sharp, bright directional lighting. The aesthetic is extremely modern and minimalist, with high contrast between deep blacks and crisp whites, evoking a mood of meticulous research and institutional rigor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuI2Ecv-lP55blQ4D7NQzfv4FQiMFf_ozRnKaNmFd8tBR8nSj1WNJC0mqTuRLCqnH_gaFe9wHOzzH9hPFRI4ZaHmztM6m_3bRqGAQBkOBgasIzhSzeL1nyt7OKLR30BV0Q4A-mtdJGRjExWMvV74WjvdWiQPh4MwzILJQmnbBS0Zd85grlyBctDAgtzPNnswS-N3kyLYwf2GWJIf0z_S4jmCVEIpC31qFGQ4-zNNHp3fVsS1l_QaYDAMrvCg_8bMwzWzp4BDnQ"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Report</span>
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Quarterly</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Institutional Transparency Index: Q3 Results</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                            Evaluation of the top twenty global human rights organizations based on financial transparency and operational efficiency metrics.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Interactive Report</span>
+<a class="text-secondary flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider font-bold" href="#">
+                                View Online <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors duration-300 flex flex-col">
+<div class="aspect-video overflow-hidden bg-surface-container">
+<img alt="Archive Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A silhouette of a person standing in a high-ceilinged modern archive with thousands of filing drawers, lit by a single dramatic shaft of light hitting the floor. The environment is vast, monochromatic, and silent, suggesting historical depth and the weight of archival responsibility in a professional minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE1eOp-BfdPnSkooWmkCyeT5I9Tij9lpN1UzFLk6KsjbeRJLfIgVCfk5ze5aY9f8ey9nE7toy1_k6kGVnrvvQwAzT2zVjLNd1isk_jNmy4j84pZe0KQcVepGvVKxR5bETlweqfq8VoaB9VcPDpMfSK8Llb4sDlgEd0XCswzrgjsPr8vjrWDtwtfJ7BcZT3A0bJahJvtwFVTXKj1sN1x88wRslziYUVi2jP9TNcKy4A_CTfIW7r1jdrQ3UptQyuKFI8o29Dtuwj"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Archive</span>
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Case #402</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">The International Court Filings: 1998-2004</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                            Digitized primary source documents from the landmark reparations case involving regional environmental degradation and indigenous rights.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Archival Entry</span>
+<a class="text-secondary flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider font-bold" href="#">
+                                Access <span class="material-symbols-outlined text-[16px]">key</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors duration-300 flex flex-col">
+<div class="aspect-video overflow-hidden bg-surface-container">
+<img alt="Legal Gavel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-angle shot of a minimalist wooden meeting table with a single gavel and a perfectly centered stack of papers. The lighting is soft and neutral, conveying a sense of order, fairness, and legal authority. The palette consists of warm wood tones and clean white backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHUT-8KORWpAX7-lioC8tEwkmN_6DH7dXKSnGW02t-XqYsltZvtdYs2jaA1n-mSs3mVtqTGjrC0QB1MRpdQc2vtOGyuTNTFaw9i_0AzYV_IWRmRflGhpIGIat7u7kSJ-rSjW4BGiqviXAYRoOz0Lv04_cWp7VCCl7uHZlPz4zLDFSUxpLC8ON-qfX5GRtUmfLECYoYXwVM4g-03JYNZafYxXeNLeOZYymmdiBBDCwvOp-W1tjrMHJSrGjtbfuYF89rEinuD0X5"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">White Paper</span>
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">New</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Procedural Fairness in Hybrid Legal Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                            An academic inquiry into the harmonization of customary law and statutory frameworks within post-conflict administrative regions.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Journal Article</span>
+<a class="text-secondary flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider font-bold" href="#">
+                                Read More <span class="material-symbols-outlined text-[16px]">menu_book</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors duration-300 flex flex-col">
+<div class="aspect-video overflow-hidden bg-surface-container">
+<img alt="Server Infrastructure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract shot of high-tech server racks in a clean, brightly lit data center. Glowing status lights in soft blues and whites against a backdrop of brushed aluminum. The image represents the modern archival process and technological rigor, maintaining a professional and futuristic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFYN_YQAgpefOJs2-evv4TFR1WdKJcidbCl52xNxcEFCqdzSo62rjpMEYnQ2NoZfS3xZMbTxcc9lJakAB5Y2egsQp8fgkijKtBoIQJht1HlVua692Wb1fyVVR2-3pHV1r3HJFlrcyE6KHX-AJIdRrAd6lm_D1Qv-cDWfYPRU1U3VkV_UXdv3tzykCGBTkmCRClO9CfipkKoLbEuPiBQQoAANbwRXcoZc8Xt3mMNosIlTptJ2qOk84lojA_t5wezWI-AgoAX9lR"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Technology</span>
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Analysis</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Data Privacy Protocols for At-Risk Communities</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                            Technical guidelines for legal practitioners handling sensitive case metadata in jurisdictions with restrictive information laws.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Technical Brief</span>
+<a class="text-secondary flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider font-bold" href="#">
+                                Download <span class="material-symbols-outlined text-[16px]">download</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors duration-300 flex flex-col">
+<div class="aspect-video overflow-hidden bg-surface-container">
+<img alt="Research Desk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, minimalist workspace with a laptop, a coffee cup, and an open notebook on a white marble surface. Bright natural light floods the scene from a nearby window, creating a focused and professional research environment. The style is modern, airy, and high-end light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsFOzpZUWdzNWLYj1SsPEwK8KHmTQcpuhi3hvCfNPbzzN7-1FFtKjnSmg4FBNEKpNfv7xHnzypwsN6LPUmam3EFkaxtkUbTKurxVpCNsYSY-1TGOC1ZDRI9GyZj5tsXQ40zd1X-gAYec3P5GSb0P9acCCOU1zSjfwqPU3hZ01nWizV4LkUsgp7tN3nkeLjpkakFjL2kD_FVz-HMkuRDs7u5eHfKLA9MFgOLWAaNovMd4C8BB6963Cn4elVBixXlCeBR3ondSr3"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Annual</span>
+<span class="bg-surface-container-low text-primary px-3 py-1 font-label-sm text-label-sm rounded-full">Initiative</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">Al-Haq Initiative Impact Report 2023</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">
+                            Year-end review of legal interventions, successful litigation outcomes, and institutional growth metrics across five continental hubs.
+                        </p>
+<div class="mt-auto pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Interactive PDF</span>
+<a class="text-secondary flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider font-bold" href="#">
+                                View <span class="material-symbols-outlined text-[16px]">visibility</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center gap-4">
+<button class="p-2 border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-white font-label-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:border-primary font-label-md">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:border-primary font-label-md">3</button>
+<span class="w-10 h-10 flex items-center justify-center">...</span>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:border-primary font-label-md">12</button>
+</div>
+<button class="p-2 border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="w-full max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between items-center gap-content-gap">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md text-primary">Al-Haq Initiative</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-md text-center md:text-left">
+                    © 2024 Al-Haq Initiative. Human Rights Advocacy &amp; Legal Research. All Rights Reserved.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all underline" href="#">Legal Archive</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all underline" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all underline" href="#">Institutional Transparency</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all underline" href="#">Contact Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all underline" href="#">Global Network</a>
+</div>
+<div class="flex gap-4">
+<a class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity" href="#">public</a>
+<a class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity" href="#">mail</a>
+</div>
+</div>
+</footer>
+</body></html>

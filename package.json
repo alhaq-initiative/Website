@@ -1,7 +1,7 @@
 {
   "name": "alhaq-initiative-website",
   "version": "1.0.0",
-  "description": "Alhaq Initiative website with AI demo functionality",
+  "description": "Al-Haq Initiative website with AI demo functionality",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -26,6 +26,8 @@
   "cy:open": "cypress open",
   "cy:run": "cypress run",
     "library:import": "node scripts/normalise-notion-md.mjs",
+    "library:import:setup": "python -m pip install markitdown",
+    "library:import:docs": "python scripts/import_markitdown.py",
     "content:index": "node scripts/build-content-index.mjs",
     "prepare": "husky install"
   },

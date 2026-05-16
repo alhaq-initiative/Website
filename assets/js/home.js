@@ -21,29 +21,28 @@
 
   // Feedback modal logic (if present)
   function initFeedbackModal() {
-    const openBtn = document.getElementById('openFeedbackModal');
-    const closeBtn = document.getElementById('closeFeedbackModal');
-    const modal = document.getElementById('feedbackModal');
+    const openBtn = document.getElementById('feedback-btn') || document.getElementById('openFeedbackModal');
+    const closeBtn = document.getElementById('close-feedback') || document.getElementById('closeFeedbackModal');
+    const modal = document.getElementById('feedback-modal') || document.getElementById('feedbackModal');
 
     if (!modal) return; // Modal not present on this page
 
     function open() {
       modal.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
-      setTimeout(() => modal.classList.add('opacity-100'), 0);
+      modal.classList.add('opacity-100');
     }
 
     function close() {
       modal.classList.remove('opacity-100');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-      }, 200);
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
     }
 
     openBtn && openBtn.addEventListener('click', open);
     closeBtn && closeBtn.addEventListener('click', close);
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   }
 
   // Simple audio player UI for hero recitation (if present)
