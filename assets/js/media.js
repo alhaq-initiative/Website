@@ -10,6 +10,18 @@
   let filteredItems = [];
   let page = 1;
 
+  function updateResultsCount(){
+    const el = $('media-results');
+    if(!el) return;
+    const total = filteredItems.length;
+    const visible = Math.min(page * PAGE_SIZE, total);
+    if(total === 0){
+      el.textContent = 'No items match your current filters.';
+      return;
+    }
+    el.textContent = `Showing ${visible} of ${total} item${total === 1 ? '' : 's'}.`;
+  }
+
   // --- YouTube helpers ---
   const YT_ID_RE = /^[A-Za-z0-9_-]{11}$/;
   function extractYouTubeId(source){
@@ -108,6 +120,7 @@
     if(!filteredItems.length){
       grid.innerHTML = '<p class="text-center text-gray-500 col-span-full">No results found.</p>';
       $('media-load-more')?.classList.add('hidden');
+      updateResultsCount();
       return;
     }
     const end = page * PAGE_SIZE;
@@ -119,6 +132,7 @@
       if(end >= filteredItems.length){ btn.classList.add('hidden'); }
       else { btn.classList.remove('hidden'); }
     }
+    updateResultsCount();
   }
 
   function applyFilter(){

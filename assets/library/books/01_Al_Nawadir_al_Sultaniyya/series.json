@@ -1,0 +1,14 @@
+{
+  "book_number": 1,
+  "key": "al-nawadir-al-sultaniyya",
+  "type": "translation",
+  "title": "Al-Nawadir al-Sultaniyya",
+  "subtitle": "النوادر السلطانية",
+  "description": "Book 01 workspace for chapter-by-chapter translation, Arabic comparison, source notes, and the final uninterrupted English manuscript.",
+  "author": "Afrasyaab Meranai (Habibur Rahman)",
+  "status": "draft",
+  "chapter_dir": "01_Chapters",
+  "full_book_dir": "02_Full_Book",
+  "full_book_file": "Al_Nawadir_Full_Translation.md",
+  "attribution": "Authored personally by Afrasyaab Meranai (Habibur Rahman). Published via the Al-Haq Initiative under ADS Solutions (Alhaq Digital Services & Solutions — UK sole trader)."
+}

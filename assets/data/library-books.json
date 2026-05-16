@@ -1,0 +1,84 @@
+{
+  "generated": "2026-05-16",
+  "types": {
+    "translation": {
+      "key": "translation",
+      "title": "Translations",
+      "description": "Chapter-by-chapter translations validated against primary Arabic sources.",
+      "order": 1,
+      "books": [
+        "al-nawadir-al-sultaniyya",
+        "faith-sellers"
+      ]
+    },
+    "independent_book": {
+      "key": "independent_book",
+      "title": "Independent Books",
+      "description": "Original authored books and research booklets published independently.",
+      "order": 2,
+      "books": [
+        "filastin-verified"
+      ]
+    }
+  },
+  "books": {
+    "al-nawadir-al-sultaniyya": {
+      "book_number": 1,
+      "key": "al-nawadir-al-sultaniyya",
+      "type": "translation",
+      "title": "Al-Nawadir al-Sultaniyya",
+      "subtitle": "\u0627\u0644\u0646\u0648\u0627\u062f\u0631 \u0627\u0644\u0633\u0644\u0637\u0627\u0646\u064a\u0629",
+      "description": "Chapter-by-chapter English translation of Ibn Shaddad\u2019s biography of Saladin, cross-referenced against parallel primary Arabic chronicles.",
+      "author": "Afrasyaab Meranai (Habibur Rahman)",
+      "status": "draft",
+      "chapter_dir": "01_Chapters",
+      "full_book_dir": "02_Full_Book",
+      "full_book_file": "Al_Nawadir_Full_Translation.md",
+      "folder": "01_Al_Nawadir_al_Sultaniyya",
+      "episodes": []
+    },
+    "faith-sellers": {
+      "book_number": 2,
+      "key": "faith-sellers",
+      "type": "translation",
+      "title": "The Chronicles of the Faith Sellers",
+      "subtitle": "\u0628\u0627\u0626\u0639\u064a \u0627\u0644\u0642\u062f\u0631",
+      "description": "Translation and cross-referencing of Saladin\u2019s history validated against primary Arabic chroniclers \u2014 Ibn Shadd\u0101d, Ibn al-Ath\u012br, and Ibn Khallik\u0101n.",
+      "author": "Afrasyaab Meranai (Habibur Rahman)",
+      "status": "ongoing",
+      "chapter_dir": "01_Chapters",
+      "full_book_dir": "02_Full_Book",
+      "full_book_file": "Chronicles_of_the_Faith_Sellers_Full_Translation.md",
+      "folder": "02_Chronicles_of_the_Faith_Sellers",
+      "episodes": [
+        {
+          "title": "The Chronicles of the Faith Sellers: Episode One",
+          "slug": "episode-01-the-faith-sellers",
+          "story_number": 1,
+          "status": "draft",
+          "historical_confidence": "low",
+          "source_type": "Mixed narrative",
+          "tags": ["Saladin"],
+          "last_imported": "2026-05-15",
+          "path": "assets/library/books/02_Chronicles_of_the_Faith_Sellers/01_Chapters/02_001_The_Faith_Sellers.md"
+        }
+      ]
+    },
+    "filastin-verified": {
+      "book_number": 3,
+      "key": "filastin-verified",
+      "type": "independent_book",
+      "featured": true,
+      "title": "Filastin Verified",
+      "subtitle": "\u0641\u0644\u0633\u0637\u064a\u0646 \u0627\u0644\u0645\u0648\u062b\u0651\u0642\u0629",
+      "description": "A primary-source investigation into the historical, legal, and moral status of Palestine \u2014 from the first 7th-century conquest through the Yusufian restoration and into modern international law. Evidence-led, source-cited.",
+      "author": "Afrasyaab Meranai (Habibur Rahman)",
+      "status": "writing",
+      "chapter_dir": "01_Chapters",
+      "full_book_dir": "02_Full_Book",
+      "full_book_file": "Filastin_Verified_Full_Booklet.md",
+      "folder": "03_Filastin_Verified",
+      "episodes": []
+    }
+  }
+}

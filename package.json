@@ -25,6 +25,8 @@
   "integrity": "node tests/local-integrity.mjs",
   "cy:open": "cypress open",
   "cy:run": "cypress run",
+    "library:import": "node scripts/normalise-notion-md.mjs",
+    "content:index": "node scripts/build-content-index.mjs",
     "prepare": "husky install"
   },
   "dependencies": {

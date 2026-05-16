@@ -1,0 +1,8 @@
+# Filastin Verified — Full Booklet
+
+> **Status:** Writing in progress. This file is the compiled public manuscript. Individual research chapters are maintained under `01_Chapters/`.
+
+---
+
+*Afrasyaab Meranai (Habibur Rahman)*  
+*Al-Haq Initiative · ADS Solutions (Alhaq Digital Services & Solutions — UK sole trader)*

@@ -8,5 +8,105 @@ body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333;
 .islamic-section { background: linear-gradient(135deg, #f8f9fa, #e9ecef); position: relative; }
 .islamic-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37); }
 
+/* Quick-access overview tiles */
+.library-hub-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 0.85rem;
+}
+.library-hub-tile {
+	display: block;
+	border-radius: 0.75rem;
+	padding: 1rem;
+	background: linear-gradient(150deg, #ffffff 0%, #f6f8fb 100%);
+	border: 1px solid #e8edf3;
+	box-shadow: 0 8px 22px rgba(10, 37, 64, 0.07);
+	transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.library-hub-tile:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 28px rgba(10, 37, 64, 0.12);
+	border-color: #d4af37;
+}
+.library-hub-tile__kicker {
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: .07em;
+	color: #8a6e21;
+	font-weight: 700;
+	margin-bottom: 0.25rem;
+}
+.library-hub-tile__title {
+	font-size: 1rem;
+	font-weight: 800;
+	color: #0A2540;
+	margin-bottom: 0.25rem;
+}
+.library-hub-tile__desc {
+	font-size: 0.85rem;
+	color: #5b6470;
+	line-height: 1.5;
+}
+
+/* Media stream cards */
+.library-stream-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 0.75rem;
+}
+.library-stream-card {
+	border: 1px solid #e8edf3;
+	border-radius: 0.7rem;
+	padding: 0.85rem 0.9rem;
+	background: #fbfcfe;
+}
+.library-stream-card__kicker {
+	font-size: 0.68rem;
+	font-weight: 700;
+	color: #8a6e21;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	margin-bottom: 0.25rem;
+}
+.library-stream-card__title {
+	font-size: 0.95rem;
+	color: #0A2540;
+	font-weight: 700;
+	margin-bottom: 0.2rem;
+}
+.library-stream-card__desc {
+	font-size: 0.82rem;
+	color: #55606c;
+	line-height: 1.5;
+}
+
+/* Topic and infographic mini cards */
+.library-topic-grid,
+.library-info-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	gap: 0.75rem;
+}
+.library-topic-card,
+.library-info-card {
+	border-radius: 0.7rem;
+	border: 1px solid #e8edf3;
+	background: #ffffff;
+	padding: 0.85rem 0.9rem;
+}
+.library-topic-card__title,
+.library-info-card__title {
+	font-size: 0.92rem;
+	color: #0A2540;
+	font-weight: 700;
+	margin-bottom: 0.2rem;
+}
+.library-topic-card__desc,
+.library-info-card__desc {
+	font-size: 0.82rem;
+	color: #5a6470;
+	line-height: 1.5;
+}
+
 /* Utility */
 .inline-icon { display: inline-block; width: 1.25rem; height: 1.25rem; vertical-align: middle; margin-right: 0.25rem; }

@@ -43,6 +43,17 @@
 			],
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Deploy Firebase Hosting (all targets)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"deploy:all"
+			],
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

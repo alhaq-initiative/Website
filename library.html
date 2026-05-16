@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/library.css">
+    <link rel="stylesheet" href="assets/css/content-viewer.css">
+    <!-- Markdown renderer + sanitiser (used by the chapter reader) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.4/dist/purify.min.js"></script>
 </head>
 <body class="antialiased">
     <header id="global-header"></header>
@@ -42,7 +46,30 @@
                 <!-- Main Content Area -->
                 <div class="flex-1">
                     <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4 flex items-center"><img src="assets/images/Books.png" alt="Books Icon" class="h-8 w-8 mr-2">Library</h1>
-                    <p class="text-lg text-gray-700 mb-6">Explore our collection of Islamic books, articles, and resources. Find knowledge, guidance, and inspiration for your journey.</p>
+                    <p class="text-lg text-gray-700 mb-6">Primary-source research, verified translations, and evidence-led writing from the Al-Haq Initiative &mdash; all free to read. Currently featuring <strong>Filastin Verified</strong>, an independent investigation into the historical and legal status of Palestine.</p>
+
+                    <div class="library-hub-grid mb-8" aria-label="Library quick access">
+                        <a href="#books" class="library-hub-tile">
+                            <p class="library-hub-tile__kicker">Written Works</p>
+                            <h2 class="library-hub-tile__title">Bookshelf</h2>
+                            <p class="library-hub-tile__desc">Filastin Verified, Faith Sellers, and other primary-source research books.</p>
+                        </a>
+                        <a href="#media" class="library-hub-tile">
+                            <p class="library-hub-tile__kicker">Audio & Video</p>
+                            <h2 class="library-hub-tile__title">Media Hub</h2>
+                            <p class="library-hub-tile__desc">Historical media, documentary snippets, and educational streams.</p>
+                        </a>
+                        <a href="#articles" class="library-hub-tile">
+                            <p class="library-hub-tile__kicker">Research & Essays</p>
+                            <h2 class="library-hub-tile__title">Articles</h2>
+                            <p class="library-hub-tile__desc">Analysis and source-verification notes from ongoing research. Coming soon.</p>
+                        </a>
+                        <a href="#infographics" class="library-hub-tile">
+                            <p class="library-hub-tile__kicker">Visual Learning</p>
+                            <h2 class="library-hub-tile__title">Infographics</h2>
+                            <p class="library-hub-tile__desc">Concept maps and visual explainers from ongoing projects.</p>
+                        </a>
+                    </div>
                     <!-- Section: Quran Hub -->
                     <div id="quran" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <div class="flex items-center justify-between mb-4">
@@ -84,106 +111,92 @@
                     <!-- Hadith Section -->
                     <div id="hadith" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Hadith</h2>
-                        <p class="text-gray-700 mb-4">Browse authentic collections of Hadith and their explanations.</p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Sahih Bukhari & Muslim</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Authentic narrations</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Detailed explanations</span>
-                            </div>
-                        </div>
-                        <a href="#hadith" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Hadith</a>
+                        <p class="text-gray-700 mb-3">A curated Hadith reference with chain-of-transmission notes and scholarly commentary &mdash; being prepared. Planned collections:</p>
+                        <ul class="space-y-1.5 mb-4">
+                            <li class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                Sahih Bukhari &amp; Muslim narrations
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                Isnad (chain-of-transmission) notes
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                Cross-referenced scholarly commentary
+                            </li>
+                        </ul>
+                        <p class="text-sm text-gray-400 italic">Coming soon &mdash; check back for updates.</p>
                     </div>
                     <!-- Books Section -->
                     <div id="books" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2"><img src="assets/images/Books.png" alt="Books Icon" class="inline-icon">Books</h2>
-                        <p class="text-gray-700 mb-4">Discover recommended Islamic books for all ages.</p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Children's Islamic books</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Scholarly works</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Biographies & history</span>
-                            </div>
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2"><img src="assets/images/Books.png" alt="Books Icon" class="inline-icon">Book Library</h2>
+                        <p class="text-gray-700 mb-4">Written research from the Al-Haq Initiative &mdash; primary-source translations, independent research booklets, and historical investigations. Use the filters below to browse by type.</p>
+                        <!-- Type filter bar (populated by content-viewer.js when there are multiple types) -->
+                        <div id="cv-type-filters" class="mb-4" aria-label="Filter books by type"></div>
+                        <div id="book-shelf" class="mb-6">
+                            <p class="text-sm text-gray-400">Loading book shelf&hellip;</p>
                         </div>
-                        <a href="#books" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Books</a>
+                        <div id="book-chapter-shelves" class="space-y-6"></div>
+                        <a href="services.html#ongoing" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block mt-4">View Book Projects</a>
                     </div>
                     <!-- Media Section -->
                     <div id="media" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Media</h2>
-                        <p class="text-gray-700 mb-4">Watch Islamic videos, listen to podcasts, and explore audio lectures.</p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Featured videos</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Podcasts and audio lectures</span>
-                            </div>
+                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Media Library</h2>
+                        <p class="text-gray-700 mb-4">Media Hub is organized into three streams &mdash; all aligned with verified research and vocal-only media standards.</p>
+                        <div class="library-stream-grid mb-5">
+                            <article class="library-stream-card">
+                                <p class="library-stream-card__kicker">Stream 01</p>
+                                <h3 class="library-stream-card__title">Historical Media</h3>
+                                <p class="library-stream-card__desc">Acapella and vocal-only storytelling grounded in primary sources.</p>
+                            </article>
+                            <article class="library-stream-card">
+                                <p class="library-stream-card__kicker">Stream 02</p>
+                                <h3 class="library-stream-card__title">Documentary Snippets</h3>
+                                <p class="library-stream-card__desc">Short visual breakdowns of manuscripts and source chains.</p>
+                            </article>
+                            <article class="library-stream-card">
+                                <p class="library-stream-card__kicker">Stream 03</p>
+                                <h3 class="library-stream-card__title">Educational Series</h3>
+                                <p class="library-stream-card__desc">Companion media connected to books and lesson booklets.</p>
+                            </article>
                         </div>
-                        <a href="media.html" class="text-brand-gold font-semibold hover:underline">Go to Media Page</a>
+                        <a href="media.html" class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center inline-block">Open Media Hub</a>
                     </div>
                     <!-- Articles Section -->
                     <div id="articles" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
-                        <p class="text-gray-700 mb-4">Read articles on Islamic topics, history, and contemporary issues.</p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Islamic history & culture</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Contemporary issues</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Spiritual guidance</span>
-                            </div>
+                        <p class="text-gray-700 mb-4">Research essays and educational briefs that bridge history, present challenges, and practical guidance.</p>
+                        <div class="library-topic-grid mb-5">
+                            <article class="library-topic-card">
+                                <h3 class="library-topic-card__title">History & Sources</h3>
+                                <p class="library-topic-card__desc">Analytical pieces grounded in primary-source comparison.</p>
+                            </article>
+                            <article class="library-topic-card">
+                                <h3 class="library-topic-card__title">Contemporary Reflections</h3>
+                                <p class="library-topic-card__desc">Modern issues reviewed through an Islamic ethical lens.</p>
+                            </article>
+                            <article class="library-topic-card">
+                                <h3 class="library-topic-card__title">Research Blog</h3>
+                                <p class="library-topic-card__desc">Cross-referencing updates and manuscript progress notes.</p>
+                            </article>
                         </div>
-                        <a href="#articles" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block">View Articles</a>
+                        <p class="text-sm text-gray-400 italic mt-2">Articles will be published as the book projects progress &mdash; research blog updates coming first.</p>
                     </div>
                     <!-- Infographics Section -->
                     <div id="infographics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
                         <h2 class="text-2xl font-bold text-brand-blue mb-2">InfoGraphics</h2>
-                        <p class="text-gray-700 mb-4">Explore our interactive infographics and book chapters for deeper understanding.</p>
-                        <a href="#infographics" class="text-brand-gold font-semibold hover:underline">View InfoGraphics</a>
+                        <p class="text-gray-700 mb-4">Visual explainers and narrative maps that help readers move from complex sources to clear understanding.</p>
+                        <div class="library-info-grid mb-4">
+                            <article class="library-info-card">
+                                <h3 class="library-info-card__title">Unveiling the Western World</h3>
+                                <p class="library-info-card__desc">Primary collection of infographics connected to historical and civilizational themes.</p>
+                            </article>
+                            <article class="library-info-card">
+                                <h3 class="library-info-card__title">Book-Linked Visuals</h3>
+                                <p class="library-info-card__desc">Infographic companions for Filastin Verified, Faith Sellers, and ongoing research projects.</p>
+                            </article>
+                        </div>
                         <div class="mt-4 relative">
                             <button id="infographicsDropdownBtn" 
                                 class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded hover:bg-yellow-400 transition w-full text-left flex justify-between items-center"
@@ -222,10 +235,10 @@
                         <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
                     </div>
                     <div role="listitem">
-                        <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
+                        <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Projects</a>
                     </div>
                     <div role="listitem">
-                        <a href="products.html" class="text-gray-300 hover:text-brand-gold transition">Products</a>
+                        <a href="products.html" class="text-gray-300 hover:text-brand-gold transition">Products &amp; Services</a>
                     </div>
                     <div role="listitem">
                         <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
@@ -267,10 +280,23 @@
                     </svg>
                 </a>
             </div>
-            <p class="mt-8 text-sm text-gray-500">&copy; 2025 Alhaq Initiative. All rights reserved.</p>
+            <p class="mt-8 text-sm text-gray-500">&copy; 2026 ADS Solutions &amp; Afrasyaab Meranai. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Chapter reader modal (populated by content-viewer.js) -->
+    <div id="cv-modal" class="cv-modal cv-modal--hidden" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title" aria-hidden="true">
+        <div class="cv-modal__backdrop" tabindex="-1"></div>
+        <div class="cv-modal__panel">
+            <div class="cv-modal__head">
+                <h2 id="cv-modal-title" class="cv-modal__title"></h2>
+                <button class="cv-modal__close" aria-label="Close chapter reader">&times;</button>
+            </div>
+            <div id="cv-modal-body" class="cv-modal__body"></div>
+        </div>
+    </div>
+
     <script src="assets/js/site.js"></script>
     <script src="assets/js/library.js"></script>
+    <script src="assets/js/content-viewer.js"></script>
 </body>
 </html>

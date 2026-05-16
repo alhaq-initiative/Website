@@ -1,0 +1,14 @@
+{
+  "book_number": 2,
+  "key": "faith-sellers",
+  "type": "translation",
+  "title": "The Chronicles of the Faith Sellers",
+  "subtitle": "بائعي القدر",
+  "description": "Translation and cross-referencing of Saladin\u2019s history validated against primary Arabic chroniclers \u2014 Ibn Shadd\u0101d, Ibn al-Ath\u012br, and Ibn Khallik\u0101n.",
+  "author": "Afrasyaab Meranai (Habibur Rahman)",
+  "status": "ongoing",
+  "chapter_dir": "01_Chapters",
+  "full_book_dir": "02_Full_Book",
+  "full_book_file": "Chronicles_of_the_Faith_Sellers_Full_Translation.md",
+  "attribution": "Authored personally by Afrasyaab Meranai (Habibur Rahman). Published via the Al-Haq Initiative under ADS Solutions (Alhaq Digital Services & Solutions \u2014 UK sole trader)."
+}
