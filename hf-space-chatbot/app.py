@@ -4,7 +4,12 @@ This app is project-agnostic by design. Configure it with environment variables
 to reuse the same code across different websites and products.
 """
 
+import json
+import math
 import os
+import re
+from collections import Counter
+from pathlib import Path
 from typing import List, Tuple
 
 import gradio as gr
@@ -146,6 +151,110 @@ MODEL_ID = _get_env("MODEL_ID", "Qwen/Qwen2.5-7B-Instruct")
 MAX_TOKENS = int(_get_env("MAX_TOKENS", "380"))
 TEMPERATURE = float(_get_env("TEMPERATURE", "0.55"))
 
+# Retrieval (RAG) settings — pulls live site content from site_index.json
+SITE_INDEX_PATH = Path(__file__).parent / "site_index.json"
+RAG_TOP_K = int(_get_env("RAG_TOP_K", "4"))
+RAG_MIN_SCORE = float(_get_env("RAG_MIN_SCORE", "0.05"))
+
+_STOPWORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has",
+    "have", "how", "i", "in", "is", "it", "its", "of", "on", "or", "that",
+    "the", "this", "to", "was", "what", "when", "where", "who", "why",
+    "will", "with", "you", "your", "about", "can", "do", "does", "me",
+    "my", "we", "our", "us", "so", "if", "any", "there", "their", "them",
+}
+
+# Unicode-aware token pattern: matches runs of letters/digits in any script
+# (Latin, Arabic, Persian, Pashto, etc.). Stopword filter only applies to
+# lowercase ASCII tokens, so non-English text is preserved as-is.
+_TOKEN_RE = re.compile(r"[^\W_]+", re.UNICODE)
+
+
+def _tokenize(text: str) -> List[str]:
+    tokens = []
+    for raw in _TOKEN_RE.findall(text or ""):
+        tok = raw.lower()
+        if len(tok) < 2:
+            continue
+        if tok.isascii() and tok in _STOPWORDS:
+            continue
+        tokens.append(tok)
+    return tokens
+
+
+def _load_site_index():
+    """Load chunks and pre-compute TF-IDF stats. Returns (chunks, idf)."""
+    if not SITE_INDEX_PATH.exists():
+        print(f"[rag] site_index.json not found at {SITE_INDEX_PATH}")
+        return [], {}
+    try:
+        with SITE_INDEX_PATH.open("r", encoding="utf-8") as fh:
+            payload = json.load(fh)
+    except Exception as exc:  # pylint: disable=broad-except
+        print(f"[rag] failed to read site_index.json: {exc}")
+        return [], {}
+
+    chunks = payload.get("chunks", []) or []
+    df: Counter = Counter()
+    for ch in chunks:
+        tokens = set(_tokenize(ch.get("text", "")))
+        ch["_tokens"] = Counter(_tokenize(ch.get("text", "")))
+        for tok in tokens:
+            df[tok] += 1
+
+    n_docs = max(len(chunks), 1)
+    idf = {tok: math.log((n_docs + 1) / (count + 1)) + 1.0 for tok, count in df.items()}
+    print(f"[rag] loaded {len(chunks)} chunks, vocab={len(idf)}")
+    return chunks, idf
+
+
+_SITE_CHUNKS, _SITE_IDF = _load_site_index()
+
+
+def _retrieve(query: str, k: int = RAG_TOP_K) -> List[dict]:
+    if not _SITE_CHUNKS or not query.strip():
+        return []
+    q_tokens = _tokenize(query)
+    if not q_tokens:
+        return []
+    q_vec: Counter = Counter(q_tokens)
+
+    scored = []
+    for ch in _SITE_CHUNKS:
+        tf = ch.get("_tokens") or Counter()
+        if not tf:
+            continue
+        score = 0.0
+        for tok, q_count in q_vec.items():
+            if tok in tf:
+                score += q_count * tf[tok] * _SITE_IDF.get(tok, 1.0)
+        if score <= 0:
+            continue
+        norm = math.sqrt(sum(c * c for c in tf.values())) or 1.0
+        scored.append((score / norm, ch))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    top = [ch for s, ch in scored[:k] if s >= RAG_MIN_SCORE]
+    return top
+
+
+def _format_context(chunks: List[dict]) -> str:
+    if not chunks:
+        return ""
+    lines = [
+        "LIVE SITE CONTEXT (verbatim excerpts from the website — use these as "
+        "the source of truth when answering, and cite the matching page link):",
+    ]
+    for i, ch in enumerate(chunks, 1):
+        page = ch.get("page", "Page")
+        url = ch.get("url", "")
+        lang = ch.get("lang", "en")
+        text = (ch.get("text") or "").strip()
+        if len(text) > 800:
+            text = text[:800] + "…"
+        lines.append(f"[{i}] ({lang}) {page} — {url}\n{text}")
+    return "\n\n".join(lines)
+
 
 SYSTEM_PROMPT = f"""
 You are the official website assistant for {PROJECT_NAME}.
@@ -204,6 +313,18 @@ YOUR ROLE — guide and lead the visitor:
 
 HARD RULES:
 - Keep responses short and practical (typically 3-7 sentences + 1 link).
+- LANGUAGE: detect the user's language from their message and reply in the
+  SAME language (English, Arabic, Persian/Farsi, Pashto, Urdu, French,
+  etc.). Translate link labels too — e.g. write [المكتبة](https://alhaq-initiative.org/library.html)
+  in Arabic, [کتابخانه](...) in Persian — but keep the URL exactly as given
+  in KEY LINKS. For RTL languages, write naturally in RTL; do not transliterate.
+- When a "LIVE SITE CONTEXT" block is provided in the conversation, treat it
+  as the authoritative source for facts about pages, products, and policies.
+  Prefer wording and details from that context over generic background, and
+  link to the page URL given alongside each excerpt. Each excerpt is tagged
+  with a language code — prefer excerpts matching the user's language when
+  available, but fall back to English excerpts otherwise (translating their
+  content into the user's language in your reply).
 - Do not invent product features, pricing, dates, or policy facts.
 - Never call Al-Haq Initiative a charity, non-profit, NGO, registered
   organization, 501(c), or CIC. It is a personal initiative under
@@ -230,6 +351,15 @@ def _build_messages(user_message: str, chat_history) -> list:
                 messages.append({"role": "user", "content": user_msg})
             if assistant_msg:
                 messages.append({"role": "assistant", "content": assistant_msg})
+
+    # Real-time retrieval: pull the most relevant page excerpts and pass them
+    # as an extra system message so the model can ground its answer in the
+    # current website content rather than only the static system prompt.
+    retrieved = _retrieve(user_message)
+    context_block = _format_context(retrieved)
+    if context_block:
+        messages.append({"role": "system", "content": context_block})
+
     messages.append({"role": "user", "content": user_message})
     return messages
 
@@ -260,36 +390,222 @@ def respond(user_message: str, chat_history) -> str:
         )
 
 
-with gr.Blocks(theme=gr.themes.Soft(primary_hue="blue")) as demo:
-    gr.Markdown(
-        f"""
-# {PROJECT_NAME} Assistant
+CHAT_CSS = """
+:root {
+  --alhaq-blue: #1d4ed8;
+  --alhaq-blue-dark: #1e3a8a;
+  --alhaq-blue-deep: #0f172a;
+  --alhaq-bg: #ffffff;
+  --alhaq-surface: #ffffff;
+  --alhaq-bubble-bot: #f1f5f9;
+  --alhaq-text: #0f172a;
+  --alhaq-muted: #475569;
+  --alhaq-border: #e2e8f0;
+}
 
-{PROJECT_TAGLINE}
+/* ---------- Global reset / fill height ---------- */
+html, body, gradio-app {
+  background: var(--alhaq-bg) !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  margin: 0 !important;
+  color: var(--alhaq-text) !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 16px !important;
+}
+gradio-app { display: block !important; }
+footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1ipelgc { display: none !important; }
 
-Ask questions about pages, products, support, and next steps.
+.gradio-container,
+.gradio-container > div,
+.gradio-container .main,
+.gradio-container .wrap,
+.gradio-container .contain,
+.gradio-container .form,
+.gradio-container .panel {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+}
+.gradio-container { height: 100% !important; min-height: 100% !important; display: flex !important; flex-direction: column !important; }
+.gradio-container > div,
+.gradio-container .main,
+.gradio-container .wrap { flex: 1 1 auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; }
+
+/* Hide the previous in-iframe header shell entirely */
+#alhaq-chat-shell { display: none !important; }
+
+/* ---------- Chatbot scroll area (Gradio 5 DOM) ---------- */
+.bubble-wrap, .gr-chatbot, div[class*="chatbot"]:not([class*="message"]) {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 14px 14px 8px !important;
+}
+
+/* ---------- Message bubbles ---------- */
+.message, .message-row, [class*="bubble"], [class*="message"] {
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.005em;
+  color: var(--alhaq-text) !important;
+}
+.message p, .message li, .message span, .message div { font-size: 16px !important; line-height: 1.7 !important; color: inherit !important; }
+.message h1, .message h2, .message h3, .message h4 { color: var(--alhaq-text) !important; margin: 8px 0 4px !important; }
+.message ul, .message ol { padding-left: 22px !important; margin: 6px 0 !important; }
+
+/* Assistant bubble */
+.message.bot, .message.assistant, [data-testid="bot"],
+.message-row[class*="bot"] .message,
+.message-row[class*="assistant"] .message,
+[class*="bubble-bot"], [class*="bubble-assistant"] {
+  background: var(--alhaq-bubble-bot) !important;
+  border: 1px solid var(--alhaq-border) !important;
+  color: var(--alhaq-text) !important;
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04) !important;
+}
+
+/* User bubble */
+.message.user, [data-testid="user"],
+.message-row[class*="user"] .message,
+[class*="bubble-user"] {
+  background: linear-gradient(135deg, var(--alhaq-blue-dark), var(--alhaq-blue)) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+}
+.message.user *, [data-testid="user"] *, [class*="bubble-user"] * { color: #ffffff !important; }
+
+/* Links inside bubbles */
+.message a, [class*="bubble"] a, .gr-chatbot a {
+  color: var(--alhaq-blue-dark) !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(30,58,138,.45) !important;
+  text-underline-offset: 3px !important;
+}
+.message.user a, [data-testid="user"] a, [class*="bubble-user"] a {
+  color: #fde68a !important;
+  text-decoration-color: rgba(253,230,138,.7) !important;
+}
+.message a:hover, [class*="bubble"] a:hover { text-decoration-color: currentColor !important; }
+
+/* Code blocks */
+.message code, .message pre { font-size: 14px !important; background: rgba(15,23,42,.06) !important; border-radius: 6px !important; padding: 2px 6px !important; }
+.message pre { padding: 10px 12px !important; overflow-x: auto !important; }
+
+/* Spacing between rows */
+.message-row, [class*="message-row"] { margin-bottom: 10px !important; }
+
+/* ---------- Input box ---------- */
+textarea, .gr-textbox textarea, textarea.scroll-hide {
+  border-radius: 12px !important;
+  border: 1.5px solid var(--alhaq-border) !important;
+  background: #ffffff !important;
+  color: var(--alhaq-text) !important;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04) !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  padding: 12px 14px !important;
+}
+textarea::placeholder { color: #94a3b8 !important; opacity: 1 !important; }
+textarea:focus, .gr-textbox textarea:focus {
+  border-color: var(--alhaq-blue) !important;
+  box-shadow: 0 0 0 3px rgba(29,78,216,.18) !important;
+  outline: none !important;
+}
+
+/* ---------- Submit button ---------- */
+button.primary, .gr-button-primary, button[variant="primary"],
+button[class*="submit"], button[aria-label*="Send"], button[title*="Send"] {
+  background: linear-gradient(135deg, var(--alhaq-blue-dark), var(--alhaq-blue)) !important;
+  border: none !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
+}
+button.primary:hover, .gr-button-primary:hover { filter: brightness(1.08); }
+
+/* ---------- Examples chips ---------- */
+.examples, .gr-examples, [class*="examples"] {
+  background: transparent !important;
+  border: none !important;
+  padding: 6px 14px 12px !important;
+}
+.examples button, .gr-examples button, [class*="examples"] button {
+  background: #eff6ff !important;
+  color: var(--alhaq-blue-dark) !important;
+  border: 1px solid #bfdbfe !important;
+  border-radius: 9999px !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  padding: 8px 14px !important;
+  font-weight: 600 !important;
+  white-space: normal !important;
+  text-align: left !important;
+}
+.examples button:hover, .gr-examples button:hover { background: #dbeafe !important; }
+
+/* Labels (hide "Chatbot" label box if it shows up) */
+.label-wrap, [data-testid="block-label"], .gr-chatbot > .label, .gr-chatbot label.svelte-1ipelgc { display: none !important; }
 """
-    )
 
+
+HEAD_HTML = """
+<script>
+// Open all chat links in the parent window/new tab so they navigate the
+// host website (not the iframe). Runs on every Gradio render.
+(function(){
+  function patch(){
+    document.querySelectorAll('.message a, .gr-chatbot a').forEach(function(a){
+      if (a.dataset.alhaqPatched) return;
+      a.dataset.alhaqPatched = '1';
+      a.setAttribute('target', '_top');
+      a.setAttribute('rel', 'noopener');
+    });
+  }
+  patch();
+  new MutationObserver(patch).observe(document.body, {childList:true, subtree:true});
+})();
+</script>
+"""
+
+
+with gr.Blocks(
+    theme=gr.themes.Soft(
+        primary_hue="blue",
+        neutral_hue="slate",
+        font=[gr.themes.GoogleFont("Inter"), "ui-sans-serif", "system-ui", "sans-serif"],
+    ),
+    css=CHAT_CSS,
+    head=HEAD_HTML,
+    title=f"{PROJECT_NAME} Assistant",
+    fill_height=True,
+) as demo:
     gr.ChatInterface(
         respond,
         type="messages",
+        chatbot=gr.Chatbot(
+            type="messages",
+            show_label=False,
+            container=False,
+            height="100%",
+            scale=1,
+            render_markdown=True,
+            sanitize_html=False,
+        ),
+        fill_height=True,
         examples=[
-            "What is the Al-Haq Initiative and who founded it?",
-            "Tell me about your projects and which one I should explore first.",
-            "How does AmnShield help protect mental and spiritual wellbeing?",
-            "What is Faith Sellers and how can I follow its progress?",
+            "What is the Al-Haq Initiative?",
+            "How does AmnShield protect wellbeing?",
             "How can I support the founder's work?",
         ],
-        title="Chat with the Al-Haq Assistant",
-        description=f"Project URL: {PROJECT_URL}",
-    )
-
-    gr.Markdown(
-        """
----
-Reusable template. Configure with Space Variables and Secrets to adapt for any project.
-"""
     )
 
 

@@ -71,6 +71,31 @@ const PAGE_META = {
   'legal/terms_hub.html':  { url: '/legal/terms_hub.html',   title: 'Terms Hub' },
 };
 
+// Translation folder (under assets/Translations) -> matching page meta
+const TRANSLATION_PAGE_MAP = {
+  home:               { url: '/',                       title: 'Home' },
+  about:              { url: '/about.html',             title: 'About' },
+  services:           { url: '/services.html',          title: 'Projects' },
+  projects:           { url: '/services.html',          title: 'Projects' },
+  products:           { url: '/products.html',          title: 'Products & Services' },
+  library:            { url: '/library.html',           title: 'Library' },
+  media:              { url: '/media.html',             title: 'Media' },
+  quran:              { url: '/quran.html',             title: 'Quran Hub (web app)' },
+  quranhub:           { url: '/quranhub.html',          title: 'Quran Hub (DeenHub feature)' },
+  deenhub:            { url: '/deenhub.html',           title: 'DeenHub' },
+  deenhub_join_beta:  { url: '/deenhub_join_beta.html', title: 'DeenHub Beta Signup' },
+  help:               { url: '/help.html',              title: 'Help & FAQ' },
+  contact:            { url: '/contact.html',           title: 'Contact' },
+  donate:             { url: '/donate.html',            title: 'Donate / Sponsor' },
+  support:            { url: '/support_hub.html',       title: 'Support Hub' },
+  docs:               { url: '/docs.html',              title: 'Docs' },
+  'golden-speech':    { url: '/golden-speech.html',     title: 'Golden Speech' },
+  privacy:            { url: '/legal/privacy_hub.html', title: 'Privacy Hub' },
+  terms:              { url: '/legal/terms_hub.html',   title: 'Terms Hub' },
+  introduction:       { url: '/',                       title: 'Home (Introduction)' },
+  'all-infographics': { url: '/all-infographics.html',  title: 'All Infographics' },
+};
+
 const CHUNK_SIZE = 600;   // chars per chunk
 const CHUNK_STRIDE = 480; // overlap so phrases at boundaries are still retrievable
 
@@ -133,10 +158,70 @@ async function main() {
         id: `${rel}#${idx}`,
         page: meta.title,
         url: SITE_BASE + meta.url,
+        lang: 'en',
         text: c,
       });
     });
     console.log(`[ok]   ${rel} -> ${chunks.length} chunk(s)`);
+  }
+
+  // Translations: walk assets/Translations/<folder>/<lang>.json and add chunks.
+  const T_ROOT = path.join(REPO_ROOT, 'assets', 'Translations');
+  let folders = [];
+  try {
+    folders = await fs.readdir(T_ROOT, { withFileTypes: true });
+  } catch {
+    folders = [];
+  }
+  for (const ent of folders) {
+    if (!ent.isDirectory()) continue;
+    const folder = ent.name;
+    const meta = TRANSLATION_PAGE_MAP[folder];
+    if (!meta) continue; // skip unmapped folders (e.g. legacy deensheild*)
+    let files = [];
+    try {
+      files = await fs.readdir(path.join(T_ROOT, folder));
+    } catch {
+      continue;
+    }
+    for (const file of files) {
+      if (!file.endsWith('.json')) continue;
+      const lang = file.replace(/\.json$/, '');
+      if (lang === 'en') continue; // English is already covered by the HTML pages
+      let data;
+      try {
+        const raw = await fs.readFile(path.join(T_ROOT, folder, file), 'utf8');
+        data = JSON.parse(raw);
+      } catch (err) {
+        console.warn(`[skip] ${folder}/${file}: ${err.message}`);
+        continue;
+      }
+      const values = [];
+      const walk = (node) => {
+        if (node == null) return;
+        if (typeof node === 'string') {
+          const s = node.replace(/\s+/g, ' ').trim();
+          if (s.length >= 2) values.push(s);
+        } else if (Array.isArray(node)) {
+          node.forEach(walk);
+        } else if (typeof node === 'object') {
+          Object.values(node).forEach(walk);
+        }
+      };
+      walk(data);
+      const joined = values.join(' \u2022 ');
+      const chunks = chunkText(joined, 700, 560);
+      chunks.forEach((c, idx) => {
+        records.push({
+          id: `${folder}/${file}#${idx}`,
+          page: meta.title,
+          url: SITE_BASE + meta.url,
+          lang,
+          text: c,
+        });
+      });
+      console.log(`[i18n] ${folder}/${file} -> ${chunks.length} chunk(s) [${lang}]`);
+    }
   }
 
   const payload = {

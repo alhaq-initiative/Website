@@ -960,24 +960,70 @@
     function inject(){
       if (document.getElementById('alhaq-chatbot-launcher')) return;
 
+      // If the page already has a fixed bottom-right action (e.g. #feedback-btn),
+      // stack the chat launcher above it instead of overlapping.
+      const stacked = !!document.querySelector('#feedback-btn');
+
       const style = document.createElement('style');
       style.id = 'alhaq-chatbot-styles';
       style.textContent = `
-        #alhaq-chatbot-launcher{position:fixed;bottom:20px;right:20px;z-index:9998;background:#1e40af;color:#fff;border:none;border-radius:9999px;width:56px;height:56px;box-shadow:0 6px 20px rgba(0,0,0,.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease;}
-        #alhaq-chatbot-launcher:hover{background:#1d4ed8;transform:translateY(-2px);}
+        #alhaq-chatbot-launcher{position:fixed;bottom:${stacked ? '92px' : '24px'};right:24px;z-index:9998;border:none;border-radius:9999px;width:60px;height:60px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 55%,#2563eb 100%);box-shadow:0 10px 28px rgba(29,78,216,.45),0 2px 6px rgba(15,23,42,.18);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;}
+        #alhaq-chatbot-launcher:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 36px rgba(29,78,216,.55),0 4px 10px rgba(15,23,42,.2);filter:brightness(1.05);}
+        #alhaq-chatbot-launcher:focus-visible{outline:3px solid #facc15;outline-offset:3px;}
         #alhaq-chatbot-launcher svg{width:26px;height:26px;}
-        #alhaq-chatbot-panel{position:fixed;bottom:88px;right:20px;width:380px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 120px);z-index:9999;background:#fff;border-radius:14px;box-shadow:0 18px 48px rgba(0,0,0,.28);overflow:hidden;display:none;flex-direction:column;border:1px solid rgba(0,0,0,.08);}
-        #alhaq-chatbot-panel.open{display:flex;}
-        #alhaq-chatbot-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:linear-gradient(135deg,#1e40af,#1d4ed8);color:#fff;font-weight:600;font-size:14px;}
-        #alhaq-chatbot-header button{background:transparent;border:none;color:#fff;font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:6px;}
-        #alhaq-chatbot-header button:hover{background:rgba(255,255,255,.15);}
-        #alhaq-chatbot-frame{flex:1;width:100%;border:0;}
+        #alhaq-chatbot-launcher::after{content:"";position:absolute;inset:-4px;border-radius:9999px;border:2px solid rgba(37,99,235,.45);animation:alhaq-pulse 2.4s ease-out infinite;pointer-events:none;}
+        #alhaq-chatbot-launcher.open::after{display:none;}
+        @keyframes alhaq-pulse{0%{transform:scale(1);opacity:.7}80%{transform:scale(1.35);opacity:0}100%{transform:scale(1.35);opacity:0}}
+        #alhaq-chatbot-tip{position:fixed;bottom:${stacked ? '108px' : '40px'};right:96px;z-index:9997;background:#0f172a;color:#fff;font:500 12px/1.2 'Inter',sans-serif;padding:8px 12px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,.25);opacity:0;transform:translateX(6px);pointer-events:none;transition:opacity .2s ease,transform .2s ease;white-space:nowrap;}
+        #alhaq-chatbot-tip::after{content:"";position:absolute;top:50%;right:-5px;transform:translateY(-50%) rotate(45deg);width:10px;height:10px;background:#0f172a;}
+        #alhaq-chatbot-launcher:hover + #alhaq-chatbot-tip,#alhaq-chatbot-launcher:focus-visible + #alhaq-chatbot-tip{opacity:1;transform:translateX(0);}
+        #alhaq-chatbot-launcher.open + #alhaq-chatbot-tip{display:none;}
+
+        #alhaq-chatbot-panel{position:fixed;bottom:${stacked ? '164px' : '96px'};right:20px;width:460px;max-width:calc(100vw - 20px);height:min(640px, calc(100vh - ${stacked ? '184px' : '116px'}));max-height:calc(100vh - ${stacked ? '184px' : '116px'});z-index:9999;background:#fff;border-radius:18px;box-shadow:0 28px 60px rgba(15,23,42,.32),0 4px 14px rgba(15,23,42,.14);overflow:hidden;display:none;flex-direction:column;border:1px solid rgba(15,23,42,.08);transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s ease;}
+        #alhaq-chatbot-panel.open{display:flex;transform:translateY(0) scale(1);opacity:1;}
+
+        #alhaq-chatbot-header{display:flex;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(135deg,#1e3a8a,#1d4ed8 60%,#2563eb);color:#fff;}
+        #alhaq-chatbot-header .alhaq-avatar{flex:0 0 auto;width:40px;height:40px;border-radius:9999px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25);position:relative;}
+        #alhaq-chatbot-header .alhaq-avatar svg{width:20px;height:20px;}
+        #alhaq-chatbot-header .alhaq-avatar::after{content:"";position:absolute;right:-1px;bottom:-1px;width:11px;height:11px;border-radius:9999px;background:#22c55e;border:2px solid #1d4ed8;}
+        #alhaq-chatbot-header .alhaq-meta{display:flex;flex-direction:column;line-height:1.25;flex:1;min-width:0;}
+        #alhaq-chatbot-header .alhaq-title{font:700 16px/1.2 'Inter',sans-serif;letter-spacing:.1px;}
+        #alhaq-chatbot-header .alhaq-sub{font:600 13px/1.35 'Inter',sans-serif;opacity:.96;display:flex;align-items:center;gap:7px;}
+        #alhaq-chatbot-header .alhaq-sub::before{content:"";width:6px;height:6px;border-radius:9999px;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:alhaq-dot 1.8s ease-out infinite;}
+        @keyframes alhaq-dot{0%{box-shadow:0 0 0 0 rgba(34,197,94,.7)}70%{box-shadow:0 0 0 6px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+        #alhaq-chatbot-header .alhaq-actions{display:flex;gap:6px;}
+        #alhaq-chatbot-header .alhaq-actions button{background:transparent;border:none;color:#fff;cursor:pointer;padding:7px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .15s ease;}
+        #alhaq-chatbot-header .alhaq-actions button:hover{background:rgba(255,255,255,.18);}
+        #alhaq-chatbot-header .alhaq-actions svg{width:18px;height:18px;}
+
+        #alhaq-chatbot-body{flex:1;position:relative;background:#ffffff;}
+        #alhaq-chatbot-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#ffffff;}
+        #alhaq-chatbot-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#475569;font:500 13px/1.4 'Inter',sans-serif;background:#f8fafc;text-align:center;padding:24px;}
+        #alhaq-chatbot-loading.hidden{display:none;}
+        #alhaq-chatbot-loading .alhaq-spinner{width:36px;height:36px;border-radius:9999px;border:3px solid rgba(29,78,216,.18);border-top-color:#1d4ed8;animation:alhaq-spin 1s linear infinite;}
+        @keyframes alhaq-spin{to{transform:rotate(360deg);}}
+
+        #alhaq-chatbot-footer{padding:10px 14px;border-top:1px solid rgba(15,23,42,.08);background:#fff;color:#475569;font:500 12px/1.4 'Inter',sans-serif;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+        #alhaq-chatbot-footer a{color:#1d4ed8;text-decoration:none;font-weight:600;}
+        #alhaq-chatbot-footer a:hover{text-decoration:underline;}
+
+        #alhaq-chatbot-panel.expanded{width:min(1020px,calc(100vw - 36px));height:min(82vh,860px);}
+
         @media (max-width:480px){
-          #alhaq-chatbot-panel{bottom:80px;right:8px;left:8px;width:auto;height:70vh;}
+          #alhaq-chatbot-launcher{bottom:${stacked ? '88px' : '20px'};right:16px;width:56px;height:56px;}
+          #alhaq-chatbot-tip{display:none;}
+          #alhaq-chatbot-panel{bottom:0;right:0;left:0;width:auto;max-width:none;height:92vh;max-height:92vh;border-radius:18px 18px 0 0;}
+          #alhaq-chatbot-panel.expanded{height:97vh;max-height:97vh;width:auto;}
         }
-        [dir="rtl"] #alhaq-chatbot-launcher{right:auto;left:20px;}
+        [dir="rtl"] #alhaq-chatbot-launcher{right:auto;left:24px;}
+        [dir="rtl"] #alhaq-chatbot-tip{right:auto;left:96px;transform:translateX(-6px);}
+        [dir="rtl"] #alhaq-chatbot-tip::after{right:auto;left:-5px;}
+        [dir="rtl"] #alhaq-chatbot-launcher:hover + #alhaq-chatbot-tip,[dir="rtl"] #alhaq-chatbot-launcher:focus-visible + #alhaq-chatbot-tip{transform:translateX(0);}
         [dir="rtl"] #alhaq-chatbot-panel{right:auto;left:20px;}
-        @media (max-width:480px){[dir="rtl"] #alhaq-chatbot-panel{left:8px;right:8px;}}
+        @media (max-width:480px){
+          [dir="rtl"] #alhaq-chatbot-launcher{left:16px;right:auto;}
+          [dir="rtl"] #alhaq-chatbot-panel{left:0;right:0;}
+        }
       `;
       document.head.appendChild(style);
 
@@ -985,7 +1031,14 @@
       btn.id = 'alhaq-chatbot-launcher';
       btn.type = 'button';
       btn.setAttribute('aria-label', 'Open Al-Haq Assistant chatbot');
-      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+      btn.setAttribute('aria-expanded', 'false');
+      const ICON_CHAT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+      const ICON_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      btn.innerHTML = ICON_CHAT;
+
+      const tip = document.createElement('div');
+      tip.id = 'alhaq-chatbot-tip';
+      tip.textContent = 'Ask the Al-Haq Assistant';
 
       const panel = document.createElement('div');
       panel.id = 'alhaq-chatbot-panel';
@@ -993,31 +1046,71 @@
       panel.setAttribute('aria-label', 'Al-Haq Initiative Assistant');
       panel.innerHTML = `
         <div id="alhaq-chatbot-header">
-          <span>Al-Haq Assistant</span>
-          <button type="button" id="alhaq-chatbot-close" aria-label="Close chatbot">&times;</button>
+          <div class="alhaq-avatar" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="alhaq-meta">
+            <span class="alhaq-title">Al-Haq Assistant</span>
+            <span class="alhaq-sub">Online &middot; Multilingual</span>
+          </div>
+          <div class="alhaq-actions">
+            <button type="button" id="alhaq-chatbot-expand" aria-label="Expand or shrink chatbot" title="Expand">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </button>
+            <button type="button" id="alhaq-chatbot-close" aria-label="Close chatbot" title="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
         </div>
-        <iframe id="alhaq-chatbot-frame" title="Al-Haq Initiative Assistant" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        <div id="alhaq-chatbot-body">
+          <div id="alhaq-chatbot-loading">
+            <div class="alhaq-spinner" aria-hidden="true"></div>
+            <div>Loading the Al-Haq Assistant&hellip;</div>
+          </div>
+          <iframe id="alhaq-chatbot-frame" title="Al-Haq Initiative Assistant" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-write"></iframe>
+        </div>
+        <div id="alhaq-chatbot-footer">
+          <span>Powered by ADS Solutions</span>
+          <a href="/contact.html">Need a human?</a>
+        </div>
       `;
 
       document.body.appendChild(btn);
+      document.body.appendChild(tip);
       document.body.appendChild(panel);
 
       const frame = panel.querySelector('#alhaq-chatbot-frame');
+      const loading = panel.querySelector('#alhaq-chatbot-loading');
+      const expandBtn = panel.querySelector('#alhaq-chatbot-expand');
       let loaded = false;
+
+      frame.addEventListener('load', function(){
+        if (loaded) loading.classList.add('hidden');
+      });
 
       function open(){
         if (!loaded) { frame.src = CHATBOT_URL; loaded = true; }
         panel.classList.add('open');
+        btn.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close Al-Haq Assistant chatbot');
+        btn.innerHTML = ICON_CLOSE;
       }
       function close(){
         panel.classList.remove('open');
+        btn.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open Al-Haq Assistant chatbot');
+        btn.innerHTML = ICON_CHAT;
       }
       btn.addEventListener('click', function(){
         if (panel.classList.contains('open')) close(); else open();
       });
       panel.querySelector('#alhaq-chatbot-close').addEventListener('click', close);
+      expandBtn.addEventListener('click', function(){
+        panel.classList.toggle('expanded');
+        expandBtn.setAttribute('title', panel.classList.contains('expanded') ? 'Shrink' : 'Expand');
+      });
       document.addEventListener('keydown', function(e){
         if (e.key === 'Escape' && panel.classList.contains('open')) close();
       });
