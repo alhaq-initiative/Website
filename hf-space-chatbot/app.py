@@ -403,12 +403,20 @@ CHAT_CSS = """
   --alhaq-border: #e2e8f0;
 }
 
+/* ---------- Force light scheme even if user/system prefers dark ---------- */
+html, body, gradio-app, .dark { color-scheme: light !important; }
+.dark, body.dark, gradio-app.dark, .gradio-container.dark { background: #ffffff !important; color: #0f172a !important; }
+.dark *, .gradio-container.dark * { color: inherit; }
+
 /* ---------- Global reset / fill height ---------- */
 html, body, gradio-app {
   background: var(--alhaq-bg) !important;
   height: 100% !important;
   min-height: 100% !important;
+  width: 100% !important;
   margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
   color: var(--alhaq-text) !important;
   font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
   font-size: 16px !important;
@@ -416,45 +424,114 @@ html, body, gradio-app {
 gradio-app { display: block !important; }
 footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1ipelgc { display: none !important; }
 
-.gradio-container,
-.gradio-container > div,
-.gradio-container .main,
-.gradio-container .wrap,
-.gradio-container .contain,
-.gradio-container .form,
-.gradio-container .panel {
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  gap: 0 !important;
+.gradio-container { 
+  max-width: 100% !important; 
+  padding: 0 !important; 
+  margin: 0 !important; 
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
-.gradio-container { height: 100% !important; min-height: 100% !important; display: flex !important; flex-direction: column !important; }
-.gradio-container > div,
-.gradio-container .main,
-.gradio-container .wrap { flex: 1 1 auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; }
+.gradio-container .main, .gradio-container .wrap { 
+  padding: 0 !important; 
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+.gradio-container > * {
+  width: 100% !important;
+}
+.gr-box, .gr-column, [role="main"] {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
 
 /* Hide the previous in-iframe header shell entirely */
 #alhaq-chat-shell { display: none !important; }
 
-/* ---------- Chatbot scroll area (Gradio 5 DOM) ---------- */
-.bubble-wrap, .gr-chatbot, div[class*="chatbot"]:not([class*="message"]) {
-  flex: 1 1 auto !important;
+/* ---------- Chat interface container ---------- */
+.gr-chat-container, [role="application"] {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  width: 100% !important;
   min-height: 0 !important;
+}
+.gr-chatbot, .gr-chat-column {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 0 !important;
+}
+
+/* ---------- Chatbot scroll area ---------- */
+/* Gradio 5: .bubble-wrap is the message list container. Keep it fixed-height so it can scroll. */
+.bubble-wrap {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #cbd5e1 transparent !important;
+  scroll-behavior: smooth !important;
+}
+.bubble-wrap {
   background: transparent !important;
   border: none !important;
-  padding: 14px 14px 8px !important;
+  padding: 16px 14px 12px 14px !important;
+}
+.bubble-wrap::-webkit-scrollbar { 
+  width: 8px !important; 
+  background: transparent !important;
+}
+.bubble-wrap::-webkit-scrollbar-track { 
+  background: transparent !important;
+  margin: 8px 0 !important;
+}
+.bubble-wrap::-webkit-scrollbar-thumb { 
+  background: #cbd5e1 !important; 
+  border-radius: 4px !important; 
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+}
+.bubble-wrap::-webkit-scrollbar-thumb:hover { 
+  background: #94a3b8 !important;
+  background-clip: padding-box !important;
 }
 
 /* ---------- Message bubbles ---------- */
 .message, .message-row, [class*="bubble"], [class*="message"] {
   font-size: 16px !important;
-  line-height: 1.7 !important;
-  letter-spacing: 0.005em;
+  line-height: 1.6 !important;
+  letter-spacing: 0.005em !important;
   color: var(--alhaq-text) !important;
+  word-wrap: break-word !important;
 }
-.message p, .message li, .message span, .message div { font-size: 16px !important; line-height: 1.7 !important; color: inherit !important; }
-.message h1, .message h2, .message h3, .message h4 { color: var(--alhaq-text) !important; margin: 8px 0 4px !important; }
-.message ul, .message ol { padding-left: 22px !important; margin: 6px 0 !important; }
+.message p, .message li, .message span, .message div { 
+  font-size: 16px !important; 
+  line-height: 1.6 !important; 
+  color: inherit !important;
+  word-wrap: break-word !important;
+}
+.message h1, .message h2, .message h3, .message h4 { 
+  color: var(--alhaq-text) !important; 
+  margin: 12px 0 6px 0 !important;
+  font-weight: 700 !important;
+}
+.message ul, .message ol { 
+  padding-left: 22px !important; 
+  margin: 8px 0 !important; 
+}
+.message li { margin: 4px 0 !important; }
 
 /* Assistant bubble */
 .message.bot, .message.assistant, [data-testid="bot"],
@@ -465,8 +542,9 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   border: 1px solid var(--alhaq-border) !important;
   color: var(--alhaq-text) !important;
   border-radius: 14px !important;
-  padding: 12px 14px !important;
-  box-shadow: 0 1px 2px rgba(15,23,42,.04) !important;
+  padding: 14px 16px !important;
+  box-shadow: 0 1px 3px rgba(15,23,42,.08) !important;
+  max-width: 95% !important;
 }
 
 /* User bubble */
@@ -477,9 +555,13 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   color: #ffffff !important;
   border: none !important;
   border-radius: 14px !important;
-  padding: 12px 14px !important;
+  padding: 14px 16px !important;
+  box-shadow: 0 2px 8px rgba(29,78,216,.25) !important;
+  max-width: 95% !important;
 }
-.message.user *, [data-testid="user"] *, [class*="bubble-user"] * { color: #ffffff !important; }
+.message.user *, [data-testid="user"] *, [class*="bubble-user"] * { 
+  color: #ffffff !important; 
+}
 
 /* Links inside bubbles */
 .message a, [class*="bubble"] a, .gr-chatbot a {
@@ -488,23 +570,58 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   text-decoration: underline !important;
   text-decoration-color: rgba(30,58,138,.45) !important;
   text-underline-offset: 3px !important;
+  cursor: pointer !important;
+}
+.message a:hover, [class*="bubble"] a:hover, .gr-chatbot a:hover {
+  text-decoration-color: var(--alhaq-blue-dark) !important;
+  filter: brightness(0.95) !important;
 }
 .message.user a, [data-testid="user"] a, [class*="bubble-user"] a {
   color: #fde68a !important;
   text-decoration-color: rgba(253,230,138,.7) !important;
 }
-.message a:hover, [class*="bubble"] a:hover { text-decoration-color: currentColor !important; }
+.message.user a:hover, [data-testid="user"] a:hover, [class*="bubble-user"] a:hover {
+  text-decoration-color: #fde68a !important;
+}
 
 /* Code blocks */
-.message code, .message pre { font-size: 14px !important; background: rgba(15,23,42,.06) !important; border-radius: 6px !important; padding: 2px 6px !important; }
-.message pre { padding: 10px 12px !important; overflow-x: auto !important; }
+.message code, .message pre { 
+  font-size: 14px !important; 
+  background: rgba(15,23,42,.06) !important; 
+  border-radius: 6px !important; 
+  padding: 2px 6px !important;
+  color: var(--alhaq-text) !important;
+}
+.message pre { 
+  padding: 12px 14px !important; 
+  overflow-x: auto !important;
+  border: 1px solid var(--alhaq-border) !important;
+  line-height: 1.4 !important;
+}
+.message pre code { padding: 0 !important; background: transparent !important; }
 
 /* Spacing between rows */
-.message-row, [class*="message-row"] { margin-bottom: 10px !important; }
+.message-row, [class*="message-row"] { 
+  margin-bottom: 12px !important; 
+}
+
+/* ---------- Input area container ---------- */
+.gr-textbox-container, .form, form {
+  flex-shrink: 0 !important;
+  padding: 12px 14px !important;
+  gap: 10px !important;
+  background: var(--alhaq-surface) !important;
+  border-top: 1px solid var(--alhaq-border) !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-end !important;
+  box-sizing: border-box !important;
+}
 
 /* ---------- Input box ---------- */
-textarea, .gr-textbox textarea, textarea.scroll-hide {
-  border-radius: 12px !important;
+.gr-textbox, .gr-textbox-input, textarea, .gr-textbox textarea, textarea.scroll-hide {
+  border-radius: 10px !important;
   border: 1.5px solid var(--alhaq-border) !important;
   background: #ffffff !important;
   color: var(--alhaq-text) !important;
@@ -512,11 +629,20 @@ textarea, .gr-textbox textarea, textarea.scroll-hide {
   font-size: 16px !important;
   line-height: 1.5 !important;
   padding: 12px 14px !important;
+  resize: none !important;
+  max-height: 120px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  width: 100% !important;
 }
-textarea::placeholder { color: #94a3b8 !important; opacity: 1 !important; }
+textarea::placeholder { 
+  color: #94a3b8 !important; 
+  opacity: 1 !important; 
+}
 textarea:focus, .gr-textbox textarea:focus {
   border-color: var(--alhaq-blue) !important;
-  box-shadow: 0 0 0 3px rgba(29,78,216,.18) !important;
+  box-shadow: 0 0 0 3px rgba(29,78,216,.12), 0 1px 2px rgba(15,23,42,.08) !important;
   outline: none !important;
 }
 
@@ -526,17 +652,35 @@ button[class*="submit"], button[aria-label*="Send"], button[title*="Send"] {
   background: linear-gradient(135deg, var(--alhaq-blue-dark), var(--alhaq-blue)) !important;
   border: none !important;
   color: #ffffff !important;
-  border-radius: 12px !important;
+  border-radius: 10px !important;
   font-weight: 600 !important;
-  box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
+  box-shadow: 0 4px 12px rgba(29,78,216,.25) !important;
+  padding: 12px 24px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
 }
-button.primary:hover, .gr-button-primary:hover { filter: brightness(1.08); }
+button.primary:hover, .gr-button-primary:hover {
+  filter: brightness(1.08) !important;
+  box-shadow: 0 6px 16px rgba(29,78,216,.35) !important;
+  transform: translateY(-1px) !important;
+}
+button.primary:active, .gr-button-primary:active {
+  transform: translateY(0) !important;
+}
 
 /* ---------- Examples chips ---------- */
 .examples, .gr-examples, [class*="examples"] {
   background: transparent !important;
   border: none !important;
-  padding: 6px 14px 12px !important;
+  padding: 8px 14px 12px 14px !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
 }
 .examples button, .gr-examples button, [class*="examples"] button {
   background: #eff6ff !important;
@@ -549,21 +693,57 @@ button.primary:hover, .gr-button-primary:hover { filter: brightness(1.08); }
   font-weight: 600 !important;
   white-space: normal !important;
   text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
 }
-.examples button:hover, .gr-examples button:hover { background: #dbeafe !important; }
+.examples button:hover, .gr-examples button:hover { 
+  background: #dbeafe !important; 
+  border-color: #93c5fd !important;
+  transform: translateY(-1px) !important;
+}
 
 /* Labels (hide "Chatbot" label box if it shows up) */
 .label-wrap, [data-testid="block-label"], .gr-chatbot > .label, .gr-chatbot label.svelte-1ipelgc { display: none !important; }
+
+/* ---------- Footer / Attribution text ---------- */
+.gr-footer, .footer, [class*="footer"], .info-text, .caption {
+  flex-shrink: 0 !important;
+  padding: 6px 14px !important;
+  font-size: 12px !important;
+  color: var(--alhaq-muted) !important;
+  background: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- Remove any unwanted spacing from divs/sections ---------- */
+div[style*="min-height"], section[style*="min-height"] {
+  min-height: auto !important;
+}
+
 """
 
 
 HEAD_HTML = """
 <script>
-// Open all chat links in the parent window/new tab so they navigate the
-// host website (not the iframe). Runs on every Gradio render.
+// 1) Force light theme (some browsers ignore the URL param).
+// 2) Open all chat links in the parent window so they navigate the host site.
+// 3) Auto-scroll chat to the latest message.
 (function(){
+  try {
+    document.documentElement.classList.remove('dark');
+    document.body && document.body.classList.remove('dark');
+    var obs = new MutationObserver(function(){
+      if (document.documentElement.classList.contains('dark')) document.documentElement.classList.remove('dark');
+      if (document.body && document.body.classList.contains('dark')) document.body.classList.remove('dark');
+    });
+    obs.observe(document.documentElement, {attributes:true, attributeFilter:['class']});
+    if (document.body) obs.observe(document.body, {attributes:true, attributeFilter:['class']});
+  } catch(e) {}
+
   function patch(){
-    document.querySelectorAll('.message a, .gr-chatbot a').forEach(function(a){
+    document.querySelectorAll('.message a, .gr-chatbot a, [class*="bubble"] a').forEach(function(a){
       if (a.dataset.alhaqPatched) return;
       a.dataset.alhaqPatched = '1';
       a.setAttribute('target', '_top');
@@ -571,7 +751,35 @@ HEAD_HTML = """
     });
   }
   patch();
-  new MutationObserver(patch).observe(document.body, {childList:true, subtree:true});
+  new MutationObserver(patch).observe(document.body || document.documentElement, {childList:true, subtree:true});
+
+  // Auto-scroll to latest message in chat
+  function autoScrollChat() {
+    var bubbleWrap = document.querySelector('.bubble-wrap');
+    if (bubbleWrap) {
+      setTimeout(function() {
+        bubbleWrap.scrollTop = bubbleWrap.scrollHeight;
+      }, 100);
+    }
+  }
+  
+  // Observe chat container for new messages
+  var chatObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length > 0) {
+        autoScrollChat();
+      }
+    });
+  });
+  
+  // Start observing after a brief delay to ensure DOM is ready
+  setTimeout(function() {
+    var bubbleWrap = document.querySelector('.bubble-wrap');
+    if (bubbleWrap) {
+      chatObserver.observe(bubbleWrap, {childList: true, subtree: true});
+      autoScrollChat();
+    }
+  }, 500);
 })();
 </script>
 """

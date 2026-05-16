@@ -956,6 +956,7 @@
     window.__alhaqChatbotInjected = true;
 
     const CHATBOT_URL = window.ALHAQ_CHATBOT_URL || 'https://habib-hf-alhaq-website-chatbot.hf.space';
+    const CHATBOT_SRC = CHATBOT_URL + (CHATBOT_URL.indexOf('?') === -1 ? '?' : '&') + '__theme=light';
 
     function inject(){
       if (document.getElementById('alhaq-chatbot-launcher')) return;
@@ -979,7 +980,7 @@
         #alhaq-chatbot-launcher:hover + #alhaq-chatbot-tip,#alhaq-chatbot-launcher:focus-visible + #alhaq-chatbot-tip{opacity:1;transform:translateX(0);}
         #alhaq-chatbot-launcher.open + #alhaq-chatbot-tip{display:none;}
 
-        #alhaq-chatbot-panel{position:fixed;bottom:${stacked ? '164px' : '96px'};right:20px;width:460px;max-width:calc(100vw - 20px);height:min(640px, calc(100vh - ${stacked ? '184px' : '116px'}));max-height:calc(100vh - ${stacked ? '184px' : '116px'});z-index:9999;background:#fff;border-radius:18px;box-shadow:0 28px 60px rgba(15,23,42,.32),0 4px 14px rgba(15,23,42,.14);overflow:hidden;display:none;flex-direction:column;border:1px solid rgba(15,23,42,.08);transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s ease;}
+        #alhaq-chatbot-panel{position:fixed;bottom:${stacked ? '164px' : '96px'};right:20px;width:460px;max-width:calc(100vw - 20px);height:min(640px, calc(100vh - ${stacked ? '184px' : '116px'}));max-height:calc(100vh - ${stacked ? '184px' : '116px'});z-index:9999;background:#fff;border-radius:18px;box-shadow:0 28px 60px rgba(15,23,42,.32),0 4px 14px rgba(15,23,42,.14);overflow:hidden;overscroll-behavior:contain;display:none;flex-direction:column;border:1px solid rgba(15,23,42,.08);transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s ease;}
         #alhaq-chatbot-panel.open{display:flex;transform:translateY(0) scale(1);opacity:1;}
 
         #alhaq-chatbot-header{display:flex;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(135deg,#1e3a8a,#1d4ed8 60%,#2563eb);color:#fff;}
@@ -1089,12 +1090,19 @@
       });
 
       function open(){
-        if (!loaded) { frame.src = CHATBOT_URL; loaded = true; }
+        if (!loaded) { frame.src = CHATBOT_SRC; loaded = true; }
         panel.classList.add('open');
         btn.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
         btn.setAttribute('aria-label', 'Close Al-Haq Assistant chatbot');
         btn.innerHTML = ICON_CLOSE;
+        // Lock page scroll while chatbot is open so wheel/touch events don't scroll the host page.
+        try {
+          document.documentElement.dataset.alhaqPrevOverflow = document.documentElement.style.overflow || '';
+          document.body.dataset.alhaqPrevOverflow = document.body.style.overflow || '';
+          document.documentElement.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden';
+        } catch(e) {}
       }
       function close(){
         panel.classList.remove('open');
@@ -1102,6 +1110,10 @@
         btn.setAttribute('aria-expanded', 'false');
         btn.setAttribute('aria-label', 'Open Al-Haq Assistant chatbot');
         btn.innerHTML = ICON_CHAT;
+        try {
+          document.documentElement.style.overflow = document.documentElement.dataset.alhaqPrevOverflow || '';
+          document.body.style.overflow = document.body.dataset.alhaqPrevOverflow || '';
+        } catch(e) {}
       }
       btn.addEventListener('click', function(){
         if (panel.classList.contains('open')) close(); else open();
