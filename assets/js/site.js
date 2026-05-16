@@ -941,3 +941,94 @@
   });
 })();
 
+/* ============================================================
+   Al-Haq Initiative AI Chatbot — floating launcher + iframe
+   Embeds the Hugging Face Space Habib-HF/alhaq-website-chatbot.
+   Skipped on AmnShield/legacy shield surfaces (they have their
+   own shells). Configurable via window.ALHAQ_CHATBOT_URL.
+   ============================================================ */
+(function(){
+  'use strict';
+  try {
+    const path = (location.pathname || '').toLowerCase();
+    if (path.startsWith('/amn-site') || path.startsWith('/shield/') || path.startsWith('/legal/shield_docs/')) return;
+    if (window.__alhaqChatbotInjected) return;
+    window.__alhaqChatbotInjected = true;
+
+    const CHATBOT_URL = window.ALHAQ_CHATBOT_URL || 'https://habib-hf-alhaq-website-chatbot.hf.space';
+
+    function inject(){
+      if (document.getElementById('alhaq-chatbot-launcher')) return;
+
+      const style = document.createElement('style');
+      style.id = 'alhaq-chatbot-styles';
+      style.textContent = `
+        #alhaq-chatbot-launcher{position:fixed;bottom:20px;right:20px;z-index:9998;background:#1e40af;color:#fff;border:none;border-radius:9999px;width:56px;height:56px;box-shadow:0 6px 20px rgba(0,0,0,.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease;}
+        #alhaq-chatbot-launcher:hover{background:#1d4ed8;transform:translateY(-2px);}
+        #alhaq-chatbot-launcher svg{width:26px;height:26px;}
+        #alhaq-chatbot-panel{position:fixed;bottom:88px;right:20px;width:380px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 120px);z-index:9999;background:#fff;border-radius:14px;box-shadow:0 18px 48px rgba(0,0,0,.28);overflow:hidden;display:none;flex-direction:column;border:1px solid rgba(0,0,0,.08);}
+        #alhaq-chatbot-panel.open{display:flex;}
+        #alhaq-chatbot-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:linear-gradient(135deg,#1e40af,#1d4ed8);color:#fff;font-weight:600;font-size:14px;}
+        #alhaq-chatbot-header button{background:transparent;border:none;color:#fff;font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:6px;}
+        #alhaq-chatbot-header button:hover{background:rgba(255,255,255,.15);}
+        #alhaq-chatbot-frame{flex:1;width:100%;border:0;}
+        @media (max-width:480px){
+          #alhaq-chatbot-panel{bottom:80px;right:8px;left:8px;width:auto;height:70vh;}
+        }
+        [dir="rtl"] #alhaq-chatbot-launcher{right:auto;left:20px;}
+        [dir="rtl"] #alhaq-chatbot-panel{right:auto;left:20px;}
+        @media (max-width:480px){[dir="rtl"] #alhaq-chatbot-panel{left:8px;right:8px;}}
+      `;
+      document.head.appendChild(style);
+
+      const btn = document.createElement('button');
+      btn.id = 'alhaq-chatbot-launcher';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Open Al-Haq Assistant chatbot');
+      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+
+      const panel = document.createElement('div');
+      panel.id = 'alhaq-chatbot-panel';
+      panel.setAttribute('role', 'dialog');
+      panel.setAttribute('aria-label', 'Al-Haq Initiative Assistant');
+      panel.innerHTML = `
+        <div id="alhaq-chatbot-header">
+          <span>Al-Haq Assistant</span>
+          <button type="button" id="alhaq-chatbot-close" aria-label="Close chatbot">&times;</button>
+        </div>
+        <iframe id="alhaq-chatbot-frame" title="Al-Haq Initiative Assistant" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      `;
+
+      document.body.appendChild(btn);
+      document.body.appendChild(panel);
+
+      const frame = panel.querySelector('#alhaq-chatbot-frame');
+      let loaded = false;
+
+      function open(){
+        if (!loaded) { frame.src = CHATBOT_URL; loaded = true; }
+        panel.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      function close(){
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      btn.addEventListener('click', function(){
+        if (panel.classList.contains('open')) close(); else open();
+      });
+      panel.querySelector('#alhaq-chatbot-close').addEventListener('click', close);
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && panel.classList.contains('open')) close();
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', inject);
+    } else {
+      inject();
+    }
+  } catch (err) {
+    console.debug('Chatbot widget init failed', err);
+  }
+})();

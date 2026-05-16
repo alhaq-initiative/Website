@@ -1,0 +1,86 @@
+# Quick Deploy Checklist (2 Minutes)
+
+## Your Files Are Ready
+Location: `d:\Projects\alhaq-website\hf-space-chatbot\`
+
+Files:
+- ✅ `app.py` (Chatbot code with Al-Haq context)
+- ✅ `requirements.txt` (Dependencies)
+- ✅ `Dockerfile` (Container setup)
+- ✅ `DEPLOY.md` (Full instructions)
+
+---
+
+## Deploy Steps (Copy/Paste)
+
+### 1️⃣ Go to Hugging Face
+```
+https://huggingface.co/spaces
+```
+
+Click: **"Create" → "New Space"**
+
+### 2️⃣ Fill Form
+```
+Space name:   alhaq-chatbot
+License:      OpenRAIL-M
+SDK:          Docker
+Visibility:   Public
+```
+
+Click: **"Create Space"**
+
+### 3️⃣ Upload 3 Files
+Click: **"Files" → "Add file" → "Upload files"**
+
+Upload from `d:\Projects\alhaq-website\hf-space-chatbot\`:
+- [ ] `app.py`
+- [ ] `requirements.txt`
+- [ ] `Dockerfile`
+
+### 4️⃣ Wait for Build
+Status should show "Running" (2-5 min)
+
+### 5️⃣ Get Embed Code
+Click: ⋯ (three dots) → **"Embed this Space"**
+
+Copy the iframe code
+
+### 6️⃣ Add to Website
+Paste into any page (e.g., `help.html`):
+
+```html
+<iframe
+    src="https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot"
+    frameborder="0"
+    width="100%"
+    height="600"
+    style="border: 1px solid #ddd; border-radius: 8px;"
+></iframe>
+```
+
+---
+
+## Done! 🎉
+
+Your chatbot is now live and embedded on your website.
+
+- **Fully conversational** - Maintains chat history
+- **Knows your content** - Trained on Al-Haq context
+- **Free forever** - Hosted on Hugging Face
+- **No maintenance** - Automatic updates
+
+---
+
+## Test It
+Visit your space URL to chat before embedding:
+```
+https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot
+```
+
+---
+
+## Customize Later
+Edit `app.py` → `SYSTEM_PROMPT` to add more context or change tone.
+
+See `DEPLOY.md` for advanced customization.
