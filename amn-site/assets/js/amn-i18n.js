@@ -7,6 +7,7 @@
     const p = location.pathname.toLowerCase();
     if (p === '/amn-site/' || p === '/amn-site/index.html') return 'home';
     if (p === '/amn-site/download/index.html') return 'download';
+    if (p === '/amn-site/download/android/index.html') return 'android';
     if (p === '/amn-site/faq/index.html') return 'faq';
     if (p === '/amn-site/support/index.html') return 'support';
     if (p === '/amn-site/docs/index.html') return 'docs';
@@ -57,6 +58,12 @@
     if (!list) return;
     const items = list.querySelectorAll('li');
     if (items[index] && typeof text === 'string') items[index].textContent = text;
+  }
+
+  function setNth(selector, index, text) {
+    const nodes = document.querySelectorAll(selector);
+    if (!nodes || !nodes[index] || typeof text !== 'string') return;
+    nodes[index].textContent = text;
   }
 
   const NAV = {
@@ -239,6 +246,8 @@
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'هل تعيد هذه الصفحة التوجيه؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 2, 'من أين أحصل على النسخ؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 3, 'أين تفاصيل السياسات؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 4, 'كيف أنضم إلى الاختبار المغلق على أندرويد؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 5, 'هل تتم معالجة بيانات أندرويد محليا؟');
       setHtml('.amn-footer p', 'لأسئلة إضافية، تابع إلى <a href="/amn-site/support/index.html">الدعم</a> أو راسل <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
       return;
     }
@@ -251,6 +260,8 @@
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'آیا این صفحه ریدایرکت می شود؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 2, 'بیلدها را از کجا بگیرم؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 3, 'جزئیات سیاست ها کجاست؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 4, 'چطور به تست بسته اندروید بپیوندم؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 5, 'آیا داده های اندروید به صورت محلی پردازش می شود؟');
       setHtml('.amn-footer p', 'برای سوالات بیشتر، به <a href="/amn-site/support/index.html">پشتیبانی</a> بروید یا ایمیل بزنید: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
       return;
     }
@@ -263,6 +274,8 @@
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'ایا دا پاڼه بیا لېږد کوي؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 2, 'نسخې له کومه ترلاسه کړم؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 3, 'د تګلارو تفصیل چېرته دی؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 4, 'د Android تړلي ټیسټ ته څنګه داخل شم؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 5, 'ایا د Android معلومات په ځایي ډول پروسس کېږي؟');
       setHtml('.amn-footer p', 'د نورو پوښتنو لپاره <a href="/amn-site/support/index.html">ملاتړ</a> ته لاړ شئ یا ایمیل وکړئ: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
       return;
     }
@@ -275,6 +288,8 @@
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'کیا یہ صفحہ ری ڈائریکٹ کرتا ہے؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 2, 'بلڈ کہاں سے ملیں گی؟');
       setAt('.amn-grid.cols-2 .amn-card', 'h2', 3, 'پالیسی تفصیل کہاں ہے؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 4, 'Android کلوزڈ ٹیسٹنگ میں کیسے شامل ہوں؟');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 5, 'کیا Android ڈیٹا مقامی طور پر پراسیس ہوتا ہے؟');
       setHtml('.amn-footer p', 'مزید سوالات کے لیے <a href="/amn-site/support/index.html">سپورٹ</a> پر جائیں یا ای میل کریں: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
     }
   }
@@ -282,54 +297,62 @@
   function applySupport(lang) {
     if (lang === 'ar') {
       document.title = 'الدعم | AmnShield';
-      setText('.amn-kicker', 'مسار الدعم');
-      setText('.amn-hero h1', 'احصل على المساعدة مع AmnShield');
-      setText('.amn-hero p', 'استخدم هذه الصفحة لأسئلة التثبيت وتقارير المشاكل والتوجيه إلى المورد المناسب.');
-      setText('.amn-actions .amn-btn.primary', 'راسل الدعم');
-      setText('.amn-actions .amn-btn.secondary', 'افتح الأسئلة الشائعة');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'مساعدة الإعداد');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'تقارير المشاكل');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'استفسارات السياسات');
-      setHtml('.amn-footer p', 'جهة الاتصال الرئيسية: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
+      setText('main h1', 'مركز الدعم');
+      setText('main p.text-sm.text-gray-500', 'تحتاج مساعدة؟ اختر منتجك أدناه أو تواصل معنا مباشرة.');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 0, 'إضافة المتصفح');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 1, 'تطبيق أندرويد');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 2, 'مدير سطح المكتب');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 3, 'تطبيق سطح المكتب');
+      setText('h2#extension', 'أسئلة الإضافة');
+      setText('h2#mobile', 'دعم تطبيق أندرويد');
+      setText('h2#manager', 'مدير سطح المكتب (قيد التخطيط)');
+      setText('h2#desktop', 'تطبيق سطح المكتب (قيد التخطيط)');
+      setNth('main h2.text-2xl.font-bold.mt-10.mb-3', 4, 'التواصل');
       return;
     }
     if (lang === 'fa') {
       document.title = 'پشتیبانی | AmnShield';
-      setText('.amn-kicker', 'مسیر پشتیبانی');
-      setText('.amn-hero h1', 'برای AmnShield کمک بگیرید');
-      setText('.amn-hero p', 'از این صفحه برای سوالات نصب، گزارش مشکل و ارجاع به منبع مناسب استفاده کنید.');
-      setText('.amn-actions .amn-btn.primary', 'ایمیل پشتیبانی');
-      setText('.amn-actions .amn-btn.secondary', 'باز کردن پرسش ها');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'کمک راه اندازی');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'گزارش مشکل');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'سوالات سیاستی');
-      setHtml('.amn-footer p', 'تماس اصلی: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
+      setText('main h1', 'مرکز پشتیبانی');
+      setText('main p.text-sm.text-gray-500', 'به کمک نیاز دارید؟ محصول خود را انتخاب کنید یا مستقیم با ما تماس بگیرید.');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 0, 'افزونه مرورگر');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 1, 'اپ اندروید');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 2, 'مدیر دسکتاپ');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 3, 'اپ دسکتاپ');
+      setText('h2#extension', 'پرسش های افزونه');
+      setText('h2#mobile', 'پشتیبانی اپ اندروید');
+      setText('h2#manager', 'مدیر دسکتاپ (در برنامه)');
+      setText('h2#desktop', 'اپ دسکتاپ (در برنامه)');
+      setNth('main h2.text-2xl.font-bold.mt-10.mb-3', 4, 'تماس');
       return;
     }
     if (lang === 'ps') {
       document.title = 'ملاتړ | AmnShield';
-      setText('.amn-kicker', 'د ملاتړ لاره');
-      setText('.amn-hero h1', 'د AmnShield لپاره مرسته ترلاسه کړئ');
-      setText('.amn-hero p', 'دا پاڼه د نصب پوښتنو، د ستونزو راپور او مناسب قانوني يا تخنيکي لارښوونې لپاره وکاروئ.');
-      setText('.amn-actions .amn-btn.primary', 'ملاتړ ته ايميل');
-      setText('.amn-actions .amn-btn.secondary', 'پوښتنې پرانیزئ');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'د نصب مرسته');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'د ستونزې راپور');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'د تګلارې پوښتنې');
-      setHtml('.amn-footer p', 'اصلي اړیکه: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
+      setText('main h1', 'د ملاتړ مرکز');
+      setText('main p.text-sm.text-gray-500', 'مرستې ته اړتیا لرئ؟ لاندې خپل محصول وټاکئ یا مستقیمه اړیکه ونیسئ.');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 0, 'د براوزر توسیعه');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 1, 'Android اپ');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 2, 'د ډيسکټاپ مدير');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 3, 'د ډيسکټاپ اپ');
+      setText('h2#extension', 'د توسیعې پوښتنې');
+      setText('h2#mobile', 'د Android اپ ملاتړ');
+      setText('h2#manager', 'د ډيسکټاپ مدير (راتلونکی)');
+      setText('h2#desktop', 'د ډيسکټاپ اپ (راتلونکی)');
+      setNth('main h2.text-2xl.font-bold.mt-10.mb-3', 4, 'اړیکه');
       return;
     }
     if (lang === 'ur') {
       document.title = 'سپورٹ | AmnShield';
-      setText('.amn-kicker', 'سپورٹ روٹ');
-      setText('.amn-hero h1', 'AmnShield کے لیے مدد حاصل کریں');
-      setText('.amn-hero p', 'اس صفحے کو انسٹالیشن سوالات، مسئلہ رپورٹنگ اور درست قانونی یا تکنیکی رہنمائی کے لیے استعمال کریں۔');
-      setText('.amn-actions .amn-btn.primary', 'سپورٹ کو ای میل کریں');
-      setText('.amn-actions .amn-btn.secondary', 'سوالات کھولیں');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'سیٹ اپ مدد');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'مسئلہ رپورٹ');
-      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'پالیسی سوالات');
-      setHtml('.amn-footer p', 'بنیادی رابطہ: <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
+      setText('main h1', 'سپورٹ ہب');
+      setText('main p.text-sm.text-gray-500', 'مدد چاہیے؟ نیچے اپنا پروڈکٹ منتخب کریں یا براہ راست رابطہ کریں۔');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 0, 'براؤزر ایکسٹینشن');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 1, 'اینڈروئیڈ ایپ');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 2, 'ڈیسک ٹاپ مینیجر');
+      setNth('section.grid.md\\:grid-cols-2 a.card strong', 3, 'ڈیسک ٹاپ ایپ');
+      setText('h2#extension', 'ایکسٹینشن سوالات');
+      setText('h2#mobile', 'اینڈروئیڈ ایپ سپورٹ');
+      setText('h2#manager', 'ڈیسک ٹاپ مینیجر (منصوبہ بندی)');
+      setText('h2#desktop', 'ڈیسک ٹاپ ایپ (منصوبہ بندی)');
+      setNth('main h2.text-2xl.font-bold.mt-10.mb-3', 4, 'رابطہ');
     }
   }
 
@@ -337,53 +360,111 @@
     if (lang === 'ar') {
       document.title = 'الوثائق | AmnShield';
       setText('.amn-kicker', 'مسار الوثائق');
-      setText('.amn-hero h1', 'وثائق AmnShield');
-      setText('.amn-hero p', 'هذا المسار هو المدخل الثابت للتوثيق وملاحظات الإطلاق ضمن منظومة Amn.');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'الاستخدام الحالي');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'الوجهات التالية');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 0, 'التنزيلات');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 1, 'الدعم');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 2, 'سياسة الخصوصية');
+      setText('.amn-hero h1', 'مركز وثائق AmnShield والمسارات القانونية');
+      setText('.amn-hero p', 'هذا هو المركز الرسمي لوثائق Amn وسياسات الخصوصية وشروط الخدمة وموارد الدعم.');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 0, 'تطبيق أندرويد');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 1, 'الخصوصية');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 2, 'الشروط');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 3, 'الدعم');
       setHtml('.amn-footer p', 'يمكن إرسال طلبات الوثائق إلى <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>.');
       return;
     }
     if (lang === 'fa') {
       document.title = 'اسناد | AmnShield';
       setText('.amn-kicker', 'مسیر اسناد');
-      setText('.amn-hero h1', 'اسناد AmnShield');
-      setText('.amn-hero p', 'این مسیر، ورودی پایدار اسناد و یادداشت های انتشار در اکوسیستم Amn است.');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'کاربرد فعلی');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'مقاصد بعدی');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 0, 'دانلودها');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 1, 'پشتیبانی');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 2, 'سیاست حریم خصوصی');
+      setText('.amn-hero h1', 'مرکز اسناد و حقوقی AmnShield');
+      setText('.amn-hero p', 'این هاب رسمی اسناد Amn برای سیاست حریم خصوصی، شرایط خدمات و منابع پشتیبانی است.');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 0, 'اپ اندروید');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 1, 'حریم خصوصی');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 2, 'شرایط');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 3, 'پشتیبانی');
       setHtml('.amn-footer p', 'درخواست های اسناد را به <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a> بفرستید.');
       return;
     }
     if (lang === 'ps') {
       document.title = 'اسناد | AmnShield';
       setText('.amn-kicker', 'د اسنادو لاره');
-      setText('.amn-hero h1', 'د AmnShield اسناد');
-      setText('.amn-hero p', 'دا لاره د Amn ایکوسیستم کې د اسنادو او خپرونې یادښتونو ثابت ورننوت دی.');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'اوسنی کارول');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'راتلونکې لارې');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 0, 'ډاونلوډونه');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 1, 'ملاتړ');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 2, 'د محرمیت تګلاره');
+      setText('.amn-hero h1', 'د AmnShield د اسنادو او قانوني مرکز');
+      setText('.amn-hero p', 'دا د Amn رسمي اسنادي مرکز دی چې د محرمیت، شرایطو او ملاتړ سرچینې پکې شاملې دي.');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 0, 'Android اپ');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 1, 'محرمیت');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 2, 'شرایط');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 3, 'ملاتړ');
       setHtml('.amn-footer p', 'د اسنادو غوښتنې <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a> ته ولېږئ.');
       return;
     }
     if (lang === 'ur') {
       document.title = 'دستاویزات | AmnShield';
       setText('.amn-kicker', 'دستاویزی روٹ');
-      setText('.amn-hero h1', 'AmnShield دستاویزات');
-      setText('.amn-hero p', 'یہ راستہ Amn ایکوسسٹم میں دستاویزات اور ریلیز نوٹس کا مستقل داخلی نقطہ ہے۔');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'موجودہ استعمال');
-      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'اگلی منزلیں');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 0, 'ڈاؤن لوڈز');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 1, 'سپورٹ');
-      setListItem('.amn-grid.cols-2 .amn-card:nth-child(2) ul', 2, 'پرائیویسی پالیسی');
+      setText('.amn-hero h1', 'AmnShield دستاویزات اور قانونی ہب');
+      setText('.amn-hero p', 'یہ Amn کا باضابطہ دستاویزی مرکز ہے جہاں پرائیویسی، شرائط اور سپورٹ وسائل دستیاب ہیں۔');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 0, 'اینڈروئیڈ ایپ');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 1, 'پرائیویسی');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 2, 'شرائط');
+      setAt('.amn-grid.cols-3 .amn-card', 'h2', 3, 'سپورٹ');
       setHtml('.amn-footer p', 'دستاویزات کی درخواستیں <a href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a> پر بھیجیں۔');
+    }
+  }
+
+  function applyAndroid(lang) {
+    if (lang === 'ar') {
+      document.title = 'تطبيق أندرويد | AmnShield';
+      setText('.amn-kicker', 'قناة إصدار أندرويد');
+      setText('.amn-hero h1', 'AmnShield لأندرويد');
+      setText('.amn-hero p', 'ثبّت AmnShield عبر Google Play أو انضم إلى الاختبار المغلق. التطبيق مصمم لحماية محلية مع احترام الخصوصية.');
+      setText('.amn-actions .amn-btn.primary', 'التثبيت من Google Play');
+      setNth('.amn-actions .amn-btn.secondary', 0, 'الانضمام إلى الاختبار المغلق');
+      setNth('.amn-actions .amn-btn.secondary', 1, 'طلب دعم أندرويد');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'ما الذي ستحصل عليه');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'متطلبات النظام');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'الإعداد الموصى به');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'خطوات الاختبار المغلق');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'السياسات والمساعدة');
+      return;
+    }
+    if (lang === 'fa') {
+      document.title = 'اپ اندروید | AmnShield';
+      setText('.amn-kicker', 'کانال انتشار اندروید');
+      setText('.amn-hero h1', 'AmnShield برای اندروید');
+      setText('.amn-hero p', 'AmnShield را از Google Play نصب کنید یا به تست بسته بپیوندید. این اپ برای حفاظت محلی و حریم خصوصی طراحی شده است.');
+      setText('.amn-actions .amn-btn.primary', 'نصب از Google Play');
+      setNth('.amn-actions .amn-btn.secondary', 0, 'پیوستن به تست بسته');
+      setNth('.amn-actions .amn-btn.secondary', 1, 'درخواست پشتیبانی اندروید');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'امکانات');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'نیازمندی های سیستم');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'راه اندازی پیشنهادی');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'مراحل تست بسته');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'سیاست ها و راهنما');
+      return;
+    }
+    if (lang === 'ps') {
+      document.title = 'Android اپ | AmnShield';
+      setText('.amn-kicker', 'د Android خپرونې چینل');
+      setText('.amn-hero h1', 'AmnShield د Android لپاره');
+      setText('.amn-hero p', 'AmnShield له Google Play څخه نصب کړئ یا تړلي ټیسټ ته داخل شئ. اپ د محرمیت-لومړی او پر وسيله دننه ساتنې لپاره جوړ شوی.');
+      setText('.amn-actions .amn-btn.primary', 'له Google Play نصب');
+      setNth('.amn-actions .amn-btn.secondary', 0, 'تړلي ټیسټ ته داخلېدل');
+      setNth('.amn-actions .amn-btn.secondary', 1, 'د Android ملاتړ غوښتنه');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'تاسو څه ترلاسه کوئ');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'د سیستم اړتیاوې');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'سپارښت شوی تنظیم');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'د تړلي ټیسټ مرحلې');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'تګلارې او مرسته');
+      return;
+    }
+    if (lang === 'ur') {
+      document.title = 'اینڈروئیڈ ایپ | AmnShield';
+      setText('.amn-kicker', 'اینڈروئیڈ ریلیز چینل');
+      setText('.amn-hero h1', 'AmnShield برائے اینڈروئیڈ');
+      setText('.amn-hero p', 'AmnShield کو Google Play سے انسٹال کریں یا کلوزڈ ٹیسٹنگ میں شامل ہوں۔ ایپ پرائیویسی فرسٹ اور آن ڈیوائس پروٹیکشن کے لیے بنائی گئی ہے۔');
+      setText('.amn-actions .amn-btn.primary', 'Google Play سے انسٹال کریں');
+      setNth('.amn-actions .amn-btn.secondary', 0, 'کلوزڈ ٹیسٹنگ میں شامل ہوں');
+      setNth('.amn-actions .amn-btn.secondary', 1, 'اینڈروئیڈ سپورٹ کی درخواست');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 0, 'آپ کو کیا ملتا ہے');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 1, 'سسٹم تقاضے');
+      setAt('.amn-grid.cols-3 .amn-card', 'h3', 2, 'تجویز کردہ سیٹ اپ');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 0, 'کلوزڈ ٹیسٹنگ کے مراحل');
+      setAt('.amn-grid.cols-2 .amn-card', 'h2', 1, 'پالیسی اور مدد');
     }
   }
 
@@ -497,6 +578,7 @@
     if (key === 'faq') applyFaq(lang);
     if (key === 'support') applySupport(lang);
     if (key === 'docs') applyDocs(lang);
+    if (key === 'android') applyAndroid(lang);
     if (key === 'privacy') applyPrivacy(lang);
     if (key === 'terms') applyTerms(lang);
   }
