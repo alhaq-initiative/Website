@@ -1092,7 +1092,7 @@
             legal.style.marginTop = '0.75rem';
             legal.style.fontSize = '0.75rem';
             legal.style.textAlign = 'center';
-            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> &middot; <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> &middot; <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> &middot; <a href="/legal/support_hub.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
+            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> &middot; <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> &middot; <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> &middot; <a href="/support_hub.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
             footer.appendChild(legal);
           }
           // Baseline privacy/terms if the footer does not already contain obvious links (skip AmnShield which has its own detailed set)
