@@ -1,42 +1,15 @@
 {
-  "generated_at": "2026-06-05T20:35:15.416723Z",
+  "generated_at": "2026-06-05T20:41:04.703306Z",
   "site_base": "https://alhaq.uk",
   "sites": [
     "https://alhaq.uk (Al-Haq Studio)",
     "https://amnshield.com (AmnShield)",
     "https://alhaq-initiative.org (Al-Haq Initiative)"
   ],
-  "chunk_count": 163,
+  "chunk_count": 160,
   "chunks": [
     {
-      "id": "amnshield_join_beta#0",
-      "page": "Amnshield_Join_Beta",
-      "url": "https://alhaq.uk/amnshield_join_beta.html",
-      "site": "Al-Haq Studio",
-      "context": "alhaq-studio",
-      "lang": "en",
-      "text": "Join AmnShield Beta — Al-Haq Initiative Join the AmnShield Beta Help us refine AmnShield's digital protection features for habit management and spiritual wellbeing. 1) Join on Google Play Tap the private opt-in link below on your Android device, then install the beta from Google Play: android Join the Android Beta Don't have the link yet? We'll share it after we enable testing in Play Console. 2) Optional — Tell us about your setup Share your device and preferences so we can route the right test tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight)."
-    },
-    {
-      "id": "amnshield_join_beta#1",
-      "page": "Amnshield_Join_Beta",
-      "url": "https://alhaq.uk/amnshield_join_beta.html",
-      "site": "Al-Haq Studio",
-      "context": "alhaq-studio",
-      "lang": "en",
-      "text": "tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight). Language/locale (EN/AR/UR/FA, RTL use). Platform: Mobile app, Browser extension, Desktop Manager, or Desktop App. Any focus area: notifications, privacy, performance, accessibility, low-end devices, etc. Email: support@alhaq-initiative.org 3) Privacy & Terms By joining the beta, you agree to our Privacy Policy and Terms of Service . About AmnShield AmnShield is a suite of digital protection tools for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extensi"
-    },
-    {
-      "id": "amnshield_join_beta#2",
-      "page": "Amnshield_Join_Beta",
-      "url": "https://alhaq.uk/amnshield_join_beta.html",
-      "site": "Al-Haq Studio",
-      "context": "alhaq-studio",
-      "lang": "en",
-      "text": "for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extension, desktop, and more — developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader), with free access and community tools proudly sponsored by the Al-Haq Initiative . Learn more about AmnShield → Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai"
-    },
-    {
-      "id": "index#3",
+      "id": "index#0",
       "page": "Al-Haq Studio",
       "url": "https://alhaq.uk/",
       "site": "Al-Haq Studio",
@@ -45,7 +18,7 @@
       "text": "Al-Haq Studio | Ethical Tech for a Better Future A Al-Haq Studio Products Services About Initiative Work With Us Al-Haq Studio Digital Products, Services & Solutions. We are a UK-based software studio designing privacy-first mobile applications and ethical technology — crafted with integrity for a better digital future. Explore Our Products Get In Touch 6+ Products Built 100% Privacy-First UK Based Studio 0 Data Sold Our Products Built In-House. Used Every Day. We don't just consult — we ship. Every product we build is used by real people. 🛡️ LIVE AmnShield Privacy-first digital protection for"
     },
     {
-      "id": "index#4",
+      "id": "index#1",
       "page": "Al-Haq Studio",
       "url": "https://alhaq.uk/",
       "site": "Al-Haq Studio",
@@ -54,7 +27,7 @@
       "text": "very product we build is used by real people. 🛡️ LIVE AmnShield Privacy-first digital protection for Android. App blocker, content filter, focus tools, and screen time management. 📖 BETA DeenHub A comprehensive Islamic lifestyle app — Quran reader, prayer times, and daily remembrance tools. 🌐 IN DEV DeenShield Extension Browser extension bringing AmnShield's content filtering to Chrome and Edge for desktop protection. 📊 IN DEV CreatorPlus Productivity and content creation toolkit for Muslim creators building halal digital media. 🕌 IN DEV QuranHub A dedicated Quran study platform with word-by-w"
     },
     {
-      "id": "index#5",
+      "id": "index#2",
       "page": "Al-Haq Studio",
       "url": "https://alhaq.uk/",
       "site": "Al-Haq Studio",
@@ -63,7 +36,7 @@
       "text": "tors building halal digital media. 🕌 IN DEV QuranHub A dedicated Quran study platform with word-by-word translation, tafsir, and personalised study plans. 💚 LIVE Alhaq Initiative Our non-profit wing — community welfare, educational resources, and charitable digital programmes. What We Do Digital Services Done Right From native Android apps to web platforms, we deliver clean, fast, and honest software. 📱 Android App Development Native Kotlin applications with clean architecture, robust offline support, and zero telemetry. Built to Google Play standards. 🔒 Privacy & Security Consulting App archi"
     },
     {
-      "id": "index#6",
+      "id": "index#3",
       "page": "Al-Haq Studio",
       "url": "https://alhaq.uk/",
       "site": "Al-Haq Studio",
@@ -72,7 +45,7 @@
       "text": "pport, and zero telemetry. Built to Google Play standards. 🔒 Privacy & Security Consulting App architecture review, data minimisation audits, and Google Play compliance — keeping your users' trust intact. 🌐 Web Development Fast, accessible, SEO-optimised websites and web apps. Firebase-hosted, Cloudflare-secured, and built to last. ⚙️ Digital Solutions & Automation Custom tooling, workflow automation, and system integrations that save time and reduce manual overhead. 🚀 Google Play Publishing End-to-end app publishing — in-app billing setup, Play Console management, store listing optimisation,"
     },
     {
-      "id": "index#7",
+      "id": "index#4",
       "page": "Al-Haq Studio",
       "url": "https://alhaq.uk/",
       "site": "Al-Haq Studio",
@@ -81,7 +54,7 @@
       "text": "-to-end app publishing — in-app billing setup, Play Console management, store listing optimisation, and policy compliance. 🤝 Tech Partnerships Long-term collaborative partnerships for UK organisations and startups needing a trusted technical co-founder or studio. Our Principles Technology Rooted in Integrity Every decision we make is guided by these non-negotiables. 🔐 Privacy by Default We collect no data we don't need. Your users' privacy is a right, not a feature. 🤲 Honest Business No dark patterns, no hidden fees, no manipulative design. We build things we'd give to our families. 🌍 Communit"
     },
     {
-      "id": "index#8",
+      "id": "index#5",
       "page": "Al-Haq Studio",
       "url": "https://alhaq.uk/",
       "site": "Al-Haq Studio",
