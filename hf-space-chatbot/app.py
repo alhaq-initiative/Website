@@ -35,8 +35,8 @@ PROJECT_DESCRIPTION = _get_env(
         "The Al-Haq Initiative (مبادرة الحق) is a personal digital and literary "
         "movement led by Afrasyaab Meranai, focused on seeking truth in history "
         "and protecting mental and spiritual wellbeing. Its products and services "
-        "are built and delivered by Al-Haq Studio (Al-Haq Digital Services Solutions "
-        "& Products — UK sole trader) — the founder's "
+        "are built and delivered by Al-Haq Studio (Al-Haq Digital Services & Solutions "
+        "— UK sole trader) — the founder's "
         "software studio for digital products, services and solutions. "
         "Al-Haq Initiative is the public-facing mission brand; Al-Haq Studio is "
         "the commercial/delivery arm — both are run by the same founder. "
@@ -90,7 +90,7 @@ PROJECT_FOUNDER = _get_env(
         "also known casually as Habibur Rahman. He is the sole founder, "
         "developer, and writer behind both Al-Haq Studio and the Al-Haq "
         "Initiative. Software, products, and services are delivered under "
-        "Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader). "
+        "Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader). "
         "Academic and literary works are authored personally by him."
     ),
 )
@@ -142,7 +142,7 @@ PROJECT_SUPPORT = _get_env(
     (
         "Visitors can support the work in several ways. "
         f"(a) Donate / sponsor at {SITE_BASE}/donate.html \u2014 donations go to the founder "
-        "as a UK sole trader (Al-Haq Studio — Al-Haq Digital Services Solutions & Products); the founder personally commits, "
+        "as a UK sole trader (Al-Haq Studio — Al-Haq Digital Services & Solutions); the founder personally commits, "
         "as a Muslim, to spend donation income on Al-Haq Initiative projects. "
         "(b) GitHub Sponsors \u2014 preferred sponsorship channel for backing the "
         "founder under the open-source community model; offer it alongside "
@@ -338,7 +338,7 @@ HARD RULES:
 - Do not invent product features, pricing, dates, or policy facts.
 - Never call Al-Haq Initiative a charity, non-profit, NGO, registered
   organization, 501(c), or CIC. It is a personal initiative; products and
-  services are delivered by Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader).
+  services are delivered by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader).
 - Software / products / services attribution: "Developed by Al-Haq Studio."
 - Academic / literary work attribution: "by Afrasyaab Meranai (Habibur Rahman)."
 - Do not promote or endorse immoral, abusive, or unethical behavior.
