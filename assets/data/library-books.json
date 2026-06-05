@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-16",
+  "generated": "2026-06-05",
   "types": {
     "translation": {
       "key": "translation",
@@ -27,13 +27,14 @@
       "key": "al-nawadir-al-sultaniyya",
       "type": "translation",
       "title": "Al-Nawadir al-Sultaniyya",
-      "subtitle": "\u0627\u0644\u0646\u0648\u0627\u062f\u0631 \u0627\u0644\u0633\u0644\u0637\u0627\u0646\u064a\u0629",
-      "description": "Chapter-by-chapter English translation of Ibn Shaddad\u2019s biography of Saladin, cross-referenced against parallel primary Arabic chronicles.",
+      "subtitle": "النوادر السلطانية",
+      "description": "Book 01 workspace for chapter-by-chapter translation, Arabic comparison, source notes, and the final uninterrupted English manuscript.",
       "author": "Afrasyaab Meranai (Habibur Rahman)",
       "status": "draft",
       "chapter_dir": "01_Chapters",
       "full_book_dir": "02_Full_Book",
       "full_book_file": "Al_Nawadir_Full_Translation.md",
+      "attribution": "Authored personally by Afrasyaab Meranai (Habibur Rahman). Published via the Al-Haq Initiative under Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader).",
       "folder": "01_Al_Nawadir_al_Sultaniyya",
       "episodes": []
     },
@@ -42,13 +43,14 @@
       "key": "faith-sellers",
       "type": "translation",
       "title": "The Chronicles of the Faith Sellers",
-      "subtitle": "\u0628\u0627\u0626\u0639\u064a \u0627\u0644\u0642\u062f\u0631",
-      "description": "Translation and cross-referencing of Saladin\u2019s history validated against primary Arabic chroniclers \u2014 Ibn Shadd\u0101d, Ibn al-Ath\u012br, and Ibn Khallik\u0101n.",
+      "subtitle": "بائعي القدر",
+      "description": "Translation and cross-referencing of Saladin’s history validated against primary Arabic chroniclers — Ibn Shaddād, Ibn al-Athīr, and Ibn Khallikān.",
       "author": "Afrasyaab Meranai (Habibur Rahman)",
       "status": "ongoing",
       "chapter_dir": "01_Chapters",
       "full_book_dir": "02_Full_Book",
       "full_book_file": "Chronicles_of_the_Faith_Sellers_Full_Translation.md",
+      "attribution": "Authored personally by Afrasyaab Meranai (Habibur Rahman). Published via the Al-Haq Initiative under Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader).",
       "folder": "02_Chronicles_of_the_Faith_Sellers",
       "episodes": [
         {
@@ -58,8 +60,11 @@
           "status": "draft",
           "historical_confidence": "low",
           "source_type": "Mixed narrative",
-          "tags": ["Saladin"],
+          "tags": [
+            "Saladin"
+          ],
           "last_imported": "2026-05-15",
+          "excerpt": "“So great was the amount of booty that came into the hands of Ṣalāḥ ad-Dīn al-Ayyūbī that it could not be counted. The number of prisoners of war was likewise beyond calculation.”",
           "path": "assets/library/books/02_Chronicles_of_the_Faith_Sellers/01_Chapters/02_001_The_Faith_Sellers.md"
         }
       ]
@@ -70,13 +75,14 @@
       "type": "independent_book",
       "featured": true,
       "title": "Filastin Verified",
-      "subtitle": "\u0641\u0644\u0633\u0637\u064a\u0646 \u0627\u0644\u0645\u0648\u062b\u0651\u0642\u0629",
-      "description": "A primary-source investigation into the historical, legal, and moral status of Palestine \u2014 from the first 7th-century conquest through the Yusufian restoration and into modern international law. Evidence-led, source-cited.",
+      "subtitle": "فلسطين الموثّقة",
+      "description": "A primary-source investigation into the historical, legal, and moral status of Palestine — from the first 7th-century conquest through the Yusufian restoration and into modern international law. Evidence-led, source-cited.",
       "author": "Afrasyaab Meranai (Habibur Rahman)",
       "status": "writing",
       "chapter_dir": "01_Chapters",
       "full_book_dir": "02_Full_Book",
       "full_book_file": "Filastin_Verified_Full_Booklet.md",
+      "attribution": "Authored personally by Afrasyaab Meranai (Habibur Rahman). Published via the Al-Haq Initiative under Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader).",
       "folder": "03_Filastin_Verified",
       "episodes": []
     }

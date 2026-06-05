@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": "amnshield",
     "title": "AmnShield",
@@ -7,7 +7,7 @@
     "status": "Closed Testing",
     "badge": "Freemium",
     "link": "https://amnshield.com",
-    "attribution": "Developed by Al-Haq Studio (UK sole trader)."
+    "attribution": "Developed by Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader)."
   },
   {
     "id": "deenhub",
@@ -17,6 +17,6 @@
     "status": "Beta",
     "badge": "Free during beta",
     "link": "/deenhub.html",
-    "attribution": "Developed by Al-Haq Studio (UK sole trader)."
+    "attribution": "Developed by Al-Haq Studio (Al-Haq Digital Services Solutions & Products — UK sole trader)."
   }
 ]
