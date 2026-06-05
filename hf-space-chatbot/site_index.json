@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-05T20:32:42.244998Z",
+  "generated_at": "2026-06-05T20:35:15.416723Z",
   "site_base": "https://alhaq.uk",
   "sites": [
     "https://alhaq.uk (Al-Haq Studio)",
     "https://amnshield.com (AmnShield)",
     "https://alhaq-initiative.org (Al-Haq Initiative)"
   ],
-  "chunk_count": 161,
+  "chunk_count": 163,
   "chunks": [
     {
       "id": "amnshield_join_beta#0",
@@ -33,7 +33,7 @@
       "site": "Al-Haq Studio",
       "context": "alhaq-studio",
       "lang": "en",
-      "text": "for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extension, desktop, and more — all developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader) under the Al-Haq Initiative. Learn more about AmnShield → Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai"
+      "text": "for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extension, desktop, and more — developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader), with free access and community tools proudly sponsored by the Al-Haq Initiative . Learn more about AmnShield → Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai"
     },
     {
       "id": "index#3",
@@ -528,7 +528,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "About — Al-Haq Initiative | Founder & Mission About the Al-Haq Initiative The Al-Haq Initiative is dedicated to seeking truth in history and protecting health in the present. Our work fuses rigorous primary-source research with digital tools that empower the community. Our Mission Develop innovative, spiritually enriching digital solutions and historical research that help the community deepen knowledge, strengthen practice, and build resilience. Our Vision To be a trusted source of verified historical knowledge and protection tools, making authentic research and community-centered technology"
+      "text": "About — Al-Haq Initiative | Founder & Mission About the Al-Haq Initiative The Al-Haq Initiative is dedicated to seeking truth in history and protecting health in the present. Our work fuses rigorous primary-source research with digital tools that empower the community. Our Mission At Al-Haq Studio , we believe in using technology to make a positive impact. That is why all of our free tools and community solutions are offered directly through the Al-Haq Initiative —our dedicated mission to provide free, high-quality digital tools to the public, entirely built and backed by our studio. We develo"
     },
     {
       "id": "about#2",
@@ -537,7 +537,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "torical knowledge and protection tools, making authentic research and community-centered technology accessible to all. Our Values check_circle Truth in Sources: Rigorous verification through primary documents, never political distortion. check_circle Community Empowerment: Tools and resources that strengthen identity, scholarship, and wellbeing. check_circle Islamic Ethics: All content and technology reflects Islamic values and protects against harm. check_circle Free & Accessible: All research and core resources available free, no paywalls. About the Founder Afrasyaab Meranai — known casually"
+      "text": "e free, high-quality digital tools to the public, entirely built and backed by our studio. We develop innovative, spiritually enriching digital solutions and historical research that help the community deepen knowledge, strengthen practice, and build resilience. Our Vision To be a trusted source of verified historical knowledge and protection tools, making authentic research and community-centered technology accessible to all. Our Values check_circle Truth in Sources: Rigorous verification through primary documents, never political distortion. check_circle Community Empowerment: Tools and reso"
     },
     {
       "id": "about#3",
@@ -546,7 +546,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "and core resources available free, no paywalls. About the Founder Afrasyaab Meranai — known casually as Habibur Rahman — is the founder, developer, and writer of the Al-Haq Initiative. He is the sole owner of both the initiative and Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader). • Software, products & services are delivered under Al-Haq Studio , his sole-trader business. • Academic & literary works — historical research, translations, booklets — are authored personally. The Al-Haq Initiative is not a separate legal entity, charity, or organization. It is the founder's pe"
+      "text": "gh primary documents, never political distortion. check_circle Community Empowerment: Tools and resources that strengthen identity, scholarship, and wellbeing. check_circle Islamic Ethics: All content and technology reflects Islamic values and protects against harm. check_circle Free & Accessible: All research and core resources available free, no paywalls. About the Founder Afrasyaab Meranai — known casually as Habibur Rahman — is the founder, developer, and writer of the Al-Haq Initiative. He is the sole owner of both the initiative and Al-Haq Studio (Al-Haq Digital Services & Solutions — UK"
     },
     {
       "id": "about#4",
@@ -555,16 +555,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "e Al-Haq Initiative is not a separate legal entity, charity, or organization. It is the founder's personal mission under Al-Haq Studio. Donations support his ongoing work; he commits as a Muslim to spend that income on the initiative's projects. Al-Haq Initiative Seeking Truth in History, Protecting Health in the Present. Home About Projects Help Contact © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
+      "text": "is the sole owner of both the initiative and Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader). • Software, products & services are delivered under Al-Haq Studio , his sole-trader business. • Academic & literary works — historical research, translations, booklets — are authored personally. The Al-Haq Initiative is not a separate legal entity, charity, or organization. It is the founder's personal mission under Al-Haq Studio. Donations support his ongoing work; he commits as a Muslim to spend that income on the initiative's projects. Al-Haq Initiative Seeking Truth in History"
     },
     {
-      "id": "all-infographics#5",
-      "page": "All Infographics",
-      "url": "https://alhaq-initiative.org/all-infographics.html",
+      "id": "about#5",
+      "page": "About",
+      "url": "https://alhaq-initiative.org/about.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Infographics Unveiling the Western World Infographics An interactive exploration of the complex realities behind the facade of Western prosperity, based on the analysis from \"Unveiling the Western World\". The Foundation: A Colonial Legacy The book argues that modern Western wealth wasn't accidental, but built on a historical foundation of colonialism. This section explores the systematic process of exploitation that transferred resources from colonized lands to imperial centers, creating lasting global disparities. 1. Economic Hunger The industrial revolution created an insatiable demand for r"
+      "text": "Muslim to spend that income on the initiative's projects. Al-Haq Initiative Seeking Truth in History, Protecting Health in the Present. Home About Projects Help Contact © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
       "id": "all-infographics#6",
@@ -573,7 +573,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "global disparities. 1. Economic Hunger The industrial revolution created an insatiable demand for raw materials and new markets, driving the push for overseas expansion and resource extraction. 2. Invasion & Subjugation Military conquest, like the British invasions of Afghanistan, was used to subjugate local populations and ensure economic dependence. 3. Systematic Resource Theft Resources were plundered, often with brutal forced labor, such as in the Belgian Congo's rubber trade. This stolen wealth flowed to imperial centers. 4. The Enduring Legacy This history of imposed rule and extraction"
+      "text": "Infographics Unveiling the Western World Infographics An interactive exploration of the complex realities behind the facade of Western prosperity, based on the analysis from \"Unveiling the Western World\". The Foundation: A Colonial Legacy The book argues that modern Western wealth wasn't accidental, but built on a historical foundation of colonialism. This section explores the systematic process of exploitation that transferred resources from colonized lands to imperial centers, creating lasting global disparities. 1. Economic Hunger The industrial revolution created an insatiable demand for r"
     },
     {
       "id": "all-infographics#7",
@@ -582,7 +582,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ealth flowed to imperial centers. 4. The Enduring Legacy This history of imposed rule and extraction created the economic disparities and political instabilities that many formerly colonized nations still face. The Reality Within: Social Cracks Beyond the gleaming surface, the book highlights significant internal crises. This dashboard visualizes data on violent crime, public health, financial hardship, and personal safety, revealing a reality far from the idealized image. Disproportionate Violence The U.S. homicide rate is an outlier among developed nations. Pervasive Health Crises Data from"
+      "text": "global disparities. 1. Economic Hunger The industrial revolution created an insatiable demand for raw materials and new markets, driving the push for overseas expansion and resource extraction. 2. Invasion & Subjugation Military conquest, like the British invasions of Afghanistan, was used to subjugate local populations and ensure economic dependence. 3. Systematic Resource Theft Resources were plundered, often with brutal forced labor, such as in the Belgian Congo's rubber trade. This stolen wealth flowed to imperial centers. 4. The Enduring Legacy This history of imposed rule and extraction"
     },
     {
       "id": "all-infographics#8",
@@ -591,7 +591,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "nce The U.S. homicide rate is an outlier among developed nations. Pervasive Health Crises Data from the US & UK reveals deep-seated health challenges. Widespread Financial Hardship 27.1% of US adults faced food insecurity in 2024. 91% increase in rough sleeping in England over 3 years (to 2025). Pervasive Harassment 71% of all UK women have experienced sexual harassment in public. 86% This rises to 86% for young women aged 18-24. Source: UN Women UK The Global Impact: Intervention & Culture The book argues that Western influence extends globally through both overt foreign policy and pervasive"
+      "text": "ealth flowed to imperial centers. 4. The Enduring Legacy This history of imposed rule and extraction created the economic disparities and political instabilities that many formerly colonized nations still face. The Reality Within: Social Cracks Beyond the gleaming surface, the book highlights significant internal crises. This dashboard visualizes data on violent crime, public health, financial hardship, and personal safety, revealing a reality far from the idealized image. Disproportionate Violence The U.S. homicide rate is an outlier among developed nations. Pervasive Health Crises Data from"
     },
     {
       "id": "all-infographics#9",
@@ -600,7 +600,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "book argues that Western influence extends globally through both overt foreign policy and pervasive cultural exports. Explore the case studies and concepts that illustrate this two-pronged impact. Foreign Intervention Cultural Imprint 1953: Iranian Coup The US and UK orchestrated the overthrow of democratically elected PM Mossadegh after he nationalized Iran's oil industry, installing a monarch friendly to Western interests. 1980s: Structural Adjustment The IMF & World Bank imposed programs on developing nations, forcing cuts to public services to service debts, often leading to mass protests"
+      "text": "nce The U.S. homicide rate is an outlier among developed nations. Pervasive Health Crises Data from the US & UK reveals deep-seated health challenges. Widespread Financial Hardship 27.1% of US adults faced food insecurity in 2024. 91% increase in rough sleeping in England over 3 years (to 2025). Pervasive Harassment 71% of all UK women have experienced sexual harassment in public. 86% This rises to 86% for young women aged 18-24. Source: UN Women UK The Global Impact: Intervention & Culture The book argues that Western influence extends globally through both overt foreign policy and pervasive"
     },
     {
       "id": "all-infographics#10",
@@ -609,7 +609,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "eveloping nations, forcing cuts to public services to service debts, often leading to mass protests and social unrest. 2003: Iraq Invasion Led by the US and UK on a false pretext, the invasion led to state collapse, immense loss of life, and regional destabilization, including the rise of ISIS. Consumerism A culture equating happiness with acquisition, fueling unsustainable consumption and personal debt. Individualism Prioritizing self-reliance over community, which can lead to social isolation and weakened support networks. The Media Machine Global media projects a curated, idealized image of"
+      "text": "book argues that Western influence extends globally through both overt foreign policy and pervasive cultural exports. Explore the case studies and concepts that illustrate this two-pronged impact. Foreign Intervention Cultural Imprint 1953: Iranian Coup The US and UK orchestrated the overthrow of democratically elected PM Mossadegh after he nationalized Iran's oil industry, installing a monarch friendly to Western interests. 1980s: Structural Adjustment The IMF & World Bank imposed programs on developing nations, forcing cuts to public services to service debts, often leading to mass protests"
     },
     {
       "id": "all-infographics#11",
@@ -618,7 +618,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "and weakened support networks. The Media Machine Global media projects a curated, idealized image of the West, obscuring internal problems and historical injustices. A New Perspective The book concludes that a balanced understanding of the Western world requires moving beyond superficial perceptions. It calls for acknowledging the historical injustices that underpin its prosperity, recognizing its deep-seated internal challenges, and critically evaluating the global impact of its foreign policy and cultural dominance. For Eastern nations, this understanding offers liberation from the pressure"
+      "text": "eveloping nations, forcing cuts to public services to service debts, often leading to mass protests and social unrest. 2003: Iraq Invasion Led by the US and UK on a false pretext, the invasion led to state collapse, immense loss of life, and regional destabilization, including the rise of ISIS. Consumerism A culture equating happiness with acquisition, fueling unsustainable consumption and personal debt. Individualism Prioritizing self-reliance over community, which can lead to social isolation and weakened support networks. The Media Machine Global media projects a curated, idealized image of"
     },
     {
       "id": "all-infographics#12",
@@ -627,7 +627,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "and cultural dominance. For Eastern nations, this understanding offers liberation from the pressure to emulate a flawed model, empowering them to pursue authentic development paths. For the West, it is an urgent call for introspection and accountability. Ultimately, the goal is a shared future based on mutual respect, genuine collaboration, and a clear-eyed understanding of our interconnected world. Visit Golden Speech — Our Poems Collection All future poems will be hosted in the Golden Speech page. Interactive report based on \"Unveiling the Western World: Beyond the Facade\". By Al-Haq Digital"
+      "text": "and weakened support networks. The Media Machine Global media projects a curated, idealized image of the West, obscuring internal problems and historical injustices. A New Perspective The book concludes that a balanced understanding of the Western world requires moving beyond superficial perceptions. It calls for acknowledging the historical injustices that underpin its prosperity, recognizing its deep-seated internal challenges, and critically evaluating the global impact of its foreign policy and cultural dominance. For Eastern nations, this understanding offers liberation from the pressure"
     },
     {
       "id": "all-infographics#13",
@@ -636,16 +636,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "age. Interactive report based on \"Unveiling the Western World: Beyond the Facade\". By Al-Haq Digital services. Historical images are used for illustrative purposes and sourced from public domain or Creative Commons repositories where possible."
+      "text": "and cultural dominance. For Eastern nations, this understanding offers liberation from the pressure to emulate a flawed model, empowering them to pursue authentic development paths. For the West, it is an urgent call for introspection and accountability. Ultimately, the goal is a shared future based on mutual respect, genuine collaboration, and a clear-eyed understanding of our interconnected world. Visit Golden Speech — Our Poems Collection All future poems will be hosted in the Golden Speech page. Interactive report based on \"Unveiling the Western World: Beyond the Facade\". By Al-Haq Digital"
     },
     {
-      "id": "amnshield_join_beta#14",
-      "page": "Amnshield_Join_Beta",
-      "url": "https://alhaq-initiative.org/amnshield_join_beta.html",
+      "id": "all-infographics#14",
+      "page": "All Infographics",
+      "url": "https://alhaq-initiative.org/all-infographics.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Join AmnShield Beta — Al-Haq Initiative Join the AmnShield Beta Help us refine AmnShield's digital protection features for habit management and spiritual wellbeing. 1) Join on Google Play Tap the private opt-in link below on your Android device, then install the beta from Google Play: android Join the Android Beta Don't have the link yet? We'll share it after we enable testing in Play Console. 2) Optional — Tell us about your setup Share your device and preferences so we can route the right test tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight)."
+      "text": "age. Interactive report based on \"Unveiling the Western World: Beyond the Facade\". By Al-Haq Digital services. Historical images are used for illustrative purposes and sourced from public domain or Creative Commons repositories where possible."
     },
     {
       "id": "amnshield_join_beta#15",
@@ -654,7 +654,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight). Language/locale (EN/AR/UR/FA, RTL use). Platform: Mobile app, Browser extension, Desktop Manager, or Desktop App. Any focus area: notifications, privacy, performance, accessibility, low-end devices, etc. Email: support@alhaq-initiative.org 3) Privacy & Terms By joining the beta, you agree to our Privacy Policy and Terms of Service . About AmnShield AmnShield is a suite of digital protection tools for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extensi"
+      "text": "Join AmnShield Beta — Al-Haq Initiative Join the AmnShield Beta Help us refine AmnShield's digital protection features for habit management and spiritual wellbeing. 1) Join on Google Play Tap the private opt-in link below on your Android device, then install the beta from Google Play: android Join the Android Beta Don't have the link yet? We'll share it after we enable testing in Play Console. 2) Optional — Tell us about your setup Share your device and preferences so we can route the right test tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight)."
     },
     {
       "id": "amnshield_join_beta#16",
@@ -663,16 +663,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extension, desktop, and more — all developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader) under the Al-Haq Initiative. Learn more about AmnShield → Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai"
+      "text": "tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight). Language/locale (EN/AR/UR/FA, RTL use). Platform: Mobile app, Browser extension, Desktop Manager, or Desktop App. Any focus area: notifications, privacy, performance, accessibility, low-end devices, etc. Email: support@alhaq-initiative.org 3) Privacy & Terms By joining the beta, you agree to our Privacy Policy and Terms of Service . About AmnShield AmnShield is a suite of digital protection tools for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extensi"
     },
     {
-      "id": "contact#17",
-      "page": "Contact",
-      "url": "https://alhaq-initiative.org/contact.html",
+      "id": "amnshield_join_beta#17",
+      "page": "Amnshield_Join_Beta",
+      "url": "https://alhaq-initiative.org/amnshield_join_beta.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ Contact — Al-Haq Initiative Contact Us Have a question, suggestion, or want to collaborate? Fill out the form below and we’ll get back to you as soon as possible. Email Contacts General Info: info@alhaq-initiative.org Inquiries & Collaboration: contact@alhaq-initiative.org Support: support@alhaq-initiative.org We usually respond within 1–2 business days. For urgent technical issues, please use the support email. Name: Email: Message: Send Message Explore Our Library Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Se"
+      "text": "for habit management and spiritual wellbeing. Available as a freemium app on mobile, browser extension, desktop, and more — developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader), with free access and community tools proudly sponsored by the Al-Haq Initiative . Learn more about AmnShield → Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai"
     },
     {
       "id": "contact#18",
@@ -681,16 +681,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "icles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Services Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. Report / Feedback &times; Report / Feedback Send"
+      "text": "﻿ Contact — Al-Haq Initiative Contact Us Have a question, suggestion, or want to collaborate? Fill out the form below and we’ll get back to you as soon as possible. Email Contacts General Info: info@alhaq-initiative.org Inquiries & Collaboration: contact@alhaq-initiative.org Support: support@alhaq-initiative.org We usually respond within 1–2 business days. For urgent technical issues, please use the support email. Name: Email: Message: Send Message Explore Our Library Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Se"
     },
     {
-      "id": "deenhub#19",
-      "page": "Deenhub",
-      "url": "https://alhaq-initiative.org/deenhub.html",
+      "id": "contact#19",
+      "page": "Contact",
+      "url": "https://alhaq-initiative.org/contact.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "DeenHub Mobile App • Al-Haq Initiative New • Beta DeenHub — Your daily deen companion Developed by Al-Haq Studio &mdash; Al-Haq Digital Services & Solutions , a UK sole trader / personal business. Prayer times, Qibla, adhkaar, and gentle focus tools—in a simple, privacy‑first mobile app. Join DeenHub Beta Learn more Accurate prayer times Qibla direction Hisnul Muslim adhkaar Streaks & reminders Minimal, private Quran Hub recitation screen (TaleemAI) Memorization and AI feedback flow Everything you need, thoughtfully designed Clean, focused, and respectful of your attention. Accurate prayer tim"
+      "text": "icles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Services Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. Report / Feedback &times; Report / Feedback Send"
     },
     {
       "id": "deenhub#20",
@@ -699,7 +699,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ou need, thoughtfully designed Clean, focused, and respectful of your attention. Accurate prayer times Multiple methods and adjustments. Gentle notifications you control. Qibla direction Fast, reliable compass with calibration tips and fallbacks. Hisnul Muslim adhkaar Beautiful Arabic with translations. Favorite, track, and revisit. Quran Hub (AI recitation) Real-time recitation feedback, moving highlight, and memorization practice &mdash; built into DeenHub and powered by our in-house TaleemAI engine. Learn more . Focus & reminders Streaks, goals, and mindful nudges that respect your time. Be"
+      "text": "DeenHub Mobile App • Al-Haq Initiative New • Beta DeenHub — Your daily deen companion This free service is brought to you by the Al-Haq Initiative , supported and developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader). Prayer times, Qibla, adhkaar, and gentle focus tools—in a simple, privacy‑first mobile app. Join DeenHub Beta Learn more Accurate prayer times Qibla direction Hisnul Muslim adhkaar Streaks & reminders Minimal, private Quran Hub recitation screen (TaleemAI) Memorization and AI feedback flow Everything you need, thoughtfully designed Clean, focused, and"
     },
     {
       "id": "deenhub#21",
@@ -708,7 +708,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "engine. Learn more . Focus & reminders Streaks, goals, and mindful nudges that respect your time. Beautiful Arabic Crafted typography with Amiri. Crisp on all screens. Privacy‑first No ads, no tracking. Location stays on your device for calculations. How it works Step 1 Pick your location Allow one‑time access or set your city manually. Step 2 Choose a method Select your preferred calculation and asr method, with fine‑tuning. Step 3 Build your routine Add reminders, track streaks, and explore adhkaar throughout the day. Private by design We don’t sell your data, and we don’t clutter your worsh"
+      "text": "I) Memorization and AI feedback flow Everything you need, thoughtfully designed Clean, focused, and respectful of your attention. Accurate prayer times Multiple methods and adjustments. Gentle notifications you control. Qibla direction Fast, reliable compass with calibration tips and fallbacks. Hisnul Muslim adhkaar Beautiful Arabic with translations. Favorite, track, and revisit. Quran Hub (AI recitation) Real-time recitation feedback, moving highlight, and memorization practice &mdash; built into DeenHub and powered by our in-house TaleemAI engine. Learn more . Focus & reminders Streaks, goa"
     },
     {
       "id": "deenhub#22",
@@ -717,7 +717,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "hkaar throughout the day. Private by design We don’t sell your data, and we don’t clutter your worship with ads. DeenHub runs core features on‑device and stores only what’s needed for your experience. Location usage stays on your phone for prayer time/Qibla calculation. Opt‑in reminders with simple controls and quiet hours. Clear data controls: reset or export, anytime. Frequently asked questions Is DeenHub free? During beta, DeenHub is free. We may offer a free core with optional supporter features later to sustain the project. Which platforms are supported? iOS and Android are targeted for l"
+      "text": "nto DeenHub and powered by our in-house TaleemAI engine. Learn more . Focus & reminders Streaks, goals, and mindful nudges that respect your time. Beautiful Arabic Crafted typography with Amiri. Crisp on all screens. Privacy‑first No ads, no tracking. Location stays on your device for calculations. How it works Step 1 Pick your location Allow one‑time access or set your city manually. Step 2 Choose a method Select your preferred calculation and asr method, with fine‑tuning. Step 3 Build your routine Add reminders, track streaks, and explore adhkaar throughout the day. Private by design We don’"
     },
     {
       "id": "deenhub#23",
@@ -726,7 +726,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ures later to sustain the project. Which platforms are supported? iOS and Android are targeted for launch. Beta invites roll out in waves as we expand testing. Does it work offline? Yes—core features like stored prayer times, Qibla (with cached calibration), and adhkaar browsing work without internet. How accurate are the prayer times? We support multiple established calculation methods with offsets for local adjustments. You’re in control. Roadmap Beta: prayer times, Qibla, adhkaar, reminders, basic streaks Coming soon: widgets, richer stats, goals, more languages Explore: lightweight Quran r"
+      "text": "tine Add reminders, track streaks, and explore adhkaar throughout the day. Private by design We don’t sell your data, and we don’t clutter your worship with ads. DeenHub runs core features on‑device and stores only what’s needed for your experience. Location usage stays on your phone for prayer time/Qibla calculation. Opt‑in reminders with simple controls and quiet hours. Clear data controls: reset or export, anytime. Frequently asked questions Is DeenHub free? During beta, DeenHub is free. We may offer a free core with optional supporter features later to sustain the project. Which platforms"
     },
     {
       "id": "deenhub#24",
@@ -735,16 +735,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "basic streaks Coming soon: widgets, richer stats, goals, more languages Explore: lightweight Quran reading, community challenges Help shape DeenHub Join the beta and tell us what would best serve your routine. Join DeenHub Beta By joining, you agree to our Terms and Privacy Policy . &copy; Al-Haq Initiative. All rights reserved. Docs / Legal"
+      "text": "ay offer a free core with optional supporter features later to sustain the project. Which platforms are supported? iOS and Android are targeted for launch. Beta invites roll out in waves as we expand testing. Does it work offline? Yes—core features like stored prayer times, Qibla (with cached calibration), and adhkaar browsing work without internet. How accurate are the prayer times? We support multiple established calculation methods with offsets for local adjustments. You’re in control. Roadmap Beta: prayer times, Qibla, adhkaar, reminders, basic streaks Coming soon: widgets, richer stats, g"
     },
     {
-      "id": "deenhub_join_beta#25",
-      "page": "Deenhub_Join_Beta",
-      "url": "https://alhaq-initiative.org/deenhub_join_beta.html",
+      "id": "deenhub#25",
+      "page": "Deenhub",
+      "url": "https://alhaq-initiative.org/deenhub.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ DeenHub — Join the Beta | Al-Haq Initiative Al-Haq Initiative Home Help & FAQ Join the DeenHub Beta Help us refine DeenHub’s prayer times, Qibla, adhkaar, and productivity features for the community. 1) Join on Google Play Tap the private opt‑in link below on your Android device, then install the beta from Google Play: Join the Android Beta Don’t have the link yet? We’ll share it after we enable Open/Closed testing in Play Console. 2) Optional — Tell us about your setup Share your device and language preferences so we can route the right test tasks: Android model and version (and iPhone mode"
+      "text": "p Beta: prayer times, Qibla, adhkaar, reminders, basic streaks Coming soon: widgets, richer stats, goals, more languages Explore: lightweight Quran reading, community challenges Help shape DeenHub Join the beta and tell us what would best serve your routine. Join DeenHub Beta By joining, you agree to our Terms and Privacy Policy . &copy; Al-Haq Initiative. All rights reserved. Docs / Legal"
     },
     {
       "id": "deenhub_join_beta#26",
@@ -753,16 +753,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "anguage preferences so we can route the right test tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight). Language/locale (EN/AR/UR/FA, RTL use). Any focus area: notifications, DST changes, accessibility, low‑end devices, etc. Email: support@alhaq-initiative.org 3) Privacy & Terms By joining the beta, you agree to our Privacy Policy and Terms of Service . Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai."
+      "text": "﻿ DeenHub — Join the Beta | Al-Haq Initiative Al-Haq Initiative Home Help & FAQ Join the DeenHub Beta Help us refine DeenHub’s prayer times, Qibla, adhkaar, and productivity features for the community. 1) Join on Google Play Tap the private opt‑in link below on your Android device, then install the beta from Google Play: Join the Android Beta Don’t have the link yet? We’ll share it after we enable Open/Closed testing in Play Console. 2) Optional — Tell us about your setup Share your device and language preferences so we can route the right test tasks: Android model and version (and iPhone mode"
     },
     {
-      "id": "docs#27",
-      "page": "Docs",
-      "url": "https://alhaq-initiative.org/docs.html",
+      "id": "deenhub_join_beta#27",
+      "page": "Deenhub_Join_Beta",
+      "url": "https://alhaq-initiative.org/deenhub_join_beta.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Legal & Documentation Hub - Al-Haq Initiative Legal & Documentation Hub Central entry point for privacy, terms, support, and product legal documents. Operator: All products and services on this site are operated by Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (known casually as Habibur Rahman). The Al-Haq Initiative is the public-facing brand for the founder&rsquo;s personal mission and is not a separate legal entity, charity, or registered organization. Privacy Hub Unified privacy information for Al-Haq products. Terms Hub Usage terms"
+      "text": "anguage preferences so we can route the right test tasks: Android model and version (and iPhone model/iOS version if you want future iOS TestFlight). Language/locale (EN/AR/UR/FA, RTL use). Any focus area: notifications, DST changes, accessibility, low‑end devices, etc. Email: support@alhaq-initiative.org 3) Privacy & Terms By joining the beta, you agree to our Privacy Policy and Terms of Service . Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai."
     },
     {
       "id": "docs#28",
@@ -771,16 +771,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ed organization. Privacy Hub Unified privacy information for Al-Haq products. Terms Hub Usage terms and platform-specific conditions. Support Hub Support channels and service assistance routes. AmnShield Docs Canonical Amn documentation and service routes."
+      "text": "Legal & Documentation Hub - Al-Haq Initiative Legal & Documentation Hub Central entry point for privacy, terms, support, and product legal documents. Operator: All products and services on this site are operated by Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (known casually as Habibur Rahman). The Al-Haq Initiative is the public-facing brand for the founder&rsquo;s personal mission and is not a separate legal entity, charity, or registered organization. Privacy Hub Unified privacy information for Al-Haq products. Terms Hub Usage terms"
     },
     {
-      "id": "donate#29",
-      "page": "Donate",
-      "url": "https://alhaq-initiative.org/donate.html",
+      "id": "docs#29",
+      "page": "Docs",
+      "url": "https://alhaq-initiative.org/docs.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Donate — Al-Haq Initiative Support Our Work Al-Haq Initiative is a personal effort hosted under Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). It is not a charity or registered organization. Donations and sponsorships are received as personal income by the founder, who, as a Muslim, commits to spending them on Al-Haq Initiative projects. Donate with Stripe Secure donation via Stripe Thank you for supporting our mission! For questions, contact us . Explore Our Library Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Ro"
+      "text": "ed organization. Privacy Hub Unified privacy information for Al-Haq products. Terms Hub Usage terms and platform-specific conditions. Support Hub Support channels and service assistance routes. AmnShield Docs Canonical Amn documentation and service routes."
     },
     {
       "id": "donate#30",
@@ -789,16 +789,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Services Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. Report / Feedback &times; Report / Feedback Send"
+      "text": "Donate — Al-Haq Initiative Support Our Work Al-Haq Initiative is a personal effort hosted under Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). It is not a charity or registered organization. Donations and sponsorships are received as personal income by the founder, who, as a Muslim, commits to spending them on Al-Haq Initiative projects. Donate with Stripe Secure donation via Stripe Thank you for supporting our mission! For questions, contact us . Explore Our Library Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Ro"
     },
     {
-      "id": "golden-speech#31",
-      "page": "Golden Speech",
-      "url": "https://alhaq-initiative.org/golden-speech.html",
+      "id": "donate#31",
+      "page": "Donate",
+      "url": "https://alhaq-initiative.org/donate.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Golden Speech — Shifting Beliefs (Poem) Golden Speech Shifting Beliefs — A Poetic Journey A poetic reflection on faith, history, and the clarity of divine revelation. By Al-Haq Initiative. Shifting Beliefs Poetic Reflections on Faith Preface Faith shapes humanity, yet contradictions linger. This poetic journey traces Christianity’s historical struggles, Islam’s clarity, and the contrast between man‑made doctrine and divine revelation. Written in verse for the heart and the mind, it invites reflection more than debate. The First Light In lands of olive, sun, and stone, A man walked humbly, not"
+      "text": "Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Services Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. Report / Feedback &times; Report / Feedback Send"
     },
     {
       "id": "golden-speech#32",
@@ -807,7 +807,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ction more than debate. The First Light In lands of olive, sun, and stone, A man walked humbly, not alone. He spoke of One, the God above, Of mercy, guidance, truth, and love. No throne he claimed, no crown he bore, A prophet sent to hearts once sore. His words were light, his path was clear, A call to faith, not rule or fear. The faithful few, with hearts sincere, Kept holy law and held God near. No tangled creed, no three‑in‑one, Their worship simple, pure, undone. Yet distant lands and minds of lore Brought tales of more, of myths, and more. A mortal man made God on high, And from that spar"
+      "text": "Golden Speech — Shifting Beliefs (Poem) Golden Speech Shifting Beliefs — A Poetic Journey A poetic reflection on faith, history, and the clarity of divine revelation. By Al-Haq Initiative. Shifting Beliefs Poetic Reflections on Faith Preface Faith shapes humanity, yet contradictions linger. This poetic journey traces Christianity’s historical struggles, Islam’s clarity, and the contrast between man‑made doctrine and divine revelation. Written in verse for the heart and the mind, it invites reflection more than debate. The First Light In lands of olive, sun, and stone, A man walked humbly, not"
     },
     {
       "id": "golden-speech#33",
@@ -816,7 +816,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "of lore Brought tales of more, of myths, and more. A mortal man made God on high, And from that spark, confusion nigh. Shaping Shadows The councils met in halls of stone, Where bishops sat, yet doubts had grown. They spoke of God, of man, of Son, And sought a creed that all could run. Debates were long, the voices high, No mortal mind could grasp the sky. Three persons said to form one Lord, A paradox in holy word. A man made God? Or God made man? The question shook the faithful clan. The scriptures strained to bear the claim, Yet still the doctrine found its name. And so arose a tangled threa"
+      "text": "ction more than debate. The First Light In lands of olive, sun, and stone, A man walked humbly, not alone. He spoke of One, the God above, Of mercy, guidance, truth, and love. No throne he claimed, no crown he bore, A prophet sent to hearts once sore. His words were light, his path was clear, A call to faith, not rule or fear. The faithful few, with hearts sincere, Kept holy law and held God near. No tangled creed, no three‑in‑one, Their worship simple, pure, undone. Yet distant lands and minds of lore Brought tales of more, of myths, and more. A mortal man made God on high, And from that spar"
     },
     {
       "id": "golden-speech#34",
@@ -825,7 +825,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ures strained to bear the claim, Yet still the doctrine found its name. And so arose a tangled thread, Where truth and myth together wed. The faithful followed, some unsure, Through shifting sands, no firm allure. Fading Scrolls The sacred texts in hands of men, Were copied, changed, again, again. From scroll to codex, line by line, Some truths endured, some lost in time. The gospels differ, tales collide, Genealogies shift, claims divide. Verses appear, then disappear, A scripture woven with human fear. Yet still they read, they kneel, they pray, Though doubts arise with each display. Blind f"
+      "text": "of lore Brought tales of more, of myths, and more. A mortal man made God on high, And from that spark, confusion nigh. Shaping Shadows The councils met in halls of stone, Where bishops sat, yet doubts had grown. They spoke of God, of man, of Son, And sought a creed that all could run. Debates were long, the voices high, No mortal mind could grasp the sky. Three persons said to form one Lord, A paradox in holy word. A man made God? Or God made man? The question shook the faithful clan. The scriptures strained to bear the claim, Yet still the doctrine found its name. And so arose a tangled threa"
     },
     {
       "id": "golden-speech#35",
@@ -834,7 +834,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "man fear. Yet still they read, they kneel, they pray, Though doubts arise with each display. Blind faith persists, though questions grow, The seeds of confusion start to show. And in this haze of human hand, The creed of three began to stand. A mortal God, a man divine, A tangled faith, a shaky sign. The Steady Flame From desert sands a voice was heard, A truth revealed in every word. No tangled creed, no three‑in‑one, A single God, the only One. The Quran came, a guiding light, Unchanged by time, serene and bright. Each verse a drop, an ocean deep, A treasure hearts and souls can keep. Its me"
+      "text": "ures strained to bear the claim, Yet still the doctrine found its name. And so arose a tangled thread, Where truth and myth together wed. The faithful followed, some unsure, Through shifting sands, no firm allure. Fading Scrolls The sacred texts in hands of men, Were copied, changed, again, again. From scroll to codex, line by line, Some truths endured, some lost in time. The gospels differ, tales collide, Genealogies shift, claims divide. Verses appear, then disappear, A scripture woven with human fear. Yet still they read, they kneel, they pray, Though doubts arise with each display. Blind f"
     },
     {
       "id": "golden-speech#36",
@@ -843,7 +843,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "e, serene and bright. Each verse a drop, an ocean deep, A treasure hearts and souls can keep. Its message clear, its path divine, No paradox, no fractured line. Tawheed declared, the One, the Pure, A steadfast faith that shall endure. While others wrestle, lost, confused, With doctrines formed, then misused, The soul finds peace in God alone, A faith intact, a truth well known. Shifting Sand A God they claim is Three‑in‑One, A creed from which no sense is spun. Their proofs are built on shifting ground, A claim that reason can’t expound. They say a man of flesh and bone Is God eternal on His t"
+      "text": "man fear. Yet still they read, they kneel, they pray, Though doubts arise with each display. Blind faith persists, though questions grow, The seeds of confusion start to show. And in this haze of human hand, The creed of three began to stand. A mortal God, a man divine, A tangled faith, a shaky sign. The Steady Flame From desert sands a voice was heard, A truth revealed in every word. No tangled creed, no three‑in‑one, A single God, the only One. The Quran came, a guiding light, Unchanged by time, serene and bright. Each verse a drop, an ocean deep, A treasure hearts and souls can keep. Its me"
     },
     {
       "id": "golden-speech#37",
@@ -852,7 +852,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ground, A claim that reason can’t expound. They say a man of flesh and bone Is God eternal on His throne. A mortal man, a timeless Lord— A truth that breaks its own accord. The councils argued, sought to bind The thoughts that troubled every mind. But words like threads began to fray And pull belief in disarray. From fading script and human hand, A doctrine built on fragile land. With verses strained to bear the weight, They fortify a broken gate. In contrast stands the final Word, A peaceful truth, divinely heard. A steady flame untouched by doubt, The soul holds fast, belief devout. The fin"
+      "text": "e, serene and bright. Each verse a drop, an ocean deep, A treasure hearts and souls can keep. Its message clear, its path divine, No paradox, no fractured line. Tawheed declared, the One, the Pure, A steadfast faith that shall endure. While others wrestle, lost, confused, With doctrines formed, then misused, The soul finds peace in God alone, A faith intact, a truth well known. Shifting Sand A God they claim is Three‑in‑One, A creed from which no sense is spun. Their proofs are built on shifting ground, A claim that reason can’t expound. They say a man of flesh and bone Is God eternal on His t"
     },
     {
       "id": "golden-speech#38",
@@ -861,16 +861,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ruth, divinely heard. A steady flame untouched by doubt, The soul holds fast, belief devout. The final holy verse is read, And peace within the heart is spread. An ocean held in drops of ink, That shifts the way we live and think. Back to Infographics"
+      "text": "ground, A claim that reason can’t expound. They say a man of flesh and bone Is God eternal on His throne. A mortal man, a timeless Lord— A truth that breaks its own accord. The councils argued, sought to bind The thoughts that troubled every mind. But words like threads began to fray And pull belief in disarray. From fading script and human hand, A doctrine built on fragile land. With verses strained to bear the weight, They fortify a broken gate. In contrast stands the final Word, A peaceful truth, divinely heard. A steady flame untouched by doubt, The soul holds fast, belief devout. The fin"
     },
     {
-      "id": "help#39",
-      "page": "Help",
-      "url": "https://alhaq-initiative.org/help.html",
+      "id": "golden-speech#39",
+      "page": "Golden Speech",
+      "url": "https://alhaq-initiative.org/golden-speech.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Help & FAQ — Al-Haq Initiative Help & FAQ Find answers to common questions and get help with our services. Frequently Asked Questions About Al-Haq Initiative What is Al-Haq Initiative? Al-Haq Initiative (مبادرة الحق) is a personal initiative for &ldquo;Seeking the Truth&rdquo; &mdash; truth in history and protection in the present. It publishes free academic research, booklets, and digital tools. Learn more on the About page. Who runs Al-Haq Initiative? Afrasyaab Meranai &mdash; known casually as Habibur Rahman &mdash; is the sole founder, developer, and writer. He owns and operates both Al-Ha"
+      "text": "ruth, divinely heard. A steady flame untouched by doubt, The soul holds fast, belief devout. The final holy verse is read, And peace within the heart is spread. An ocean held in drops of ink, That shifts the way we live and think. Back to Infographics"
     },
     {
       "id": "help#40",
@@ -879,7 +879,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "s Habibur Rahman &mdash; is the sole founder, developer, and writer. He owns and operates both Al-Haq Studio (his UK sole-trader business) and the Al-Haq Initiative brand. Is Al-Haq Initiative a charity, non-profit, or organization? No. Al-Haq Initiative is not a charity, non-profit, NGO, or registered organization. It is a personal effort hosted under Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). The founder may later convert it into a registered organization, but that has not happened yet. What is Al-Haq Studio? Al-Haq Studio is the founder&rsquo;s UK sole-trade"
+      "text": "Help & FAQ — Al-Haq Initiative Help & FAQ Find answers to common questions and get help with our services. Frequently Asked Questions About Al-Haq Initiative What is Al-Haq Initiative? Al-Haq Initiative (مبادرة الحق) is a personal initiative for &ldquo;Seeking the Truth&rdquo; &mdash; truth in history and protection in the present. It publishes free academic research, booklets, and digital tools. Learn more on the About page. Who runs Al-Haq Initiative? Afrasyaab Meranai &mdash; known casually as Habibur Rahman &mdash; is the sole founder, developer, and writer. He owns and operates both Al-Ha"
     },
     {
       "id": "help#41",
@@ -888,7 +888,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "that has not happened yet. What is Al-Haq Studio? Al-Haq Studio is the founder&rsquo;s UK sole-trader business. It builds and delivers all software, products, and professional services associated with Al-Haq Initiative (web development, security, infrastructure, custom Islamic apps, consulting). See . Who writes the academic and literary work? All academic and literary work &mdash; including Faith Sellers (بائعي القدر) , Lessons from Islamic Civilization , and The Caretaker&rsquo;s Guide &mdash; is authored personally by the founder. It is not corporate output of Al-Haq Studio. Products & Serv"
+      "text": "s Habibur Rahman &mdash; is the sole founder, developer, and writer. He owns and operates both Al-Haq Studio (his UK sole-trader business) and the Al-Haq Initiative brand. Is Al-Haq Initiative a charity, non-profit, or organization? No. Al-Haq Initiative is not a charity, non-profit, NGO, or registered organization. It is a personal effort hosted under Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). The founder may later convert it into a registered organization, but that has not happened yet. What is Al-Haq Studio? Al-Haq Studio is the founder&rsquo;s UK sole-trade"
     },
     {
       "id": "help#42",
@@ -897,7 +897,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "is authored personally by the founder. It is not corporate output of Al-Haq Studio. Products & Services vs Projects &mdash; what&rsquo;s the difference? lists what is available today . Projects is the portfolio of ongoing research and future missions that are not yet released. Library How can I access the library? Is it free? Yes, all infographics and most resources in the Library are freely accessible to all users. Visit the Library page to explore the available content. How do I access the Quran and Hadith sections? Go to the Library page and select the Quran or Hadith section to explore tr"
+      "text": "that has not happened yet. What is Al-Haq Studio? Al-Haq Studio is the founder&rsquo;s UK sole-trader business. It builds and delivers all software, products, and professional services associated with Al-Haq Initiative (web development, security, infrastructure, custom Islamic apps, consulting). See . Who writes the academic and literary work? All academic and literary work &mdash; including Faith Sellers (بائعي القدر) , Lessons from Islamic Civilization , and The Caretaker&rsquo;s Guide &mdash; is authored personally by the founder. It is not corporate output of Al-Haq Studio. Products & Serv"
     },
     {
       "id": "help#43",
@@ -906,7 +906,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ran and Hadith sections? Go to the Library page and select the Quran or Hadith section to explore translations, tafsir, and authentic collections. Quran Hub How do I use Quran Hub? Open Quran Hub , choose a surah, then use the reading controls to jump to an ayah, change font size, resume your last session, browse translations, and listen to recitation. Can I use Quran Hub on Windows, phone, and browsers? Yes. Quran Hub works across desktop browsers, Windows laptops, Android phones, iPhone, iPad, and tablets. Chrome and Edge usually offer the best install-as-app experience on desktop and Androi"
+      "text": "is authored personally by the founder. It is not corporate output of Al-Haq Studio. Products & Services vs Projects &mdash; what&rsquo;s the difference? lists what is available today . Projects is the portfolio of ongoing research and future missions that are not yet released. Library How can I access the library? Is it free? Yes, all infographics and most resources in the Library are freely accessible to all users. Visit the Library page to explore the available content. How do I access the Quran and Hadith sections? Go to the Library page and select the Quran or Hadith section to explore tr"
     },
     {
       "id": "help#44",
@@ -915,7 +915,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "and tablets. Chrome and Edge usually offer the best install-as-app experience on desktop and Android. On iPhone and iPad, use Safari and choose Add to Home Screen from the Share menu for an app-like experience. Can I install Quran Hub like an app? If your browser supports it, Quran Hub can be installed as a web app. On Windows, Edge and Chrome usually provide the cleanest app window and taskbar shortcut. On iPhone and iPad, open Quran Hub in Safari, tap Share, then choose Add to Home Screen . Does Quran Hub work offline? Core Quran Hub reader assets are cached after use so returning visits ar"
+      "text": "ran and Hadith sections? Go to the Library page and select the Quran or Hadith section to explore translations, tafsir, and authentic collections. Quran Hub How do I use Quran Hub? Open Quran Hub , choose a surah, then use the reading controls to jump to an ayah, change font size, resume your last session, browse translations, and listen to recitation. Can I use Quran Hub on Windows, phone, and browsers? Yes. Quran Hub works across desktop browsers, Windows laptops, Android phones, iPhone, iPad, and tablets. Chrome and Edge usually offer the best install-as-app experience on desktop and Androi"
     },
     {
       "id": "help#45",
@@ -924,7 +924,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "oes Quran Hub work offline? Core Quran Hub reader assets are cached after use so returning visits are faster and basic reading support remains available offline. For the best experience, open the page once while connected before relying on offline access. Donations & Sponsorship How can I donate or sponsor the work? Visit the Donate page for available channels, including Ko-fi and GitHub Sponsors. Where do donations actually go? Donations and sponsorships are received as personal income by the founder under his UK sole trader, Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole"
+      "text": "and tablets. Chrome and Edge usually offer the best install-as-app experience on desktop and Android. On iPhone and iPad, use Safari and choose Add to Home Screen from the Share menu for an app-like experience. Can I install Quran Hub like an app? If your browser supports it, Quran Hub can be installed as a web app. On Windows, Edge and Chrome usually provide the cleanest app window and taskbar shortcut. On iPhone and iPad, open Quran Hub in Safari, tap Share, then choose Add to Home Screen . Does Quran Hub work offline? Core Quran Hub reader assets are cached after use so returning visits ar"
     },
     {
       "id": "help#46",
@@ -933,7 +933,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ounder under his UK sole trader, Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). They are not tax-deductible and they do not go to a charity or registered organization. The founder commits, as a Muslim, to spend that income on Al-Haq Initiative projects. Media Policy Do you publish music? No. Our Historical Media series is acapella / vocal-only . We do not publish instrumental music. See the Media Hub . Contact & Support How do I contact you for support or collaboration? Use the Contact page, or click the floating button on the bottom right corner of the webpage, to"
+      "text": "oes Quran Hub work offline? Core Quran Hub reader assets are cached after use so returning visits are faster and basic reading support remains available offline. For the best experience, open the page once while connected before relying on offline access. Donations & Sponsorship How can I donate or sponsor the work? Visit the Donate page for available channels, including Ko-fi and GitHub Sponsors. Where do donations actually go? Donations and sponsorships are received as personal income by the founder under his UK sole trader, Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole"
     },
     {
       "id": "help#47",
@@ -942,7 +942,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "on? Use the Contact page, or click the floating button on the bottom right corner of the webpage, to send us a message directly. How do I report a bug or suggest a feature? Please use the Contact page or email us with details about the bug or your suggestion. We appreciate your feedback! Privacy & Data Is my data safe? Yes, we take privacy seriously and do not share your data with third parties. All information is handled securely. For more details, see our Contact page to reach out with privacy concerns. Features & Updates Are there plans to add more books or features? Yes, we are continuousl"
+      "text": "ounder under his UK sole trader, Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). They are not tax-deductible and they do not go to a charity or registered organization. The founder commits, as a Muslim, to spend that income on Al-Haq Initiative projects. Media Policy Do you publish music? No. Our Historical Media series is acapella / vocal-only . We do not publish instrumental music. See the Media Hub . Contact & Support How do I contact you for support or collaboration? Use the Contact page, or click the floating button on the bottom right corner of the webpage, to"
     },
     {
       "id": "help#48",
@@ -951,16 +951,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "concerns. Features & Updates Are there plans to add more books or features? Yes, we are continuously working to expand our Library and add new features. Stay tuned for updates! Haven't found your answer? Still need help? Find answers to your questions here and get help if needed. Contact Us for Support Al-Haq Initiative Building a Digital Future, Rooted in Faith. &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
+      "text": "on? Use the Contact page, or click the floating button on the bottom right corner of the webpage, to send us a message directly. How do I report a bug or suggest a feature? Please use the Contact page or email us with details about the bug or your suggestion. We appreciate your feedback! Privacy & Data Is my data safe? Yes, we take privacy seriously and do not share your data with third parties. All information is handled securely. For more details, see our Contact page to reach out with privacy concerns. Features & Updates Are there plans to add more books or features? Yes, we are continuousl"
     },
     {
-      "id": "index#49",
-      "page": "Al-Haq Initiative",
-      "url": "https://alhaq-initiative.org/",
+      "id": "help#49",
+      "page": "Help",
+      "url": "https://alhaq-initiative.org/help.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ Al-Haq Initiative — Seeking Truth in History, Protecting Health in the Present Skip to main content Al-Haq Initiative &mdash; مبادرة الحق Seeking Truth in History, Protecting Health in the Present. A digital and literary movement rooted in primary-source research and Islamic values &mdash; building tools that protect the community and preserve the truth of our past. Explore the Library Join DeenHub Beta View Projects Contact auto_stories Faith Sellers Our flagship research project &mdash; a cross-referenced translation of Saladin's era through the lenses of Ibn Shaddad, Ibn al-Athir, and con"
+      "text": "concerns. Features & Updates Are there plans to add more books or features? Yes, we are continuously working to expand our Library and add new features. Stay tuned for updates! Haven't found your answer? Still need help? Find answers to your questions here and get help if needed. Contact Us for Support Al-Haq Initiative Building a Digital Future, Rooted in Faith. &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
       "id": "index#50",
@@ -969,7 +969,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "oss-referenced translation of Saladin's era through the lenses of Ibn Shaddad, Ibn al-Athir, and contemporary chroniclers. Read the Research arrow_forward Free All Resources menu_book Book Library Primary-source research, verified translations, and historical investigations — all free to read and reference. Enter Library arrow_forward 3+ Active Book Series 100% Free to Access Beta · Free DeenHub Mobile App Prayer times, Qibla, adhkaar, productivity tools, and Quran Hub — AI recitation feedback powered by TaleemAI. Designed & Built by Al-Haq Studio ↗ Learn More arrow_forward Join the Beta Beta"
+      "text": "﻿ Al-Haq Initiative — Seeking Truth in History, Protecting Health in the Present Skip to main content Al-Haq Initiative &mdash; مبادرة الحق Seeking Truth in History, Protecting Health in the Present. A digital and literary movement rooted in primary-source research and Islamic values &mdash; building tools that protect the community and preserve the truth of our past. Explore the Library Join DeenHub Beta View Projects Contact auto_stories Faith Sellers Our flagship research project &mdash; a cross-referenced translation of Saladin's era through the lenses of Ibn Shaddad, Ibn al-Athir, and con"
     },
     {
       "id": "index#51",
@@ -978,7 +978,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "owered by TaleemAI. Designed & Built by Al-Haq Studio ↗ Learn More arrow_forward Join the Beta Beta phone_android From the Library Research Projects & Books View All Projects list_alt history_edu Ongoing · Book History Faith Sellers (بائعي القدر) A cross-referenced translation of Saladin's era, drawing on Ibn Shaddad, Ibn al-Athir, and contemporary primary sources. Free · Primary Sources menu_book school Ongoing · Booklet Civilisation Lessons from Islamic Civilization Booklets exploring the academic, moral, and scientific contributions of Islamic civilization — grounded in verified sources. Fr"
+      "text": "oss-referenced translation of Saladin's era through the lenses of Ibn Shaddad, Ibn al-Athir, and contemporary chroniclers. Read the Research arrow_forward Free All Resources menu_book Book Library Primary-source research, verified translations, and historical investigations — all free to read and reference. Enter Library arrow_forward 3+ Active Book Series 100% Free to Access Beta · Free DeenHub Mobile App Prayer times, Qibla, adhkaar, productivity tools, and Quran Hub — AI recitation feedback powered by TaleemAI. Designed & Built by Al-Haq Studio ↗ Learn More arrow_forward Join the Beta Beta"
     },
     {
       "id": "index#52",
@@ -987,7 +987,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "emic, moral, and scientific contributions of Islamic civilization — grounded in verified sources. Free · Academic menu_book shield_person Ongoing · Guide Youth 14+ The Caretaker's Guide A survival guide and historical perspective for young people (14+) navigating high-tension environments — with wisdom from Islamic sources. Free · Youth menu_book Our Focus Three Mission Pillars Every project at the Al-Haq Initiative aligns with one of three pillars, ensuring our work serves both truth and community wellbeing. history_edu Truth in History Validate historical narratives through primary-source re"
+      "text": "owered by TaleemAI. Designed & Built by Al-Haq Studio ↗ Learn More arrow_forward Join the Beta Beta phone_android From the Library Research Projects & Books View All Projects list_alt history_edu Ongoing · Book History Faith Sellers (بائعي القدر) A cross-referenced translation of Saladin's era, drawing on Ibn Shaddad, Ibn al-Athir, and contemporary primary sources. Free · Primary Sources menu_book school Ongoing · Booklet Civilisation Lessons from Islamic Civilization Booklets exploring the academic, moral, and scientific contributions of Islamic civilization — grounded in verified sources. Fr"
     },
     {
       "id": "index#53",
@@ -996,7 +996,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ity wellbeing. history_edu Truth in History Validate historical narratives through primary-source research and cross-referencing — free from political distortion. shield Protection in the Present Digital tools and resources that protect mental and spiritual health, and help the community build positive habits. groups Resilience for the Community Free educational works, media, and research that strengthen identity, scholarship, and communal stewardship. phone_android DeenHub Islamic productivity app with Quran Hub (TaleemAI). Android beta. Designed & Built by Al-Haq Studio ↗ menu_book Quran Hub"
+      "text": "emic, moral, and scientific contributions of Islamic civilization — grounded in verified sources. Free · Academic menu_book shield_person Ongoing · Guide Youth 14+ The Caretaker's Guide A survival guide and historical perspective for young people (14+) navigating high-tension environments — with wisdom from Islamic sources. Free · Youth menu_book Our Focus Three Mission Pillars Every project at the Al-Haq Initiative aligns with one of three pillars, ensuring our work serves both truth and community wellbeing. history_edu Truth in History Validate historical narratives through primary-source re"
     },
     {
       "id": "index#54",
@@ -1005,7 +1005,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "app with Quran Hub (TaleemAI). Android beta. Designed & Built by Al-Haq Studio ↗ menu_book Quran Hub Reader Standalone web app — read, translate, listen. Designed & Built by Al-Haq Studio ↗ Support the Initiative Donations and sponsorships support the founder's ongoing work on Al-Haq Initiative projects. Every contribution helps keep all resources free. Delivered under Al-Haq Studio. Donate / Sponsor About the Initiative All resources remain free. Donations are personal sole-trader income reinvested in projects. Explore Our Library Quran Hub Hadith Media Articles Books Infographics Al-Haq Init"
+      "text": "ity wellbeing. history_edu Truth in History Validate historical narratives through primary-source research and cross-referencing — free from political distortion. shield Protection in the Present Digital tools and resources that protect mental and spiritual health, and help the community build positive habits. groups Resilience for the Community Free educational works, media, and research that strengthen identity, scholarship, and communal stewardship. phone_android DeenHub Islamic productivity app with Quran Hub (TaleemAI). Android beta. Designed & Built by Al-Haq Studio ↗ menu_book Quran Hub"
     },
     {
       "id": "index#55",
@@ -1014,16 +1014,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "sted in projects. Explore Our Library Quran Hub Hadith Media Articles Books Infographics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Projects Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio. All rights reserved. Report / Feedback &times; Report / Feedback Send"
+      "text": "app with Quran Hub (TaleemAI). Android beta. Designed & Built by Al-Haq Studio ↗ menu_book Quran Hub Reader Standalone web app — read, translate, listen. Designed & Built by Al-Haq Studio ↗ Support the Initiative Donations and sponsorships support the founder's ongoing work on Al-Haq Initiative projects. Every contribution helps keep all resources free. Delivered under Al-Haq Studio. Donate / Sponsor About the Initiative All resources remain free. Donations are personal sole-trader income reinvested in projects. Explore Our Library Quran Hub Hadith Media Articles Books Infographics Al-Haq Init"
     },
     {
-      "id": "deenhub_privacy_policy#56",
-      "page": "Deenhub_Privacy_Policy",
-      "url": "https://alhaq-initiative.org/legal/deenhub_docs/deenhub_privacy_policy.html",
+      "id": "index#56",
+      "page": "Al-Haq Initiative",
+      "url": "https://alhaq-initiative.org/",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ DeenHub — Privacy Policy | Al-Haq Initiative Al-Haq Initiative Home About Services Library Help & FAQ DeenHub — Privacy Policy Effective: 14 September 2025 Overview DeenHub is a product of Al-Haq Initiative that brings faith‑centric tools together in one simple experience. We respect your privacy and design features to work locally whenever possible. This policy explains what information we process, why we process it, and the choices available to you. Scope This policy applies to DeenHub pages hosted by Al-Haq Initiative and to DeenHub clients (including the mobile app) that reference this d"
+      "text": "sted in projects. Explore Our Library Quran Hub Hadith Media Articles Books Infographics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Projects Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio. All rights reserved. Report / Feedback &times; Report / Feedback Send"
     },
     {
       "id": "deenhub_privacy_policy#57",
@@ -1032,7 +1032,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "hosted by Al-Haq Initiative and to DeenHub clients (including the mobile app) that reference this document. It does not cover third‑party websites or services that may link to or integrate with DeenHub. Information We Process DeenHub follows a privacy‑first, local‑by‑default approach. Depending on how you use the app, we may process: App preferences such as theme, language, notification settings, and other configuration choices (stored on‑device). Prayer and Qibla inputs such as approximate location (when you grant permission) and device time zone in order to calculate prayer times and compas"
+      "text": "﻿ DeenHub — Privacy Policy | Al-Haq Initiative Al-Haq Initiative Home About Services Library Help & FAQ DeenHub — Privacy Policy Effective: 14 September 2025 Overview DeenHub is a product of Al-Haq Initiative that brings faith‑centric tools together in one simple experience. We respect your privacy and design features to work locally whenever possible. This policy explains what information we process, why we process it, and the choices available to you. Scope This policy applies to DeenHub pages hosted by Al-Haq Initiative and to DeenHub clients (including the mobile app) that reference this d"
     },
     {
       "id": "deenhub_privacy_policy#58",
@@ -1041,7 +1041,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ation (when you grant permission) and device time zone in order to calculate prayer times and compass direction. Usage feedback that you choose to send us (for example, comments and an email address you provide in a help or feedback form). Diagnostics minimal technical logs generated only when necessary to investigate an issue you report. We do not sell personal information, and we do not build advertising profiles. Permissions Used (Mobile) Location (precise or approximate): to compute accurate prayer times and Qibla direction. You can deny or revoke this at any time in system settings; DeenH"
+      "text": "hosted by Al-Haq Initiative and to DeenHub clients (including the mobile app) that reference this document. It does not cover third‑party websites or services that may link to or integrate with DeenHub. Information We Process DeenHub follows a privacy‑first, local‑by‑default approach. Depending on how you use the app, we may process: App preferences such as theme, language, notification settings, and other configuration choices (stored on‑device). Prayer and Qibla inputs such as approximate location (when you grant permission) and device time zone in order to calculate prayer times and compas"
     },
     {
       "id": "deenhub_privacy_policy#59",
@@ -1050,7 +1050,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "prayer times and Qibla direction. You can deny or revoke this at any time in system settings; DeenHub falls back to defaults if unavailable. Notifications : to remind you of prayer times and other opted‑in alerts. You can control these in the app and OS settings. Motion/Compass (where available): to determine device orientation for Qibla. How We Use Information Provide core functionality (prayer times, Qibla, reminders) and personalize your experience. Respond to support requests you submit and improve reliability, safety, and performance. Comply with legal obligations and enforce our terms w"
+      "text": "ation (when you grant permission) and device time zone in order to calculate prayer times and compass direction. Usage feedback that you choose to send us (for example, comments and an email address you provide in a help or feedback form). Diagnostics minimal technical logs generated only when necessary to investigate an issue you report. We do not sell personal information, and we do not build advertising profiles. Permissions Used (Mobile) Location (precise or approximate): to compute accurate prayer times and Qibla direction. You can deny or revoke this at any time in system settings; DeenH"
     },
     {
       "id": "deenhub_privacy_policy#60",
@@ -1059,7 +1059,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "improve reliability, safety, and performance. Comply with legal obligations and enforce our terms where applicable. Legal Bases (EEA/UK) Consent for optional features like notifications and location. Performance of a contract to deliver the services you use. Legitimate interests to keep services secure and improve them in privacy‑respecting ways. Legal compliance where the law requires processing. On‑Device Processing & Storage Where feasible, computation happens on your device and preferences are stored locally. Clearing your app or browser data removes locally stored preferences and history"
+      "text": "prayer times and Qibla direction. You can deny or revoke this at any time in system settings; DeenHub falls back to defaults if unavailable. Notifications : to remind you of prayer times and other opted‑in alerts. You can control these in the app and OS settings. Motion/Compass (where available): to determine device orientation for Qibla. How We Use Information Provide core functionality (prayer times, Qibla, reminders) and personalize your experience. Respond to support requests you submit and improve reliability, safety, and performance. Comply with legal obligations and enforce our terms w"
     },
     {
       "id": "deenhub_privacy_policy#61",
@@ -1068,7 +1068,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "are stored locally. Clearing your app or browser data removes locally stored preferences and history within DeenHub. Cookies and Local Storage (Web) Our web pages may use first‑party cookies or local storage for strictly necessary purposes (e.g., remembering language or theme). We do not use third‑party advertising cookies. Third‑Party Services We may use service providers (for example, hosting and content delivery). These processors are contractually required to protect your information and may process it only to provide services on our behalf. We do not include third‑party advertising or ana"
+      "text": "improve reliability, safety, and performance. Comply with legal obligations and enforce our terms where applicable. Legal Bases (EEA/UK) Consent for optional features like notifications and location. Performance of a contract to deliver the services you use. Legitimate interests to keep services secure and improve them in privacy‑respecting ways. Legal compliance where the law requires processing. On‑Device Processing & Storage Where feasible, computation happens on your device and preferences are stored locally. Clearing your app or browser data removes locally stored preferences and history"
     },
     {
       "id": "deenhub_privacy_policy#62",
@@ -1077,7 +1077,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "process it only to provide services on our behalf. We do not include third‑party advertising or analytics SDKs in the mobile app. Data Sharing We do not sell your data. We share information only in limited circumstances, such as with service providers bound by obligations of confidentiality, to comply with the law, or to protect rights, safety, and the integrity of our services. Retention Local data remains on your device until you delete it. If you contact us for support, we retain related correspondence only as long as needed for the purpose it was collected and to meet legal requirements."
+      "text": "are stored locally. Clearing your app or browser data removes locally stored preferences and history within DeenHub. Cookies and Local Storage (Web) Our web pages may use first‑party cookies or local storage for strictly necessary purposes (e.g., remembering language or theme). We do not use third‑party advertising cookies. Third‑Party Services We may use service providers (for example, hosting and content delivery). These processors are contractually required to protect your information and may process it only to provide services on our behalf. We do not include third‑party advertising or ana"
     },
     {
       "id": "deenhub_privacy_policy#63",
@@ -1086,7 +1086,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "respondence only as long as needed for the purpose it was collected and to meet legal requirements. International Transfers Where information is processed outside your country, we apply appropriate safeguards consistent with applicable law to protect your rights. Your Rights & Controls Access, correct, or delete information you provided to us (for example, in support communications). Revoke permissions (Location, Notifications, Motion/Compass) in your device settings at any time. Turn off or adjust notifications within the app and OS settings. EEA/UK residents may have additional rights (e.g.,"
+      "text": "process it only to provide services on our behalf. We do not include third‑party advertising or analytics SDKs in the mobile app. Data Sharing We do not sell your data. We share information only in limited circumstances, such as with service providers bound by obligations of confidentiality, to comply with the law, or to protect rights, safety, and the integrity of our services. Retention Local data remains on your device until you delete it. If you contact us for support, we retain related correspondence only as long as needed for the purpose it was collected and to meet legal requirements."
     },
     {
       "id": "deenhub_privacy_policy#64",
@@ -1095,7 +1095,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ust notifications within the app and OS settings. EEA/UK residents may have additional rights (e.g., data portability, restriction, objection). You can exercise these rights using the contact details below. Children’s Privacy DeenHub is intended for general audiences. If you believe a child has provided us information without appropriate consent, please contact us so we can investigate and remove it where required. Changes to This Policy We may update this policy as we improve DeenHub or to meet legal requirements. When we make changes, we update the “Effective” date above and, if changes are"
+      "text": "respondence only as long as needed for the purpose it was collected and to meet legal requirements. International Transfers Where information is processed outside your country, we apply appropriate safeguards consistent with applicable law to protect your rights. Your Rights & Controls Access, correct, or delete information you provided to us (for example, in support communications). Revoke permissions (Location, Notifications, Motion/Compass) in your device settings at any time. Turn off or adjust notifications within the app and OS settings. EEA/UK residents may have additional rights (e.g.,"
     },
     {
       "id": "deenhub_privacy_policy#65",
@@ -1104,16 +1104,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "legal requirements. When we make changes, we update the “Effective” date above and, if changes are material, provide additional notice where appropriate. Contact Us For questions or requests related to privacy, email privacy@alhaq-initiative.org . For general inquiries or collaboration, reach us at info@alhaq-initiative.org or contact@alhaq-initiative.org . For technical support, contact support@alhaq-initiative.org . Back to Legal & Docs Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai."
+      "text": "ust notifications within the app and OS settings. EEA/UK residents may have additional rights (e.g., data portability, restriction, objection). You can exercise these rights using the contact details below. Children’s Privacy DeenHub is intended for general audiences. If you believe a child has provided us information without appropriate consent, please contact us so we can investigate and remove it where required. Changes to This Policy We may update this policy as we improve DeenHub or to meet legal requirements. When we make changes, we update the “Effective” date above and, if changes are"
     },
     {
-      "id": "deenhub_terms#66",
-      "page": "Deenhub_Terms",
-      "url": "https://alhaq-initiative.org/legal/deenhub_docs/deenhub_terms.html",
+      "id": "deenhub_privacy_policy#66",
+      "page": "Deenhub_Privacy_Policy",
+      "url": "https://alhaq-initiative.org/legal/deenhub_docs/deenhub_privacy_policy.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ DeenHub — Terms of Service | Al-Haq Initiative Al-Haq Initiative Home About Services Library Help & FAQ DeenHub — Terms of Service Effective: 14 September 2025 Overview These Terms of Service (the “Terms”) govern your access to and use of DeenHub, a product of Al-Haq Initiative . By using DeenHub, you agree to be bound by these Terms. If you do not agree, do not use DeenHub. Who May Use DeenHub You must be able to form a binding contract with Al-Haq Initiative and comply with these Terms and applicable laws. If you are using DeenHub on behalf of an organization, you represent that you have a"
+      "text": "legal requirements. When we make changes, we update the “Effective” date above and, if changes are material, provide additional notice where appropriate. Contact Us For questions or requests related to privacy, email privacy@alhaq-initiative.org . For general inquiries or collaboration, reach us at info@alhaq-initiative.org or contact@alhaq-initiative.org . For technical support, contact support@alhaq-initiative.org . Back to Legal & Docs Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai."
     },
     {
       "id": "deenhub_terms#67",
@@ -1122,7 +1122,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "pplicable laws. If you are using DeenHub on behalf of an organization, you represent that you have authority to bind that organization. Your Account and Security Some features may not require an account. If accounts are introduced or you access services requiring authentication, you are responsible for safeguarding your credentials and for all activities under your account. Notify us immediately of any unauthorized use. Acceptable Use You agree to use DeenHub in a respectful, lawful manner aligned with the spirit of the service. You will not: Engage in unlawful, harassing, harmful, or hateful"
+      "text": "﻿ DeenHub — Terms of Service | Al-Haq Initiative Al-Haq Initiative Home About Services Library Help & FAQ DeenHub — Terms of Service Effective: 14 September 2025 Overview These Terms of Service (the “Terms”) govern your access to and use of DeenHub, a product of Al-Haq Initiative . By using DeenHub, you agree to be bound by these Terms. If you do not agree, do not use DeenHub. Who May Use DeenHub You must be able to form a binding contract with Al-Haq Initiative and comply with these Terms and applicable laws. If you are using DeenHub on behalf of an organization, you represent that you have a"
     },
     {
       "id": "deenhub_terms#68",
@@ -1131,7 +1131,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ed with the spirit of the service. You will not: Engage in unlawful, harassing, harmful, or hateful conduct. Probe, scan, or test the vulnerability of DeenHub or circumvent security or authentication measures. Interfere with or disrupt the operation of DeenHub or others’ use of it. Misuse DeenHub to transmit malware or unauthorized automated traffic. Violate others’ intellectual property or privacy rights. Permissions and Device Features Certain features (e.g., precise/approximate location, notifications, motion/compass sensors) require your permission to function. You may grant or revoke perm"
+      "text": "pplicable laws. If you are using DeenHub on behalf of an organization, you represent that you have authority to bind that organization. Your Account and Security Some features may not require an account. If accounts are introduced or you access services requiring authentication, you are responsible for safeguarding your credentials and for all activities under your account. Notify us immediately of any unauthorized use. Acceptable Use You agree to use DeenHub in a respectful, lawful manner aligned with the spirit of the service. You will not: Engage in unlawful, harassing, harmful, or hateful"
     },
     {
       "id": "deenhub_terms#69",
@@ -1140,7 +1140,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "fications, motion/compass sensors) require your permission to function. You may grant or revoke permissions at any time in your device settings. Some functionality may be limited without the relevant permissions. Content and Intellectual Property DeenHub and its content are protected by intellectual property laws. Al-Haq Initiative and its licensors retain all rights not expressly granted to you. You may not copy, modify, distribute, sell, or lease any part of DeenHub unless permitted by law or with our written consent. License Subject to these Terms, we grant you a limited, non‑exclusive, non"
+      "text": "ed with the spirit of the service. You will not: Engage in unlawful, harassing, harmful, or hateful conduct. Probe, scan, or test the vulnerability of DeenHub or circumvent security or authentication measures. Interfere with or disrupt the operation of DeenHub or others’ use of it. Misuse DeenHub to transmit malware or unauthorized automated traffic. Violate others’ intellectual property or privacy rights. Permissions and Device Features Certain features (e.g., precise/approximate location, notifications, motion/compass sensors) require your permission to function. You may grant or revoke perm"
     },
     {
       "id": "deenhub_terms#70",
@@ -1149,7 +1149,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "with our written consent. License Subject to these Terms, we grant you a limited, non‑exclusive, non‑transferable, revocable license to use DeenHub for personal, non‑commercial purposes. Any use of DeenHub contrary to these Terms is prohibited. Third‑Party Services DeenHub may interoperate with or link to third‑party services. We do not control and are not responsible for third‑party content, policies, or practices. Your use of third‑party services is at your own risk and may be subject to their terms. Privacy Your use of DeenHub is also governed by our Privacy Policy , which explains how we h"
+      "text": "fications, motion/compass sensors) require your permission to function. You may grant or revoke permissions at any time in your device settings. Some functionality may be limited without the relevant permissions. Content and Intellectual Property DeenHub and its content are protected by intellectual property laws. Al-Haq Initiative and its licensors retain all rights not expressly granted to you. You may not copy, modify, distribute, sell, or lease any part of DeenHub unless permitted by law or with our written consent. License Subject to these Terms, we grant you a limited, non‑exclusive, non"
     },
     {
       "id": "deenhub_terms#71",
@@ -1158,7 +1158,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "terms. Privacy Your use of DeenHub is also governed by our Privacy Policy , which explains how we handle information. Please read it carefully. Changes and Availability We may modify, suspend, or discontinue DeenHub (in whole or in part) at any time, with or without notice. We may also update these Terms from time to time; material changes will be communicated where appropriate. Your continued use after changes take effect constitutes acceptance of the updated Terms. Disclaimers DeenHub is provided on an “as is” and “as available” basis. To the fullest extent permitted by law, we disclaim all"
+      "text": "with our written consent. License Subject to these Terms, we grant you a limited, non‑exclusive, non‑transferable, revocable license to use DeenHub for personal, non‑commercial purposes. Any use of DeenHub contrary to these Terms is prohibited. Third‑Party Services DeenHub may interoperate with or link to third‑party services. We do not control and are not responsible for third‑party content, policies, or practices. Your use of third‑party services is at your own risk and may be subject to their terms. Privacy Your use of DeenHub is also governed by our Privacy Policy , which explains how we h"
     },
     {
       "id": "deenhub_terms#72",
@@ -1167,7 +1167,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ided on an “as is” and “as available” basis. To the fullest extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non‑infringement. We do not warrant that DeenHub will be uninterrupted, secure, or error‑free. Limitation of Liability To the fullest extent permitted by law, Al-Haq Initiative and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, profits, or revenues, arising from or related to your use of DeenHub. Our total liability f"
+      "text": "terms. Privacy Your use of DeenHub is also governed by our Privacy Policy , which explains how we handle information. Please read it carefully. Changes and Availability We may modify, suspend, or discontinue DeenHub (in whole or in part) at any time, with or without notice. We may also update these Terms from time to time; material changes will be communicated where appropriate. Your continued use after changes take effect constitutes acceptance of the updated Terms. Disclaimers DeenHub is provided on an “as is” and “as available” basis. To the fullest extent permitted by law, we disclaim all"
     },
     {
       "id": "deenhub_terms#73",
@@ -1176,7 +1176,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "of data, profits, or revenues, arising from or related to your use of DeenHub. Our total liability for any claims relating to DeenHub will be limited to the amount you paid (if any) for the service during the twelve (12) months before the event giving rise to the liability. Indemnity You agree to defend, indemnify, and hold harmless Al-Haq Initiative and its affiliates, officers, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising from your use of DeenHub or your violation of these Terms or applicable law. Term"
+      "text": "ided on an “as is” and “as available” basis. To the fullest extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non‑infringement. We do not warrant that DeenHub will be uninterrupted, secure, or error‑free. Limitation of Liability To the fullest extent permitted by law, Al-Haq Initiative and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, profits, or revenues, arising from or related to your use of DeenHub. Our total liability f"
     },
     {
       "id": "deenhub_terms#74",
@@ -1185,7 +1185,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "egal fees) arising from your use of DeenHub or your violation of these Terms or applicable law. Termination We may suspend or terminate your access to DeenHub at any time if you violate these Terms or use DeenHub in a way that could cause harm. You may stop using DeenHub at any time. Upon termination, sections that by their nature should survive will remain in effect. Governing Law These Terms are governed by applicable laws of the jurisdiction where Al-Haq Initiative is established, without regard to conflict of law principles. Where local law grants you mandatory consumer rights, these Terms"
+      "text": "of data, profits, or revenues, arising from or related to your use of DeenHub. Our total liability for any claims relating to DeenHub will be limited to the amount you paid (if any) for the service during the twelve (12) months before the event giving rise to the liability. Indemnity You agree to defend, indemnify, and hold harmless Al-Haq Initiative and its affiliates, officers, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising from your use of DeenHub or your violation of these Terms or applicable law. Term"
     },
     {
       "id": "deenhub_terms#75",
@@ -1194,16 +1194,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ard to conflict of law principles. Where local law grants you mandatory consumer rights, these Terms are applied to the fullest extent consistent with those rights. Contact Questions about these Terms? Email legal@alhaq-initiative.org . General info or collaboration: info@alhaq-initiative.org • contact@alhaq-initiative.org . Technical support: support@alhaq-initiative.org . Back to Legal & Docs Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai."
+      "text": "egal fees) arising from your use of DeenHub or your violation of these Terms or applicable law. Termination We may suspend or terminate your access to DeenHub at any time if you violate these Terms or use DeenHub in a way that could cause harm. You may stop using DeenHub at any time. Upon termination, sections that by their nature should survive will remain in effect. Governing Law These Terms are governed by applicable laws of the jurisdiction where Al-Haq Initiative is established, without regard to conflict of law principles. Where local law grants you mandatory consumer rights, these Terms"
     },
     {
-      "id": "privacy_hub#76",
-      "page": "Privacy_Hub",
-      "url": "https://alhaq-initiative.org/legal/privacy_hub.html",
+      "id": "deenhub_terms#76",
+      "page": "Deenhub_Terms",
+      "url": "https://alhaq-initiative.org/legal/deenhub_docs/deenhub_terms.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Privacy Hub - Al-Haq Initiative Privacy Hub ← Back to Legal & Documentation Data controller: Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (known casually as Habibur Rahman). Al-Haq Initiative is a personal mission hosted under Al-Haq Studio and is not a separate legal entity. This page centralizes privacy information for Al-Haq Initiative products and services. Each product may have its own dedicated privacy notice reflecting its scope and data handling model. We aim for minimal data collection and a strong local-first approach. General"
+      "text": "ard to conflict of law principles. Where local law grants you mandatory consumer rights, these Terms are applied to the fullest extent consistent with those rights. Contact Questions about these Terms? Email legal@alhaq-initiative.org . General info or collaboration: info@alhaq-initiative.org • contact@alhaq-initiative.org . Technical support: support@alhaq-initiative.org . Back to Legal & Docs Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai."
     },
     {
       "id": "privacy_hub#77",
@@ -1212,7 +1212,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "d data handling model. We aim for minimal data collection and a strong local-first approach. General Privacy Overview Explains our core privacy principles, data minimization, local-first storage philosophy, and how we handle user feedback or contact submissions. Read Overview → Why Local-First A brief rationale for preferring on-device storage where feasible to protect user intent, religious practice data, and usage patterns. Learn More → Product Specific Privacy Notices Product / Area Privacy Document Scope Qur'an Hub / Quran Reader (No personal data stored) Static delivery, optional audio st"
+      "text": "Privacy Hub - Al-Haq Initiative Privacy Hub ← Back to Legal & Documentation Data controller: Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (known casually as Habibur Rahman). Al-Haq Initiative is a personal mission hosted under Al-Haq Studio and is not a separate legal entity. This page centralizes privacy information for Al-Haq Initiative products and services. Each product may have its own dedicated privacy notice reflecting its scope and data handling model. We aim for minimal data collection and a strong local-first approach. General"
     },
     {
       "id": "privacy_hub#78",
@@ -1221,16 +1221,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ocument Scope Qur'an Hub / Quran Reader (No personal data stored) Static delivery, optional audio streaming. Contact & Feedback Forms Form Handling Transient processing via Logic Apps. Data Requests For removal, clarification, or questions, email: privacy@alhaq-initiative.org We typically respond within 7 business days. Future Transparency We plan to open-source relevant privacy-impacting modules and expand automated transparency logs. (Roadmap subject to refinement) Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
+      "text": "d data handling model. We aim for minimal data collection and a strong local-first approach. General Privacy Overview Explains our core privacy principles, data minimization, local-first storage philosophy, and how we handle user feedback or contact submissions. Read Overview → Why Local-First A brief rationale for preferring on-device storage where feasible to protect user intent, religious practice data, and usage patterns. Learn More → Product Specific Privacy Notices Product / Area Privacy Document Scope Qur'an Hub / Quran Reader (No personal data stored) Static delivery, optional audio st"
     },
     {
-      "id": "terms_hub#79",
-      "page": "Terms_Hub",
-      "url": "https://alhaq-initiative.org/legal/terms_hub.html",
+      "id": "privacy_hub#79",
+      "page": "Privacy_Hub",
+      "url": "https://alhaq-initiative.org/legal/privacy_hub.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "Terms Hub - Al-Haq Initiative Terms Hub ← Back to Legal & Documentation Operator: Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (known casually as Habibur Rahman). The Al-Haq Initiative brand is operated under Al-Haq Studio and is not a separate legal entity, charity, or registered organization. This page consolidates the terms of service and usage conditions for Al-Haq Initiative products. Each product may include platform‑specific conditions while upholding our core ethical and faith‑aligned standards. General Terms Overview Outlines p"
+      "text": "ocument Scope Qur'an Hub / Quran Reader (No personal data stored) Static delivery, optional audio streaming. Contact & Feedback Forms Form Handling Transient processing via Logic Apps. Data Requests For removal, clarification, or questions, email: privacy@alhaq-initiative.org We typically respond within 7 business days. Future Transparency We plan to open-source relevant privacy-impacting modules and expand automated transparency logs. (Roadmap subject to refinement) Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
       "id": "terms_hub#80",
@@ -1239,7 +1239,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ions while upholding our core ethical and faith‑aligned standards. General Terms Overview Outlines permitted use, disclaimers, content boundaries, acceptable behavior, and user responsibility. Read Overview → Core Ethical Standards Principles guiding moderation, reliability expectations, and stewardship across products. Learn More → Product Specific Terms Product / Area Terms Document Notes Contact & Feedback Submissions Submission Expectations Appropriate use & response scope. Change Notices Material updates will be timestamped; continued use indicates acceptance of revised terms. We avoid re"
+      "text": "Terms Hub - Al-Haq Initiative Terms Hub ← Back to Legal & Documentation Operator: Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (known casually as Habibur Rahman). The Al-Haq Initiative brand is operated under Al-Haq Studio and is not a separate legal entity, charity, or registered organization. This page consolidates the terms of service and usage conditions for Al-Haq Initiative products. Each product may include platform‑specific conditions while upholding our core ethical and faith‑aligned standards. General Terms Overview Outlines p"
     },
     {
       "id": "terms_hub#81",
@@ -1248,16 +1248,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "terial updates will be timestamped; continued use indicates acceptance of revised terms. We avoid retroactive obligations. Limitations No guarantee of uninterrupted availability; tools are best-effort and intended for lawful, ethical use in line with Islamic values. See disclaimers for details. Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
+      "text": "ions while upholding our core ethical and faith‑aligned standards. General Terms Overview Outlines permitted use, disclaimers, content boundaries, acceptable behavior, and user responsibility. Read Overview → Core Ethical Standards Principles guiding moderation, reliability expectations, and stewardship across products. Learn More → Product Specific Terms Product / Area Terms Document Notes Contact & Feedback Submissions Submission Expectations Appropriate use & response scope. Change Notices Material updates will be timestamped; continued use indicates acceptance of revised terms. We avoid re"
     },
     {
-      "id": "library#82",
-      "page": "Library",
-      "url": "https://alhaq-initiative.org/library.html",
+      "id": "terms_hub#82",
+      "page": "Terms_Hub",
+      "url": "https://alhaq-initiative.org/legal/terms_hub.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ Library — Al-Haq Initiative | Primary-Source Research & Resources library_books Al-Haq Initiative Library Written Works Bookshelf Filastin Verified, Faith Sellers, and other primary-source research books. Audio & Video Media Hub Historical media, documentary snippets, and educational streams. Research & Essays Articles Analysis and source-verification notes from ongoing research. Coming soon. Visual Learning Infographics Concept maps and visual explainers from ongoing projects. library_books Library Menu menu_book Quran Hub library_books Books play_circle Media article Articles bar_chart Inf"
+      "text": "terial updates will be timestamped; continued use indicates acceptance of revised terms. We avoid retroactive obligations. Limitations No guarantee of uninterrupted availability; tools are best-effort and intended for lawful, ethical use in line with Islamic values. See disclaimers for details. Al-Haq Initiative © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
       "id": "library#83",
@@ -1266,7 +1266,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "ibrary Menu menu_book Quran Hub library_books Books play_circle Media article Articles bar_chart Infographics Quran Hub Read and explore the Holy Quran with translation and tafsir. Complete Quran with Arabic text Multiple translations (English, Arabic, Dari) Tafsir and commentary Audio recitations Read Quran Listen Recitation Book Library Written research from the Al-Haq Initiative &mdash; primary-source translations, independent research booklets, and historical investigations. Use the filters below to browse by type. Loading book shelf&hellip; View Book Projects Media Library Media Hub is or"
+      "text": "﻿ Library — Al-Haq Initiative | Primary-Source Research & Resources library_books Al-Haq Initiative Library Written Works Bookshelf Filastin Verified, Faith Sellers, and other primary-source research books. Audio & Video Media Hub Historical media, documentary snippets, and educational streams. Research & Essays Articles Analysis and source-verification notes from ongoing research. Coming soon. Visual Learning Infographics Concept maps and visual explainers from ongoing projects. library_books Library Menu menu_book Quran Hub library_books Books play_circle Media article Articles bar_chart Inf"
     },
     {
       "id": "library#84",
@@ -1275,7 +1275,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "below to browse by type. Loading book shelf&hellip; View Book Projects Media Library Media Hub is organized into three streams &mdash; all aligned with verified research and vocal-only media standards. Stream 01 Historical Media Acapella and vocal-only storytelling grounded in primary sources. Stream 02 Documentary Snippets Short visual breakdowns of manuscripts and source chains. Stream 03 Educational Series Companion media connected to books and lesson booklets. Open Media Hub Articles Research essays and educational briefs that bridge history, present challenges, and practical guidance. His"
+      "text": "ibrary Menu menu_book Quran Hub library_books Books play_circle Media article Articles bar_chart Infographics Quran Hub Read and explore the Holy Quran with translation and tafsir. Complete Quran with Arabic text Multiple translations (English, Arabic, Dari) Tafsir and commentary Audio recitations Read Quran Listen Recitation Book Library Written research from the Al-Haq Initiative &mdash; primary-source translations, independent research booklets, and historical investigations. Use the filters below to browse by type. Loading book shelf&hellip; View Book Projects Media Library Media Hub is or"
     },
     {
       "id": "library#85",
@@ -1284,7 +1284,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "h essays and educational briefs that bridge history, present challenges, and practical guidance. History & Sources Analytical pieces grounded in primary-source comparison. Contemporary Reflections Modern issues reviewed through an Islamic ethical lens. Research Blog Cross-referencing updates and manuscript progress notes. Articles will be published as the book projects progress &mdash; research blog updates coming first. InfoGraphics Visual explainers and narrative maps that help readers move from complex sources to clear understanding. Unveiling the Western World Primary collection of infogra"
+      "text": "below to browse by type. Loading book shelf&hellip; View Book Projects Media Library Media Hub is organized into three streams &mdash; all aligned with verified research and vocal-only media standards. Stream 01 Historical Media Acapella and vocal-only storytelling grounded in primary sources. Stream 02 Documentary Snippets Short visual breakdowns of manuscripts and source chains. Stream 03 Educational Series Companion media connected to books and lesson booklets. Open Media Hub Articles Research essays and educational briefs that bridge history, present challenges, and practical guidance. His"
     },
     {
       "id": "library#86",
@@ -1293,16 +1293,16 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "om complex sources to clear understanding. Unveiling the Western World Primary collection of infographics connected to historical and civilizational themes. Book-Linked Visuals Infographic companions for Filastin Verified, Faith Sellers, and ongoing research projects. Unveiling the Western World (Infographics) All Infographics: Unveiling the Western World Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Projects Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. &times;"
+      "text": "h essays and educational briefs that bridge history, present challenges, and practical guidance. History & Sources Analytical pieces grounded in primary-source comparison. Contemporary Reflections Modern issues reviewed through an Islamic ethical lens. Research Blog Cross-referencing updates and manuscript progress notes. Articles will be published as the book projects progress &mdash; research blog updates coming first. InfoGraphics Visual explainers and narrative maps that help readers move from complex sources to clear understanding. Unveiling the Western World Primary collection of infogra"
     },
     {
-      "id": "media#87",
-      "page": "Media",
-      "url": "https://alhaq-initiative.org/media.html",
+      "id": "library#87",
+      "page": "Library",
+      "url": "https://alhaq-initiative.org/library.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ Media - Al-Haq Initiative Al-Haq Initiative Home About Services Library Media Help & FAQ Contact Media Media Hub for historical narration, source-focused snippets, and educational series. Filter by stream or search by title and author. Media Hub Three streams. One research standard. All media is curated to support verified historical understanding and ethical digital consumption. Open Book Library Open Infographics Historical Media Acapella / vocal-only series narrating verified historical stories. No instrumental music. Documentary Snippets Visual breakdowns of primary-source manuscripts an"
+      "text": "om complex sources to clear understanding. Unveiling the Western World Primary collection of infographics connected to historical and civilizational themes. Book-Linked Visuals Infographic companions for Filastin Verified, Faith Sellers, and ongoing research projects. Unveiling the Western World (Infographics) All Infographics: Unveiling the Western World Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Projects Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. &times;"
     },
     {
       "id": "media#88",
@@ -1311,10 +1311,19 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
+      "text": "﻿ Media - Al-Haq Initiative Al-Haq Initiative Home About Services Library Media Help & FAQ Contact Media Media Hub for historical narration, source-focused snippets, and educational series. Filter by stream or search by title and author. Media Hub Three streams. One research standard. All media is curated to support verified historical understanding and ethical digital consumption. Open Book Library Open Infographics Historical Media Acapella / vocal-only series narrating verified historical stories. No instrumental music. Documentary Snippets Visual breakdowns of primary-source manuscripts an"
+    },
+    {
+      "id": "media#89",
+      "page": "Media",
+      "url": "https://alhaq-initiative.org/media.html",
+      "site": "Al-Haq Initiative",
+      "context": "alhaq-initiative",
+      "lang": "en",
       "text": "ries. No instrumental music. Documentary Snippets Visual breakdowns of primary-source manuscripts and historical references. Educational Series Multimedia companions to the Lessons from Islamic Civilization booklets. Category Search Load More × Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home Library Media &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
-      "id": "offline#89",
+      "id": "offline#90",
       "page": "Offline",
       "url": "https://alhaq-initiative.org/offline.html",
       "site": "Al-Haq Initiative",
@@ -1323,7 +1332,7 @@
       "text": "Offline - Al-Haq Initiative You're offline Some features may be unavailable. Please check your connection. Back to Home"
     },
     {
-      "id": "quran#90",
+      "id": "quran#91",
       "page": "Quran",
       "url": "https://alhaq-initiative.org/quran.html",
       "site": "Al-Haq Initiative",
@@ -1332,7 +1341,7 @@
       "text": "﻿ Quran Hub - Al-Haq Initiative Quran Hub Quran Reader Quran Hub Info & Support Jump to ayah Go Reading size Small Normal Large Larger X-Large Resume Print Share Full Both Reading View Quran [ ] Copy Search Surah Select Surah Select a Surah... Select Translation No Translation English (Maulana Wahiduddin Khan) Pashto (Sarfaraz) Show Translation Reference Translation & Notes [ ] Copy Pick a translation and turn it on to view side-by-side meaning and footnotes. Quick Navigation Ayah Index Previous Page Next Page Page 1 / 1 Audio Recitation Media Controls Recitation Player Reciter Speed 0.75x 1x"
     },
     {
-      "id": "quran#91",
+      "id": "quran#92",
       "page": "Quran",
       "url": "https://alhaq-initiative.org/quran.html",
       "site": "Al-Haq Initiative",
@@ -1341,7 +1350,7 @@
       "text": "Page Next Page Page 1 / 1 Audio Recitation Media Controls Recitation Player Reciter Speed 0.75x 1x 1.25x 1.5x Play Surah Play Page Ayahs Play/Pause Prev Ayah Next Ayah -5s +5s Reload Stop Ready to play. Your browser does not support the audio element. Hifz Loop Memorization Range Reciter (Hifz) Start Ayah End Ayah Repeat 3x 5x 10x Infinite Use Current Page Start Hifz Loop Stop Hifz Loop Tip: choose a short range, set repeat count, then use Prev/Next Ayah to test memorization flow. Tafsir & Commentary Ibn Kathir Tafsir One of the most comprehensive and respected tafsir works in Islamic scholar"
     },
     {
-      "id": "quran#92",
+      "id": "quran#93",
       "page": "Quran",
       "url": "https://alhaq-initiative.org/quran.html",
       "site": "Al-Haq Initiative",
@@ -1350,7 +1359,7 @@
       "text": "entary Ibn Kathir Tafsir One of the most comprehensive and respected tafsir works in Islamic scholarship. Al-Fatiha Tafsir \"The Opening\" - This surah is the foundation of the Quran and teaches us the proper way to address Allah in prayer. Al-Ikhlas Tafsir \"The Sincerity\" - This surah is equivalent to one-third of the Quran and emphasizes the pure monotheism of Islam. Ya-Sin Tafsir \"The Heart of the Quran\" - This surah addresses the truth of the Quran and the mission of the Prophet Muhammad (ﷺ). Contemporary Tafsir Modern interpretations that address contemporary issues and challenges. Ma'arifu"
     },
     {
-      "id": "quran#93",
+      "id": "quran#94",
       "page": "Quran",
       "url": "https://alhaq-initiative.org/quran.html",
       "site": "Al-Haq Initiative",
@@ -1359,7 +1368,7 @@
       "text": "Contemporary Tafsir Modern interpretations that address contemporary issues and challenges. Ma'ariful Quran A comprehensive modern tafir that explains the Quran in light of contemporary understanding. Tafsir Al-Tabari One of the earliest and most comprehensive tafir works, covering historical context and linguistic analysis. Tafsir Al-Qurtubi A detailed tafir that focuses on legal rulings and practical applications of Quranic verses. Additional Resources 📖 Quran Memorization Hifz Programs Tajweed Rules Memorization Techniques 🎓 Islamic Studies Aqeedah (Creed) Fiqh (Jurisprudence) Seerah (Proph"
     },
     {
-      "id": "quran#94",
+      "id": "quran#95",
       "page": "Quran",
       "url": "https://alhaq-initiative.org/quran.html",
       "site": "Al-Haq Initiative",
@@ -1368,7 +1377,7 @@
       "text": "d Rules Memorization Techniques 🎓 Islamic Studies Aqeedah (Creed) Fiqh (Jurisprudence) Seerah (Prophet's Life) 🕌 Prayer Times Daily Prayers Qibla Direction Explore Our Library Quran Hub Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home About Services Library Help & FAQ Contact Donate &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
-      "id": "quranhub#95",
+      "id": "quranhub#96",
       "page": "Quranhub",
       "url": "https://alhaq-initiative.org/quranhub.html",
       "site": "Al-Haq Initiative",
@@ -1377,7 +1386,7 @@
       "text": "Quran Hub (DeenHub feature) - Al-Haq Initiative Feature inside DeenHub · Beta Quran Hub AI-powered Quran recitation feedback and memorization practice. Quran Hub is now a feature inside the DeenHub mobile app (with an upcoming companion web app) &mdash; bringing real-time correction, moving highlight, and word-by-word analysis into the same daily-deen companion you already use for prayer times, Qibla, and adhkaar. Under the hood, Quran Hub is powered by our in-house AI engine, TaleemAI . DeenHub is the mobile app, Quran Hub is the feature inside it, and TaleemAI is the engine that makes the re"
     },
     {
-      "id": "quranhub#96",
+      "id": "quranhub#97",
       "page": "Quranhub",
       "url": "https://alhaq-initiative.org/quranhub.html",
       "site": "Al-Haq Initiative",
@@ -1386,31 +1395,22 @@
       "text": "is the mobile app, Quran Hub is the feature inside it, and TaleemAI is the engine that makes the real-time recitation feedback possible. Real-time recitation correction and feedback &mdash; powered by TaleemAI Moving highlight and word-by-word analysis Multiple surahs and full-surah display Memorization practice with repetition and backward-correction recognition Ships inside DeenHub mobile (Android beta) &middot; upcoming web app companion About DeenHub Join the DeenHub Beta Open the Quran reader (website) Note: this page describes the AI Quran Hub feature shipping inside DeenHub. The websit"
     },
     {
-      "id": "quranhub#97",
+      "id": "quranhub#98",
       "page": "Quranhub",
       "url": "https://alhaq-initiative.org/quranhub.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "der (website) Note: this page describes the AI Quran Hub feature shipping inside DeenHub. The website's standalone Quran reader lives at /quran.html and is a separate web app. Developed by Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader). Explore Our Library Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home Visit our Library &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. Visit our Library Report / Feedback &times; Report / Feedback Send English عربی دری پښتو"
+      "text": "der (website) Note: this page describes the AI Quran Hub feature shipping inside DeenHub. The website's standalone Quran reader lives at /quran.html and is a separate web app. This free community tool is provided by the Al-Haq Initiative , developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader). Explore Our Library Quran Hub Hadith Hadith Articles Books InfoGraphics Al-Haq Initiative Building a Digital Future, Rooted in Faith. Home Visit our Library &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved. Visit our Library Report / Feedback &times; Report /"
     },
     {
-      "id": "services#98",
-      "page": "Services",
-      "url": "https://alhaq-initiative.org/services.html",
+      "id": "quranhub#99",
+      "page": "Quranhub",
+      "url": "https://alhaq-initiative.org/quranhub.html",
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "﻿ Projects — Al-Haq Initiative | Ongoing Research & Development Free Projects & Services The Al-Haq Initiative portfolio &mdash; active applications, educational resources, and media work. Everything here is provided completely free of charge. Islamic Operating System DeenHub A comprehensive, privacy-first desktop platform that centralizes Quranic study, Hadith, and Islamic resources in a local-first ecosystem. Learn More arrow_forward Quranic Study App Taleem AI / Quran Hub Interactive tools to explore, memorize, and understand the Quran. Features advanced analytics and immersive recitations."
-    },
-    {
-      "id": "services#99",
-      "page": "Services",
-      "url": "https://alhaq-initiative.org/services.html",
-      "site": "Al-Haq Initiative",
-      "context": "alhaq-initiative",
-      "lang": "en",
-      "text": "explore, memorize, and understand the Quran. Features advanced analytics and immersive recitations. Explore Quran Hub arrow_forward Artificial Intelligence Al-Haq AI Assistant An open-source AI conversational agent trained to assist with finding Islamic resources securely and privately, available directly on this site. Available via the chat icon Educational Media Media & Infographics High-quality vocal-only videos, verified historical stories, and highly detailed infographics to educate the community visually. Media arrow_forward Infographics arrow_forward Academic Research The Library Acces"
+      "text": "tudio & Afrasyaab Meranai. All rights reserved. Visit our Library Report / Feedback &times; Report / Feedback Send English عربی دری پښتو"
     },
     {
       "id": "services#100",
@@ -1419,7 +1419,7 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
-      "text": "mmunity visually. Media arrow_forward Infographics arrow_forward Academic Research The Library Access our growing collection of primary source translations, survival guides, and the comprehensive Lessons from Islamic Civilization. Open Library arrow_forward Prophetic Wisdom Golden Speech Deep, reflective insights and curated collections of the Prophet (pbuh) most impactful statements on morality and truth. Read Insights arrow_forward Support the Mission All these projects are sustained by our community. Help us keep them free from ads and external influence. Donate / Sponsor Explore Our Librar"
+      "text": "﻿ Projects — Al-Haq Initiative | Ongoing Research & Development Free Projects & Services The Al-Haq Initiative portfolio &mdash; active applications, educational resources, and media work. Everything here is provided completely free of charge. Islamic Operating System DeenHub A comprehensive, privacy-first desktop platform that centralizes Quranic study, Hadith, and Islamic resources in a local-first ecosystem. Learn More arrow_forward Quranic Study App Taleem AI / Quran Hub Interactive tools to explore, memorize, and understand the Quran. Features advanced analytics and immersive recitations."
     },
     {
       "id": "services#101",
@@ -1428,10 +1428,28 @@
       "site": "Al-Haq Initiative",
       "context": "alhaq-initiative",
       "lang": "en",
+      "text": "explore, memorize, and understand the Quran. Features advanced analytics and immersive recitations. Explore Quran Hub arrow_forward Artificial Intelligence Al-Haq AI Assistant An open-source AI conversational agent trained to assist with finding Islamic resources securely and privately, available directly on this site. Available via the chat icon Educational Media Media & Infographics High-quality vocal-only videos, verified historical stories, and highly detailed infographics to educate the community visually. Media arrow_forward Infographics arrow_forward Academic Research The Library Acces"
+    },
+    {
+      "id": "services#102",
+      "page": "Services",
+      "url": "https://alhaq-initiative.org/services.html",
+      "site": "Al-Haq Initiative",
+      "context": "alhaq-initiative",
+      "lang": "en",
+      "text": "mmunity visually. Media arrow_forward Infographics arrow_forward Academic Research The Library Access our growing collection of primary source translations, survival guides, and the comprehensive Lessons from Islamic Civilization. Open Library arrow_forward Prophetic Wisdom Golden Speech Deep, reflective insights and curated collections of the Prophet (pbuh) most impactful statements on morality and truth. Read Insights arrow_forward Support the Mission All these projects are sustained by our community. Help us keep them free from ads and external influence. Donate / Sponsor Explore Our Librar"
+    },
+    {
+      "id": "services#103",
+      "page": "Services",
+      "url": "https://alhaq-initiative.org/services.html",
+      "site": "Al-Haq Initiative",
+      "context": "alhaq-initiative",
+      "lang": "en",
       "text": "mmunity. Help us keep them free from ads and external influence. Donate / Sponsor Explore Our Library Quran Hub Hadith Media Articles Books InfoGraphics Al-Haq Initiative &copy; 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved."
     },
     {
-      "id": "support_hub#102",
+      "id": "support_hub#104",
       "page": "Support_Hub",
       "url": "https://alhaq-initiative.org/support_hub.html",
       "site": "Al-Haq Initiative",
@@ -1440,7 +1458,7 @@
       "text": "Support Hub - Al-Haq Initiative Support Hub ← Back to Legal & Documentation Operator: Al-Haq Studio (Al-Haq Digital Services & Solutions &mdash; UK sole trader), owned by Afrasyaab Meranai (Habibur Rahman). Support is provided as best-effort by the founder. Central access to documentation, FAQs, feedback channels, and product‑specific assistance for Al-Haq Initiative offerings. Help & FAQ General usage answers, troubleshooting guidance, and tips. Contact Form Send us a direct inquiry or feedback securely. Feedback & Contribution GitHub Contributions Report issues or contribute improvements to"
     },
     {
-      "id": "support_hub#103",
+      "id": "support_hub#105",
       "page": "Support_Hub",
       "url": "https://alhaq-initiative.org/support_hub.html",
       "site": "Al-Haq Initiative",
@@ -1449,7 +1467,7 @@
       "text": "securely. Feedback & Contribution GitHub Contributions Report issues or contribute improvements to open components. View Repositories → Product Feedback Share suggestions to improve quality, accessibility, and alignment with Islamic values. Give Feedback → Contact Emails General Info info@alhaq-initiative.org General Contact contact@alhaq-initiative.org Support support@alhaq-initiative.org Responsible Use Use our tools ethically and within the bounds of local laws and Islamic principles. Report misuse responsibly. Availability & Notices Services are best-effort and may undergo maintenance or"
     },
     {
-      "id": "support_hub#104",
+      "id": "support_hub#106",
       "page": "Support_Hub",
       "url": "https://alhaq-initiative.org/support_hub.html",
       "site": "Al-Haq Initiative",
