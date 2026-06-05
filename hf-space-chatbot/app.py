@@ -33,11 +33,14 @@ PROJECT_DESCRIPTION = _get_env(
     "PROJECT_DESCRIPTION",
     (
         "The Al-Haq Initiative (مبادرة الحق) is a digital and literary movement "
-        "for Seeking the Truth. It is the public-facing brand of the founder's "
-        "personal effort plus free/community-oriented projects hosted under "
-        "ADS Solutions (Al-Haq Digital Services & Solutions, a UK sole trader). "
-        "Mission pillars: Truth in history (primary-source research) and "
-        "Protection in the present (digital wellbeing tools), with a public "
+        "focused on seeking truth in history and protecting mental and spiritual "
+        "wellbeing. It is led by Afrasyaab Meranai and operated as a personal "
+        "initiative under ADS Solutions (Al-Haq Digital Services & Solutions, a UK "
+        "sole trader). Al-Haq Studio is a separate UK-based software studio by the "
+        "same founder; the two brands are related through the founder and the "
+        "broader ecosystem, but Al-Haq Studio is not the same brand as the Al-Haq "
+        "Initiative. Mission pillars: Truth in history (primary-source research) "
+        "and Protection in the present (digital wellbeing tools), with a public "
         "pillar of Resilience (community). Founder: Afrasyaab Meranai "
         "(also known as Habibur Rahman). Al-Haq Initiative is not a charity, "
         "non-profit, or registered organization."
@@ -48,7 +51,7 @@ PROJECT_LINKS = _get_env(
     (
         f"Home: {SITE_BASE}/, About: {SITE_BASE}/about.html, "
         f"Projects: {SITE_BASE}/services.html, "
-        f"Products & Services: {SITE_BASE}/products.html, "
+        f""
         f"AmnShield (protection app): {SITE_BASE}/amn-site/, "
         f"DeenHub (Islamic productivity app, beta): {SITE_BASE}/deenhub.html, "
         f"DeenHub Beta signup: {SITE_BASE}/deenhub_join_beta.html, "
@@ -101,13 +104,16 @@ PROJECT_GOALS = _get_env(
 PROJECT_PROJECTS = _get_env(
     "PROJECT_PROJECTS",
     (
+        "BRAND RELATIONSHIP: Al-Haq Studio is a separate UK-based software "
+        "studio by the same founder; Al-Haq Initiative is the broader digital "
+        "and literary movement. "
         "PRODUCTS (available today, under ADS Solutions): "
         f"AmnShield \u2014 digital protection app for habit management and "
         f"spiritual wellbeing, freemium (free tier + premium plans), see {SITE_BASE}/amn-site/. "
         f"Quran Hub (web app) \u2014 standalone Quran reader at {SITE_BASE}/quran.html. "
         f"Library & Media Hub \u2014 books, audio, and video at {SITE_BASE}/library.html and {SITE_BASE}/media.html. "
         f"ADS Solutions Digital Services \u2014 specialized web development, "
-        f"security, and infrastructure on {SITE_BASE}/products.html. "
+        f""
         "PROJECTS (ongoing / upcoming): "
         f"DeenHub \u2014 Islamic productivity mobile app (prayer times, Qibla, "
         "adhkaar, productivity) with the Quran Hub feature for AI Quran "
@@ -286,7 +292,7 @@ ASSISTANT BEHAVIOR:
 YOUR ROLE — guide and lead the visitor:
 1. Greet warmly when the conversation starts. Briefly state who you are and
    offer 2-3 short suggestions (e.g. "Learn about the mission", "Explore
-   projects", "Try AmnShield", "Support the work").
+   projects", "Support the work").
 2. ALWAYS render links as clickable Markdown links using the full absolute
    URL from KEY LINKS. Format: [Descriptive label](https://alhaq-initiative.org/page.html).
    NEVER paste a bare URL on its own line, and NEVER use a relative path
@@ -297,18 +303,17 @@ YOUR ROLE — guide and lead the visitor:
    the visitor will find on that page, followed by the markdown link.
 4. For every meaningful answer, end with ONE concrete next step: a specific
    markdown link from KEY LINKS, or a clear suggested action.
-5. When a topic touches AmnShield, DeenHub, Quran Hub, the Library, or
+5. When a topic touches DeenHub, Quran Hub, the Library, or
    Documentary Snippets, mention the matching page and invite the visitor
    to open it (as a markdown link).
 6. When a visitor shows interest, alignment, or asks "how can I help",
    gently invite them to support: link to [Donate](https://alhaq-initiative.org/donate.html),
-   mention GitHub Sponsors, AmnShield premium, sharing the site, or joining
+   mention GitHub Sponsors, sharing the site, or joining
    the DeenHub beta. Be sincere and respectful \u2014 never pushy.
 7. For historical questions, prioritize primary sources and clearly say
    when something is still under research (e.g. Faith Sellers is an
    ongoing translation/cross-referencing effort).
 8. For technical/service questions, route the visitor to
-   [Products & Services](https://alhaq-initiative.org/products.html) or
    [Contact](https://alhaq-initiative.org/contact.html).
 
 HARD RULES:
@@ -413,10 +418,7 @@ html, body, gradio-app {
   background: var(--alhaq-bg) !important;
   height: 100% !important;
   min-height: 100% !important;
-  width: 100% !important;
   margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
   color: var(--alhaq-text) !important;
   font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
   font-size: 16px !important;
@@ -424,114 +426,74 @@ html, body, gradio-app {
 gradio-app { display: block !important; }
 footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1ipelgc { display: none !important; }
 
-.gradio-container { 
-  max-width: 100% !important; 
-  padding: 0 !important; 
-  margin: 0 !important; 
-  height: 100% !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
+.gradio-container,
+.gradio-container > div,
+.gradio-container .main,
+.gradio-container .wrap,
+.gradio-container .contain,
+.gradio-container .form,
+.gradio-container .panel {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
 }
-.gradio-container .main, .gradio-container .wrap { 
-  padding: 0 !important; 
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 0 !important;
-  width: 100% !important;
+.gradio-container { height: 100% !important; min-height: 100% !important; display: flex !important; flex-direction: column !important; }
+.gradio-container > div,
+.gradio-container .main,
+.gradio-container .wrap { flex: 1 1 auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; }
+
+/* Keep ChatInterface layout bounded so messages don't expand the whole page. */
+.gradio-container .contain,
+.gradio-container .contain > .column,
+.gradio-container #component-1,
+.gradio-container #component-1 .wrapper {
+    min-height: 0 !important;
 }
-.gradio-container > * {
-  width: 100% !important;
+.gradio-container .contain > .column,
+.gradio-container #component-1 {
+    overflow: hidden !important;
 }
-.gr-box, .gr-column, [role="main"] {
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-  min-height: 0 !important;
+.gradio-container #component-1 .wrapper {
+    height: 100% !important;
+    max-height: 100% !important;
 }
 
 /* Hide the previous in-iframe header shell entirely */
 #alhaq-chat-shell { display: none !important; }
 
-/* ---------- Chat interface container ---------- */
-.gr-chat-container, [role="application"] {
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-  width: 100% !important;
-  min-height: 0 !important;
-}
-.gr-chatbot, .gr-chat-column {
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-  width: 100% !important;
-  min-height: 0 !important;
-}
-
-/* ---------- Chatbot scroll area ---------- */
-/* Gradio 5: .bubble-wrap is the message list container. Keep it fixed-height so it can scroll. */
+/* ---------- Chatbot scroll area (Gradio 5 DOM) ---------- */
+/* Keep scrolling logic strict: only the message list should scroll. */
 .bubble-wrap {
-  flex: 1 !important;
-  min-height: 0 !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior: contain !important;
-  touch-action: pan-y !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: #cbd5e1 transparent !important;
-  scroll-behavior: smooth !important;
+    flex: 1 1 auto !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch;
+    background: transparent !important;
+    border: none !important;
+    padding: 14px 14px 8px !important;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
 }
-.bubble-wrap {
-  background: transparent !important;
-  border: none !important;
-  padding: 16px 14px 12px 14px !important;
-}
-.bubble-wrap::-webkit-scrollbar { 
-  width: 8px !important; 
-  background: transparent !important;
-}
-.bubble-wrap::-webkit-scrollbar-track { 
-  background: transparent !important;
-  margin: 8px 0 !important;
-}
-.bubble-wrap::-webkit-scrollbar-thumb { 
-  background: #cbd5e1 !important; 
-  border-radius: 4px !important; 
-  border: 2px solid transparent !important;
-  background-clip: padding-box !important;
-}
-.bubble-wrap::-webkit-scrollbar-thumb:hover { 
-  background: #94a3b8 !important;
-  background-clip: padding-box !important;
-}
+.bubble-wrap::-webkit-scrollbar { width: 10px; background: #f1f5f9; }
+.bubble-wrap::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+.bubble-wrap::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 8px; border: 2px solid #f1f5f9; }
+.bubble-wrap::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
 /* ---------- Message bubbles ---------- */
 .message, .message-row, [class*="bubble"], [class*="message"] {
   font-size: 16px !important;
-  line-height: 1.6 !important;
-  letter-spacing: 0.005em !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.005em;
   color: var(--alhaq-text) !important;
-  word-wrap: break-word !important;
 }
-.message p, .message li, .message span, .message div { 
-  font-size: 16px !important; 
-  line-height: 1.6 !important; 
-  color: inherit !important;
-  word-wrap: break-word !important;
-}
-.message h1, .message h2, .message h3, .message h4 { 
-  color: var(--alhaq-text) !important; 
-  margin: 12px 0 6px 0 !important;
-  font-weight: 700 !important;
-}
-.message ul, .message ol { 
-  padding-left: 22px !important; 
-  margin: 8px 0 !important; 
-}
-.message li { margin: 4px 0 !important; }
+.message p, .message li, .message span, .message div { font-size: 16px !important; line-height: 1.7 !important; color: inherit !important; }
+.message h1, .message h2, .message h3, .message h4 { color: var(--alhaq-text) !important; margin: 8px 0 4px !important; }
+.message ul, .message ol { padding-left: 22px !important; margin: 6px 0 !important; }
 
 /* Assistant bubble */
 .message.bot, .message.assistant, [data-testid="bot"],
@@ -542,9 +504,8 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   border: 1px solid var(--alhaq-border) !important;
   color: var(--alhaq-text) !important;
   border-radius: 14px !important;
-  padding: 14px 16px !important;
-  box-shadow: 0 1px 3px rgba(15,23,42,.08) !important;
-  max-width: 95% !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04) !important;
 }
 
 /* User bubble */
@@ -555,13 +516,9 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   color: #ffffff !important;
   border: none !important;
   border-radius: 14px !important;
-  padding: 14px 16px !important;
-  box-shadow: 0 2px 8px rgba(29,78,216,.25) !important;
-  max-width: 95% !important;
+  padding: 12px 14px !important;
 }
-.message.user *, [data-testid="user"] *, [class*="bubble-user"] * { 
-  color: #ffffff !important; 
-}
+.message.user *, [data-testid="user"] *, [class*="bubble-user"] * { color: #ffffff !important; }
 
 /* Links inside bubbles */
 .message a, [class*="bubble"] a, .gr-chatbot a {
@@ -570,58 +527,23 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   text-decoration: underline !important;
   text-decoration-color: rgba(30,58,138,.45) !important;
   text-underline-offset: 3px !important;
-  cursor: pointer !important;
-}
-.message a:hover, [class*="bubble"] a:hover, .gr-chatbot a:hover {
-  text-decoration-color: var(--alhaq-blue-dark) !important;
-  filter: brightness(0.95) !important;
 }
 .message.user a, [data-testid="user"] a, [class*="bubble-user"] a {
   color: #fde68a !important;
   text-decoration-color: rgba(253,230,138,.7) !important;
 }
-.message.user a:hover, [data-testid="user"] a:hover, [class*="bubble-user"] a:hover {
-  text-decoration-color: #fde68a !important;
-}
+.message a:hover, [class*="bubble"] a:hover { text-decoration-color: currentColor !important; }
 
 /* Code blocks */
-.message code, .message pre { 
-  font-size: 14px !important; 
-  background: rgba(15,23,42,.06) !important; 
-  border-radius: 6px !important; 
-  padding: 2px 6px !important;
-  color: var(--alhaq-text) !important;
-}
-.message pre { 
-  padding: 12px 14px !important; 
-  overflow-x: auto !important;
-  border: 1px solid var(--alhaq-border) !important;
-  line-height: 1.4 !important;
-}
-.message pre code { padding: 0 !important; background: transparent !important; }
+.message code, .message pre { font-size: 14px !important; background: rgba(15,23,42,.06) !important; border-radius: 6px !important; padding: 2px 6px !important; }
+.message pre { padding: 10px 12px !important; overflow-x: auto !important; }
 
 /* Spacing between rows */
-.message-row, [class*="message-row"] { 
-  margin-bottom: 12px !important; 
-}
-
-/* ---------- Input area container ---------- */
-.gr-textbox-container, .form, form {
-  flex-shrink: 0 !important;
-  padding: 12px 14px !important;
-  gap: 10px !important;
-  background: var(--alhaq-surface) !important;
-  border-top: 1px solid var(--alhaq-border) !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-end !important;
-  box-sizing: border-box !important;
-}
+.message-row, [class*="message-row"] { margin-bottom: 10px !important; }
 
 /* ---------- Input box ---------- */
-.gr-textbox, .gr-textbox-input, textarea, .gr-textbox textarea, textarea.scroll-hide {
-  border-radius: 10px !important;
+textarea, .gr-textbox textarea, textarea.scroll-hide {
+  border-radius: 12px !important;
   border: 1.5px solid var(--alhaq-border) !important;
   background: #ffffff !important;
   color: var(--alhaq-text) !important;
@@ -629,20 +551,11 @@ footer, .footer, gradio-app footer, .built-with, .api-docs, .show-api, .svelte-1
   font-size: 16px !important;
   line-height: 1.5 !important;
   padding: 12px 14px !important;
-  resize: none !important;
-  max-height: 120px !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
-  flex: 1 !important;
-  min-width: 0 !important;
-  width: 100% !important;
 }
-textarea::placeholder { 
-  color: #94a3b8 !important; 
-  opacity: 1 !important; 
-}
+textarea::placeholder { color: #94a3b8 !important; opacity: 1 !important; }
 textarea:focus, .gr-textbox textarea:focus {
   border-color: var(--alhaq-blue) !important;
-  box-shadow: 0 0 0 3px rgba(29,78,216,.12), 0 1px 2px rgba(15,23,42,.08) !important;
+  box-shadow: 0 0 0 3px rgba(29,78,216,.18) !important;
   outline: none !important;
 }
 
@@ -652,35 +565,17 @@ button[class*="submit"], button[aria-label*="Send"], button[title*="Send"] {
   background: linear-gradient(135deg, var(--alhaq-blue-dark), var(--alhaq-blue)) !important;
   border: none !important;
   color: #ffffff !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
   font-weight: 600 !important;
-  box-shadow: 0 4px 12px rgba(29,78,216,.25) !important;
-  padding: 12px 24px !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  flex-shrink: 0 !important;
-  white-space: nowrap !important;
+  box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
 }
-button.primary:hover, .gr-button-primary:hover {
-  filter: brightness(1.08) !important;
-  box-shadow: 0 6px 16px rgba(29,78,216,.35) !important;
-  transform: translateY(-1px) !important;
-}
-button.primary:active, .gr-button-primary:active {
-  transform: translateY(0) !important;
-}
+button.primary:hover, .gr-button-primary:hover { filter: brightness(1.08); }
 
 /* ---------- Examples chips ---------- */
 .examples, .gr-examples, [class*="examples"] {
   background: transparent !important;
   border: none !important;
-  padding: 8px 14px 12px 14px !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
-  flex-shrink: 0 !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  display: flex !important;
+  padding: 6px 14px 12px !important;
 }
 .examples button, .gr-examples button, [class*="examples"] button {
   background: #eff6ff !important;
@@ -693,35 +588,11 @@ button.primary:active, .gr-button-primary:active {
   font-weight: 600 !important;
   white-space: normal !important;
   text-align: left !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
 }
-.examples button:hover, .gr-examples button:hover { 
-  background: #dbeafe !important; 
-  border-color: #93c5fd !important;
-  transform: translateY(-1px) !important;
-}
+.examples button:hover, .gr-examples button:hover { background: #dbeafe !important; }
 
 /* Labels (hide "Chatbot" label box if it shows up) */
 .label-wrap, [data-testid="block-label"], .gr-chatbot > .label, .gr-chatbot label.svelte-1ipelgc { display: none !important; }
-
-/* ---------- Footer / Attribution text ---------- */
-.gr-footer, .footer, [class*="footer"], .info-text, .caption {
-  flex-shrink: 0 !important;
-  padding: 6px 14px !important;
-  font-size: 12px !important;
-  color: var(--alhaq-muted) !important;
-  background: transparent !important;
-  border: none !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* ---------- Remove any unwanted spacing from divs/sections ---------- */
-div[style*="min-height"], section[style*="min-height"] {
-  min-height: auto !important;
-}
-
 """
 
 
@@ -729,7 +600,6 @@ HEAD_HTML = """
 <script>
 // 1) Force light theme (some browsers ignore the URL param).
 // 2) Open all chat links in the parent window so they navigate the host site.
-// 3) Auto-scroll chat to the latest message.
 (function(){
   try {
     document.documentElement.classList.remove('dark');
@@ -750,36 +620,45 @@ HEAD_HTML = """
       a.setAttribute('rel', 'noopener');
     });
   }
-  patch();
-  new MutationObserver(patch).observe(document.body || document.documentElement, {childList:true, subtree:true});
 
-  // Auto-scroll to latest message in chat
-  function autoScrollChat() {
-    var bubbleWrap = document.querySelector('.bubble-wrap');
-    if (bubbleWrap) {
-      setTimeout(function() {
-        bubbleWrap.scrollTop = bubbleWrap.scrollHeight;
-      }, 100);
+    function lockLayout(){
+        try {
+            var c0 = document.querySelector('#component-0');
+            var c1 = document.querySelector('#component-1');
+            var wrap = c1 ? c1.querySelector('.wrapper') : null;
+            var bubbles = document.querySelector('.bubble-wrap');
+
+            [c0, c1, wrap].forEach(function(el){
+                if (!el) return;
+                el.style.setProperty('min-height', '0', 'important');
+            });
+
+            if (c0) c0.style.setProperty('overflow', 'hidden', 'important');
+            if (c1) {
+                c1.style.setProperty('overflow', 'hidden', 'important');
+                c1.style.setProperty('height', '100%', 'important');
+                c1.style.setProperty('max-height', '100%', 'important');
+            }
+            if (wrap) {
+                wrap.style.setProperty('height', '100%', 'important');
+                wrap.style.setProperty('max-height', '100%', 'important');
+            }
+            if (bubbles) {
+                bubbles.style.setProperty('min-height', '0', 'important');
+                bubbles.style.setProperty('height', '100%', 'important');
+                bubbles.style.setProperty('max-height', '100%', 'important');
+                bubbles.style.setProperty('overflow-y', 'auto', 'important');
+                bubbles.style.setProperty('overflow-x', 'hidden', 'important');
+                bubbles.style.setProperty('overscroll-behavior', 'contain', 'important');
+            }
+        } catch(e) {}
     }
-  }
-  
-  // Observe chat container for new messages
-  var chatObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.addedNodes.length > 0) {
-        autoScrollChat();
-      }
-    });
-  });
-  
-  // Start observing after a brief delay to ensure DOM is ready
-  setTimeout(function() {
-    var bubbleWrap = document.querySelector('.bubble-wrap');
-    if (bubbleWrap) {
-      chatObserver.observe(bubbleWrap, {childList: true, subtree: true});
-      autoScrollChat();
-    }
-  }, 500);
+
+  patch();
+    lockLayout();
+    new MutationObserver(function(){ patch(); lockLayout(); }).observe(document.body || document.documentElement, {childList:true, subtree:true});
+    setTimeout(lockLayout, 300);
+    setTimeout(lockLayout, 1000);
 })();
 </script>
 """
@@ -811,7 +690,6 @@ with gr.Blocks(
         fill_height=True,
         examples=[
             "What is the Al-Haq Initiative?",
-            "How does AmnShield protect wellbeing?",
             "How can I support the founder's work?",
         ],
     )
