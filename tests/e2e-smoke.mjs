@@ -17,7 +17,6 @@ const pages = [
   '/golden-speech.html',
   
   // Products & Sub-products
-  '/products.html',
   '/amn-site/index.html',
   '/amn-site/download/index.html',
   '/amn-site/faq/index.html',
@@ -27,7 +26,6 @@ const pages = [
   '/amn-site/legal/terms/index.html',
   '/deenhub.html',
   '/deenhub_join_beta.html',
-  '/amnshield_join_beta.html',
   '/quranhub.html',
   
   // Legal & docs hubs

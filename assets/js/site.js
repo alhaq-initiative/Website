@@ -71,7 +71,7 @@
     const skipGlobalNav = pathLower.startsWith('/shield/') || pathLower.startsWith('/amn-site') || pathLower.startsWith('/legal/shield_docs/');
     if (!skipGlobalNav) {
       try {
-        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(229,231,235,0.9);">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Al-Haq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Al-Haq_Logo.png" alt="Al-Haq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Al-Haq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Projects</a></li>\n        <li role="none"><a role="menuitem" href="products.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Products &amp; Services</a></li>\n        <li role="none"><a role="menuitem" href="/amn-site/" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">AmnShield</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation" style="display:none;">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Projects</a></li>\n          <li><a href="products.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Products &amp; Services</a></li>\n          <li><a href="/amn-site/" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">AmnShield</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
+        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(229,231,235,0.9);">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Al-Haq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Al-Haq_Logo.png" alt="Al-Haq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Al-Haq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Projects</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation" style="display:none;">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Projects</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
         const already = document.getElementById('site-global-header');
         if (!already) {
           const placeholder = document.getElementById('global-header');
@@ -576,8 +576,7 @@
         if (name.includes('quranhub')) return 'quranhub';
         if (name.includes('quran')) return 'quran';
         if (name.includes('media')) return 'media';
-  if (name.includes('products')) return 'products';
-    if (name.includes('deenhub_join_beta')) return 'deenhub_join_beta';
+  if (name.includes('deenhub_join_beta')) return 'deenhub_join_beta';
     if (name.includes('deenhub')) return 'deenhub';
     if (name.includes('golden-speech')) return 'golden-speech';
     if (name === 'docs.html') return 'docs';
@@ -641,8 +640,7 @@
             { href: 'help.html', key: 'navHelp' },
             { href: 'contact.html', key: 'navContact' },
             { href: 'donate.html', key: 'navDonate' },
-            { href: 'products.html', key: 'navProducts' }
-          ];
+            ];
           navMap.forEach(item => {
             const link = document.querySelector(`nav a[href='${item.href}']`);
             if (link && t[item.key]) link.textContent = t[item.key];
@@ -956,7 +954,7 @@
     window.__alhaqChatbotInjected = true;
 
     const CHATBOT_URL = window.ALHAQ_CHATBOT_URL || 'https://habib-hf-alhaq-website-chatbot.hf.space';
-    const CHATBOT_SRC = CHATBOT_URL + (CHATBOT_URL.indexOf('?') === -1 ? '?' : '&') + '__theme=light';
+    const CHATBOT_SRC = CHATBOT_URL + (CHATBOT_URL.indexOf('?') === -1 ? '?' : '&') + '__theme=light&context=alhaq-initiative';
 
     function inject(){
       if (document.getElementById('alhaq-chatbot-launcher')) return;
@@ -980,7 +978,7 @@
         #alhaq-chatbot-launcher:hover + #alhaq-chatbot-tip,#alhaq-chatbot-launcher:focus-visible + #alhaq-chatbot-tip{opacity:1;transform:translateX(0);}
         #alhaq-chatbot-launcher.open + #alhaq-chatbot-tip{display:none;}
 
-        #alhaq-chatbot-panel{position:fixed;bottom:${stacked ? '164px' : '96px'};right:20px;width:460px;max-width:calc(100vw - 20px);height:min(640px, calc(100vh - ${stacked ? '184px' : '116px'}));max-height:calc(100vh - ${stacked ? '184px' : '116px'});z-index:9999;background:#fff;border-radius:18px;box-shadow:0 28px 60px rgba(15,23,42,.32),0 4px 14px rgba(15,23,42,.14);overflow:hidden;overscroll-behavior:contain;display:none;flex-direction:column;border:1px solid rgba(15,23,42,.08);transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s ease;}
+        #alhaq-chatbot-panel{position:fixed;bottom:${stacked ? '164px' : '96px'};right:20px;width:460px;max-width:calc(100vw - 20px);height:min(640px, calc(100vh - ${stacked ? '184px' : '116px'}));max-height:calc(100vh - ${stacked ? '184px' : '116px'});z-index:9999;background:#fff;border-radius:18px;box-shadow:0 28px 60px rgba(15,23,42,.32),0 4px 14px rgba(15,23,42,.14);overflow:hidden;display:none;flex-direction:column;border:1px solid rgba(15,23,42,.08);transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s ease;}
         #alhaq-chatbot-panel.open{display:flex;transform:translateY(0) scale(1);opacity:1;}
 
         #alhaq-chatbot-header{display:flex;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(135deg,#1e3a8a,#1d4ed8 60%,#2563eb);color:#fff;}
@@ -1096,13 +1094,6 @@
         btn.setAttribute('aria-expanded', 'true');
         btn.setAttribute('aria-label', 'Close Al-Haq Assistant chatbot');
         btn.innerHTML = ICON_CLOSE;
-        // Lock page scroll while chatbot is open so wheel/touch events don't scroll the host page.
-        try {
-          document.documentElement.dataset.alhaqPrevOverflow = document.documentElement.style.overflow || '';
-          document.body.dataset.alhaqPrevOverflow = document.body.style.overflow || '';
-          document.documentElement.style.overflow = 'hidden';
-          document.body.style.overflow = 'hidden';
-        } catch(e) {}
       }
       function close(){
         panel.classList.remove('open');
@@ -1110,10 +1101,6 @@
         btn.setAttribute('aria-expanded', 'false');
         btn.setAttribute('aria-label', 'Open Al-Haq Assistant chatbot');
         btn.innerHTML = ICON_CHAT;
-        try {
-          document.documentElement.style.overflow = document.documentElement.dataset.alhaqPrevOverflow || '';
-          document.body.style.overflow = document.body.dataset.alhaqPrevOverflow || '';
-        } catch(e) {}
       }
       btn.addEventListener('click', function(){
         if (panel.classList.contains('open')) close(); else open();

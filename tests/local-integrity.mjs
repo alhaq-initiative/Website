@@ -13,8 +13,8 @@ function listHtmlFiles(baseDir) {
     if (e.isFile() && e.name.toLowerCase().endsWith('.html')) {
       files.push(path.join(baseDir, e.name));
     } else if (e.isDirectory()) {
-      // opt-in scan subdirs with html pages (legal, AmnShield)
-      if (["legal", "AmnShield"].includes(e.name)) {
+      // opt-in scan subdirs with html pages (legal)
+      if (["legal"].includes(e.name)) {
         files.push(...listHtmlFiles(path.join(baseDir, e.name)));
       }
     }

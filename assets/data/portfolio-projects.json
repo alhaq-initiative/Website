@@ -2,11 +2,11 @@
   {
     "id": "amnshield",
     "title": "AmnShield",
-    "tagline": "Digital protection and habit management platform.",
-    "type": "Mobile & Desktop Application",
+    "tagline": "Digital protection and habit management platform — on-device AI content moderation, app blocking, focus mode, and Islamic digital wellbeing tools.",
+    "type": "Mobile Application",
     "status": "Closed Testing",
     "badge": "Freemium",
-    "link": "/amn-site/",
+    "link": "https://amnshield.tech",
     "attribution": "Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader)."
   },
   {
