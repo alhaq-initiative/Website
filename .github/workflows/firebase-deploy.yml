@@ -40,9 +40,9 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
 
-      - name: Deploy main and amn hosting targets
+      - name: Deploy main and amnshield hosting targets
         run: |
           npx --no-install firebase deploy \
             --project alhaq-initiative \
-            --only hosting:main,hosting:amn \
+            --only hosting:main,hosting:amnshield \
             --non-interactive
