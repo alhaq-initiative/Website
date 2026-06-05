@@ -4,6 +4,7 @@
   "navAbout": "درباره ما",
   "navServices": "خدمات",
   "navLibrary": "کتابخانه",
+  "navQuranHub": "Quran Hub",
   "navHelp": "راهنما",
   "navContact": "تماس",
   "navDonate": "حمایت/اهدا",
@@ -14,8 +15,7 @@
   "formMessage": "پیام:",
   "formSubmit": "ارسال پیام",
   "footerSlogan": "ساخت آینده دیجیتال، ریشه در ایمان.",
-  "visitLibrary": "بازدید از کتابخانه"
-  ,
+  "visitLibrary": "بازدید از کتابخانه",
   "exploreLibraryTitle": "کتابخانه ما را کاوش کنید",
   "linkQuranHub": "مرکز قرآن",
   "linkHadith": "حدیث",

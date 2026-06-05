@@ -5,10 +5,12 @@ A free conversational chatbot powered by Mistral 7B for guiding visitors on the 
 ## Quick Deploy to Hugging Face Spaces (2 min)
 
 ### Step 1: Create a Hugging Face Account (if needed)
+
 - Go to [huggingface.co](https://huggingface.co)
 - Click "Sign Up" → Create account
 
 ### Step 2: Create a New Space
+
 1. Click your profile → "Create" → "New Space"
 2. **Space name:** `alhaq-chatbot` (or any name you prefer)
 3. **License:** OpenRAIL-M (recommended for models)
@@ -17,12 +19,14 @@ A free conversational chatbot powered by Mistral 7B for guiding visitors on the 
 6. Click "Create Space"
 
 ### Step 3: Upload Files
+
 1. Click "Files" → "Add file" → "Upload files"
 2. Upload these files from `d:\Projects\alhaq-website\hf-space-chatbot\`:
    - `app.py`
    - `requirements.txt`
 
 ### Step 4: Create Dockerfile (Important!)
+
 1. Click "Files" → "Add file" → "Create new file"
 2. Name: `Dockerfile`
 3. Paste:
@@ -47,20 +51,22 @@ CMD ["python", "app.py"]
 4. Click "Commit new file"
 
 ### Step 5: Wait for Build
+
 - The space will auto-build (2-5 min)
 - You'll see "Running" status when ready
 - Check the "Logs" tab if it takes longer
 
 ### Step 6: Get Embed Code
+
 1. Click the three dots (⋯) → "Embed this Space"
 2. Copy the iframe code:
 
 ```html
 <iframe
-	src="https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot"
-	frameborder="0"
-	width="850"
-	height="600"
+  src="https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot"
+  frameborder="0"
+  width="850"
+  height="600"
 ></iframe>
 ```
 
@@ -69,30 +75,35 @@ CMD ["python", "app.py"]
 ## Embed on Your Website
 
 ### Option A: Simple Embed (Recommended)
+
 Add to any page (e.g., `help.html`, `contact.html`):
 
 ```html
-<section id="chatbot-section" style="margin: 40px 0; padding: 20px; background: #f5f5f5; border-radius: 8px;">
-    <h2>💬 Need Help? Chat with Our Guide</h2>
-    <iframe
-        src="https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot"
-        frameborder="0"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ddd; border-radius: 8px;"
-    ></iframe>
+<section
+  id="chatbot-section"
+  style="margin: 40px 0; padding: 20px; background: #f5f5f5; border-radius: 8px;"
+>
+  <h2>💬 Need Help? Chat with Our Guide</h2>
+  <iframe
+    src="https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot"
+    frameborder="0"
+    width="100%"
+    height="600"
+    style="border: 1px solid #ddd; border-radius: 8px;"
+  ></iframe>
 </section>
 ```
 
 ### Option B: Floating Chat Bubble (Advanced)
+
 Add to `assets/js/site.js`:
 
 ```javascript
 // Add floating chat bubble
 function initChatbot() {
-    const bubble = document.createElement('div');
-    bubble.id = 'chat-bubble';
-    bubble.innerHTML = `
+  const bubble = document.createElement('div');
+  bubble.id = 'chat-bubble';
+  bubble.innerHTML = `
         <button onclick="toggleChat()" style="
             position: fixed;
             bottom: 20px;
@@ -126,12 +137,12 @@ function initChatbot() {
             ></iframe>
         </div>
     `;
-    document.body.appendChild(bubble);
+  document.body.appendChild(bubble);
 }
 
 function toggleChat() {
-    const window = document.getElementById('chat-window');
-    window.style.display = window.style.display === 'none' ? 'block' : 'none';
+  const window = document.getElementById('chat-window');
+  window.style.display = window.style.display === 'none' ? 'block' : 'none';
 }
 
 // Initialize on page load
@@ -143,6 +154,7 @@ document.addEventListener('DOMContentLoaded', initChatbot);
 ## Customize the Chatbot
 
 ### Add More Context
+
 Edit `app.py` → `SYSTEM_PROMPT` section:
 
 ```python
@@ -151,12 +163,15 @@ SYSTEM_PROMPT = """You are a guide for Al-Haq Initiative...
 ```
 
 ### Change the Model
+
 Replace `mistralai/Mistral-7B-Instruct-v0.1` with:
+
 - `meta-llama/Llama-2-7b-chat-hf` (Llama 2)
 - `NousResearch/Nous-Hermes-2-Mistral-7B-DPO` (Stronger)
 - `teknium/OpenHermes-2.5-Mistral-7B` (More creative)
 
 ### Change Styling
+
 Edit the Gradio theme:
 
 ```python
@@ -176,28 +191,32 @@ theme=gr.themes.Soft(
 ✅ **Contextual** - Knows about Al-Haq, products, projects  
 ✅ **Fast** - Mistral 7B is optimized for speed  
 ✅ **Embeddable** - Works on any website  
-✅ **Mobile Friendly** - Responsive design  
+✅ **Mobile Friendly** - Responsive design
 
 ---
 
 ## Troubleshooting
 
 ### "Space is building..." (Stuck for >10 min)
+
 1. Refresh the page
 2. Check "Logs" tab for errors
 3. Ensure files are properly committed
 
 ### "CUDA out of memory" error
+
 - Mistral 7B is being run on free tier
 - Wait and refresh (queue system)
 - Or switch to smaller model (Phi-2: 2.7GB)
 
 ### Chatbot not responding
+
 - Check Hugging Face Space "Logs"
 - Verify `app.py` and `requirements.txt` are uploaded
 - Dockerfile must be present
 
 ### Embed not showing on website
+
 - Use `https://` (not `http://`)
 - Check browser console for CORS errors
 - Try `allow="*"` attribute on iframe
@@ -217,12 +236,15 @@ theme=gr.themes.Soft(
 ## Integration Examples
 
 ### Add to Help Page
+
 `help.html` → Add chatbot section before footer
 
 ### Add to Contact Page
+
 `contact.html` → "Can't find what you need? Chat with our guide"
 
 ### Add to Services Page
+
 `services.html` → "Ask about our products and projects"
 
 ---

@@ -18,51 +18,169 @@
       ".firebase/**"
     ],
     "redirects": [
-      { "source": "/ar",        "destination": "/",      "type": 302 },
-      { "source": "/ar/",       "destination": "/",      "type": 302 },
+      { "source": "/ar", "destination": "/", "type": 302 },
+      { "source": "/ar/", "destination": "/", "type": 302 },
       { "source": "/ar/:path*", "destination": "/:path", "type": 302 },
-      { "source": "/fa",        "destination": "/",      "type": 302 },
-      { "source": "/fa/",       "destination": "/",      "type": 302 },
+      { "source": "/fa", "destination": "/", "type": 302 },
+      { "source": "/fa/", "destination": "/", "type": 302 },
       { "source": "/fa/:path*", "destination": "/:path", "type": 302 },
-      { "source": "/ps",        "destination": "/",      "type": 302 },
-      { "source": "/ps/",       "destination": "/",      "type": 302 },
+      { "source": "/ps", "destination": "/", "type": 302 },
+      { "source": "/ps/", "destination": "/", "type": 302 },
       { "source": "/ps/:path*", "destination": "/:path", "type": 302 },
-      { "source": "/download",    "destination": "https://amnshield.com/download/",       "type": 301 },
-      { "source": "/download/",   "destination": "https://amnshield.com/download/",       "type": 301 },
-      { "source": "/download/**", "destination": "https://amnshield.com/download/:splat", "type": 301 },
-      { "source": "/faq",         "destination": "https://amnshield.com/faq/",            "type": 301 },
-      { "source": "/faq/",        "destination": "https://amnshield.com/faq/",            "type": 301 },
-      { "source": "/faq/**",      "destination": "https://amnshield.com/faq/:splat",      "type": 301 },
-      { "source": "/support",     "destination": "https://amnshield.com/support/",        "type": 301 },
-      { "source": "/support/",    "destination": "https://amnshield.com/support/",        "type": 301 },
-      { "source": "/support/**",  "destination": "https://amnshield.com/support/:splat",  "type": 301 },
-      { "source": "/docs",        "destination": "https://amnshield.com/docs/",           "type": 301 },
-      { "source": "/docs/",       "destination": "https://amnshield.com/docs/",           "type": 301 },
-      { "source": "/docs/**",     "destination": "https://amnshield.com/docs/:splat",     "type": 301 },
-      { "source": "/legal/privacy",    "destination": "https://amnshield.com/legal/privacy/",       "type": 301 },
-      { "source": "/legal/privacy/",   "destination": "https://amnshield.com/legal/privacy/",       "type": 301 },
-      { "source": "/legal/privacy/**", "destination": "https://amnshield.com/legal/privacy/:splat", "type": 301 },
-      { "source": "/legal/terms",      "destination": "https://amnshield.com/legal/terms/",         "type": 301 },
-      { "source": "/legal/terms/",     "destination": "https://amnshield.com/legal/terms/",         "type": 301 },
-      { "source": "/legal/terms/**",   "destination": "https://amnshield.com/legal/terms/:splat",   "type": 301 },
-      { "source": "/deensheild",    "destination": "https://amnshield.com/", "type": 301 },
-      { "source": "/deensheild/",   "destination": "https://amnshield.com/", "type": 301 },
-      { "source": "/deensheild/**", "destination": "https://amnshield.com/", "type": 301 },
-      { "source": "/shield",    "destination": "https://amnshield.com/", "type": 301 },
-      { "source": "/shield/",   "destination": "https://amnshield.com/", "type": 301 },
-      { "source": "/shield/**", "destination": "https://amnshield.com/", "type": 301 },
-      { "source": "/amn-site",       "destination": "https://amnshield.com/",       "type": 301 },
-      { "source": "/amn-site/",      "destination": "https://amnshield.com/",       "type": 301 },
-      { "source": "/amn-site/:path*","destination": "https://amnshield.com/:path",  "type": 301 }
+      {
+        "source": "/download",
+        "destination": "https://amnshield.com/download/",
+        "type": 301
+      },
+      {
+        "source": "/download/",
+        "destination": "https://amnshield.com/download/",
+        "type": 301
+      },
+      {
+        "source": "/download/**",
+        "destination": "https://amnshield.com/download/:splat",
+        "type": 301
+      },
+      {
+        "source": "/faq",
+        "destination": "https://amnshield.com/faq/",
+        "type": 301
+      },
+      {
+        "source": "/faq/",
+        "destination": "https://amnshield.com/faq/",
+        "type": 301
+      },
+      {
+        "source": "/faq/**",
+        "destination": "https://amnshield.com/faq/:splat",
+        "type": 301
+      },
+      {
+        "source": "/support",
+        "destination": "https://amnshield.com/support/",
+        "type": 301
+      },
+      {
+        "source": "/support/",
+        "destination": "https://amnshield.com/support/",
+        "type": 301
+      },
+      {
+        "source": "/support/**",
+        "destination": "https://amnshield.com/support/:splat",
+        "type": 301
+      },
+      {
+        "source": "/docs",
+        "destination": "https://amnshield.com/docs/",
+        "type": 301
+      },
+      {
+        "source": "/docs/",
+        "destination": "https://amnshield.com/docs/",
+        "type": 301
+      },
+      {
+        "source": "/docs/**",
+        "destination": "https://amnshield.com/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/legal/privacy",
+        "destination": "https://amnshield.com/legal/privacy/",
+        "type": 301
+      },
+      {
+        "source": "/legal/privacy/",
+        "destination": "https://amnshield.com/legal/privacy/",
+        "type": 301
+      },
+      {
+        "source": "/legal/privacy/**",
+        "destination": "https://amnshield.com/legal/privacy/:splat",
+        "type": 301
+      },
+      {
+        "source": "/legal/terms",
+        "destination": "https://amnshield.com/legal/terms/",
+        "type": 301
+      },
+      {
+        "source": "/legal/terms/",
+        "destination": "https://amnshield.com/legal/terms/",
+        "type": 301
+      },
+      {
+        "source": "/legal/terms/**",
+        "destination": "https://amnshield.com/legal/terms/:splat",
+        "type": 301
+      },
+      {
+        "source": "/deensheild",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/deensheild/",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/deensheild/**",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/shield",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/shield/",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/shield/**",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/amn-site",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/amn-site/",
+        "destination": "https://amnshield.com/",
+        "type": 301
+      },
+      {
+        "source": "/amn-site/:path*",
+        "destination": "https://amnshield.com/:path",
+        "type": 301
+      }
     ],
     "headers": [
       {
         "source": "/sw.js",
-        "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
       },
       {
         "source": "/assets/**",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
       }
     ]
   }

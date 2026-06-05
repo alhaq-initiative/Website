@@ -25,14 +25,14 @@ that the website renders.
 
 ## Authoring workflow
 
-1. **Draft in Notion.** Each chapter is one page in the *Faith Sellers* Notion
+1. **Draft in Notion.** Each chapter is one page in the _Faith Sellers_ Notion
    database, with these properties:
    - `Status` — Draft | Review | Published
    - `Story Number` — integer, used for chapter ordering
    - `Historical Confidence` — Low | Medium | High
    - `Source Type` — short label (e.g. "Pashto translation", "Mixed narrative")
    - `Tags` — comma-separated
-2. **Export from Notion.** Right-click the page → *Export* → *Markdown & CSV*
+2. **Export from Notion.** Right-click the page → _Export_ → _Markdown & CSV_
    (include subpages = off, include content = current view). Notion produces a
    `.md` file (and, if the page has images, a sibling folder of the same name).
 3. **Import into the repo:**
@@ -51,7 +51,7 @@ that the website renders.
      file as `01_Chapters/episode-NN-<slug>.md`.
 4. **Review the diff** and commit the normalised file (and any copied assets).
    Do **not** edit the file with the UUID in the name; that's only the import
-  source. The committed `01_Chapters/episode-NN-….md` is the source of truth from
+   source. The committed `01_Chapters/episode-NN-….md` is the source of truth from
    this point forward.
 
 ## Hard rules
@@ -83,4 +83,4 @@ carefully — anything you hand-edited in the repo will be lost.
 
 Authored by **Afrasyaab Meranai (Habibur Rahman)**.
 Delivered via the Al-Haq Initiative under **Al-Haq Studio**
-(*Al-Haq Digital Services & Solutions* — UK sole trader).
+(_Al-Haq Digital Services & Solutions_ — UK sole trader).

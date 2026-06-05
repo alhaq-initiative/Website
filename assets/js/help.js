@@ -1,19 +1,25 @@
 // Extracted behaviors from help.html
-(function(){
+(function () {
   'use strict';
 
   // (Removed duplicate mobile menu logic – handled globally in site.js)
 
   // Page-specific translations hook used by core site.js
-  window._pageSetLanguage = function(lang) {
+  window._pageSetLanguage = function (lang) {
     if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
     const t = Object.assign({}, window.pageTranslations || {});
     if (t.title) document.title = t.title;
-    const h1 = document.querySelector('h1'); if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
-    const mainSub = document.querySelector('p.text-lg'); if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
-    const footerSlogan = document.querySelector('footer p.mt-2'); if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
-    const contactCta = document.querySelector("header a[href='contact.html']"); if (contactCta && t.navContact) contactCta.textContent = t.navContact;
-    const donateCta = document.querySelector("header a[href='donate.html']"); if (donateCta && t.navDonate) donateCta.textContent = t.navDonate;
+    const h1 = document.querySelector('h1');
+    if (h1 && t.mainHeading) h1.textContent = t.mainHeading;
+    const mainSub = document.querySelector('p.text-lg');
+    if (mainSub && t.mainSub) mainSub.textContent = t.mainSub;
+    const footerSlogan = document.querySelector('footer p.mt-2');
+    if (footerSlogan && t.footerSlogan)
+      footerSlogan.textContent = t.footerSlogan;
+    const contactCta = document.querySelector("header a[href='contact.html']");
+    if (contactCta && t.navContact) contactCta.textContent = t.navContact;
+    const donateCta = document.querySelector("header a[href='donate.html']");
+    if (donateCta && t.navDonate) donateCta.textContent = t.navDonate;
 
     // Rebuild FAQ list if structured data provided
     if (Array.isArray(t.faqCategories)) {
@@ -45,22 +51,30 @@
           });
         });
         const sb = document.createElement('div');
-        sb.className = 'mt-8 p-4 bg-yellow-50 border-l-4 border-brand-gold rounded-lg flex flex-col items-start';
+        sb.className =
+          'mt-8 p-4 bg-yellow-50 border-l-4 border-brand-gold rounded-lg flex flex-col items-start';
         const sbh = document.createElement('h3');
         sbh.className = 'text-lg font-bold text-brand-blue mb-2';
         sbh.textContent = t.supportNotFound || "Haven't found your answer?";
         const sbp = document.createElement('p');
         sbp.className = 'text-gray-700 mb-2';
-        sbp.textContent = t.supportStillNeed || 'Still need help? Find answers to your questions here and get help if needed.';
+        sbp.textContent =
+          t.supportStillNeed ||
+          'Still need help? Find answers to your questions here and get help if needed.';
         const sba = document.createElement('a');
         sba.href = 'contact.html';
-        sba.className = 'inline-block bg-brand-gold text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 transition';
+        sba.className =
+          'inline-block bg-brand-gold text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 transition';
         sba.textContent = t.supportContact || 'Contact Us for Support';
-        sb.appendChild(sbh); sb.appendChild(sbp); sb.appendChild(sba);
+        sb.appendChild(sbh);
+        sb.appendChild(sbp);
+        sb.appendChild(sba);
         card.appendChild(sb);
       }
     }
   };
 
-  document.addEventListener('DOMContentLoaded', () => {/* global nav handles menu */});
+  document.addEventListener('DOMContentLoaded', () => {
+    /* global nav handles menu */
+  });
 })();

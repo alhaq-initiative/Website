@@ -7,7 +7,7 @@ const pages = [
   '/contact.html',
   '/donate.html',
   '/help.html',
-  
+
   // Services & Sub-services
   '/services.html',
   '/library.html',
@@ -15,7 +15,7 @@ const pages = [
   '/media.html',
   '/all-infographics.html',
   '/golden-speech.html',
-  
+
   // Products & Sub-products
   '/amn-site/index.html',
   '/amn-site/download/index.html',
@@ -27,13 +27,13 @@ const pages = [
   '/deenhub.html',
   '/deenhub_join_beta.html',
   '/quranhub.html',
-  
+
   // Legal & docs hubs
   '/docs.html',
   '/legal/privacy_hub.html',
   '/legal/terms_hub.html',
   '/support_hub.html',
-  
+
   // DeenHub legal docs
   '/legal/deenhub_docs/deenhub_privacy_policy.html',
   '/legal/deenhub_docs/deenhub_terms.html',
@@ -45,7 +45,7 @@ const pages = [
   '/amn-site/legal/privacy/manager/index.html',
   '/amn-site/legal/privacy/en/main-privacy.html',
   '/amn-site/legal/terms/en/index.html',
-  '/amn-site/support/index.html'
+  '/amn-site/support/index.html',
 ];
 
 import http from 'node:http';
@@ -53,7 +53,9 @@ import https from 'node:https';
 import fs from 'node:fs';
 import path from 'node:path';
 
-function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
 
 function request(url) {
   return new Promise((resolve, reject) => {
@@ -62,8 +64,14 @@ function request(url) {
     const req = mod.request(u, res => {
       let data = '';
       res.setEncoding('utf8');
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve({ status: res.statusCode || 0, ok: (res.statusCode || 0) >= 200 && (res.statusCode || 0) < 400, text: () => Promise.resolve(data) }));
+      res.on('data', chunk => (data += chunk));
+      res.on('end', () =>
+        resolve({
+          status: res.statusCode || 0,
+          ok: (res.statusCode || 0) >= 200 && (res.statusCode || 0) < 400,
+          text: () => Promise.resolve(data),
+        })
+      );
     });
     req.on('error', reject);
     req.end();
@@ -91,38 +99,50 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
     try {
       const res = await fetchWithRetry(new URL('/', base).toString(), 1, 0);
       return res.ok;
-    } catch { return false; }
+    } catch {
+      return false;
+    }
   }
   async function ensureServer() {
     const ok = await probeRoot();
     if (ok) return; // Existing server running.
     const rootDir = process.cwd();
-    startedServer = http.createServer((req, res) => {
-      // Normalize URL -> file path
-      const urlPath = decodeURIComponent(req.url.split('?')[0]);
-      let filePath = urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
-      // Prevent directory traversal
-      if (filePath.includes('..')) { res.writeHead(400); return res.end('Bad Request'); }
-      const abs = path.join(rootDir, filePath);
-      fs.readFile(abs, (err, data) => {
-        if (err) {
-          res.writeHead(404, { 'Content-Type': 'text/plain' });
-          return res.end('Not found');
+    startedServer = http
+      .createServer((req, res) => {
+        // Normalize URL -> file path
+        const urlPath = decodeURIComponent(req.url.split('?')[0]);
+        let filePath =
+          urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
+        // Prevent directory traversal
+        if (filePath.includes('..')) {
+          res.writeHead(400);
+          return res.end('Bad Request');
         }
-        const ext = path.extname(abs).toLowerCase();
-        const type = ({
-          '.html': 'text/html; charset=utf-8',
-          '.js': 'application/javascript; charset=utf-8',
-          '.css': 'text/css; charset=utf-8',
-          '.json': 'application/json; charset=utf-8',
-          '.png': 'image/png',
-          '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml',
-          '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8'
-        })[ext] || 'application/octet-stream';
-        res.writeHead(200, { 'Content-Type': type });
-        res.end(data);
-      });
-    }).listen(8080);
+        const abs = path.join(rootDir, filePath);
+        fs.readFile(abs, (err, data) => {
+          if (err) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            return res.end('Not found');
+          }
+          const ext = path.extname(abs).toLowerCase();
+          const type =
+            {
+              '.html': 'text/html; charset=utf-8',
+              '.js': 'application/javascript; charset=utf-8',
+              '.css': 'text/css; charset=utf-8',
+              '.json': 'application/json; charset=utf-8',
+              '.png': 'image/png',
+              '.jpg': 'image/jpeg',
+              '.jpeg': 'image/jpeg',
+              '.svg': 'image/svg+xml',
+              '.ico': 'image/x-icon',
+              '.txt': 'text/plain; charset=utf-8',
+            }[ext] || 'application/octet-stream';
+          res.writeHead(200, { 'Content-Type': type });
+          res.end(data);
+        });
+      })
+      .listen(8080);
     await wait(200); // brief settle
   }
 
@@ -135,14 +155,23 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
       // Check that global site.js is referenced (relative or absolute path)
-      const hasSiteJs = /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(html);
-      if (!hasSiteJs) throw new Error('Missing global script assets/js/site.js');
+      const hasSiteJs =
+        /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(
+          html
+        );
+      if (!hasSiteJs)
+        throw new Error('Missing global script assets/js/site.js');
       // At least one stylesheet link
       const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
       if (!hasCss) throw new Error('No stylesheet link found');
       if (p === '/amn-site/index.html') {
-        const hasAmnCss = /\/amn-site\/assets\/css\/amn-redesign\.css/i.test(html);
-        if (!hasAmnCss) throw new Error('Missing Amn stylesheet /amn-site/assets/css/amn-redesign.css');
+        const hasAmnCss = /\/amn-site\/assets\/css\/amn-redesign\.css/i.test(
+          html
+        );
+        if (!hasAmnCss)
+          throw new Error(
+            'Missing Amn stylesheet /amn-site/assets/css/amn-redesign.css'
+          );
       }
       console.log(`PASS ${p}`);
     } catch (e) {
@@ -159,4 +188,3 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
   }
   console.log('Smoke check passed');
 })();
-

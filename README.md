@@ -51,6 +51,7 @@ Use this workflow to convert source files (PDF, Word, PowerPoint, Excel, images,
    ```
 
 Notes:
+
 - Default output path is `assets/library/books/<book-dir>/01_Chapters`.
 - You can override destination with `--book-dir` (example: `03_Filastin_Verified`).
 - Re-run with `--overwrite` to replace existing generated files.
@@ -68,39 +69,44 @@ For questions or support, contact the Al-Haq Initiative team.
 The site now uses a single source‑of‑truth navigation template injected at runtime by `assets/js/site.js`.
 
 ### How it works
-* Each HTML page contains only a lightweight placeholder: `<header id="global-header"></header>` placed near the top of `<body>`.
-* On `DOMContentLoaded`, `site.js` injects the HTML defined in the constant (e.g. `NAV_HTML`) and wires up:
-   - Active link highlighting (based on normalized pathname)
-   - Mobile menu toggle & accessibility attributes
-   - Language switcher / RTL handling (global + per‑page hook `_pageSetLanguage`)
-   - Theme toggle, canonical link injection, lazy images, footer email/contact triad injection
-* Page scripts should NOT duplicate navigation or mobile menu logic anymore.
+
+- Each HTML page contains only a lightweight placeholder: `<header id="global-header"></header>` placed near the top of `<body>`.
+- On `DOMContentLoaded`, `site.js` injects the HTML defined in the constant (e.g. `NAV_HTML`) and wires up:
+  - Active link highlighting (based on normalized pathname)
+  - Mobile menu toggle & accessibility attributes
+  - Language switcher / RTL handling (global + per‑page hook `_pageSetLanguage`)
+  - Theme toggle, canonical link injection, lazy images, footer email/contact triad injection
+- Page scripts should NOT duplicate navigation or mobile menu logic anymore.
 
 ### Editing the navigation
+
 1. Open `assets/js/site.js` and find the `NAV_HTML` (or similarly named) template string.
 2. Modify or add `<a>` links inside the desktop and mobile sections in that one place.
 3. Keep ARIA roles / `aria-label` attributes for accessibility.
 4. Run `node tests/e2e-smoke.mjs` to confirm pages still load the global script & at least one stylesheet (all pages must include `site.js`).
 
 ### Adding a new page
+
 1. Create `yourpage.html` with `<header id="global-header"></header>` and include at minimum:
-    ```html
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/site.js"></script>
-    ```
+   ```html
+   <link rel="stylesheet" href="assets/css/styles.css" />
+   <script src="assets/js/site.js"></script>
+   ```
 2. If the page needs translations for non‑English languages, add JSON files under `assets/Translations/<pageKey>/{ar,fa,ps}.json` with at least a `title` key.
 3. If special per‑page language adjustments are required (dynamic DOM), define `window._pageSetLanguage = (lang)=>{ ... }` in a page script; `site.js` will invoke it after core translation application.
 
 ### Rationale / Benefits
-* Eliminates drift: previously each page had a slightly different nav markup / ordering / classes.
-* Reduces duplicate JavaScript: mobile menu toggling logic is now centralized.
-* Simplifies future changes: one edit updates every page instantly.
-* Improves accessibility and testing consistency.
+
+- Eliminates drift: previously each page had a slightly different nav markup / ordering / classes.
+- Reduces duplicate JavaScript: mobile menu toggling logic is now centralized.
+- Simplifies future changes: one edit updates every page instantly.
+- Improves accessibility and testing consistency.
 
 ### Do NOT
-* Reintroduce static full nav markup into individual pages.
-* Add separate mobile menu handlers in page scripts.
-* Override `window.setLanguage` directly (use `_pageSetLanguage`).
+
+- Reintroduce static full nav markup into individual pages.
+- Add separate mobile menu handlers in page scripts.
+- Override `window.setLanguage` directly (use `_pageSetLanguage`).
 
 If the canonical domain changes, also update the `CANON_HOST` logic in `site.js` so the injected `<link rel="canonical">` remains correct.
 

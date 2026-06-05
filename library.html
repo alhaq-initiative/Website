@@ -1,376 +1,740 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en" class="light scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library — Al-Haq Initiative | Primary-Source Research &amp; Resources</title>
-    <meta name="description" content="The Al-Haq Initiative Library: free primary-source research books, Quran Hub, Hadith, media, articles, and infographics.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Library — Al-Haq Initiative | Primary-Source Research &amp; Resources
+    </title>
+    <meta
+      name="description"
+      content="The Al-Haq Initiative Library: free primary-source research books, Quran Hub, Hadith, media, articles, and infographics."
+    />
 
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/favicon-96x96.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="assets/images/site.webmanifest">
-    <meta name="theme-color" content="#0A2540">
+    <link rel="manifest" href="assets/images/site.webmanifest" />
+    <meta name="theme-color" content="#0A2540" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind CDN + design-system config (matches index.html) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
+      tailwind.config = {
+        darkMode: 'class',
         theme: {
-            extend: {
-                colors: {
-                    primary:                  "#0A2540",
-                    "on-primary":             "#ffffff",
-                    "primary-container":      "#c8d8f0",
-                    "on-primary-container":   "#0A2540",
-                    secondary:                "#D4AF37",
-                    "on-secondary":           "#0A2540",
-                    "secondary-container":    "#fdf3c7",
-                    "on-secondary-container": "#5a460a",
-                    "surface-container-lowest":  "#ffffff",
-                    "surface-container-low":     "#f5f7fb",
-                    "surface-container":         "#edf0f6",
-                    "surface-container-high":    "#e3e8f0",
-                    "surface-container-highest": "#d6dce8",
-                    "surface-bright":            "#fafbfd",
-                    "on-surface":                "#111827",
-                    "on-surface-variant":        "#4b5563",
-                    "outline":                   "#6b7280",
-                    "outline-variant":           "#d1d5db",
-                    background:                  "#f8f9fc",
-                    "inverse-surface":           "#1e2a3a",
-                    "inverse-on-surface":        "#9ca3af",
-                    "error":                     "#b91c1c",
-                    "on-error":                  "#ffffff",
+          extend: {
+            colors: {
+              primary: '#0A2540',
+              'on-primary': '#ffffff',
+              'primary-container': '#c8d8f0',
+              'on-primary-container': '#0A2540',
+              secondary: '#D4AF37',
+              'on-secondary': '#0A2540',
+              'secondary-container': '#fdf3c7',
+              'on-secondary-container': '#5a460a',
+              'surface-container-lowest': '#ffffff',
+              'surface-container-low': '#f5f7fb',
+              'surface-container': '#edf0f6',
+              'surface-container-high': '#e3e8f0',
+              'surface-container-highest': '#d6dce8',
+              'surface-bright': '#fafbfd',
+              'on-surface': '#111827',
+              'on-surface-variant': '#4b5563',
+              outline: '#6b7280',
+              'outline-variant': '#d1d5db',
+              background: '#f8f9fc',
+              'inverse-surface': '#1e2a3a',
+              'inverse-on-surface': '#9ca3af',
+              error: '#b91c1c',
+              'on-error': '#ffffff',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              'container-max': '1280px',
+              gutter: '24px',
+              'margin-desktop': '40px',
+              'section-gap': '80px',
+              'margin-mobile': '16px',
+              base: '8px',
+              'content-gap': '32px',
+            },
+            fontFamily: {
+              display: ['Source Serif 4', 'Georgia', 'serif'],
+              headline: ['Source Serif 4', 'Georgia', 'serif'],
+              body: ['Inter', 'sans-serif'],
+              label: ['Inter', 'sans-serif'],
+              arabic: ['Amiri', 'serif'],
+            },
+            fontSize: {
+              'display-lg': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '700',
                 },
-                borderRadius: {
-                    DEFAULT: "0.125rem",
-                    lg:      "0.25rem",
-                    xl:      "0.5rem",
-                    full:    "0.75rem",
+              ],
+              'headline-lg': [
+                '32px',
+                { lineHeight: '40px', fontWeight: '600' },
+              ],
+              'headline-md': [
+                '24px',
+                { lineHeight: '32px', fontWeight: '600' },
+              ],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.01em',
+                  fontWeight: '500',
                 },
-                spacing: {
-                    "container-max":  "1280px",
-                    gutter:           "24px",
-                    "margin-desktop": "40px",
-                    "section-gap":    "80px",
-                    "margin-mobile":  "16px",
-                    base:             "8px",
-                    "content-gap":    "32px",
+              ],
+              'label-sm': [
+                '12px',
+                {
+                  lineHeight: '16px',
+                  letterSpacing: '0.05em',
+                  fontWeight: '600',
                 },
-                fontFamily: {
-                    display:  ["Source Serif 4", "Georgia", "serif"],
-                    headline: ["Source Serif 4", "Georgia", "serif"],
-                    body:     ["Inter", "sans-serif"],
-                    label:    ["Inter", "sans-serif"],
-                    arabic:   ["Amiri", "serif"],
-                },
-                fontSize: {
-                    "display-lg":  ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
-                    "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
-                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
-                    "body-lg":     ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                    "body-md":     ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                    "label-md":    ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
-                    "label-sm":    ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
-                },
-            }
-        }
-    };
+              ],
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        body { background-color: #f8f9fc; color: #111827; }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #f8f9fc;
+        color: #111827;
+      }
     </style>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/library.css">
-    <link rel="stylesheet" href="assets/css/content-viewer.css">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/library.css" />
+    <link rel="stylesheet" href="assets/css/content-viewer.css" />
     <!-- Markdown renderer + sanitiser (used by the chapter reader) -->
     <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.4/dist/purify.min.js"></script>
-</head>
-<body class="font-body text-body-md antialiased bg-background">
+  </head>
+  <body class="font-body text-body-md antialiased bg-background">
     <header id="global-header"></header>
     <main class="pt-20 pb-section-gap">
+      <!-- Library page header -->
+      <section
+        class="bg-surface-container border-b border-outline-variant py-12 mb-8"
+      >
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+          <div class="flex items-start gap-4 mb-8">
+            <span
+              class="material-symbols-outlined text-secondary text-5xl flex-shrink-0"
+              aria-hidden="true"
+              >library_books</span
+            >
+            <div>
+              <span
+                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2 block"
+                >Al-Haq Initiative</span
+              >
+              <h1 class="font-display text-display-lg text-primary">Library</h1>
+            </div>
+          </div>
+          <!-- Quick-access tile grid -->
+          <div class="library-hub-grid" aria-label="Library quick access">
+            <a href="#books" class="library-hub-tile">
+              <p class="library-hub-tile__kicker">Written Works</p>
+              <h2 class="library-hub-tile__title">Bookshelf</h2>
+              <p class="library-hub-tile__desc">
+                Filastin Verified, Faith Sellers, and other primary-source
+                research books.
+              </p>
+            </a>
+            <a href="#media" class="library-hub-tile">
+              <p class="library-hub-tile__kicker">Audio & Video</p>
+              <h2 class="library-hub-tile__title">Media Hub</h2>
+              <p class="library-hub-tile__desc">
+                Historical media, documentary snippets, and educational streams.
+              </p>
+            </a>
+            <a href="#articles" class="library-hub-tile">
+              <p class="library-hub-tile__kicker">Research & Essays</p>
+              <h2 class="library-hub-tile__title">Articles</h2>
+              <p class="library-hub-tile__desc">
+                Analysis and source-verification notes from ongoing research.
+                Coming soon.
+              </p>
+            </a>
+            <a href="#infographics" class="library-hub-tile">
+              <p class="library-hub-tile__kicker">Visual Learning</p>
+              <h2 class="library-hub-tile__title">Infographics</h2>
+              <p class="library-hub-tile__desc">
+                Concept maps and visual explainers from ongoing projects.
+              </p>
+            </a>
+          </div>
+          <!-- end library-hub-grid -->
+        </div>
+        <!-- end max-w-container-max -->
+      </section>
+      <!-- end library page header -->
 
-        <!-- Library page header -->
-        <section class="bg-surface-container border-b border-outline-variant py-12 mb-8">
-            <div class="max-w-container-max mx-auto px-margin-desktop">
-                <div class="flex items-start gap-4 mb-8">
-                    <span class="material-symbols-outlined text-secondary text-5xl flex-shrink-0" aria-hidden="true">library_books</span>
-                    <div>
-                        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2 block">Al-Haq Initiative</span>
-                        <h1 class="font-display text-display-lg text-primary">Library</h1>
-                    </div>
+      <!-- Two-column content: sidebar nav + main sections -->
+      <div class="max-w-container-max mx-auto px-margin-desktop py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- Sidebar Navigation -->
+          <nav
+            id="drawerMenu"
+            class="w-full md:w-64 bg-surface-container-lowest border border-outline-variant p-4 mb-6 md:mb-0 flex-shrink-0 self-start md:sticky md:top-24"
+            role="navigation"
+            aria-label="Library navigation"
+          >
+            <h2
+              class="font-headline text-headline-md text-primary mb-4 flex items-center gap-2"
+            >
+              <span
+                class="material-symbols-outlined text-secondary"
+                aria-hidden="true"
+                >library_books</span
+              >
+              Library Menu
+            </h2>
+            <ul class="space-y-1" role="menu">
+              <li role="none">
+                <a
+                  href="#quran"
+                  class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors"
+                  role="menuitem"
+                  ><span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    aria-hidden="true"
+                    >menu_book</span
+                  >Quran Hub</a
+                >
+              </li>
+              <li role="none">
+                <a
+                  href="#books"
+                  class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors"
+                  role="menuitem"
+                  ><span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    aria-hidden="true"
+                    >library_books</span
+                  >Books</a
+                >
+              </li>
+              <li role="none">
+                <a
+                  href="#media"
+                  class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors"
+                  role="menuitem"
+                  ><span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    aria-hidden="true"
+                    >play_circle</span
+                  >Media</a
+                >
+              </li>
+              <li role="none">
+                <a
+                  href="#articles"
+                  class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors"
+                  role="menuitem"
+                  ><span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    aria-hidden="true"
+                    >article</span
+                  >Articles</a
+                >
+              </li>
+              <li role="none">
+                <a
+                  href="#infographics"
+                  class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors"
+                  role="menuitem"
+                  ><span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    aria-hidden="true"
+                    >bar_chart</span
+                  >Infographics</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- Main Content Area -->
+          <div class="flex-1">
+            <!-- Section: Quran Hub -->
+            <div
+              id="quran"
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-2xl font-bold text-brand-blue">Quran Hub</h2>
+                <img
+                  src="assets/images/QuranHub.png"
+                  alt="Quran Hub Logo"
+                  class="h-16 w-16 object-contain"
+                />
+              </div>
+              <p class="text-gray-700 mb-4">
+                Read and explore the Holy Quran with translation and tafsir.
+              </p>
+              <div class="space-y-3 mb-4">
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="text-sm text-gray-600"
+                    >Complete Quran with Arabic text</span
+                  >
                 </div>
-                <!-- Quick-access tile grid -->
-                <div class="library-hub-grid" aria-label="Library quick access">
-                    <a href="#books" class="library-hub-tile">
-                        <p class="library-hub-tile__kicker">Written Works</p>
-                        <h2 class="library-hub-tile__title">Bookshelf</h2>
-                        <p class="library-hub-tile__desc">Filastin Verified, Faith Sellers, and other primary-source research books.</p>
-                    </a>
-                    <a href="#media" class="library-hub-tile">
-                        <p class="library-hub-tile__kicker">Audio & Video</p>
-                        <h2 class="library-hub-tile__title">Media Hub</h2>
-                        <p class="library-hub-tile__desc">Historical media, documentary snippets, and educational streams.</p>
-                    </a>
-                    <a href="#articles" class="library-hub-tile">
-                        <p class="library-hub-tile__kicker">Research & Essays</p>
-                        <h2 class="library-hub-tile__title">Articles</h2>
-                        <p class="library-hub-tile__desc">Analysis and source-verification notes from ongoing research. Coming soon.</p>
-                    </a>
-                    <a href="#infographics" class="library-hub-tile">
-                        <p class="library-hub-tile__kicker">Visual Learning</p>
-                        <h2 class="library-hub-tile__title">Infographics</h2>
-                        <p class="library-hub-tile__desc">Concept maps and visual explainers from ongoing projects.</p>
-                    </a>
-                </div><!-- end library-hub-grid -->
-            </div><!-- end max-w-container-max -->
-        </section><!-- end library page header -->
-
-        <!-- Two-column content: sidebar nav + main sections -->
-        <div class="max-w-container-max mx-auto px-margin-desktop py-8">
-            <div class="flex flex-col md:flex-row gap-8">
-                <!-- Sidebar Navigation -->
-                <nav id="drawerMenu" class="w-full md:w-64 bg-surface-container-lowest border border-outline-variant p-4 mb-6 md:mb-0 flex-shrink-0 self-start md:sticky md:top-24" role="navigation" aria-label="Library navigation">
-                    <h2 class="font-headline text-headline-md text-primary mb-4 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-secondary" aria-hidden="true">library_books</span>
-                        Library Menu
-                    </h2>
-                    <ul class="space-y-1" role="menu">
-                        <li role="none"><a href="#quran" class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors" role="menuitem"><span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">menu_book</span>Quran Hub</a></li>
-                        <li role="none"><a href="#books" class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors" role="menuitem"><span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">library_books</span>Books</a></li>
-                        <li role="none"><a href="#media" class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors" role="menuitem"><span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">play_circle</span>Media</a></li>
-                        <li role="none"><a href="#articles" class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors" role="menuitem"><span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">article</span>Articles</a></li>
-                        <li role="none"><a href="#infographics" class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors" role="menuitem"><span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">bar_chart</span>Infographics</a></li>
-                    </ul>
-                </nav>
-                <!-- Main Content Area -->
-                <div class="flex-1">
-                    <!-- Section: Quran Hub -->
-                    <div id="quran" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <div class="flex items-center justify-between mb-4">
-                            <h2 class="text-2xl font-bold text-brand-blue">Quran Hub</h2>
-                            <img src="assets/images/QuranHub.png" alt="Quran Hub Logo" class="h-16 w-16 object-contain" />
-                        </div>
-                        <p class="text-gray-700 mb-4">Read and explore the Holy Quran with translation and tafsir.</p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Complete Quran with Arabic text</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Multiple translations (English, Arabic, Dari)</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Tafsir and commentary</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-sm text-gray-600">Audio recitations</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2">
-                            <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center">Read Quran</a>
-                            <a href="quran.html#recitations" class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center">Listen Recitation</a>
-                        </div>
-                    </div>
-                    <!-- Books Section -->
-                    <div id="books" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2"><img src="assets/images/Books.png" alt="Books Icon" class="inline-icon">Book Library</h2>
-                        <p class="text-gray-700 mb-4">Written research from the Al-Haq Initiative &mdash; primary-source translations, independent research booklets, and historical investigations. Use the filters below to browse by type.</p>
-                        <!-- Type filter bar (populated by content-viewer.js when there are multiple types) -->
-                        <div id="cv-type-filters" class="mb-4" aria-label="Filter books by type"></div>
-                        <div id="book-shelf" class="mb-6">
-                            <p class="text-sm text-gray-400">Loading book shelf&hellip;</p>
-                        </div>
-                        <div id="book-chapter-shelves" class="space-y-6"></div>
-                        <a href="services.html#ongoing" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block mt-4">View Book Projects</a>
-                    </div>
-                    <!-- Media Section -->
-                    <div id="media" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Media Library</h2>
-                        <p class="text-gray-700 mb-4">Media Hub is organized into three streams &mdash; all aligned with verified research and vocal-only media standards.</p>
-                        <div class="library-stream-grid mb-5">
-                            <article class="library-stream-card">
-                                <p class="library-stream-card__kicker">Stream 01</p>
-                                <h3 class="library-stream-card__title">Historical Media</h3>
-                                <p class="library-stream-card__desc">Acapella and vocal-only storytelling grounded in primary sources.</p>
-                            </article>
-                            <article class="library-stream-card">
-                                <p class="library-stream-card__kicker">Stream 02</p>
-                                <h3 class="library-stream-card__title">Documentary Snippets</h3>
-                                <p class="library-stream-card__desc">Short visual breakdowns of manuscripts and source chains.</p>
-                            </article>
-                            <article class="library-stream-card">
-                                <p class="library-stream-card__kicker">Stream 03</p>
-                                <h3 class="library-stream-card__title">Educational Series</h3>
-                                <p class="library-stream-card__desc">Companion media connected to books and lesson booklets.</p>
-                            </article>
-                        </div>
-                        <a href="media.html" class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center inline-block">Open Media Hub</a>
-                    </div>
-                    <!-- Articles Section -->
-                    <div id="articles" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
-                        <p class="text-gray-700 mb-4">Research essays and educational briefs that bridge history, present challenges, and practical guidance.</p>
-                        <div class="library-topic-grid mb-5">
-                            <article class="library-topic-card">
-                                <h3 class="library-topic-card__title">History & Sources</h3>
-                                <p class="library-topic-card__desc">Analytical pieces grounded in primary-source comparison.</p>
-                            </article>
-                            <article class="library-topic-card">
-                                <h3 class="library-topic-card__title">Contemporary Reflections</h3>
-                                <p class="library-topic-card__desc">Modern issues reviewed through an Islamic ethical lens.</p>
-                            </article>
-                            <article class="library-topic-card">
-                                <h3 class="library-topic-card__title">Research Blog</h3>
-                                <p class="library-topic-card__desc">Cross-referencing updates and manuscript progress notes.</p>
-                            </article>
-                        </div>
-                        <p class="text-sm text-gray-400 italic mt-2">Articles will be published as the book projects progress &mdash; research blog updates coming first.</p>
-                    </div>
-                    <!-- Infographics Section -->
-                    <div id="infographics" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28">
-                        <h2 class="text-2xl font-bold text-brand-blue mb-2">InfoGraphics</h2>
-                        <p class="text-gray-700 mb-4">Visual explainers and narrative maps that help readers move from complex sources to clear understanding.</p>
-                        <div class="library-info-grid mb-4">
-                            <article class="library-info-card">
-                                <h3 class="library-info-card__title">Unveiling the Western World</h3>
-                                <p class="library-info-card__desc">Primary collection of infographics connected to historical and civilizational themes.</p>
-                            </article>
-                            <article class="library-info-card">
-                                <h3 class="library-info-card__title">Book-Linked Visuals</h3>
-                                <p class="library-info-card__desc">Infographic companions for Filastin Verified, Faith Sellers, and ongoing research projects.</p>
-                            </article>
-                        </div>
-                        <div class="mt-4 relative">
-                            <button id="infographicsDropdownBtn" 
-                                class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded hover:bg-yellow-400 transition w-full text-left flex justify-between items-center"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                aria-controls="infographicsDropdownMenu">
-                                Unveiling the Western World (Infographics)
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                            </button>
-                            <div class="absolute left-0 right-0 mt-2 bg-white border border-brand-gold rounded-lg shadow-lg z-10 hidden" 
-                                 id="infographicsDropdownMenu"
-                                 role="menu"
-                                 aria-labelledby="infographicsDropdownBtn">
-                                <div role="none">
-                                    <a href="all-infographics.html" 
-                                       class="block px-6 py-4 hover:bg-brand-gold hover:text-brand-blue transition font-semibold"
-                                       role="menuitem">All Infographics: Unveiling the Western World</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- end infographics section -->
-                </div><!-- end flex-1 main content area -->
-            </div><!-- end flex row -->
-        </div><!-- end max-w-container-max -->
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="text-sm text-gray-600"
+                    >Multiple translations (English, Arabic, Dari)</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="text-sm text-gray-600"
+                    >Tafsir and commentary</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="text-sm text-gray-600">Audio recitations</span>
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-2">
+                <a
+                  href="quran.html"
+                  class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center"
+                  >Read Quran</a
+                >
+                <a
+                  href="quran.html#recitations"
+                  class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center"
+                  >Listen Recitation</a
+                >
+              </div>
+            </div>
+            <!-- Books Section -->
+            <div
+              id="books"
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28"
+            >
+              <h2 class="text-2xl font-bold text-brand-blue mb-2">
+                <img
+                  src="assets/images/Books.png"
+                  alt="Books Icon"
+                  class="inline-icon"
+                />Book Library
+              </h2>
+              <p class="text-gray-700 mb-4">
+                Written research from the Al-Haq Initiative &mdash;
+                primary-source translations, independent research booklets, and
+                historical investigations. Use the filters below to browse by
+                type.
+              </p>
+              <!-- Type filter bar (populated by content-viewer.js when there are multiple types) -->
+              <div
+                id="cv-type-filters"
+                class="mb-4"
+                aria-label="Filter books by type"
+              ></div>
+              <div id="book-shelf" class="mb-6">
+                <p class="text-sm text-gray-400">Loading book shelf&hellip;</p>
+              </div>
+              <div id="book-chapter-shelves" class="space-y-6"></div>
+              <a
+                href="services.html#ongoing"
+                class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center block mt-4"
+                >View Book Projects</a
+              >
+            </div>
+            <!-- Media Section -->
+            <div
+              id="media"
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28"
+            >
+              <h2 class="text-2xl font-bold text-brand-blue mb-2">
+                Media Library
+              </h2>
+              <p class="text-gray-700 mb-4">
+                Media Hub is organized into three streams &mdash; all aligned
+                with verified research and vocal-only media standards.
+              </p>
+              <div class="library-stream-grid mb-5">
+                <article class="library-stream-card">
+                  <p class="library-stream-card__kicker">Stream 01</p>
+                  <h3 class="library-stream-card__title">Historical Media</h3>
+                  <p class="library-stream-card__desc">
+                    Acapella and vocal-only storytelling grounded in primary
+                    sources.
+                  </p>
+                </article>
+                <article class="library-stream-card">
+                  <p class="library-stream-card__kicker">Stream 02</p>
+                  <h3 class="library-stream-card__title">
+                    Documentary Snippets
+                  </h3>
+                  <p class="library-stream-card__desc">
+                    Short visual breakdowns of manuscripts and source chains.
+                  </p>
+                </article>
+                <article class="library-stream-card">
+                  <p class="library-stream-card__kicker">Stream 03</p>
+                  <h3 class="library-stream-card__title">Educational Series</h3>
+                  <p class="library-stream-card__desc">
+                    Companion media connected to books and lesson booklets.
+                  </p>
+                </article>
+              </div>
+              <a
+                href="media.html"
+                class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center inline-block"
+                >Open Media Hub</a
+              >
+            </div>
+            <!-- Articles Section -->
+            <div
+              id="articles"
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28"
+            >
+              <h2 class="text-2xl font-bold text-brand-blue mb-2">Articles</h2>
+              <p class="text-gray-700 mb-4">
+                Research essays and educational briefs that bridge history,
+                present challenges, and practical guidance.
+              </p>
+              <div class="library-topic-grid mb-5">
+                <article class="library-topic-card">
+                  <h3 class="library-topic-card__title">History & Sources</h3>
+                  <p class="library-topic-card__desc">
+                    Analytical pieces grounded in primary-source comparison.
+                  </p>
+                </article>
+                <article class="library-topic-card">
+                  <h3 class="library-topic-card__title">
+                    Contemporary Reflections
+                  </h3>
+                  <p class="library-topic-card__desc">
+                    Modern issues reviewed through an Islamic ethical lens.
+                  </p>
+                </article>
+                <article class="library-topic-card">
+                  <h3 class="library-topic-card__title">Research Blog</h3>
+                  <p class="library-topic-card__desc">
+                    Cross-referencing updates and manuscript progress notes.
+                  </p>
+                </article>
+              </div>
+              <p class="text-sm text-gray-400 italic mt-2">
+                Articles will be published as the book projects progress &mdash;
+                research blog updates coming first.
+              </p>
+            </div>
+            <!-- Infographics Section -->
+            <div
+              id="infographics"
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28"
+            >
+              <h2 class="text-2xl font-bold text-brand-blue mb-2">
+                InfoGraphics
+              </h2>
+              <p class="text-gray-700 mb-4">
+                Visual explainers and narrative maps that help readers move from
+                complex sources to clear understanding.
+              </p>
+              <div class="library-info-grid mb-4">
+                <article class="library-info-card">
+                  <h3 class="library-info-card__title">
+                    Unveiling the Western World
+                  </h3>
+                  <p class="library-info-card__desc">
+                    Primary collection of infographics connected to historical
+                    and civilizational themes.
+                  </p>
+                </article>
+                <article class="library-info-card">
+                  <h3 class="library-info-card__title">Book-Linked Visuals</h3>
+                  <p class="library-info-card__desc">
+                    Infographic companions for Filastin Verified, Faith Sellers,
+                    and ongoing research projects.
+                  </p>
+                </article>
+              </div>
+              <div class="mt-4 relative">
+                <button
+                  id="infographicsDropdownBtn"
+                  class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-4 rounded hover:bg-yellow-400 transition w-full text-left flex justify-between items-center"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="infographicsDropdownMenu"
+                >
+                  Unveiling the Western World (Infographics)
+                  <svg
+                    class="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="absolute left-0 right-0 mt-2 bg-white border border-brand-gold rounded-lg shadow-lg z-10 hidden"
+                  id="infographicsDropdownMenu"
+                  role="menu"
+                  aria-labelledby="infographicsDropdownBtn"
+                >
+                  <div role="none">
+                    <a
+                      href="all-infographics.html"
+                      class="block px-6 py-4 hover:bg-brand-gold hover:text-brand-blue transition font-semibold"
+                      role="menuitem"
+                      >All Infographics: Unveiling the Western World</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end infographics section -->
+          </div>
+          <!-- end flex-1 main content area -->
+        </div>
+        <!-- end flex row -->
+      </div>
+      <!-- end max-w-container-max -->
     </main>
     <footer class="islamic-footer bg-gray-800 text-white mt-20">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
-            <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
-            <nav class="mt-6 flex flex-wrap justify-center gap-4 text-sm" role="navigation" aria-label="Footer navigation">
-                <div class="flex flex-wrap justify-center gap-4 text-sm" role="list">
-                    <div role="listitem">
-                        <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                    </div>
-                    <div role="listitem">
-                        <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                    </div>
-                    <div role="listitem">
-                        <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Projects</a>
-                    </div>
-                    <div role="listitem">
-                        </div>
-                    <div role="listitem">
-                        <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
-                    </div>
-                    <div role="listitem">
-                        <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
-                    </div>
-                    <div role="listitem">
-                        <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
-                    </div>
-                </div>
-            </nav>
-            <div class="mt-6 flex justify-center gap-6" role="navigation" aria-label="Social media links">
-                <a href="https://www.youtube.com/@AlhaqDigital" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Follow us on YouTube" 
-                   class="hover:text-red-600 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                </a>
-                <a href="https://x.com/@AlhaqD7396" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Follow us on X" 
-                   class="hover:text-blue-400 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/>
-                    </svg>
-                </a>
-                <a href="https://instagram.com/alhaq.digital" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Follow us on Instagram" 
-                   class="hover:text-pink-500 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.5 1.25a1 1 0 1 1-2 0a1 1 0 0 1 2 0z"/>
-                    </svg>
-                </a>
+      <div class="container mx-auto px-6 py-8 text-center">
+        <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
+        <p class="mt-2 text-gray-400">
+          Building a Digital Future, Rooted in Faith.
+        </p>
+        <nav
+          class="mt-6 flex flex-wrap justify-center gap-4 text-sm"
+          role="navigation"
+          aria-label="Footer navigation"
+        >
+          <div class="flex flex-wrap justify-center gap-4 text-sm" role="list">
+            <div role="listitem">
+              <a
+                href="index.html"
+                class="text-gray-300 hover:text-brand-gold transition"
+                >Home</a
+              >
             </div>
-            <p class="mt-8 text-sm text-gray-500">&copy; 2026 Al-Haq Studio &amp; Afrasyaab Meranai. All rights reserved.</p>
+            <div role="listitem">
+              <a
+                href="about.html"
+                class="text-gray-300 hover:text-brand-gold transition"
+                >About</a
+              >
+            </div>
+            <div role="listitem">
+              <a
+                href="services.html"
+                class="text-gray-300 hover:text-brand-gold transition"
+                >Projects</a
+              >
+            </div>
+            <div role="listitem"></div>
+            <div role="listitem">
+              <a
+                href="help.html"
+                class="text-gray-300 hover:text-brand-gold transition"
+                >Help & FAQ</a
+              >
+            </div>
+            <div role="listitem">
+              <a
+                href="contact.html"
+                class="text-gray-300 hover:text-brand-gold transition"
+                >Contact</a
+              >
+            </div>
+            <div role="listitem">
+              <a
+                href="donate.html"
+                class="text-gray-300 hover:text-brand-gold transition"
+                >Donate</a
+              >
+            </div>
+          </div>
+        </nav>
+        <div
+          class="mt-6 flex justify-center gap-6"
+          role="navigation"
+          aria-label="Social media links"
+        >
+          <a
+            href="https://www.youtube.com/@AlhaqDigital"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow us on YouTube"
+            class="hover:text-red-600 transition"
+          >
+            <svg
+              class="h-8 w-8"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://x.com/@AlhaqD7396"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow us on X"
+            class="hover:text-blue-400 transition"
+          >
+            <svg
+              class="h-8 w-8"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://instagram.com/alhaq.digital"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow us on Instagram"
+            class="hover:text-pink-500 transition"
+          >
+            <svg
+              class="h-8 w-8"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.5 1.25a1 1 0 1 1-2 0a1 1 0 0 1 2 0z"
+              />
+            </svg>
+          </a>
         </div>
+        <p class="mt-8 text-sm text-gray-500">
+          &copy; 2026 Al-Haq Studio &amp; Afrasyaab Meranai. All rights
+          reserved.
+        </p>
+      </div>
     </footer>
     <!-- Chapter reader modal (populated by content-viewer.js) -->
-    <div id="cv-modal" class="cv-modal cv-modal--hidden" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title" aria-hidden="true">
-        <div class="cv-modal__backdrop" tabindex="-1"></div>
-        <div class="cv-modal__panel">
-            <div class="cv-modal__head">
-                <h2 id="cv-modal-title" class="cv-modal__title"></h2>
-                <button class="cv-modal__close" aria-label="Close chapter reader">&times;</button>
-            </div>
-            <div id="cv-modal-body" class="cv-modal__body"></div>
+    <div
+      id="cv-modal"
+      class="cv-modal cv-modal--hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cv-modal-title"
+      aria-hidden="true"
+    >
+      <div class="cv-modal__backdrop" tabindex="-1"></div>
+      <div class="cv-modal__panel">
+        <div class="cv-modal__head">
+          <h2 id="cv-modal-title" class="cv-modal__title"></h2>
+          <button class="cv-modal__close" aria-label="Close chapter reader">
+            &times;
+          </button>
         </div>
+        <div id="cv-modal-body" class="cv-modal__body"></div>
+      </div>
     </div>
 
     <script src="assets/js/site.js"></script>
     <script src="assets/js/library.js"></script>
     <script src="assets/js/content-viewer.js"></script>
-</body>
+  </body>
 </html>

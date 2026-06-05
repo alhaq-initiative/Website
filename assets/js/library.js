@@ -1,21 +1,21 @@
 'use strict';
 // Library page JS: dropdowns, mobile menu, and page-specific i18n hook
-(function(){
-  document.addEventListener('DOMContentLoaded', function() {
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
     // Infographics dropdown toggle
     const infBtn = document.getElementById('infographicsDropdownBtn');
     const infMenu = document.getElementById('infographicsDropdownMenu');
     if (infBtn && infMenu) {
       const close = () => infMenu.classList.add('hidden');
-      infBtn.addEventListener('click', function(e) {
+      infBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         const isHidden = infMenu.classList.toggle('hidden');
         infBtn.setAttribute('aria-expanded', (!isHidden).toString());
       });
-      document.addEventListener('click', function(e){
+      document.addEventListener('click', function (e) {
         if (!infBtn.contains(e.target)) close();
       });
-      document.addEventListener('keydown', function(e){
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close();
       });
     }
@@ -24,7 +24,7 @@
   });
 
   // Page-specific language hook used by core site.js
-  window._pageSetLanguage = function(lang) {
+  window._pageSetLanguage = function (lang) {
     if (lang !== 'ar' && lang !== 'fa' && lang !== 'ps') return;
     const t = Object.assign({}, window.pageTranslations || {});
     if (t.title) document.title = t.title;
@@ -37,7 +37,13 @@
 
     // Cards (Quran, Hadith, Articles, Books, Infographics)
     const cardTitles = [t.quran, t.hadith, t.articles, t.books, t.infographics];
-    const cardDescs = [t.quranDesc, t.hadithDesc, t.articlesDesc, t.booksDesc, t.infographicsDesc];
+    const cardDescs = [
+      t.quranDesc,
+      t.hadithDesc,
+      t.articlesDesc,
+      t.booksDesc,
+      t.infographicsDesc,
+    ];
     const cardLinks = [t.view, t.view, t.view, t.view, t.view];
     document.querySelectorAll('.grid .bg-white h2').forEach((el, i) => {
       if (cardTitles[i]) el.textContent = cardTitles[i];
@@ -52,11 +58,14 @@
     // Infographics dropdown button label
     const ib = document.getElementById('infographicsDropdownBtn');
     if (ib && t.infographics) {
-      try { ib.childNodes[0].nodeValue = t.infographics; } catch (_) {}
+      try {
+        ib.childNodes[0].nodeValue = t.infographics;
+      } catch (_) {}
     }
 
     // Footer slogan
     const footerSlogan = document.querySelector('footer p.mt-2');
-    if (footerSlogan && t.footerSlogan) footerSlogan.textContent = t.footerSlogan;
+    if (footerSlogan && t.footerSlogan)
+      footerSlogan.textContent = t.footerSlogan;
   };
 })();

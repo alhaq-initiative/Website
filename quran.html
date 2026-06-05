@@ -1,391 +1,937 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Quran Hub - Al-Haq Initiative</title>
-    <meta name="description" content="Quran Hub is a modern Quran browser app for reading, listening, and studying across Windows, phones, tablets, and browsers.">
-    <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="assets/images/manifest-quran.webmanifest">
-    <meta name="application-name" content="Quran Hub">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Quran Hub">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="msapplication-TileColor" content="#0A2540">
+    <meta
+      name="description"
+      content="Quran Hub is a modern Quran browser app for reading, listening, and studying across Windows, phones, tablets, and browsers."
+    />
+    <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/images/manifest-quran.webmanifest" />
+    <meta name="application-name" content="Quran Hub" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Quran Hub" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#0A2540" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/ayah-tooltip-fix.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/quran.css">
-</head>
-<body class="antialiased">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/ayah-tooltip-fix.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/quran.css" />
+  </head>
+  <body class="antialiased">
     <header id="global-header"></header>
 
     <main class="pt-32 pb-20 islamic-section quran-app-shell">
-        <!-- Controls -->
-        <section class="fade-in-section">
-            <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
-                <div class="quran-page-bar mb-6">
-                    <div class="quran-page-bar-copy">
-                        <p class="quran-kicker quran-kicker-light">Quran Hub</p>
-                        <h1 class="quran-page-mini-title">Quran Reader</h1>
-                    </div>
-                    <a href="help.html#quranhub-support" class="quran-support-link">Quran Hub Info &amp; Support</a>
-                </div>
-<div id="q-controls" class="quran-toolbar mb-8">
-                    <div class="quran-toolbar-row">
-                        <div class="quran-toolbar-group">
-                            <div class="quran-field-stack">
-                                <label for="go-to-verse" class="quran-field-label">Jump to ayah</label>
-                                <div class="quran-inline-field">
-                                    <input id="go-to-verse" type="number" min="1" class="border rounded px-3 py-2 w-28" placeholder="Verse #" />
-                                    <button id="go-to-btn" class="px-3 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm" aria-label="Go to verse">Go</button>
-                                </div>
-                            </div>
-                            <div class="quran-field-stack">
-                                <label for="font-scale" class="quran-field-label">Reading size</label>
-                                <div class="quran-inline-field">
-                                    <select id="font-scale" class="border rounded px-2 py-2 text-sm w-32" title="Adjust font size">
-                                        <option value="0.9">Small</option>
-                                        <option value="1">Normal</option>
-                                        <option value="1.1">Large</option>
-                                        <option value="1.25">Larger</option>
-                                        <option value="1.5">X-Large</option>
-                                    </select>
-                                    <button id="resume-reading" class="px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm" title="Resume last reading" aria-label="Resume last reading">Resume</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quran-toolbar-group quran-toolbar-actions">
-                            <button id="print-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Print current page" aria-label="Print current page">Print</button>
-                            <button id="share-page" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Share current page" aria-label="Share current page">Share</button>
-                            <button id="fs-both" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Full screen reader" aria-label="Full screen reader">Full Both</button>
-                        </div>
-                    </div>
-                    <div class="quran-toolbar-status">
-                        <span id="quran-status" class="text-xs text-gray-500" aria-live="polite"></span>
-                    </div>
-                </div>
-
-                <!-- Quran Display -->
-                <div class="quran-reader-shell">
-                    <div id="quran-grid" class="quran-reader-grid">
-                        <section id="quran-unified" class="quran-reader-panel quran-reader-main">
-                            <div class="quran-panel-head">
-                                <div class="quran-panel-heading">
-                                    <p class="quran-panel-label">Reading View</p>
-                                    <h3 class="text-xl font-bold text-brand-blue" id="arabic-surah-title">Quran</h3>
-                                    <div id="arabic-surah-meta" class="text-xs text-gray-500"></div>
-                                </div>
-                                <div class="quran-panel-actions">
-                                    <div id="arabic-index-badges" class="quran-badge-row"></div>
-                                    <button type="button" class="fs-btn quran-icon-btn" data-pane="arabic" aria-label="Full screen view">[ ]</button>
-                                    <button type="button" class="copy-btn quran-icon-btn" data-pane="arabic">Copy</button>
-                                </div>
-                            </div>
-
-                            <div class="quran-reader-filters">
-                                <label for="surah-search" class="sr-only">Search Surah</label>
-                                <input id="surah-search" type="search" class="border rounded px-2 py-2 text-sm w-full sm:w-60" placeholder="Search by name or number" />
-                                <label for="surah-dropdown" class="sr-only">Select Surah</label>
-                                <select id="surah-dropdown" class="border rounded px-2 py-2 text-sm w-full sm:w-52">
-                                    <option value="">Select a Surah...</option>
-                                </select>
-                                <label for="translation-dropdown" class="sr-only">Select Translation</label>
-                                <select id="translation-dropdown" class="border rounded px-2 py-2 text-sm w-full sm:w-60">
-                                    <option value="">No Translation</option>
-                                    <option value="en">English (Maulana Wahiduddin Khan)</option>
-                                    <option value="ps">Pashto (Sarfaraz)</option>
-                                </select>
-                                <label class="inline-flex items-center gap-2 text-sm select-none">
-                                    <input type="checkbox" id="toggle-translation" class="accent-brand-blue h-4 w-4" />
-                                    <span>Show Translation</span>
-                                </label>
-                            </div>
-
-                            <div class="quran-reading-stage">
-                                <div id="arabic-text" class="quran-scroll-panel">
-                                    <div id="quran-unified-list"></div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <aside class="quran-side-rail">
-                            <section class="quran-reader-panel quran-reader-side">
-                                <div class="quran-panel-head">
-                                    <div class="quran-panel-heading">
-                                        <p class="quran-panel-label">Reference</p>
-                                        <h3 id="translation-surah-title" class="text-lg font-bold text-brand-blue">Translation & Notes</h3>
-                                        <div id="translation-surah-meta" class="text-xs text-gray-500"></div>
-                                    </div>
-                                    <div class="quran-panel-actions">
-                                        <div id="translation-index-badges" class="quran-badge-row"></div>
-                                        <button type="button" class="fs-btn quran-icon-btn" data-pane="translation" aria-label="Full screen view">[ ]</button>
-                                        <button type="button" class="copy-btn quran-icon-btn" data-pane="translation">Copy</button>
-                                    </div>
-                                </div>
-
-                                <div id="translation-text" class="quran-scroll-panel quran-translation-panel">
-                                    <p class="quran-empty-state">Pick a translation and turn it on to view side-by-side meaning and footnotes.</p>
-                                </div>
-                            </section>
-
-                            <section class="quran-reader-panel quran-reader-side">
-                                <div class="quran-panel-head quran-panel-head-compact">
-                                    <div class="quran-panel-heading">
-                                        <p class="quran-panel-label">Quick Navigation</p>
-                                        <h3 class="text-lg font-bold text-brand-blue">Ayah Index</h3>
-                                    </div>
-                                </div>
-                                <div id="ayah-nav" class="quran-ayah-nav" aria-label="Current page ayah navigation"></div>
-                            </section>
-                        </aside>
-                    </div>
-
-                    <div id="pager-bar" class="mt-6 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-2">
-                            <button id="pager-prev" class="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-40 disabled:cursor-not-allowed" disabled>Previous Page</button>
-                            <button id="pager-next" class="px-4 py-2 rounded bg-brand-blue text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed" disabled>Next Page</button>
-                        </div>
-                        <div id="pager-info" class="text-sm text-gray-600">Page 1 / 1</div>
-                    </div>
-
-                    <!-- Audio Player -->
-                    <div class="mt-8" id="recitations">
-                        <h3 class="text-xl font-bold text-brand-blue mb-4">Audio Recitation</h3>
-                        <div class="quran-audio-grid">
-                            <section class="quran-reader-panel quran-audio-panel">
-                                <div class="quran-audio-head">
-                                    <div>
-                                        <p class="quran-panel-label">Media Controls</p>
-                                        <h4 class="text-lg font-bold text-brand-blue">Recitation Player</h4>
-                                    </div>
-                                    <div id="audio-status" class="text-xs text-gray-500" aria-live="polite"></div>
-                                </div>
-
-                                <div class="quran-audio-controls-wrap">
-                                    <div class="quran-control-field">
-                                        <label for="reciter-select" class="quran-field-label">Reciter</label>
-                                        <select id="reciter-select" class="border rounded px-3 py-2 text-sm w-full"></select>
-                                    </div>
-                                    <div class="quran-control-field quran-control-field-sm">
-                                        <label for="audio-speed" class="quran-field-label">Speed</label>
-                                        <select id="audio-speed" class="border rounded px-3 py-2 text-sm w-full">
-                                            <option value="0.75">0.75x</option>
-                                            <option value="1" selected>1x</option>
-                                            <option value="1.25">1.25x</option>
-                                            <option value="1.5">1.5x</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="quran-media-actions">
-                                    <button id="play-surah" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Play Surah</button>
-                                    <button id="play-ayahs" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm" title="Play ayah-by-ayah">Play Page Ayahs</button>
-                                    <button id="media-play-pause" class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 text-sm" title="Play/Pause">Play/Pause</button>
-                                    <button id="media-prev-ayah" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Previous ayah">Prev Ayah</button>
-                                    <button id="media-next-ayah" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Next ayah">Next Ayah</button>
-                                    <button id="media-back-5" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Back 5 seconds">-5s</button>
-                                    <button id="media-forward-5" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Forward 5 seconds">+5s</button>
-                                    <button id="reload-audio" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Reload audio">Reload</button>
-                                    <button id="stop-audio" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm" title="Stop audio">Stop</button>
-                                </div>
-
-                                <div id="audio-now-playing" class="quran-audio-now-playing">Ready to play.</div>
-
-                                <audio id="quran-audio" controls preload="none" class="w-full rounded bg-white">
-                                    <source src="" type="audio/mpeg" />
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </section>
-
-                            <section class="quran-reader-panel quran-audio-panel quran-hifz-panel">
-                                <div class="quran-audio-head">
-                                    <div>
-                                        <p class="quran-panel-label">Hifz Loop</p>
-                                        <h4 class="text-lg font-bold text-brand-blue">Memorization Range</h4>
-                                    </div>
-                                    <div id="hifz-status" class="text-xs text-gray-500" aria-live="polite"></div>
-                                </div>
-
-                                <div class="quran-control-field">
-                                    <label for="reciter-select-hifz" class="quran-field-label">Reciter (Hifz)</label>
-                                    <select id="reciter-select-hifz" class="border rounded px-3 py-2 text-sm w-full"></select>
-                                </div>
-
-                                <div class="quran-hifz-range-grid">
-                                    <div class="quran-control-field">
-                                        <label for="hifz-loop-start" class="quran-field-label">Start Ayah</label>
-                                        <input id="hifz-loop-start" type="number" min="1" class="border rounded px-3 py-2 text-sm w-full" placeholder="1" />
-                                    </div>
-                                    <div class="quran-control-field">
-                                        <label for="hifz-loop-end" class="quran-field-label">End Ayah</label>
-                                        <input id="hifz-loop-end" type="number" min="1" class="border rounded px-3 py-2 text-sm w-full" placeholder="7" />
-                                    </div>
-                                    <div class="quran-control-field">
-                                        <label for="hifz-repeat-count" class="quran-field-label">Repeat</label>
-                                        <select id="hifz-repeat-count" class="border rounded px-3 py-2 text-sm w-full">
-                                            <option value="3">3x</option>
-                                            <option value="5" selected>5x</option>
-                                            <option value="10">10x</option>
-                                            <option value="0">Infinite</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="quran-media-actions">
-                                    <button id="hifz-set-page-range" class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm" title="Set start/end to current page">Use Current Page</button>
-                                    <button id="start-hifz-loop" class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm">Start Hifz Loop</button>
-                                    <button id="stop-hifz-loop" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm">Stop Hifz Loop</button>
-                                </div>
-
-                                <p class="quran-hifz-help">Tip: choose a short range, set repeat count, then use Prev/Next Ayah to test memorization flow.</p>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-
+      <!-- Controls -->
+      <section class="fade-in-section">
+        <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div class="quran-page-bar mb-6">
+            <div class="quran-page-bar-copy">
+              <p class="quran-kicker quran-kicker-light">Quran Hub</p>
+              <h1 class="quran-page-mini-title">Quran Reader</h1>
             </div>
-        </section>
-
-        <!-- Tafsir Section -->
-        <section class="islamic-section py-16 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12">Tafsir & Commentary</h2>
-                <div class="max-w-6xl mx-auto">
-                    <div class="bg-white rounded-lg shadow-lg p-8">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <!-- Ibn Kathir Tafsir -->
-                            <div>
-                                <h3 class="text-xl font-bold text-brand-blue mb-4">Ibn Kathir Tafsir</h3>
-                                <div class="bg-gray-50 p-6 rounded-lg">
-                                    <p class="text-gray-700 mb-4">One of the most comprehensive and respected tafsir works in Islamic scholarship.</p>
-                                    <div class="space-y-3">
-                                        <div class="border-l-4 border-brand-gold pl-4">
-                                            <h4 class="font-semibold text-brand-blue">Al-Fatiha Tafsir</h4>
-                                            <p class="text-sm text-gray-600">"The Opening" - This surah is the foundation of the Quran and teaches us the proper way to address Allah in prayer.</p>
-                                        </div>
-                                        <div class="border-l-4 border-brand-gold pl-4">
-                                            <h4 class="font-semibold text-brand-blue">Al-Ikhlas Tafsir</h4>
-                                            <p class="text-sm text-gray-600">"The Sincerity" - This surah is equivalent to one-third of the Quran and emphasizes the pure monotheism of Islam.</p>
-                                        </div>
-                                        <div class="border-l-4 border-brand-gold pl-4">
-                                            <h4 class="font-semibold text-brand-blue">Ya-Sin Tafsir</h4>
-                                            <p class="text-sm text-gray-600">"The Heart of the Quran" - This surah addresses the truth of the Quran and the mission of the Prophet Muhammad (ﷺ).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Contemporary Tafsir -->
-                            <div>
-                                <h3 class="text-xl font-bold text-brand-blue mb-4">Contemporary Tafsir</h3>
-                                <div class="bg-gray-50 p-6 rounded-lg">
-                                    <p class="text-gray-700 mb-4">Modern interpretations that address contemporary issues and challenges.</p>
-                                    <div class="space-y-3">
-                                        <div class="border-l-4 border-brand-gold pl-4">
-                                            <h4 class="font-semibold text-brand-blue">Ma'ariful Quran</h4>
-                                            <p class="text-sm text-gray-600">A comprehensive modern tafir that explains the Quran in light of contemporary understanding.</p>
-                                        </div>
-                                        <div class="border-l-4 border-brand-gold pl-4">
-                                            <h4 class="font-semibold text-brand-blue">Tafsir Al-Tabari</h4>
-                                            <p class="text-sm text-gray-600">One of the earliest and most comprehensive tafir works, covering historical context and linguistic analysis.</p>
-                                        </div>
-                                        <div class="border-l-4 border-brand-gold pl-4">
-                                            <h4 class="font-semibold text-brand-blue">Tafsir Al-Qurtubi</h4>
-                                            <p class="text-sm text-gray-600">A detailed tafir that focuses on legal rulings and practical applications of Quranic verses.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <a href="help.html#quranhub-support" class="quran-support-link"
+              >Quran Hub Info &amp; Support</a
+            >
+          </div>
+          <div id="q-controls" class="quran-toolbar mb-8">
+            <div class="quran-toolbar-row">
+              <div class="quran-toolbar-group">
+                <div class="quran-field-stack">
+                  <label for="go-to-verse" class="quran-field-label"
+                    >Jump to ayah</label
+                  >
+                  <div class="quran-inline-field">
+                    <input
+                      id="go-to-verse"
+                      type="number"
+                      min="1"
+                      class="border rounded px-3 py-2 w-28"
+                      placeholder="Verse #"
+                    />
+                    <button
+                      id="go-to-btn"
+                      class="px-3 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm"
+                      aria-label="Go to verse"
+                    >
+                      Go
+                    </button>
+                  </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Additional Resources Section -->
-        <section class="islamic-section py-16 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12">Additional Resources</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="islamic-card p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-4">📖 Quran Memorization</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Hifz Programs</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Tajweed Rules</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Memorization Techniques</span></div>
-                        </div>
-                    </div>
-                    <div class="islamic-card p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-4">🎓 Islamic Studies</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="text-sm text-gray-600">Aqeedah (Creed)</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="text-sm text-gray-600">Fiqh (Jurisprudence)</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="text-sm text-gray-600">Seerah (Prophet's Life)</span></div>
-                        </div>
-                    </div>
-                    <div class="islamic-card p-6">
-                        <h3 class="text-xl font-bold text-brand-blue mb-4">🕌 Prayer Times</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Daily Prayers</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Qibla Direction</span></div>
-                        </div>
-                    </div>
+                <div class="quran-field-stack">
+                  <label for="font-scale" class="quran-field-label"
+                    >Reading size</label
+                  >
+                  <div class="quran-inline-field">
+                    <select
+                      id="font-scale"
+                      class="border rounded px-2 py-2 text-sm w-32"
+                      title="Adjust font size"
+                    >
+                      <option value="0.9">Small</option>
+                      <option value="1">Normal</option>
+                      <option value="1.1">Large</option>
+                      <option value="1.25">Larger</option>
+                      <option value="1.5">X-Large</option>
+                    </select>
+                    <button
+                      id="resume-reading"
+                      class="px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm"
+                      title="Resume last reading"
+                      aria-label="Resume last reading"
+                    >
+                      Resume
+                    </button>
+                  </div>
                 </div>
+              </div>
+              <div class="quran-toolbar-group quran-toolbar-actions">
+                <button
+                  id="print-page"
+                  class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                  title="Print current page"
+                  aria-label="Print current page"
+                >
+                  Print
+                </button>
+                <button
+                  id="share-page"
+                  class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                  title="Share current page"
+                  aria-label="Share current page"
+                >
+                  Share
+                </button>
+                <button
+                  id="fs-both"
+                  class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                  title="Full screen reader"
+                  aria-label="Full screen reader"
+                >
+                  Full Both
+                </button>
+              </div>
             </div>
-        </section>
+            <div class="quran-toolbar-status">
+              <span
+                id="quran-status"
+                class="text-xs text-gray-500"
+                aria-live="polite"
+              ></span>
+            </div>
+          </div>
+
+          <!-- Quran Display -->
+          <div class="quran-reader-shell">
+            <div id="quran-grid" class="quran-reader-grid">
+              <section
+                id="quran-unified"
+                class="quran-reader-panel quran-reader-main"
+              >
+                <div class="quran-panel-head">
+                  <div class="quran-panel-heading">
+                    <p class="quran-panel-label">Reading View</p>
+                    <h3
+                      class="text-xl font-bold text-brand-blue"
+                      id="arabic-surah-title"
+                    >
+                      Quran
+                    </h3>
+                    <div
+                      id="arabic-surah-meta"
+                      class="text-xs text-gray-500"
+                    ></div>
+                  </div>
+                  <div class="quran-panel-actions">
+                    <div id="arabic-index-badges" class="quran-badge-row"></div>
+                    <button
+                      type="button"
+                      class="fs-btn quran-icon-btn"
+                      data-pane="arabic"
+                      aria-label="Full screen view"
+                    >
+                      [ ]
+                    </button>
+                    <button
+                      type="button"
+                      class="copy-btn quran-icon-btn"
+                      data-pane="arabic"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+
+                <div class="quran-reader-filters">
+                  <label for="surah-search" class="sr-only">Search Surah</label>
+                  <input
+                    id="surah-search"
+                    type="search"
+                    class="border rounded px-2 py-2 text-sm w-full sm:w-60"
+                    placeholder="Search by name or number"
+                  />
+                  <label for="surah-dropdown" class="sr-only"
+                    >Select Surah</label
+                  >
+                  <select
+                    id="surah-dropdown"
+                    class="border rounded px-2 py-2 text-sm w-full sm:w-52"
+                  >
+                    <option value="">Select a Surah...</option>
+                  </select>
+                  <label for="translation-dropdown" class="sr-only"
+                    >Select Translation</label
+                  >
+                  <select
+                    id="translation-dropdown"
+                    class="border rounded px-2 py-2 text-sm w-full sm:w-60"
+                  >
+                    <option value="">No Translation</option>
+                    <option value="en">
+                      English (Maulana Wahiduddin Khan)
+                    </option>
+                    <option value="ps">Pashto (Sarfaraz)</option>
+                  </select>
+                  <label
+                    class="inline-flex items-center gap-2 text-sm select-none"
+                  >
+                    <input
+                      type="checkbox"
+                      id="toggle-translation"
+                      class="accent-brand-blue h-4 w-4"
+                    />
+                    <span>Show Translation</span>
+                  </label>
+                </div>
+
+                <div class="quran-reading-stage">
+                  <div id="arabic-text" class="quran-scroll-panel">
+                    <div id="quran-unified-list"></div>
+                  </div>
+                </div>
+              </section>
+
+              <aside class="quran-side-rail">
+                <section class="quran-reader-panel quran-reader-side">
+                  <div class="quran-panel-head">
+                    <div class="quran-panel-heading">
+                      <p class="quran-panel-label">Reference</p>
+                      <h3
+                        id="translation-surah-title"
+                        class="text-lg font-bold text-brand-blue"
+                      >
+                        Translation & Notes
+                      </h3>
+                      <div
+                        id="translation-surah-meta"
+                        class="text-xs text-gray-500"
+                      ></div>
+                    </div>
+                    <div class="quran-panel-actions">
+                      <div
+                        id="translation-index-badges"
+                        class="quran-badge-row"
+                      ></div>
+                      <button
+                        type="button"
+                        class="fs-btn quran-icon-btn"
+                        data-pane="translation"
+                        aria-label="Full screen view"
+                      >
+                        [ ]
+                      </button>
+                      <button
+                        type="button"
+                        class="copy-btn quran-icon-btn"
+                        data-pane="translation"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  </div>
+
+                  <div
+                    id="translation-text"
+                    class="quran-scroll-panel quran-translation-panel"
+                  >
+                    <p class="quran-empty-state">
+                      Pick a translation and turn it on to view side-by-side
+                      meaning and footnotes.
+                    </p>
+                  </div>
+                </section>
+
+                <section class="quran-reader-panel quran-reader-side">
+                  <div class="quran-panel-head quran-panel-head-compact">
+                    <div class="quran-panel-heading">
+                      <p class="quran-panel-label">Quick Navigation</p>
+                      <h3 class="text-lg font-bold text-brand-blue">
+                        Ayah Index
+                      </h3>
+                    </div>
+                  </div>
+                  <div
+                    id="ayah-nav"
+                    class="quran-ayah-nav"
+                    aria-label="Current page ayah navigation"
+                  ></div>
+                </section>
+              </aside>
+            </div>
+
+            <div
+              id="pager-bar"
+              class="mt-6 flex items-center justify-between gap-4"
+            >
+              <div class="flex items-center gap-2">
+                <button
+                  id="pager-prev"
+                  class="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-40 disabled:cursor-not-allowed"
+                  disabled
+                >
+                  Previous Page
+                </button>
+                <button
+                  id="pager-next"
+                  class="px-4 py-2 rounded bg-brand-blue text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                  disabled
+                >
+                  Next Page
+                </button>
+              </div>
+              <div id="pager-info" class="text-sm text-gray-600">
+                Page 1 / 1
+              </div>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="mt-8" id="recitations">
+              <h3 class="text-xl font-bold text-brand-blue mb-4">
+                Audio Recitation
+              </h3>
+              <div class="quran-audio-grid">
+                <section class="quran-reader-panel quran-audio-panel">
+                  <div class="quran-audio-head">
+                    <div>
+                      <p class="quran-panel-label">Media Controls</p>
+                      <h4 class="text-lg font-bold text-brand-blue">
+                        Recitation Player
+                      </h4>
+                    </div>
+                    <div
+                      id="audio-status"
+                      class="text-xs text-gray-500"
+                      aria-live="polite"
+                    ></div>
+                  </div>
+
+                  <div class="quran-audio-controls-wrap">
+                    <div class="quran-control-field">
+                      <label for="reciter-select" class="quran-field-label"
+                        >Reciter</label
+                      >
+                      <select
+                        id="reciter-select"
+                        class="border rounded px-3 py-2 text-sm w-full"
+                      ></select>
+                    </div>
+                    <div class="quran-control-field quran-control-field-sm">
+                      <label for="audio-speed" class="quran-field-label"
+                        >Speed</label
+                      >
+                      <select
+                        id="audio-speed"
+                        class="border rounded px-3 py-2 text-sm w-full"
+                      >
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="quran-media-actions">
+                    <button
+                      id="play-surah"
+                      class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm"
+                    >
+                      Play Surah
+                    </button>
+                    <button
+                      id="play-ayahs"
+                      class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm"
+                      title="Play ayah-by-ayah"
+                    >
+                      Play Page Ayahs
+                    </button>
+                    <button
+                      id="media-play-pause"
+                      class="px-3 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 text-sm"
+                      title="Play/Pause"
+                    >
+                      Play/Pause
+                    </button>
+                    <button
+                      id="media-prev-ayah"
+                      class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                      title="Previous ayah"
+                    >
+                      Prev Ayah
+                    </button>
+                    <button
+                      id="media-next-ayah"
+                      class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                      title="Next ayah"
+                    >
+                      Next Ayah
+                    </button>
+                    <button
+                      id="media-back-5"
+                      class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                      title="Back 5 seconds"
+                    >
+                      -5s
+                    </button>
+                    <button
+                      id="media-forward-5"
+                      class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                      title="Forward 5 seconds"
+                    >
+                      +5s
+                    </button>
+                    <button
+                      id="reload-audio"
+                      class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                      title="Reload audio"
+                    >
+                      Reload
+                    </button>
+                    <button
+                      id="stop-audio"
+                      class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm"
+                      title="Stop audio"
+                    >
+                      Stop
+                    </button>
+                  </div>
+
+                  <div id="audio-now-playing" class="quran-audio-now-playing">
+                    Ready to play.
+                  </div>
+
+                  <audio
+                    id="quran-audio"
+                    controls
+                    preload="none"
+                    class="w-full rounded bg-white"
+                  >
+                    <source src="" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
+                </section>
+
+                <section
+                  class="quran-reader-panel quran-audio-panel quran-hifz-panel"
+                >
+                  <div class="quran-audio-head">
+                    <div>
+                      <p class="quran-panel-label">Hifz Loop</p>
+                      <h4 class="text-lg font-bold text-brand-blue">
+                        Memorization Range
+                      </h4>
+                    </div>
+                    <div
+                      id="hifz-status"
+                      class="text-xs text-gray-500"
+                      aria-live="polite"
+                    ></div>
+                  </div>
+
+                  <div class="quran-control-field">
+                    <label for="reciter-select-hifz" class="quran-field-label"
+                      >Reciter (Hifz)</label
+                    >
+                    <select
+                      id="reciter-select-hifz"
+                      class="border rounded px-3 py-2 text-sm w-full"
+                    ></select>
+                  </div>
+
+                  <div class="quran-hifz-range-grid">
+                    <div class="quran-control-field">
+                      <label for="hifz-loop-start" class="quran-field-label"
+                        >Start Ayah</label
+                      >
+                      <input
+                        id="hifz-loop-start"
+                        type="number"
+                        min="1"
+                        class="border rounded px-3 py-2 text-sm w-full"
+                        placeholder="1"
+                      />
+                    </div>
+                    <div class="quran-control-field">
+                      <label for="hifz-loop-end" class="quran-field-label"
+                        >End Ayah</label
+                      >
+                      <input
+                        id="hifz-loop-end"
+                        type="number"
+                        min="1"
+                        class="border rounded px-3 py-2 text-sm w-full"
+                        placeholder="7"
+                      />
+                    </div>
+                    <div class="quran-control-field">
+                      <label for="hifz-repeat-count" class="quran-field-label"
+                        >Repeat</label
+                      >
+                      <select
+                        id="hifz-repeat-count"
+                        class="border rounded px-3 py-2 text-sm w-full"
+                      >
+                        <option value="3">3x</option>
+                        <option value="5" selected>5x</option>
+                        <option value="10">10x</option>
+                        <option value="0">Infinite</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="quran-media-actions">
+                    <button
+                      id="hifz-set-page-range"
+                      class="px-3 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 text-sm"
+                      title="Set start/end to current page"
+                    >
+                      Use Current Page
+                    </button>
+                    <button
+                      id="start-hifz-loop"
+                      class="px-4 py-2 bg-brand-blue text-white rounded hover:bg-blue-700 text-sm"
+                    >
+                      Start Hifz Loop
+                    </button>
+                    <button
+                      id="stop-hifz-loop"
+                      class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-sm"
+                    >
+                      Stop Hifz Loop
+                    </button>
+                  </div>
+
+                  <p class="quran-hifz-help">
+                    Tip: choose a short range, set repeat count, then use
+                    Prev/Next Ayah to test memorization flow.
+                  </p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tafsir Section -->
+      <section class="islamic-section py-16 fade-in-section">
+        <div class="container mx-auto px-6">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12"
+          >
+            Tafsir & Commentary
+          </h2>
+          <div class="max-w-6xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Ibn Kathir Tafsir -->
+                <div>
+                  <h3 class="text-xl font-bold text-brand-blue mb-4">
+                    Ibn Kathir Tafsir
+                  </h3>
+                  <div class="bg-gray-50 p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">
+                      One of the most comprehensive and respected tafsir works
+                      in Islamic scholarship.
+                    </p>
+                    <div class="space-y-3">
+                      <div class="border-l-4 border-brand-gold pl-4">
+                        <h4 class="font-semibold text-brand-blue">
+                          Al-Fatiha Tafsir
+                        </h4>
+                        <p class="text-sm text-gray-600">
+                          "The Opening" - This surah is the foundation of the
+                          Quran and teaches us the proper way to address Allah
+                          in prayer.
+                        </p>
+                      </div>
+                      <div class="border-l-4 border-brand-gold pl-4">
+                        <h4 class="font-semibold text-brand-blue">
+                          Al-Ikhlas Tafsir
+                        </h4>
+                        <p class="text-sm text-gray-600">
+                          "The Sincerity" - This surah is equivalent to
+                          one-third of the Quran and emphasizes the pure
+                          monotheism of Islam.
+                        </p>
+                      </div>
+                      <div class="border-l-4 border-brand-gold pl-4">
+                        <h4 class="font-semibold text-brand-blue">
+                          Ya-Sin Tafsir
+                        </h4>
+                        <p class="text-sm text-gray-600">
+                          "The Heart of the Quran" - This surah addresses the
+                          truth of the Quran and the mission of the Prophet
+                          Muhammad (ﷺ).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Contemporary Tafsir -->
+                <div>
+                  <h3 class="text-xl font-bold text-brand-blue mb-4">
+                    Contemporary Tafsir
+                  </h3>
+                  <div class="bg-gray-50 p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">
+                      Modern interpretations that address contemporary issues
+                      and challenges.
+                    </p>
+                    <div class="space-y-3">
+                      <div class="border-l-4 border-brand-gold pl-4">
+                        <h4 class="font-semibold text-brand-blue">
+                          Ma'ariful Quran
+                        </h4>
+                        <p class="text-sm text-gray-600">
+                          A comprehensive modern tafir that explains the Quran
+                          in light of contemporary understanding.
+                        </p>
+                      </div>
+                      <div class="border-l-4 border-brand-gold pl-4">
+                        <h4 class="font-semibold text-brand-blue">
+                          Tafsir Al-Tabari
+                        </h4>
+                        <p class="text-sm text-gray-600">
+                          One of the earliest and most comprehensive tafir
+                          works, covering historical context and linguistic
+                          analysis.
+                        </p>
+                      </div>
+                      <div class="border-l-4 border-brand-gold pl-4">
+                        <h4 class="font-semibold text-brand-blue">
+                          Tafsir Al-Qurtubi
+                        </h4>
+                        <p class="text-sm text-gray-600">
+                          A detailed tafir that focuses on legal rulings and
+                          practical applications of Quranic verses.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional Resources Section -->
+      <section class="islamic-section py-16 fade-in-section">
+        <div class="container mx-auto px-6">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12"
+          >
+            Additional Resources
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="islamic-card p-6">
+              <h3 class="text-xl font-bold text-brand-blue mb-4">
+                📖 Quran Memorization
+              </h3>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600">Hifz Programs</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600">Tajweed Rules</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600"
+                    >Memorization Techniques</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="islamic-card p-6">
+              <h3 class="text-xl font-bold text-brand-blue mb-4">
+                🎓 Islamic Studies
+              </h3>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600">Aqeedah (Creed)</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600"
+                    >Fiqh (Jurisprudence)</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 008 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 11.586 7.707 10.293a1 1 0 10-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600"
+                    >Seerah (Prophet's Life)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="islamic-card p-6">
+              <h3 class="text-xl font-bold text-brand-blue mb-4">
+                🕌 Prayer Times
+              </h3>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600">Daily Prayers</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-brand-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span class="text-sm text-gray-600">Qibla Direction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="islamic-footer bg-gray-800 text-white mt-20">
-        <!-- Library Links Section -->
-        <section class="bg-white py-8 border-t border-gray-200">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-2xl font-bold text-brand-blue mb-4">Explore Our Library</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Quran Hub</a>
-                    <a href="library.html#hadith" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Hadith</a>
-                    <a href="library.html#articles" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Articles</a>
-                    <a href="library.html#books" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Books</a>
-                    <a href="all-infographics.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">InfoGraphics</a>
-                </div>
-            </div>
-        </section>
-        <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
-            <p class="mt-2 text-gray-400">Building a Digital Future, Rooted in Faith.</p>
-            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-                <a href="index.html" class="text-gray-300 hover:text-brand-gold transition">Home</a>
-                <a href="about.html" class="text-gray-300 hover:text-brand-gold transition">About</a>
-                <a href="services.html" class="text-gray-300 hover:text-brand-gold transition">Services</a>
-                <a href="library.html" class="text-gray-300 hover:text-brand-gold transition">Library</a>
-                <a href="help.html" class="text-gray-300 hover:text-brand-gold transition">Help & FAQ</a>
-                <a href="contact.html" class="text-gray-300 hover:text-brand-gold transition">Contact</a>
-                <a href="donate.html" class="text-gray-300 hover:text-brand-gold transition">Donate</a>
-            </div>
-            <div class="mt-8 flex justify-center gap-6">
-                <a href="https://www.youtube.com/@AlhaqDigital" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" class="hover:text-red-600 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-                <a href="https://x.com/@AlhaqD7396" target="_blank" rel="noopener" aria-label="X.com" title="X.com" class="hover:text-blue-400 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"/></svg>
-                </a>
-                <a href="https://instagram.com/alhaq.digital" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="hover:text-pink-500 transition">
-                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.5 1.25a1 1 0 1 1-2 0a1 1 0 0 1 2 0z"/></svg>
-                </a>
-            </div>
-            <p class="mt-6 text-gray-500 text-xs">&copy; 2026 Al-Haq Studio &amp; Afrasyaab Meranai. All rights reserved.</p>
+      <!-- Library Links Section -->
+      <section class="bg-white py-8 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-2xl font-bold text-brand-blue mb-4">
+            Explore Our Library
+          </h2>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="quran.html"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Quran Hub</a
+            >
+            <a
+              href="library.html#hadith"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Hadith</a
+            >
+            <a
+              href="library.html#articles"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Articles</a
+            >
+            <a
+              href="library.html#books"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Books</a
+            >
+            <a
+              href="all-infographics.html"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >InfoGraphics</a
+            >
+          </div>
         </div>
+      </section>
+      <div class="container mx-auto px-6 py-8 text-center">
+        <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
+        <p class="mt-2 text-gray-400">
+          Building a Digital Future, Rooted in Faith.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+          <a
+            href="index.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >Services</a
+          >
+          <a
+            href="library.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >Library</a
+          >
+          <a
+            href="help.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >Help & FAQ</a
+          >
+          <a
+            href="contact.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >Contact</a
+          >
+          <a
+            href="donate.html"
+            class="text-gray-300 hover:text-brand-gold transition"
+            >Donate</a
+          >
+        </div>
+        <div class="mt-8 flex justify-center gap-6">
+          <a
+            href="https://www.youtube.com/@AlhaqDigital"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+            title="YouTube"
+            class="hover:text-red-600 transition"
+          >
+            <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://x.com/@AlhaqD7396"
+            target="_blank"
+            rel="noopener"
+            aria-label="X.com"
+            title="X.com"
+            class="hover:text-blue-400 transition"
+          >
+            <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.53 2.47a2.5 2.5 0 0 1 3.535 3.535l-5.29 5.29 5.29 5.29a2.5 2.5 0 0 1-3.535 3.535l-5.29-5.29-5.29 5.29a2.5 2.5 0 0 1-3.535-3.535l5.29-5.29-5.29-5.29A2.5 2.5 0 0 1 6.95 2.47l5.29 5.29 5.29-5.29z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://instagram.com/alhaq.digital"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            title="Instagram"
+            class="hover:text-pink-500 transition"
+          >
+            <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.5 1.25a1 1 0 1 1-2 0a1 1 0 0 1 2 0z"
+              />
+            </svg>
+          </a>
+        </div>
+        <p class="mt-6 text-gray-500 text-xs">
+          &copy; 2026 Al-Haq Studio &amp; Afrasyaab Meranai. All rights
+          reserved.
+        </p>
+      </div>
     </footer>
 
     <!-- Scripts: Metadata must load before quran.js -->
     <script src="assets/Quran_Data/Metadata.js"></script>
     <script src="assets/js/site.js"></script>
     <script src="assets/js/quran.js"></script>
-</body>
+  </body>
 </html>
-

@@ -26,37 +26,50 @@ const ASSETS = [
   '/assets/Quran_Data/Metadata.js',
   '/assets/Quran_Data/Quran.txt',
   '/assets/Quran_Data/Quran-Translations/en-maulana-wahiduddin-khan-inline-footnotes.json',
-  '/assets/Quran_Data/Quran-Translations/pashto-sarfaraz-simple.json'
+  '/assets/Quran_Data/Quran-Translations/pashto-sarfaraz-simple.json',
 ];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll([OFFLINE_URL, ...ASSETS]))
+    caches
+      .open(CACHE_NAME)
+      .then(cache => cache.addAll([OFFLINE_URL, ...ASSETS]))
   );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))))
+    caches
+      .keys()
+      .then(keys =>
+        Promise.all(
+          keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+        )
+      )
   );
   self.clients.claim();
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   const { request } = event;
   if (request.method !== 'GET') return;
 
   event.respondWith(
-    fetch(request).then((resp) => {
-      const copy = resp.clone();
-      caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)).catch(() => {});
-      return resp;
-    }).catch(async () => {
-      const cached = await caches.match(request);
-      if (cached) return cached;
-      if (request.mode === 'navigate') return caches.match(OFFLINE_URL);
-      return new Response('Offline', { status: 503, statusText: 'Offline' });
-    })
+    fetch(request)
+      .then(resp => {
+        const copy = resp.clone();
+        caches
+          .open(CACHE_NAME)
+          .then(cache => cache.put(request, copy))
+          .catch(() => {});
+        return resp;
+      })
+      .catch(async () => {
+        const cached = await caches.match(request);
+        if (cached) return cached;
+        if (request.mode === 'navigate') return caches.match(OFFLINE_URL);
+        return new Response('Offline', { status: 503, statusText: 'Offline' });
+      })
   );
 });

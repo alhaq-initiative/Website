@@ -1,4 +1,4 @@
-(function(){
+(function () {
   'use strict';
   // Configuration
   const VERSION = '20250927'; // cache-busting for production assets
@@ -10,12 +10,12 @@
   let filteredItems = [];
   let page = 1;
 
-  function updateResultsCount(){
+  function updateResultsCount() {
     const el = $('media-results');
-    if(!el) return;
+    if (!el) return;
     const total = filteredItems.length;
     const visible = Math.min(page * PAGE_SIZE, total);
-    if(total === 0){
+    if (total === 0) {
       el.textContent = 'No items match your current filters.';
       return;
     }
@@ -24,8 +24,8 @@
 
   // --- YouTube helpers ---
   const YT_ID_RE = /^[A-Za-z0-9_-]{11}$/;
-  function extractYouTubeId(source){
-    if(!source) return '';
+  function extractYouTubeId(source) {
+    if (!source) return '';
     // Already an ID?
     if (YT_ID_RE.test(source)) return source;
     try {
@@ -41,53 +41,77 @@
         if (YT_ID_RE.test(id)) return id;
       }
       // youtube.com/embed/<id>
-      if ((url.pathname||'').includes('/embed/')){
+      if ((url.pathname || '').includes('/embed/')) {
         const id = (url.pathname.split('/').pop() || '').trim();
         if (YT_ID_RE.test(id)) return id;
       }
-    } catch(_) {}
+    } catch (_) {}
     return '';
   }
 
-  function getYouTubeIdFromItem(item){
-    return extractYouTubeId(item.youtubeId || item.youtubeURL || item.youtubeUrl || item.url || '');
+  function getYouTubeIdFromItem(item) {
+    return extractYouTubeId(
+      item.youtubeId || item.youtubeURL || item.youtubeUrl || item.url || ''
+    );
   }
 
-  function $(id){ return document.getElementById(id); }
+  function $(id) {
+    return document.getElementById(id);
+  }
 
-  function uniqueSortedCategories(items){
+  function uniqueSortedCategories(items) {
     const set = new Set();
-    items.forEach(it => Array.isArray(it.categories) ? it.categories.forEach(c => set.add(c)) : (it.category && set.add(it.category)));
-    return ['All', ...Array.from(set).sort((a,b)=>a.localeCompare(b))];
+    items.forEach(it =>
+      Array.isArray(it.categories)
+        ? it.categories.forEach(c => set.add(c))
+        : it.category && set.add(it.category)
+    );
+    return ['All', ...Array.from(set).sort((a, b) => a.localeCompare(b))];
   }
 
-  function buildCategoryOptions(items){
-    return uniqueSortedCategories(items).map(c => `<option value="${c}">${c}</option>`).join('');
+  function buildCategoryOptions(items) {
+    return uniqueSortedCategories(items)
+      .map(c => `<option value="${c}">${c}</option>`)
+      .join('');
   }
 
-  function normalize(item){
+  function normalize(item) {
     // Backward compatibility: if legacy 'category' exists, map it.
-    if(!Array.isArray(item.categories)){
+    if (!Array.isArray(item.categories)) {
       item.categories = item.category ? [item.category] : [];
     }
-    if(!Array.isArray(item.tags)) item.tags = [];
+    if (!Array.isArray(item.tags)) item.tags = [];
     // Normalize/validate YouTube ID
     const id = getYouTubeIdFromItem(item);
     item._yt = { id, valid: !!id };
     return item;
   }
 
-  function card(item){
-    const cats = (item.categories||[]).map(c => `<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700 mr-1">${c}</span>`).join('');
-    const tags = (item.tags||[]).map(t => `<span class="inline-block text-[10px] px-2 py-0.5 rounded bg-gray-50 text-gray-500 mr-1">#${t}</span>`).join('');
+  function card(item) {
+    const cats = (item.categories || [])
+      .map(
+        c =>
+          `<span class="inline-block text-[11px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700 mr-1">${c}</span>`
+      )
+      .join('');
+    const tags = (item.tags || [])
+      .map(
+        t =>
+          `<span class="inline-block text-[10px] px-2 py-0.5 rounded bg-gray-50 text-gray-500 mr-1">#${t}</span>`
+      )
+      .join('');
     const ytId = item._yt?.id || '';
-    const thumbWebp = ytId ? `https://i.ytimg.com/vi_webp/${ytId}/hqdefault.webp` : '';
-    const thumbJpg  = ytId ? `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg` : '';
+    const thumbWebp = ytId
+      ? `https://i.ytimg.com/vi_webp/${ytId}/hqdefault.webp`
+      : '';
+    const thumbJpg = ytId ? `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg` : '';
     const disabled = !ytId;
     return `
       <article class="media-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-id="${item.id}">
         <button class="relative w-full aspect-video bg-gray-100 group focus:outline-none ${disabled ? 'cursor-not-allowed opacity-70' : ''}" ${disabled ? 'disabled' : `data-open-modal="${item.id}"`}>
-          ${ytId ? `
+          ${
+            ytId
+              ? `
             <picture>
               <source type="image/webp" srcset="${thumbWebp}">
               <img class="absolute inset-0 w-full h-full object-cover" src="${thumbJpg}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer" />
@@ -98,9 +122,11 @@
                 ▶
               </span>
             </span>
-          ` : `
+          `
+              : `
             <div class="absolute inset-0 grid place-items-center text-sm text-gray-500">Video unavailable</div>
-          `}
+          `
+          }
         </button>
         <div class="p-4">
           <div class="flex items-start justify-between gap-2 mb-1">
@@ -114,11 +140,12 @@
       </article>`;
   }
 
-  function renderPage(){
+  function renderPage() {
     const grid = $('media-grid');
-    if(!grid) return;
-    if(!filteredItems.length){
-      grid.innerHTML = '<p class="text-center text-gray-500 col-span-full">No results found.</p>';
+    if (!grid) return;
+    if (!filteredItems.length) {
+      grid.innerHTML =
+        '<p class="text-center text-gray-500 col-span-full">No results found.</p>';
       $('media-load-more')?.classList.add('hidden');
       updateResultsCount();
       return;
@@ -128,21 +155,30 @@
     grid.innerHTML = slice.map(card).join('');
     // Toggle Load More
     const btn = $('media-load-more');
-    if(btn){
-      if(end >= filteredItems.length){ btn.classList.add('hidden'); }
-      else { btn.classList.remove('hidden'); }
+    if (btn) {
+      if (end >= filteredItems.length) {
+        btn.classList.add('hidden');
+      } else {
+        btn.classList.remove('hidden');
+      }
     }
     updateResultsCount();
   }
 
-  function applyFilter(){
+  function applyFilter() {
     const q = ($('media-search').value || '').trim().toLowerCase();
     const cat = $('media-category').value || 'All';
     filteredItems = allItems.filter(it => {
-      const inCat = (cat === 'All') || (it.categories||[]).some(c => (c||'').toLowerCase() === cat.toLowerCase());
-      if(!inCat) return false;
-      if(!q) return true;
-      const hay = [it.title, it.author, ...(it.tags||[])].join(' ').toLowerCase();
+      const inCat =
+        cat === 'All' ||
+        (it.categories || []).some(
+          c => (c || '').toLowerCase() === cat.toLowerCase()
+        );
+      if (!inCat) return false;
+      if (!q) return true;
+      const hay = [it.title, it.author, ...(it.tags || [])]
+        .join(' ')
+        .toLowerCase();
       return hay.includes(q);
     });
     page = 1;
@@ -150,22 +186,28 @@
   }
 
   // Modal/lightbox
-  function openModal(item){
+  function openModal(item) {
     const modal = $('media-modal');
     const body = $('media-modal-body');
-    if(!modal || !body) return;
+    if (!modal || !body) return;
     const ytId = item._yt?.id || '';
     const origin = encodeURIComponent(location.origin);
-  const embed = ytId ? `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&origin=${origin}` : '';
+    const embed = ytId
+      ? `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&origin=${origin}`
+      : '';
     const watch = ytId ? `https://www.youtube.com/watch?v=${ytId}` : '';
     body.innerHTML = `
       <div class="w-full max-w-4xl mx-auto">
         <div class="relative w-full aspect-video bg-black">
-          ${ytId ? `
+          ${
+            ytId
+              ? `
             <iframe class="absolute inset-0 w-full h-full" src="${embed}" title="${item.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-          ` : `
+          `
+              : `
             <div class="absolute inset-0 grid place-items-center text-white">Video unavailable</div>
-          `}
+          `
+          }
         </div>
         <div class="mt-4">
           <h3 class="text-xl font-semibold text-white">${item.title}</h3>
@@ -174,46 +216,60 @@
         </div>
       </div>`;
     modal.classList.remove('hidden');
-    setTimeout(()=> modal.classList.remove('opacity-0'), 0);
+    setTimeout(() => modal.classList.remove('opacity-0'), 0);
   }
-  function closeModal(){
+  function closeModal() {
     const modal = $('media-modal');
     const body = $('media-modal-body');
-    if(!modal || !body) return;
+    if (!modal || !body) return;
     modal.classList.add('opacity-0');
-    setTimeout(()=>{ modal.classList.add('hidden'); body.innerHTML = ''; }, 120);
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      body.innerHTML = '';
+    }, 120);
   }
 
-  document.addEventListener('click', function(e){
+  document.addEventListener('click', function (e) {
     const openBtn = e.target.closest('[data-open-modal]');
-    if(openBtn){
+    if (openBtn) {
       const id = parseInt(openBtn.getAttribute('data-open-modal'), 10);
-      const item = (allItems||[]).find(x => x.id === id);
-      if(item) openModal(item);
+      const item = (allItems || []).find(x => x.id === id);
+      if (item) openModal(item);
     }
-    if(e.target.closest('#media-modal-close') || e.target.id === 'media-modal'){
+    if (
+      e.target.closest('#media-modal-close') ||
+      e.target.id === 'media-modal'
+    ) {
       closeModal();
     }
   });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
 
-  document.addEventListener('DOMContentLoaded', async function(){
+  document.addEventListener('DOMContentLoaded', async function () {
     const catSel = $('media-category');
     const search = $('media-search');
     const loadMore = $('media-load-more');
-    try{
+    try {
       const res = await fetch(DATA_URL);
       const data = await res.json();
       allItems = (Array.isArray(data) ? data : []).map(normalize);
-      if(catSel) catSel.innerHTML = buildCategoryOptions(allItems);
-      if(catSel) catSel.addEventListener('change', applyFilter);
-      if(search) search.addEventListener('input', applyFilter);
-      if(loadMore) loadMore.addEventListener('click', function(){ page++; renderPage(); });
+      if (catSel) catSel.innerHTML = buildCategoryOptions(allItems);
+      if (catSel) catSel.addEventListener('change', applyFilter);
+      if (search) search.addEventListener('input', applyFilter);
+      if (loadMore)
+        loadMore.addEventListener('click', function () {
+          page++;
+          renderPage();
+        });
       filteredItems = allItems.slice();
       renderPage();
-    } catch(_){
+    } catch (_) {
       const grid = $('media-grid');
-      if(grid) grid.innerHTML = '<p class="text-center text-red-600 col-span-full">Failed to load media list.</p>';
+      if (grid)
+        grid.innerHTML =
+          '<p class="text-center text-red-600 col-span-full">Failed to load media list.</p>';
     }
   });
 })();

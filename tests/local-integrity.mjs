@@ -14,7 +14,7 @@ function listHtmlFiles(baseDir) {
       files.push(path.join(baseDir, e.name));
     } else if (e.isDirectory()) {
       // opt-in scan subdirs with html pages (legal)
-      if (["legal"].includes(e.name)) {
+      if (['legal'].includes(e.name)) {
         files.push(...listHtmlFiles(path.join(baseDir, e.name)));
       }
     }
@@ -29,7 +29,9 @@ function extractRefs(html, dir) {
     refs.push(m[1]);
   }
   // <link rel="stylesheet" href="...">
-  for (const m of html.matchAll(/<link[^>]+rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi)) {
+  for (const m of html.matchAll(
+    /<link[^>]+rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi
+  )) {
     refs.push(m[1]);
   }
   // <img src="...">
@@ -42,11 +44,11 @@ function extractRefs(html, dir) {
   }
   // resolve paths relative to page dir
   const resolved = refs
-    .map((r) => r.split('#')[0])
-    .map((r) => r.split('?')[0])
-    .filter((r) => !/^https?:\/\//i.test(r) && !/^data:/i.test(r))
-    .map((r) => (r.startsWith('/') ? path.join(ROOT, r) : path.join(dir, r)))
-    .map((p) => path.normalize(p));
+    .map(r => r.split('#')[0])
+    .map(r => r.split('?')[0])
+    .filter(r => !/^https?:\/\//i.test(r) && !/^data:/i.test(r))
+    .map(r => (r.startsWith('/') ? path.join(ROOT, r) : path.join(dir, r)))
+    .map(p => path.normalize(p));
   return resolved;
 }
 
@@ -56,7 +58,7 @@ function fileExistsCaseSensitive(fp) {
   let cur = ROOT;
   for (const part of parts) {
     const list = fs.readdirSync(cur);
-    const found = list.find((name) => name === part);
+    const found = list.find(name => name === part);
     if (!found) return false;
     cur = path.join(cur, found);
   }
@@ -70,16 +72,21 @@ function run() {
     const dir = path.dirname(fp);
     const html = fs.readFileSync(fp, 'utf8');
     const refs = extractRefs(html, dir);
-    const missing = refs.filter((r) => !fileExistsCaseSensitive(r));
-  const hasSiteJs = /assets\/js\/site\.js(\b|[?#])/i.test(html);
+    const missing = refs.filter(r => !fileExistsCaseSensitive(r));
+    const hasSiteJs = /assets\/js\/site\.js(\b|[?#])/i.test(html);
     const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
     const issues = [];
     if (!hasSiteJs) issues.push('Missing assets/js/site.js include');
     if (!hasCss) issues.push('No stylesheet link found');
-    if (missing.length) issues.push(`Missing files: ${missing.map((p) => path.relative(ROOT, p)).join(', ')}`);
+    if (missing.length)
+      issues.push(
+        `Missing files: ${missing.map(p => path.relative(ROOT, p)).join(', ')}`
+      );
     if (issues.length) {
       failures++;
-      console.error(`FAIL ${path.relative(ROOT, fp)}\n  - ${issues.join('\n  - ')}`);
+      console.error(
+        `FAIL ${path.relative(ROOT, fp)}\n  - ${issues.join('\n  - ')}`
+      );
     } else {
       console.log(`PASS ${path.relative(ROOT, fp)}`);
     }

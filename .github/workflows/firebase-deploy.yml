@@ -41,4 +41,3 @@ jobs:
             --project alhaq-initiative \
             --only hosting:initiative \
             --non-interactive
-

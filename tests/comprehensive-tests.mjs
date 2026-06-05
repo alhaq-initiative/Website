@@ -35,7 +35,9 @@ function log(color, ...args) {
   console.log(color + args.join(' ') + colors.reset);
 }
 
-function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
 
 // HTTP request wrapper
 function request(url) {
@@ -45,13 +47,15 @@ function request(url) {
     const req = mod.request(u, res => {
       let data = '';
       res.setEncoding('utf8');
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve({ 
-        status: res.statusCode || 0, 
-        ok: (res.statusCode || 0) >= 200 && (res.statusCode || 0) < 400, 
-        text: () => Promise.resolve(data),
-        headers: res.headers
-      }));
+      res.on('data', chunk => (data += chunk));
+      res.on('end', () =>
+        resolve({
+          status: res.statusCode || 0,
+          ok: (res.statusCode || 0) >= 200 && (res.statusCode || 0) < 400,
+          text: () => Promise.resolve(data),
+          headers: res.headers,
+        })
+      );
     });
     req.on('error', reject);
     req.setTimeout(10000, () => {
@@ -80,14 +84,14 @@ async function fetchWithRetry(url, tries = 3, delayMs = 500) {
 function discoverHtmlFiles(dir, baseDir = dir, exclude = []) {
   const files = [];
   const items = fs.readdirSync(dir, { withFileTypes: true });
-  
+
   for (const item of items) {
     const fullPath = path.join(dir, item.name);
     const relativePath = path.relative(baseDir, fullPath);
-    
+
     // Skip excluded directories
     if (exclude.some(ex => relativePath.startsWith(ex))) continue;
-    
+
     if (item.isDirectory()) {
       files.push(...discoverHtmlFiles(fullPath, baseDir, exclude));
     } else if (item.isFile() && item.name.endsWith('.html')) {
@@ -100,7 +104,7 @@ function discoverHtmlFiles(dir, baseDir = dir, exclude = []) {
       files.push(urlPath);
     }
   }
-  
+
   return files;
 }
 
@@ -116,7 +120,10 @@ class PageTester {
 
   // Check for required global script
   testGlobalScript() {
-    const hasSiteJs = /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(this.html);
+    const hasSiteJs =
+      /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(
+        this.html
+      );
     if (!hasSiteJs) {
       this.errors.push('Missing global script assets/js/site.js');
     }
@@ -124,12 +131,14 @@ class PageTester {
 
   // Check for stylesheet
   testStylesheets() {
-    const stylesheetMatches = this.html.match(/<link[^>]+rel=["']stylesheet["'][^>]*>/gi);
+    const stylesheetMatches = this.html.match(
+      /<link[^>]+rel=["']stylesheet["'][^>]*>/gi
+    );
     if (!stylesheetMatches || stylesheetMatches.length === 0) {
       this.errors.push('No stylesheet links found');
     } else {
       this.info.push(`Found ${stylesheetMatches.length} stylesheet(s)`);
-      
+
       // Check if stylesheets reference valid paths
       stylesheetMatches.forEach(link => {
         const hrefMatch = link.match(/href=["']([^"']+)["']/i);
@@ -155,7 +164,7 @@ class PageTester {
     if (!/<body[^>]*>/i.test(this.html)) {
       this.errors.push('Missing <body> tag');
     }
-    
+
     const titleMatch = this.html.match(/<title[^>]*>([^<]+)<\/title>/i);
     if (!titleMatch) {
       this.warnings.push('Missing <title> tag');
@@ -182,20 +191,22 @@ class PageTester {
     const links = [];
     const linkRegex = /<a[^>]+href=["']([^"']+)["']/gi;
     let match;
-    
+
     while ((match = linkRegex.exec(this.html)) !== null) {
       const href = match[1];
       // Only include internal links (not external URLs, not anchors only, not mailto/tel)
-      if (!href.startsWith('http') && 
-          !href.startsWith('//') && 
-          !href.startsWith('mailto:') && 
-          !href.startsWith('tel:') &&
-          !href.startsWith('#') &&
-          href !== '') {
+      if (
+        !href.startsWith('http') &&
+        !href.startsWith('//') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('#') &&
+        href !== ''
+      ) {
         links.push(href);
       }
     }
-    
+
     return [...new Set(links)]; // Remove duplicates
   }
 
@@ -203,17 +214,21 @@ class PageTester {
   testAccessibility() {
     // Check for alt attributes on images
     const imgTags = this.html.match(/<img[^>]*>/gi) || [];
-    const imgsWithoutAlt = imgTags.filter(img => !/alt=["'][^"']*["']/i.test(img));
-    
+    const imgsWithoutAlt = imgTags.filter(
+      img => !/alt=["'][^"']*["']/i.test(img)
+    );
+
     if (imgsWithoutAlt.length > 0) {
-      this.warnings.push(`${imgsWithoutAlt.length} image(s) without alt attribute`);
+      this.warnings.push(
+        `${imgsWithoutAlt.length} image(s) without alt attribute`
+      );
     }
 
     // Check for semantic HTML5 elements
     const hasHeader = /<header[^>]*>/i.test(this.html);
     const hasMain = /<main[^>]*>/i.test(this.html);
     const hasFooter = /<footer[^>]*>/i.test(this.html);
-    
+
     if (!hasHeader) this.warnings.push('No <header> element found');
     if (!hasMain) this.warnings.push('No <main> element found');
     if (!hasFooter) this.warnings.push('No <footer> element found');
@@ -230,26 +245,32 @@ class PageTester {
   // Check for common performance issues
   testPerformance() {
     // Check for inline styles (potential performance issue)
-    const inlineStyleCount = (this.html.match(/style=["'][^"']+["']/gi) || []).length;
+    const inlineStyleCount = (this.html.match(/style=["'][^"']+["']/gi) || [])
+      .length;
     if (inlineStyleCount > 20) {
       this.warnings.push(`Many inline styles detected (${inlineStyleCount})`);
     }
 
     // Check for large inline scripts
-    const scriptTags = this.html.match(/<script(?![^>]*src=)[^>]*>[\s\S]*?<\/script>/gi) || [];
+    const scriptTags =
+      this.html.match(/<script(?![^>]*src=)[^>]*>[\s\S]*?<\/script>/gi) || [];
     scriptTags.forEach((script, idx) => {
       if (script.length > 5000) {
-        this.warnings.push(`Large inline script #${idx + 1} (${script.length} chars)`);
+        this.warnings.push(
+          `Large inline script #${idx + 1} (${script.length} chars)`
+        );
       }
     });
 
     // Check for defer/async on external scripts
     const externalScripts = this.html.match(/<script[^>]+src=[^>]*>/gi) || [];
-    const scriptsWithoutDeferAsync = externalScripts.filter(script => 
-      !/defer|async/i.test(script)
+    const scriptsWithoutDeferAsync = externalScripts.filter(
+      script => !/defer|async/i.test(script)
     );
     if (scriptsWithoutDeferAsync.length > 0) {
-      this.info.push(`${scriptsWithoutDeferAsync.length} script(s) without defer/async`);
+      this.info.push(
+        `${scriptsWithoutDeferAsync.length} script(s) without defer/async`
+      );
     }
   }
 
@@ -303,63 +324,69 @@ async function ensureServer() {
   try {
     const res = await fetchWithRetry(new URL('/', base).toString(), 1, 0);
     if (res.ok) return null; // Server already running
-  } catch { /* Server not running */ }
+  } catch {
+    /* Server not running */
+  }
 
   log(colors.yellow, 'Starting local server on port 8080...');
-  const server = http.createServer((req, res) => {
-    const urlPath = decodeURIComponent(req.url.split('?')[0]);
-    let filePath = urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
-    if (filePath.endsWith('/')) {
-      filePath += 'index.html';
-    }
-    
-    if (filePath.includes('..')) {
-      res.writeHead(400);
-      return res.end('Bad Request');
-    }
-    
-    let abs = path.join(rootDir, filePath);
-    let resolved = abs;
-    if (fs.existsSync(abs) && fs.statSync(abs).isDirectory()) {
-      resolved = path.join(abs, 'index.html');
-    }
-    if (!fs.existsSync(resolved) && !path.extname(resolved)) {
-      const htmlCandidate = resolved + '.html';
-      const dirCandidate = path.join(resolved, 'index.html');
-      if (fs.existsSync(htmlCandidate)) {
-        resolved = htmlCandidate;
-      } else if (fs.existsSync(dirCandidate)) {
-        resolved = dirCandidate;
+  const server = http
+    .createServer((req, res) => {
+      const urlPath = decodeURIComponent(req.url.split('?')[0]);
+      let filePath =
+        urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, '');
+      if (filePath.endsWith('/')) {
+        filePath += 'index.html';
       }
-    }
 
-    fs.readFile(resolved, (err, data) => {
-      if (err) {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        return res.end('Not found');
+      if (filePath.includes('..')) {
+        res.writeHead(400);
+        return res.end('Bad Request');
       }
-      
-      const ext = path.extname(resolved).toLowerCase();
-      const type = {
-        '.html': 'text/html; charset=utf-8',
-        '.js': 'application/javascript; charset=utf-8',
-        '.css': 'text/css; charset=utf-8',
-        '.json': 'application/json; charset=utf-8',
-        '.png': 'image/png',
-        '.jpg': 'image/jpeg',
-        '.jpeg': 'image/jpeg',
-        '.svg': 'image/svg+xml',
-        '.webp': 'image/webp',
-        '.ico': 'image/x-icon',
-        '.txt': 'text/plain; charset=utf-8',
-        '.webmanifest': 'application/manifest+json'
-      }[ext] || 'application/octet-stream';
-      
-      res.writeHead(200, { 'Content-Type': type });
-      res.end(data);
-    });
-  }).listen(8080);
-  
+
+      let abs = path.join(rootDir, filePath);
+      let resolved = abs;
+      if (fs.existsSync(abs) && fs.statSync(abs).isDirectory()) {
+        resolved = path.join(abs, 'index.html');
+      }
+      if (!fs.existsSync(resolved) && !path.extname(resolved)) {
+        const htmlCandidate = resolved + '.html';
+        const dirCandidate = path.join(resolved, 'index.html');
+        if (fs.existsSync(htmlCandidate)) {
+          resolved = htmlCandidate;
+        } else if (fs.existsSync(dirCandidate)) {
+          resolved = dirCandidate;
+        }
+      }
+
+      fs.readFile(resolved, (err, data) => {
+        if (err) {
+          res.writeHead(404, { 'Content-Type': 'text/plain' });
+          return res.end('Not found');
+        }
+
+        const ext = path.extname(resolved).toLowerCase();
+        const type =
+          {
+            '.html': 'text/html; charset=utf-8',
+            '.js': 'application/javascript; charset=utf-8',
+            '.css': 'text/css; charset=utf-8',
+            '.json': 'application/json; charset=utf-8',
+            '.png': 'image/png',
+            '.jpg': 'image/jpeg',
+            '.jpeg': 'image/jpeg',
+            '.svg': 'image/svg+xml',
+            '.webp': 'image/webp',
+            '.ico': 'image/x-icon',
+            '.txt': 'text/plain; charset=utf-8',
+            '.webmanifest': 'application/manifest+json',
+          }[ext] || 'application/octet-stream';
+
+        res.writeHead(200, { 'Content-Type': type });
+        res.end(data);
+      });
+    })
+    .listen(8080);
+
   await wait(300);
   return server;
 }
@@ -373,9 +400,16 @@ async function ensureServer() {
 
   // Discover all HTML files
   log(colors.cyan, 'Discovering HTML files...');
-  const excludeDirs = ['node_modules', '.git', 'tests', 'cypress', 'deploy', 'AmnShield-Desktop-Manager'];
+  const excludeDirs = [
+    'node_modules',
+    '.git',
+    'tests',
+    'cypress',
+    'deploy',
+    'AmnShield-Desktop-Manager',
+  ];
   const allPages = discoverHtmlFiles(rootDir, rootDir, excludeDirs);
-  
+
   log(colors.green, `Found ${allPages.length} HTML pages\n`);
 
   // Test each page
@@ -383,7 +417,7 @@ async function ensureServer() {
     total: 0,
     passed: 0,
     failed: 0,
-    warnings: 0
+    warnings: 0,
   };
 
   const allInternalLinks = new Set();
@@ -392,10 +426,10 @@ async function ensureServer() {
   for (const page of allPages) {
     results.total++;
     const url = new URL(page, base).toString();
-    
+
     try {
       const res = await fetchWithRetry(url, 2, 500);
-      
+
       if (!res.ok) {
         log(colors.red, `[FAIL] ${page} - HTTP ${res.status}`);
         results.failed++;
@@ -426,7 +460,6 @@ async function ensureServer() {
         if (process.env.VERBOSE) tester.report();
         results.passed++;
       }
-
     } catch (err) {
       log(colors.red, `[FAIL] ${page} - ${err.message}`);
       results.failed++;
@@ -435,9 +468,12 @@ async function ensureServer() {
   }
 
   // Link validation phase
-  log(colors.cyan, `\n=== Validating ${allInternalLinks.size} unique internal links ===\n`);
+  log(
+    colors.cyan,
+    `\n=== Validating ${allInternalLinks.size} unique internal links ===\n`
+  );
   const brokenLinks = [];
-  
+
   for (const link of allInternalLinks) {
     try {
       // Normalize link (remove hash, handle relative paths)
@@ -445,10 +481,10 @@ async function ensureServer() {
       if (!testUrl.startsWith('/')) {
         testUrl = '/' + testUrl;
       }
-      
+
       const url = new URL(testUrl, base).toString();
       const res = await fetchWithRetry(url, 1, 200);
-      
+
       if (!res.ok) {
         brokenLinks.push({ link, status: res.status });
         log(colors.red, `[FAIL] ${link} - HTTP ${res.status}`);
@@ -471,11 +507,14 @@ async function ensureServer() {
   if (results.failed > 0) {
     log(colors.red, `Failed: ${results.failed}`);
   }
-  
+
   if (brokenLinks.length > 0) {
     log(colors.red, `Broken links: ${brokenLinks.length}`);
   } else {
-    log(colors.green, `All ${allInternalLinks.size} internal links valid [PASS]`);
+    log(
+      colors.green,
+      `All ${allInternalLinks.size} internal links valid [PASS]`
+    );
   }
 
   // Cleanup

@@ -17,11 +17,7 @@
   "orientation": "any",
   "theme_color": "#0A2540",
   "background_color": "#F8FAFC",
-  "categories": [
-    "books",
-    "education",
-    "lifestyle"
-  ],
+  "categories": ["books", "education", "lifestyle"],
   "prefer_related_applications": false,
   "icons": [
     {

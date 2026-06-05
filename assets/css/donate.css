@@ -1,13 +1,61 @@
 /* Extracted Donate page styles */
-body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-.bg-brand-blue { background-color: #0A2540; }
-.text-brand-blue { color: #0A2540; }
-.bg-brand-gold { background-color: #D4AF37; }
-.text-brand-gold { color: #D4AF37; }
-.hidden-website-field { display: none; }
-.input-hide { display: none; }
-.islamic-header { background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)); backdrop-filter: blur(10px); border-bottom: 2px solid rgba(212, 175, 55, 0.2); }
-.islamic-section { background: linear-gradient(135deg, #f8f9fa, #e9ecef); position: relative; }
-.islamic-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #D4AF37, #0A2540, #D4AF37); }
-.islamic-footer { background: linear-gradient(135deg, #2d3748, #1a202c); border-top: 3px solid #D4AF37; }
-.islamic-card { background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1); backdrop-filter: blur(10px); }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+.bg-brand-blue {
+  background-color: #0a2540;
+}
+.text-brand-blue {
+  color: #0a2540;
+}
+.bg-brand-gold {
+  background-color: #d4af37;
+}
+.text-brand-gold {
+  color: #d4af37;
+}
+.hidden-website-field {
+  display: none;
+}
+.input-hide {
+  display: none;
+}
+.islamic-header {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.9)
+  );
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+}
+.islamic-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  position: relative;
+}
+.islamic-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+}
+.islamic-footer {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  border-top: 3px solid #d4af37;
+}
+.islamic-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
+  backdrop-filter: blur(10px);
+}

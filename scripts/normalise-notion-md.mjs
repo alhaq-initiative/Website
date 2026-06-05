@@ -61,7 +61,7 @@ function printHelp() {
       '  --slug <slug>     Override generated slug for the output filename',
       '  --force           Overwrite existing output file',
       '  -h, --help        Show this help',
-    ].join('\n'),
+    ].join('\n')
   );
 }
 
@@ -98,7 +98,10 @@ function yamlEscape(value) {
   if (value == null) return '""';
   const s = String(value);
   // quote if contains anything potentially confusing
-  if (/^[\w .,\-\u00C0-\uFFFF]+$/.test(s) && !/^(true|false|null|yes|no)$/i.test(s)) {
+  if (
+    /^[\w .,\-\u00C0-\uFFFF]+$/.test(s) &&
+    !/^(true|false|null|yes|no)$/i.test(s)
+  ) {
     return s;
   }
   return '"' + s.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
@@ -139,7 +142,11 @@ function splitTopBlock(body) {
     i++;
   }
   // if we consumed at least one property, drop the trailing blank line
-  if (Object.keys(props).length > 0 && lines[i] !== undefined && lines[i].trim() === '') {
+  if (
+    Object.keys(props).length > 0 &&
+    lines[i] !== undefined &&
+    lines[i].trim() === ''
+  ) {
     i++;
   }
   const rest = lines.slice(i).join('\n');
@@ -154,26 +161,35 @@ function convertAsides(md) {
   //   </aside>
   // Convert to a Markdown blockquote with a "> [!note]" prefix.
   return md.replace(/<aside>\s*([\s\S]*?)\s*<\/aside>/g, (_match, inner) => {
-    const innerLines = inner.split(/\r?\n/).map((l) => l.replace(/^\s+|\s+$/g, ''));
+    const innerLines = inner
+      .split(/\r?\n/)
+      .map(l => l.replace(/^\s+|\s+$/g, ''));
     // Drop a leading emoji-only line if present
     while (innerLines.length && innerLines[0] === '') innerLines.shift();
-    if (innerLines.length && /^[\p{Extended_Pictographic}\u200d\uFE0F]+$/u.test(innerLines[0])) {
+    if (
+      innerLines.length &&
+      /^[\p{Extended_Pictographic}\u200d\uFE0F]+$/u.test(innerLines[0])
+    ) {
       innerLines.shift();
     }
-    while (innerLines.length && innerLines[innerLines.length - 1] === '') innerLines.pop();
-    const quoted = ['> [!note]', ...innerLines.map((l) => (l ? `> ${l}` : '>'))];
+    while (innerLines.length && innerLines[innerLines.length - 1] === '')
+      innerLines.pop();
+    const quoted = ['> [!note]', ...innerLines.map(l => (l ? `> ${l}` : '>'))];
     return quoted.join('\n');
   });
 }
 
 function collapseBlankLines(md) {
-  return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+/, '').replace(/\s+$/, '\n');
+  return md
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/^\s+/, '')
+    .replace(/\s+$/, '\n');
 }
 
 function parseTags(raw) {
   return String(raw)
     .split(',')
-    .map((t) => t.trim())
+    .map(t => t.trim())
     .filter(Boolean);
 }
 
@@ -185,7 +201,8 @@ function buildMeta(props, { title, slug, series }) {
     series,
     story_number: props['Story Number'] ? Number(props['Story Number']) : null,
     status,
-    historical_confidence: (props['Historical Confidence'] || '').toLowerCase() || null,
+    historical_confidence:
+      (props['Historical Confidence'] || '').toLowerCase() || null,
     source_type: props['Source Type'] || null,
     tags: props['Tags'] ? parseTags(props['Tags']) : [],
     source: 'notion-export',
@@ -195,7 +212,13 @@ function buildMeta(props, { title, slug, series }) {
   return meta;
 }
 
-async function copyAssetFolderIfPresent({ inputDir, inputBase, bookDir, slug, repoRoot }) {
+async function copyAssetFolderIfPresent({
+  inputDir,
+  inputBase,
+  bookDir,
+  slug,
+  repoRoot,
+}) {
   const folderName = stripNotionUuidFromName(inputBase.replace(/\.md$/i, ''));
   const candidateDirs = [
     inputBase.replace(/\.md$/i, ''), // exact match (with UUID)
@@ -213,7 +236,7 @@ async function copyAssetFolderIfPresent({ inputDir, inputBase, bookDir, slug, re
           'books',
           bookDir,
           'assets',
-          slug,
+          slug
         );
         await fs.mkdir(target, { recursive: true });
         await copyDir(candidatePath, target);
@@ -252,12 +275,14 @@ function rewriteAssetLinks(md, { fromBaseName, bookDir, slug }) {
   if (!fromBaseName) return md;
   // Notion image links look like: ![alt](Episode%201%20.../image.png)
   // We rewrite the leading folder segment to our new stable path.
-  const enc = encodeURIComponent(fromBaseName).replace(/%20/g, ' ').replace(/ /g, '%20');
+  const enc = encodeURIComponent(fromBaseName)
+    .replace(/%20/g, ' ')
+    .replace(/ /g, '%20');
   const re = new RegExp(
     '(\\!\\[[^\\]]*\\]\\()(' +
       enc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
       '\\/)([^)]+)(\\))',
-    'g',
+    'g'
   );
   return md.replace(re, (_m, p1, _p2, file, p4) => {
     return `${p1}/assets/library/books/${bookDir}/assets/${slug}/${file}${p4}`;
@@ -278,7 +303,7 @@ async function main() {
   const series = args.series || 'faith-sellers';
   const bookDir = args.bookDir || resolveBookDir(series);
   const outDir = path.resolve(
-    args.out || path.join('assets', 'library', 'books', bookDir, '01_Chapters'),
+    args.out || path.join('assets', 'library', 'books', bookDir, '01_Chapters')
   );
 
   const raw = await fs.readFile(inputPath, 'utf8');
@@ -291,21 +316,33 @@ async function main() {
   // Find H1
   const h1Match = noBom.match(/^#\s+(.+?)\s*$/m);
   if (!h1Match) {
-    console.error('ERROR: could not find an H1 (# Title) line in the input file.');
+    console.error(
+      'ERROR: could not find an H1 (# Title) line in the input file.'
+    );
     process.exit(2);
   }
   const title = h1Match[1].trim();
 
   // Body after H1
-  const afterH1 = noBom.slice(h1Match.index + h1Match[0].length).replace(/^\r?\n/, '');
+  const afterH1 = noBom
+    .slice(h1Match.index + h1Match[0].length)
+    .replace(/^\r?\n/, '');
   const { props, rest } = splitTopBlock(afterH1);
 
-  const storyNumber = props['Story Number'] ? pad2(props['Story Number']) : null;
+  const storyNumber = props['Story Number']
+    ? pad2(props['Story Number'])
+    : null;
   // Strip series/episode prefixes so the slug captures the *subtitle* only.
   const titleForSlug = title
     .replace(/^The Chronicles of the Faith Sellers:?\s*/i, '')
-    .replace(/^Episode\s+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*[:\-—]?\s*/i, '')
-    .replace(/\s+Part\s+\d+\s+from\s+The Chronicles of the Faith Sellers\s*$/i, '')
+    .replace(
+      /^Episode\s+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*[:\-—]?\s*/i,
+      ''
+    )
+    .replace(
+      /\s+Part\s+\d+\s+from\s+The Chronicles of the Faith Sellers\s*$/i,
+      ''
+    )
     .trim();
   // If the title is just "Episode N" with no subtitle, fall back to the first H2.
   const firstH2 = (rest.match(/^##\s+(.+?)\s*$/m) || [])[1] || '';
@@ -315,7 +352,9 @@ async function main() {
   const strictName = storyNumber
     ? `${bookNumber}_${storyNumber}_${titleSlug.replace(/-/g, '_')}`
     : `${bookNumber}_${titleSlug.replace(/-/g, '_')}`;
-  const fileSlug = storyNumber ? `episode-${storyNumber}-${titleSlug}` : titleSlug;
+  const fileSlug = storyNumber
+    ? `episode-${storyNumber}-${titleSlug}`
+    : titleSlug;
   const outPath = path.join(outDir, `${strictName}.md`);
 
   // Copy sibling asset folder (if any) and rewrite links
@@ -349,7 +388,7 @@ async function main() {
     if (!args.force) {
       console.error(
         `ERROR: output file already exists: ${path.relative(repoRoot, outPath)}\n` +
-          '       Re-run with --force to overwrite.',
+          '       Re-run with --force to overwrite.'
       );
       process.exit(3);
     }
@@ -367,7 +406,7 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+main().catch(err => {
   console.error('FAILED:', err && err.stack ? err.stack : err);
   process.exit(1);
 });

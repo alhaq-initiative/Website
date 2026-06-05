@@ -4,6 +4,7 @@
   "navAbout": "درباره ما",
   "navServices": "خدمات",
   "navLibrary": "کتابخانه",
+  "navQuranHub": "Quran Hub",
   "navHelp": "راهنما",
   "navContact": "تماس",
   "navDonate": "حمایت/اهدا",
@@ -13,56 +14,76 @@
     {
       "category": "درباره استودیو الحق و مبادره الحق",
       "items": [
-        { "q": "استودیو الحق و مبادره الحق چیست؟",
-          "a": "استودیو الحق (Al-Haq Studio) استودیوی برنامه‌نویسی بنیان‌گذار برای ساخت ابزارهای دیجیتال است و مبادره الحق (Al-Haq Initiative) ماموریت اجتماعی برای ارائه رایگان این ابزارها به عموم مردم است. بیشتر در صفحه <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">درباره ما</a>." },
-        { "q": "ماموریت مبادره الحق چیست؟",
-          "a": "ماموریت ما ارائه رایگان منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال در دسترس برای تقویت جامعه و ترویج یادگیری بدون تبلیغات یا فروش داده است. جزئیات در بخش <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">درباره ما</a>." }
+        {
+          "q": "استودیو الحق و مبادره الحق چیست؟",
+          "a": "استودیو الحق (Al-Haq Studio) استودیوی برنامه‌نویسی بنیان‌گذار برای ساخت ابزارهای دیجیتال است و مبادره الحق (Al-Haq Initiative) ماموریت اجتماعی برای ارائه رایگان این ابزارها به عموم مردم است. بیشتر در صفحه <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">درباره ما</a>."
+        },
+        {
+          "q": "ماموریت مبادره الحق چیست؟",
+          "a": "ماموریت ما ارائه رایگان منابع اسلامی، ابزارهای آموزشی و خدمات دیجیتال در دسترس برای تقویت جامعه و ترویج یادگیری بدون تبلیغات یا فروش داده است. جزئیات در بخش <a href=\"about.html\" class=\"text-brand-blue underline hover:text-brand-gold\">درباره ما</a>."
+        }
       ]
     },
     {
       "category": "کتابخانه",
       "items": [
-        { "q": "چگونه به کتابخانه دسترسی پیدا کنم؟ آیا رایگان است؟",
-          "a": "بله، همه اینفوگرافیک‌ها و بسیاری از منابع کتابخانه به‌صورت رایگان در دسترس هستند. به صفحه <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابخانه</a> بروید." },
-        { "q": "چگونه به بخش‌های قرآن و حدیث دسترسی داشته باشم؟",
-          "a": "به صفحه <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابخانه</a> بروید و بخش قرآن یا حدیث را انتخاب کنید تا ترجمه‌ها، تفسیر و مجموعه‌های معتبر را ببینید." }
+        {
+          "q": "چگونه به کتابخانه دسترسی پیدا کنم؟ آیا رایگان است؟",
+          "a": "بله، همه اینفوگرافیک‌ها و بسیاری از منابع کتابخانه به‌صورت رایگان در دسترس هستند. به صفحه <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابخانه</a> بروید."
+        },
+        {
+          "q": "چگونه به بخش‌های قرآن و حدیث دسترسی داشته باشم؟",
+          "a": "به صفحه <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابخانه</a> بروید و بخش قرآن یا حدیث را انتخاب کنید تا ترجمه‌ها، تفسیر و مجموعه‌های معتبر را ببینید."
+        }
       ]
     },
     {
       "category": "کاربرد",
       "items": [
-        { "q": "چطور از quranhub استفاده کنم؟",
-          "a": "اپلیکیشن quranhub را از <a href=\"https://play.google.com/store\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">Google Play</a> یا <a href=\"https://www.apple.com/app-store/\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">App Store</a> دریافت کنید و طبق راهنما پیش بروید تا بازخورد فوری دریافت کنید." }
+        {
+          "q": "چطور از quranhub استفاده کنم؟",
+          "a": "اپلیکیشن quranhub را از <a href=\"https://play.google.com/store\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">Google Play</a> یا <a href=\"https://www.apple.com/app-store/\" target=\"_blank\" rel=\"noopener\" class=\"text-brand-blue underline hover:text-brand-gold\">App Store</a> دریافت کنید و طبق راهنما پیش بروید تا بازخورد فوری دریافت کنید."
+        }
       ]
     },
     {
       "category": "حمایت مالی",
       "items": [
-        { "q": "چگونه می‌توانم از فعالیت شما حمایت کنم؟",
-          "a": "به صفحه <a href=\"donate.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اهدا</a> بروید و از طریق Ko‑fi یا روش‌های دیگر به صورت امن حمایت کنید." }
+        {
+          "q": "چگونه می‌توانم از فعالیت شما حمایت کنم؟",
+          "a": "به صفحه <a href=\"donate.html\" class=\"text-brand-blue underline hover:text-brand-gold\">اهدا</a> بروید و از طریق Ko‑fi یا روش‌های دیگر به صورت امن حمایت کنید."
+        }
       ]
     },
     {
       "category": "تماس و پشتیبانی",
       "items": [
-        { "q": "برای پشتیبانی یا همکاری چگونه تماس بگیرم؟",
-          "a": "از صفحه <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">تماس</a> استفاده کنید یا از دکمه شناور پایین راست برای ارسال پیام مستقیم بهره ببرید." },
-        { "q": "چطور باگ گزارش دهم یا ویژگی پیشنهاد کنم؟",
-          "a": "لطفاً از صفحه <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">تماس</a> استفاده کنید و جزئیات خطا یا پیشنهاد خود را بنویسید. از بازخورد شما سپاسگزاریم!" }
+        {
+          "q": "برای پشتیبانی یا همکاری چگونه تماس بگیرم؟",
+          "a": "از صفحه <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">تماس</a> استفاده کنید یا از دکمه شناور پایین راست برای ارسال پیام مستقیم بهره ببرید."
+        },
+        {
+          "q": "چطور باگ گزارش دهم یا ویژگی پیشنهاد کنم؟",
+          "a": "لطفاً از صفحه <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">تماس</a> استفاده کنید و جزئیات خطا یا پیشنهاد خود را بنویسید. از بازخورد شما سپاسگزاریم!"
+        }
       ]
     },
     {
       "category": "حریم خصوصی و داده‌ها",
       "items": [
-        { "q": "آیا داده‌های من امن است؟",
-          "a": "بله، ما به حریم خصوصی اهمیت می‌دهیم و داده‌های شما را با اشخاص ثالث به اشتراک نمی‌گذاریم. اطلاعات به‌صورت امن مدیریت می‌شود. برای پرسش‌ها از <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">تماس</a> کمک بگیرید." }
+        {
+          "q": "آیا داده‌های من امن است؟",
+          "a": "بله، ما به حریم خصوصی اهمیت می‌دهیم و داده‌های شما را با اشخاص ثالث به اشتراک نمی‌گذاریم. اطلاعات به‌صورت امن مدیریت می‌شود. برای پرسش‌ها از <a href=\"contact.html\" class=\"text-brand-blue underline hover:text-brand-gold\">تماس</a> کمک بگیرید."
+        }
       ]
     },
     {
       "category": "ویژگی‌ها و به‌روزرسانی‌ها",
       "items": [
-        { "q": "برنامه‌ای برای افزودن کتاب یا قابلیت جدید دارید؟",
-          "a": "بله، ما پیوسته در حال گسترش <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابخانه</a> و افزودن قابلیت‌های جدید هستیم. با ما همراه باشید!" }
+        {
+          "q": "برنامه‌ای برای افزودن کتاب یا قابلیت جدید دارید؟",
+          "a": "بله، ما پیوسته در حال گسترش <a href=\"library.html\" class=\"text-brand-blue underline hover:text-brand-gold\">کتابخانه</a> و افزودن قابلیت‌های جدید هستیم. با ما همراه باشید!"
+        }
       ]
     }
   ],

@@ -1,128 +1,147 @@
 /* Extracted styles from services.html */
-body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333; }
-.bg-brand-blue { background-color: #0A2540; }
-.text-brand-blue { color: #0A2540; }
-.bg-brand-gold { background-color: #D4AF37; }
-.text-brand-gold { color: #D4AF37; }
-.glass-card { background: rgba(255,255,255,0.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 16px; box-shadow: 0 4px 16px 0 rgba(31,38,135,0.2); }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+.bg-brand-blue {
+  background-color: #0a2540;
+}
+.text-brand-blue {
+  color: #0a2540;
+}
+.bg-brand-gold {
+  background-color: #d4af37;
+}
+.text-brand-gold {
+  color: #d4af37;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+}
 
 /* Stitch-inspired structural layout (no palette changes) */
 main {
-	width: min(1280px, calc(100% - 2rem));
-	margin-inline: auto;
+  width: min(1280px, calc(100% - 2rem));
+  margin-inline: auto;
 }
 
 main > section {
-	display: block;
+  display: block;
 }
 
 main .container {
-	width: min(1120px, 100%);
-	margin-inline: auto;
+  width: min(1120px, 100%);
+  margin-inline: auto;
 }
 
 main h1,
 main h2,
 main h3 {
-	line-height: 1.15;
+  line-height: 1.15;
 }
 
 main p {
-	line-height: 1.72;
+  line-height: 1.72;
 }
 
 /* Hero/intro block spacing */
 .fade-in-section > .container > .text-center {
-	margin-bottom: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: clamp(2rem, 4vw, 3.2rem);
 }
 
 /* Section headers behave like sheet headings */
 #ongoing,
 #missions {
-	margin-top: clamp(1.2rem, 2vw, 2rem);
-	margin-bottom: 0.65rem;
+  margin-top: clamp(1.2rem, 2vw, 2rem);
+  margin-bottom: 0.65rem;
 }
 
 /* Cards as equal-height windows */
 .grid.md\:grid-cols-2 {
-	align-items: stretch;
+  align-items: stretch;
 }
 
 .grid.md\:grid-cols-2 > .glass-card {
-	display: flex;
-	flex-direction: column;
-	gap: 0.8rem;
-	min-height: 100%;
-	padding: clamp(1rem, 2vw, 1.6rem);
-	border-radius: 18px;
-	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 100%;
+  padding: clamp(1rem, 2vw, 1.6rem);
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
 }
 
 .grid.md\:grid-cols-2 > .glass-card p {
-	margin-top: 0;
-	margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .grid.md\:grid-cols-2 > .glass-card a.inline-block {
-	margin-top: auto;
+  margin-top: auto;
 }
 
 /* Featured card should anchor first row width and rhythm */
 .grid.md\:grid-cols-2 > .glass-card.border-2.border-brand-gold {
-	grid-column: span 2;
+  grid-column: span 2;
 }
 
 /* Button rows and CTA spacing */
 .text-center.mt-8 {
-	margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .text-center.mt-8 a {
-	min-height: 2.8rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+  min-height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Footer library links as consistent button sheets */
 footer section .flex.flex-wrap a {
-	min-height: 2.6rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+  min-height: 2.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Desktop rhythm */
 @media (min-width: 900px) {
-	main {
-		width: min(1320px, calc(100% - 3rem));
-	}
+  main {
+    width: min(1320px, calc(100% - 3rem));
+  }
 
-	.fade-in-section > .container {
-		padding-inline: 0.75rem;
-	}
+  .fade-in-section > .container {
+    padding-inline: 0.75rem;
+  }
 
-	.grid.md\:grid-cols-2 {
-		column-gap: 1.5rem;
-		row-gap: 1.5rem;
-	}
+  .grid.md\:grid-cols-2 {
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+  }
 }
 
 /* Mobile-first compaction */
 @media (max-width: 899px) {
-	main {
-		width: min(1280px, calc(100% - 1.2rem));
-	}
+  main {
+    width: min(1280px, calc(100% - 1.2rem));
+  }
 
-	main .container {
-		width: min(1120px, calc(100% - 0.3rem));
-	}
+  main .container {
+    width: min(1120px, calc(100% - 0.3rem));
+  }
 
-	.grid.md\:grid-cols-2 > .glass-card.border-2.border-brand-gold {
-		grid-column: auto;
-	}
+  .grid.md\:grid-cols-2 > .glass-card.border-2.border-brand-gold {
+    grid-column: auto;
+  }
 
-	.grid.md\:grid-cols-2 > .glass-card {
-		padding: 1rem;
-	}
+  .grid.md\:grid-cols-2 > .glass-card {
+    padding: 1rem;
+  }
 }

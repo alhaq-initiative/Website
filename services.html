@@ -1,200 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="light scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects — Al-Haq Initiative | Ongoing Research & Development</title>
-    <meta name="description" content="Al-Haq Initiative projects: ongoing research, software development, and media work — Faith Sellers, Lessons from Islamic Civilization, and more.">
+    <meta
+      name="description"
+      content="Al-Haq Initiative projects: ongoing research, software development, and media work — Faith Sellers, Lessons from Islamic Civilization, and more."
+    />
 
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/favicon-96x96.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="assets/images/site.webmanifest">
-    <meta name="theme-color" content="#0A2540">
+    <link rel="manifest" href="assets/images/site.webmanifest" />
+    <meta name="theme-color" content="#0A2540" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind CDN + design-system config -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
+      tailwind.config = {
+        darkMode: 'class',
         theme: {
-            extend: {
-                colors: {
-                    primary:                  "#0A2540",
-                    "on-primary":             "#ffffff",
-                    "primary-container":      "#c8d8f0",
-                    "on-primary-container":   "#0A2540",
-                    secondary:                "#D4AF37",
-                    "on-secondary":           "#0A2540",
-                    "secondary-container":    "#fdf3c7",
-                    "on-secondary-container": "#5a460a",
-                    "surface-container-lowest":  "#ffffff",
-                    "surface-container-low":     "#f5f7fb",
-                    "surface-container":         "#edf0f6",
-                    "surface-container-high":    "#e3e8f0",
-                    "surface-container-highest": "#d6dce8",
-                    "surface-bright":            "#fafbfd",
-                    "on-surface":                "#111827",
-                    "on-surface-variant":        "#4b5563",
-                    "outline":                   "#6b7280",
-                    "outline-variant":           "#d1d5db",
-                    background:                  "#f8f9fc",
-                    "inverse-surface":           "#1e2a3a",
-                    "inverse-on-surface":        "#9ca3af",
-                    "error":                     "#b91c1c",
-                    "on-error":                  "#ffffff",
+          extend: {
+            colors: {
+              primary: '#0A2540',
+              'on-primary': '#ffffff',
+              'primary-container': '#c8d8f0',
+              'on-primary-container': '#0A2540',
+              secondary: '#D4AF37',
+              'on-secondary': '#0A2540',
+              'secondary-container': '#fdf3c7',
+              'on-secondary-container': '#5a460a',
+              'surface-container-lowest': '#ffffff',
+              'surface-container-low': '#f5f7fb',
+              'surface-container': '#edf0f6',
+              'surface-container-high': '#e3e8f0',
+              'surface-container-highest': '#d6dce8',
+              'surface-bright': '#fafbfd',
+              'on-surface': '#111827',
+              'on-surface-variant': '#4b5563',
+              outline: '#6b7280',
+              'outline-variant': '#d1d5db',
+              background: '#f8f9fc',
+              'inverse-surface': '#1e2a3a',
+              'inverse-on-surface': '#9ca3af',
+              error: '#b91c1c',
+              'on-error': '#ffffff',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              'container-max': '1280px',
+              gutter: '24px',
+              'margin-desktop': '40px',
+              'section-gap': '80px',
+              'margin-mobile': '16px',
+              base: '8px',
+              'content-gap': '32px',
+            },
+            fontFamily: {
+              display: ['Source Serif 4', 'Georgia', 'serif'],
+              headline: ['Source Serif 4', 'Georgia', 'serif'],
+              body: ['Inter', 'sans-serif'],
+              label: ['Inter', 'sans-serif'],
+              arabic: ['Amiri', 'serif'],
+            },
+            fontSize: {
+              'display-lg': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '700',
                 },
-                borderRadius: {
-                    DEFAULT: "0.125rem",
-                    lg:      "0.25rem",
-                    xl:      "0.5rem",
-                    full:    "0.75rem",
+              ],
+              'headline-lg': [
+                '32px',
+                { lineHeight: '40px', fontWeight: '600' },
+              ],
+              'headline-md': [
+                '24px',
+                { lineHeight: '32px', fontWeight: '600' },
+              ],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.01em',
+                  fontWeight: '500',
                 },
-                spacing: {
-                    "container-max":  "1280px",
-                    gutter:           "24px",
-                    "margin-desktop": "40px",
-                    "section-gap":    "80px",
-                    "margin-mobile":  "16px",
-                    base:             "8px",
-                    "content-gap":    "32px",
+              ],
+              'label-sm': [
+                '12px',
+                {
+                  lineHeight: '16px',
+                  letterSpacing: '0.05em',
+                  fontWeight: '600',
                 },
-                fontFamily: {
-                    display:  ["Source Serif 4", "Georgia", "serif"],
-                    headline: ["Source Serif 4", "Georgia", "serif"],
-                    body:     ["Inter", "sans-serif"],
-                    label:    ["Inter", "sans-serif"],
-                    arabic:   ["Amiri", "serif"],
-                },
-                fontSize: {
-                    "display-lg":  ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
-                    "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
-                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
-                    "body-lg":     ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                    "body-md":     ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                    "label-md":    ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
-                    "label-sm":    ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
-                },
-            }
-        }
-    };
+              ],
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        body { background-color: #f8f9fc; color: #111827; }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #f8f9fc;
+        color: #111827;
+      }
     </style>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/services.css">
-    <link rel="stylesheet" href="assets/css/portfolio-layout.css">
-</head>
-<body class="font-body text-body-md antialiased bg-background">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/services.css" />
+    <link rel="stylesheet" href="assets/css/portfolio-layout.css" />
+  </head>
+  <body class="font-body text-body-md antialiased bg-background">
     <header id="global-header"></header>
     <main class="pt-20 pb-section-gap">
-        <section class="fade-in-section">
-            <div class="max-w-container-max mx-auto px-margin-desktop">
-                <div class="mb-12">
-                    <h1 class="font-display text-display-lg text-primary mb-4">Free Projects &amp; Services</h1>
-                    <p class="font-body-lg text-on-surface-variant max-w-3xl">The Al-Haq Initiative portfolio &mdash; active applications, educational resources, and media work. Everything here is provided completely free of charge.</p>
-                </div>
+      <section class="fade-in-section">
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+          <div class="mb-12">
+            <h1 class="font-display text-display-lg text-primary mb-4">
+              Free Projects &amp; Services
+            </h1>
+            <p class="font-body-lg text-on-surface-variant max-w-3xl">
+              The Al-Haq Initiative portfolio &mdash; active applications,
+              educational resources, and media work. Everything here is provided
+              completely free of charge.
+            </p>
+          </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                    <!-- DeenHub -->
-                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col">
-                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2">Islamic Operating System</span>
-                        <h3 class="font-headline text-headline-md text-primary mb-3">DeenHub</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">A comprehensive, privacy-first desktop platform that centralizes Quranic study, Hadith, and Islamic resources in a local-first ecosystem.</p>
-                        <a href="deenhub.html" class="text-primary font-label-md hover:text-secondary inline-flex items-center">Learn More <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
-                    </div>
-
-                    <!-- Taleem AI / Quran Hub -->
-                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col">
-                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2">Quranic Study App</span>
-                        <h3 class="font-headline text-headline-md text-primary mb-3">Taleem AI / Quran Hub</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">Interactive tools to explore, memorize, and understand the Quran. Features advanced analytics and immersive recitations.</p>
-                        <a href="quran.html" class="text-primary font-label-md hover:text-secondary inline-flex items-center">Explore Quran Hub <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
-                    </div>
-
-
-                    <!-- Al-Haq AI Assistant -->
-                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col">
-                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2">Artificial Intelligence</span>
-                        <h3 class="font-headline text-headline-md text-primary mb-3">Al-Haq AI Assistant</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">An open-source AI conversational agent trained to assist with finding Islamic resources securely and privately, available directly on this site.</p>
-                        <span class="text-secondary font-label-md">Available via the chat icon</span>
-                    </div>
-
-                    <!-- Media &amp; Infographics -->
-                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col">
-                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2">Educational Media</span>
-                        <h3 class="font-headline text-headline-md text-primary mb-3">Media &amp; Infographics</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">High-quality vocal-only videos, verified historical stories, and highly detailed infographics to educate the community visually.</p>
-                        <div class="flex gap-4 mt-auto">
-                            <a href="media.html" class="text-primary font-label-md hover:text-secondary inline-flex items-center">Media <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
-                            <a href="all-infographics.html" class="text-primary font-label-md hover:text-secondary inline-flex items-center">Infographics <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Library &amp; Books -->
-                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col">
-                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2">Academic Research</span>
-                        <h3 class="font-headline text-headline-md text-primary mb-3">The Library</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">Access our growing collection of primary source translations, survival guides, and the comprehensive Lessons from Islamic Civilization.</p>
-                        <a href="library.html" class="text-primary font-label-md hover:text-secondary inline-flex items-center">Open Library <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
-                    </div>
-                    
-                    <!-- Golden Speech -->
-                    <div class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col">
-                        <span class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2">Prophetic Wisdom</span>
-                        <h3 class="font-headline text-headline-md text-primary mb-3">Golden Speech</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">Deep, reflective insights and curated collections of the Prophet (pbuh) most impactful statements on morality and truth.</p>
-                        <a href="golden-speech.html" class="text-primary font-label-md hover:text-secondary inline-flex items-center">Read Insights <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12 p-8 bg-surface-container border border-outline-variant rounded-lg">
-                    <h2 class="font-headline text-headline-md text-primary mb-3">Help Keep Everything Free</h2>
-                    <p class="text-on-surface-variant mb-6 max-w-2xl mx-auto">All of these projects are built and maintained by one person. If they've been useful to you, consider supporting the work — every contribution goes directly into keeping these resources free and growing.</p>
-                    <a href="donate.html" class="inline-block bg-secondary text-primary font-label-md py-3 px-6 hover:bg-opacity-90 transition rounded shadow-sm">Donate / Sponsor</a>
-                </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- DeenHub -->
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col"
+            >
+              <span
+                class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2"
+                >Islamic Operating System</span
+              >
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                DeenHub
+              </h3>
+              <p class="text-on-surface-variant mb-6 flex-grow">
+                A comprehensive, privacy-first desktop platform that centralizes
+                Quranic study, Hadith, and Islamic resources in a local-first
+                ecosystem.
+              </p>
+              <a
+                href="deenhub.html"
+                class="text-primary font-label-md hover:text-secondary inline-flex items-center"
+                >Learn More
+                <span class="material-symbols-outlined ml-1 text-sm"
+                  >arrow_forward</span
+                ></a
+              >
             </div>
-        </section>
+
+            <!-- Taleem AI / Quran Hub -->
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col"
+            >
+              <span
+                class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2"
+                >Quranic Study App</span
+              >
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                Taleem AI / Quran Hub
+              </h3>
+              <p class="text-on-surface-variant mb-6 flex-grow">
+                Interactive tools to explore, memorize, and understand the
+                Quran. Features advanced analytics and immersive recitations.
+              </p>
+              <a
+                href="quran.html"
+                class="text-primary font-label-md hover:text-secondary inline-flex items-center"
+                >Explore Quran Hub
+                <span class="material-symbols-outlined ml-1 text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+
+            <!-- Al-Haq AI Assistant -->
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col"
+            >
+              <span
+                class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2"
+                >Artificial Intelligence</span
+              >
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                Al-Haq AI Assistant
+              </h3>
+              <p class="text-on-surface-variant mb-6 flex-grow">
+                An open-source AI conversational agent trained to assist with
+                finding Islamic resources securely and privately, available
+                directly on this site.
+              </p>
+              <span class="text-secondary font-label-md"
+                >Available via the chat icon</span
+              >
+            </div>
+
+            <!-- Media &amp; Infographics -->
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col"
+            >
+              <span
+                class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2"
+                >Educational Media</span
+              >
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                Media &amp; Infographics
+              </h3>
+              <p class="text-on-surface-variant mb-6 flex-grow">
+                High-quality vocal-only videos, verified historical stories, and
+                highly detailed infographics to educate the community visually.
+              </p>
+              <div class="flex gap-4 mt-auto">
+                <a
+                  href="media.html"
+                  class="text-primary font-label-md hover:text-secondary inline-flex items-center"
+                  >Media
+                  <span class="material-symbols-outlined ml-1 text-sm"
+                    >arrow_forward</span
+                  ></a
+                >
+                <a
+                  href="all-infographics.html"
+                  class="text-primary font-label-md hover:text-secondary inline-flex items-center"
+                  >Infographics
+                  <span class="material-symbols-outlined ml-1 text-sm"
+                    >arrow_forward</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <!-- Library &amp; Books -->
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col"
+            >
+              <span
+                class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2"
+                >Academic Research</span
+              >
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                The Library
+              </h3>
+              <p class="text-on-surface-variant mb-6 flex-grow">
+                Access our growing collection of primary source translations,
+                survival guides, and the comprehensive Lessons from Islamic
+                Civilization.
+              </p>
+              <a
+                href="library.html"
+                class="text-primary font-label-md hover:text-secondary inline-flex items-center"
+                >Open Library
+                <span class="material-symbols-outlined ml-1 text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+
+            <!-- Golden Speech -->
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors relative flex flex-col"
+            >
+              <span
+                class="text-label-sm text-secondary uppercase tracking-wide font-label-sm mb-2"
+                >Prophetic Wisdom</span
+              >
+              <h3 class="font-headline text-headline-md text-primary mb-3">
+                Golden Speech
+              </h3>
+              <p class="text-on-surface-variant mb-6 flex-grow">
+                Deep, reflective insights and curated collections of the Prophet
+                (pbuh) most impactful statements on morality and truth.
+              </p>
+              <a
+                href="golden-speech.html"
+                class="text-primary font-label-md hover:text-secondary inline-flex items-center"
+                >Read Insights
+                <span class="material-symbols-outlined ml-1 text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="text-center mt-12 p-8 bg-surface-container border border-outline-variant rounded-lg"
+          >
+            <h2 class="font-headline text-headline-md text-primary mb-3">
+              Help Keep Everything Free
+            </h2>
+            <p class="text-on-surface-variant mb-6 max-w-2xl mx-auto">
+              All of these projects are built and maintained by one person. If
+              they've been useful to you, consider supporting the work — every
+              contribution goes directly into keeping these resources free and
+              growing.
+            </p>
+            <a
+              href="donate.html"
+              class="inline-block bg-secondary text-primary font-label-md py-3 px-6 hover:bg-opacity-90 transition rounded shadow-sm"
+              >Donate / Sponsor</a
+            >
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="bg-gray-800 text-white mt-20">
-    <section class="bg-white py-8 border-t border-gray-200">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-2xl font-bold text-brand-blue mb-4">Explore Our Library</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="quran.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Quran Hub</a>
-          <a href="library.html#hadith" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Hadith</a>
-          <a href="media.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Media</a>
-          <a href="library.html#articles" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Articles</a>
-          <a href="library.html#books" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Books</a>
-          <a href="all-infographics.html" class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Infographics</a>
+      <section class="bg-white py-8 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-2xl font-bold text-brand-blue mb-4">
+            Explore Our Library
+          </h2>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="quran.html"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Quran Hub</a
+            >
+            <a
+              href="library.html#hadith"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Hadith</a
+            >
+            <a
+              href="media.html"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Media</a
+            >
+            <a
+              href="library.html#articles"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Articles</a
+            >
+            <a
+              href="library.html#books"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Books</a
+            >
+            <a
+              href="all-infographics.html"
+              class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition"
+              >Infographics</a
+            >
+          </div>
         </div>
+      </section>
+      <div class="container mx-auto px-6 py-8 text-center">
+        <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
+        <p class="mt-2">
+          &copy; 2026 Al-Haq Initiative &amp; Al-Haq Studio (Afrasyaab Meranai).
+          All rights reserved.
+        </p>
       </div>
-    </section>
-        <div class="container mx-auto px-6 py-8 text-center">
-            <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
-            <p class="mt-2">&copy; 2026 Al-Haq Initiative &amp; Al-Haq Studio (Afrasyaab Meranai). All rights reserved.</p>
-        </div>
     </footer>
     <script src="assets/js/site.js"></script>
     <script src="assets/js/services.js"></script>
-</body>
+  </body>
 </html>

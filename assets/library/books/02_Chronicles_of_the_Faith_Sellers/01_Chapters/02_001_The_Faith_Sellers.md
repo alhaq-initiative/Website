@@ -1,16 +1,17 @@
 ---
-title: "The Chronicles of the Faith Sellers: Episode One"
+title: 'The Chronicles of the Faith Sellers: Episode One'
 slug: episode-01-the-faith-sellers
 series: faith-sellers
 story_number: 1
 status: draft
 historical_confidence: low
-source_type: "Mixed narrative"
+source_type: 'Mixed narrative'
 tags:
   - Saladin
 source: notion-export
 last_imported: 2026-05-15
 ---
+
 # The Chronicles of the Faith Sellers: Episode One
 
 > [!note]
@@ -38,9 +39,9 @@ When the situation inside the tent changed, the others also entered. The main gu
 
 Placing the tip of his sword on the chest of the first attacker, Ṣalāḥ ad-Dīn demanded to know who he was and who had sent him. Promising mercy in exchange for the truth, the man confessed that he was a fidāʾī, sent by Kumushtegin (also rendered Gumushtegin), a regional governor under al-Ṣāliḥ, for this purpose.¹².
 
-*As the assassin’s confession echoed in the quiet tent, the weight of the betrayal became clear. The "Faith Sellers" were no longer just a distant threat whispered about in court; they were inside his own camp, wearing the uniforms of his protectors. To understand how the situation became so dire, we must look back at the life of the man they so desperately wanted to kill, but let's have a look at what was going on? — a man whose refusal to be corrupted left his enemies with no choice but the blade.*
+_As the assassin’s confession echoed in the quiet tent, the weight of the betrayal became clear. The "Faith Sellers" were no longer just a distant threat whispered about in court; they were inside his own camp, wearing the uniforms of his protectors. To understand how the situation became so dire, we must look back at the life of the man they so desperately wanted to kill, but let's have a look at what was going on? — a man whose refusal to be corrupted left his enemies with no choice but the blade._
 
-Before we dive deep into the main story, it is vital to have a look at the situation before this event. Who wouldn’t be aware of Slahuddin’s  emenant acheivements and sucrifises in Islamic history? Islamic Ummah will never forsake him. And even the cristain world  will forever forever remember him.
+Before we dive deep into the main story, it is vital to have a look at the situation before this event. Who wouldn’t be aware of Slahuddin’s emenant acheivements and sucrifises in Islamic history? Islamic Ummah will never forsake him. And even the cristain world will forever forever remember him.
 
 Next Episode will summarise the moral Chaos at the time.
 

@@ -4,6 +4,7 @@
   "navAbout": "من نحن",
   "navServices": "الخدمات",
   "navLibrary": "المكتبة",
+  "navQuranHub": "مركز القرآن",
   "navHelp": "المساعدة",
   "navContact": "اتصل بنا",
   "navDonate": "تبرع",
@@ -14,8 +15,7 @@
   "formMessage": "الرسالة:",
   "formSubmit": "إرسال الرسالة",
   "footerSlogan": "نبني مستقبلاً رقمياً متجذراً في الإيمان.",
-  "visitLibrary": "زيارة المكتبة"
-  ,
+  "visitLibrary": "زيارة المكتبة",
   "exploreLibraryTitle": "استكشف مكتبتنا",
   "linkQuranHub": "مركز القرآن",
   "linkHadith": "الحديث",

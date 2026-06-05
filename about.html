@@ -1,183 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="light scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Al-Haq Initiative | Founder & Mission</title>
-    <meta name="description" content="Learn about the Al-Haq Initiative: founder Afrasyaab Meranai, mission, values, and Al-Haq Studio (Al-Haq Digital Services &amp; Solutions — UK sole trader).">
+    <meta
+      name="description"
+      content="Learn about the Al-Haq Initiative: founder Afrasyaab Meranai, mission, values, and Al-Haq Studio (Al-Haq Digital Services &amp; Solutions — UK sole trader)."
+    />
 
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/favicon-96x96.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="assets/images/site.webmanifest">
-    <meta name="theme-color" content="#0A2540">
+    <link rel="manifest" href="assets/images/site.webmanifest" />
+    <meta name="theme-color" content="#0A2540" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind CDN + design-system config -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
+      tailwind.config = {
+        darkMode: 'class',
         theme: {
-            extend: {
-                colors: {
-                    primary:                  "#0A2540",
-                    "on-primary":             "#ffffff",
-                    "primary-container":      "#c8d8f0",
-                    "on-primary-container":   "#0A2540",
-                    secondary:                "#D4AF37",
-                    "on-secondary":           "#0A2540",
-                    "secondary-container":    "#fdf3c7",
-                    "on-secondary-container": "#5a460a",
-                    "surface-container-lowest":  "#ffffff",
-                    "surface-container-low":     "#f5f7fb",
-                    "surface-container":         "#edf0f6",
-                    "surface-container-high":    "#e3e8f0",
-                    "surface-container-highest": "#d6dce8",
-                    "surface-bright":            "#fafbfd",
-                    "on-surface":                "#111827",
-                    "on-surface-variant":        "#4b5563",
-                    "outline":                   "#6b7280",
-                    "outline-variant":           "#d1d5db",
-                    background:                  "#f8f9fc",
-                    "inverse-surface":           "#1e2a3a",
-                    "inverse-on-surface":        "#9ca3af",
-                    "error":                     "#b91c1c",
-                    "on-error":                  "#ffffff",
+          extend: {
+            colors: {
+              primary: '#0A2540',
+              'on-primary': '#ffffff',
+              'primary-container': '#c8d8f0',
+              'on-primary-container': '#0A2540',
+              secondary: '#D4AF37',
+              'on-secondary': '#0A2540',
+              'secondary-container': '#fdf3c7',
+              'on-secondary-container': '#5a460a',
+              'surface-container-lowest': '#ffffff',
+              'surface-container-low': '#f5f7fb',
+              'surface-container': '#edf0f6',
+              'surface-container-high': '#e3e8f0',
+              'surface-container-highest': '#d6dce8',
+              'surface-bright': '#fafbfd',
+              'on-surface': '#111827',
+              'on-surface-variant': '#4b5563',
+              outline: '#6b7280',
+              'outline-variant': '#d1d5db',
+              background: '#f8f9fc',
+              'inverse-surface': '#1e2a3a',
+              'inverse-on-surface': '#9ca3af',
+              error: '#b91c1c',
+              'on-error': '#ffffff',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              'container-max': '1280px',
+              gutter: '24px',
+              'margin-desktop': '40px',
+              'section-gap': '80px',
+              'margin-mobile': '16px',
+              base: '8px',
+              'content-gap': '32px',
+            },
+            fontFamily: {
+              display: ['Source Serif 4', 'Georgia', 'serif'],
+              headline: ['Source Serif 4', 'Georgia', 'serif'],
+              body: ['Inter', 'sans-serif'],
+              label: ['Inter', 'sans-serif'],
+              arabic: ['Amiri', 'serif'],
+            },
+            fontSize: {
+              'display-lg': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '700',
                 },
-                borderRadius: {
-                    DEFAULT: "0.125rem",
-                    lg:      "0.25rem",
-                    xl:      "0.5rem",
-                    full:    "0.75rem",
+              ],
+              'headline-lg': [
+                '32px',
+                { lineHeight: '40px', fontWeight: '600' },
+              ],
+              'headline-md': [
+                '24px',
+                { lineHeight: '32px', fontWeight: '600' },
+              ],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.01em',
+                  fontWeight: '500',
                 },
-                spacing: {
-                    "container-max":  "1280px",
-                    gutter:           "24px",
-                    "margin-desktop": "40px",
-                    "section-gap":    "80px",
-                    "margin-mobile":  "16px",
-                    base:             "8px",
-                    "content-gap":    "32px",
+              ],
+              'label-sm': [
+                '12px',
+                {
+                  lineHeight: '16px',
+                  letterSpacing: '0.05em',
+                  fontWeight: '600',
                 },
-                fontFamily: {
-                    display:  ["Source Serif 4", "Georgia", "serif"],
-                    headline: ["Source Serif 4", "Georgia", "serif"],
-                    body:     ["Inter", "sans-serif"],
-                    label:    ["Inter", "sans-serif"],
-                    arabic:   ["Amiri", "serif"],
-                },
-                fontSize: {
-                    "display-lg":  ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
-                    "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
-                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
-                    "body-lg":     ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                    "body-md":     ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                    "label-md":    ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
-                    "label-sm":    ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
-                },
-            }
-        }
-    };
+              ],
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        body { background-color: #f8f9fc; color: #111827; }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #f8f9fc;
+        color: #111827;
+      }
     </style>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/about.css">
-</head>
-<body class="font-body text-body-md antialiased bg-background">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+  </head>
+  <body class="font-body text-body-md antialiased bg-background">
     <header id="global-header"></header>
     <main class="pt-20 pb-section-gap">
-        <section class="fade-in-section max-w-container-max mx-auto px-margin-desktop">
-            <div class="max-w-3xl">
-                <h1 class="font-display text-display-lg text-primary mb-6">About the Al-Haq Initiative</h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The Al-Haq Initiative is dedicated to seeking truth in history and protecting health in the present. Our work fuses rigorous primary-source research with digital tools that empower the community.</p>
-                
-                <div class="space-y-8 mt-12">
-                    <div>
-                        <h2 class="font-headline text-headline-md text-primary mb-3">Our Mission</h2>
-                        <p class="text-on-surface-variant mb-4">At <strong>Al-Haq Studio</strong>, we believe in using technology to make a positive impact. That is why all of our free tools and community solutions are offered directly through the <strong>Al-Haq Initiative</strong>—our dedicated mission to provide free, high-quality digital tools to the public, entirely built and backed by our studio.</p>
-                        <p class="text-on-surface-variant">We develop innovative, spiritually enriching digital solutions and historical research that help the community deepen knowledge, strengthen practice, and build resilience.</p>
-                    </div>
-                    
-                    <div>
-                        <h2 class="font-headline text-headline-md text-primary mb-3">Our Vision</h2>
-                        <p class="text-on-surface-variant">To be a trusted source of verified historical knowledge and protection tools, making authentic research and community-centered technology accessible to all.</p>
-                    </div>
-                    
-                    <div>
-                        <h2 class="font-headline text-headline-md text-primary mb-3">Our Values</h2>
-                        <ul class="space-y-2 text-on-surface-variant">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1" aria-hidden="true">check_circle</span>
-                                <span><strong>Truth in Sources:</strong> Rigorous verification through primary documents, never political distortion.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1" aria-hidden="true">check_circle</span>
-                                <span><strong>Community Empowerment:</strong> Tools and resources that strengthen identity, scholarship, and wellbeing.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1" aria-hidden="true">check_circle</span>
-                                <span><strong>Islamic Ethics:</strong> All content and technology reflects Islamic values and protects against harm.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1" aria-hidden="true">check_circle</span>
-                                <span><strong>Free & Accessible:</strong> All research and core resources available free, no paywalls.</span>
-                            </li>
-                        </ul>
-                    </div>
+      <section
+        class="fade-in-section max-w-container-max mx-auto px-margin-desktop"
+      >
+        <div class="max-w-3xl">
+          <h1 class="font-display text-display-lg text-primary mb-6">
+            About the Al-Haq Initiative
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+            The Al-Haq Initiative is dedicated to seeking truth in history and
+            protecting health in the present. Our work fuses rigorous
+            primary-source research with digital tools that empower the
+            community.
+          </p>
 
-                    <div class="bg-surface-container-low border border-outline-variant p-8 mt-12">
-                        <h2 class="font-headline text-headline-md text-primary mb-4">About the Founder</h2>
-                        <p class="text-on-surface-variant mb-4"><strong>Afrasyaab Meranai</strong> — known casually as <strong>Habibur Rahman</strong> — is the founder, developer, and writer of the Al-Haq Initiative. He is the sole owner of both the initiative and <strong>Al-Haq Studio</strong> (Al-Haq Digital Services &amp; Solutions — UK sole trader).</p>
-                        <ul class="space-y-2 text-on-surface-variant mb-4">
-                            <li class="flex items-start gap-2">
-                                <span class="text-secondary font-bold">•</span>
-                                <span><strong>Software, products & services</strong> are delivered under <strong>Al-Haq Studio</strong>, his sole-trader business.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-secondary font-bold">•</span>
-                                <span><strong>Academic & literary works</strong> — historical research, translations, booklets — are authored personally.</span>
-                            </li>
-                        </ul>
-                        <p class="text-on-surface-variant text-sm"><em>The Al-Haq Initiative is not a separate legal entity, charity, or organization. It is the founder's personal mission under Al-Haq Studio. Donations support his ongoing work; he commits as a Muslim to spend that income on the initiative's projects.</em></p>
-                    </div>
-                </div>
+          <div class="space-y-8 mt-12">
+            <div>
+              <h2 class="font-headline text-headline-md text-primary mb-3">
+                Our Mission
+              </h2>
+              <p class="text-on-surface-variant mb-4">
+                At <strong>Al-Haq Studio</strong>, we believe in using
+                technology to make a positive impact. That is why all of our
+                free tools and community solutions are offered directly through
+                the <strong>Al-Haq Initiative</strong>—our dedicated mission to
+                provide free, high-quality digital tools to the public, entirely
+                built and backed by our studio.
+              </p>
+              <p class="text-on-surface-variant">
+                We develop innovative, spiritually enriching digital solutions
+                and historical research that help the community deepen
+                knowledge, strengthen practice, and build resilience.
+              </p>
             </div>
-        </section>
+
+            <div>
+              <h2 class="font-headline text-headline-md text-primary mb-3">
+                Our Vision
+              </h2>
+              <p class="text-on-surface-variant">
+                To be a trusted source of verified historical knowledge and
+                protection tools, making authentic research and
+                community-centered technology accessible to all.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="font-headline text-headline-md text-primary mb-3">
+                Our Values
+              </h2>
+              <ul class="space-y-2 text-on-surface-variant">
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-secondary flex-shrink-0 mt-1"
+                    aria-hidden="true"
+                    >check_circle</span
+                  >
+                  <span
+                    ><strong>Truth in Sources:</strong> Rigorous verification
+                    through primary documents, never political distortion.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-secondary flex-shrink-0 mt-1"
+                    aria-hidden="true"
+                    >check_circle</span
+                  >
+                  <span
+                    ><strong>Community Empowerment:</strong> Tools and resources
+                    that strengthen identity, scholarship, and wellbeing.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-secondary flex-shrink-0 mt-1"
+                    aria-hidden="true"
+                    >check_circle</span
+                  >
+                  <span
+                    ><strong>Islamic Ethics:</strong> All content and technology
+                    reflects Islamic values and protects against harm.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="material-symbols-outlined text-secondary flex-shrink-0 mt-1"
+                    aria-hidden="true"
+                    >check_circle</span
+                  >
+                  <span
+                    ><strong>Free & Accessible:</strong> All research and core
+                    resources available free, no paywalls.</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-surface-container-low border border-outline-variant p-8 mt-12"
+            >
+              <h2 class="font-headline text-headline-md text-primary mb-4">
+                About the Founder
+              </h2>
+              <p class="text-on-surface-variant mb-4">
+                <strong>Afrasyaab Meranai</strong> — known casually as
+                <strong>Habibur Rahman</strong> — is the founder, developer, and
+                writer of the Al-Haq Initiative. He is the sole owner of both
+                the initiative and <strong>Al-Haq Studio</strong> (Al-Haq
+                Digital Services &amp; Solutions — UK sole trader).
+              </p>
+              <ul class="space-y-2 text-on-surface-variant mb-4">
+                <li class="flex items-start gap-2">
+                  <span class="text-secondary font-bold">•</span>
+                  <span
+                    ><strong>Software, products & services</strong> are
+                    delivered under <strong>Al-Haq Studio</strong>, his
+                    sole-trader business.</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-secondary font-bold">•</span>
+                  <span
+                    ><strong>Academic & literary works</strong> — historical
+                    research, translations, booklets — are authored
+                    personally.</span
+                  >
+                </li>
+              </ul>
+              <p class="text-on-surface-variant text-sm">
+                <em
+                  >The Al-Haq Initiative is not a separate legal entity,
+                  charity, or organization. It is the founder's personal mission
+                  under Al-Haq Studio. Donations support his ongoing work; he
+                  commits as a Muslim to spend that income on the initiative's
+                  projects.</em
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="bg-primary text-white py-12 mt-20">
-        <div class="max-w-container-max mx-auto px-margin-desktop text-center">
-            <h3 class="font-headline text-headline-md mb-2">Al-Haq Initiative</h3>
-            <p class="text-white/70 mb-8">Seeking Truth in History, Protecting Health in the Present.</p>
-            <nav class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
-                <a href="index.html" class="text-white/80 hover:text-secondary transition">Home</a>
-                <a href="about.html" class="text-secondary font-label-sm uppercase tracking-widest">About</a>
-                <a href="services.html" class="text-white/80 hover:text-secondary transition">Projects</a>
-                <a href="help.html" class="text-white/80 hover:text-secondary transition">Help</a>
-                <a href="contact.html" class="text-white/80 hover:text-secondary transition">Contact</a>
-            </nav>
-            <p class="text-white/50 text-xs">© 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved.</p>
-        </div>
+      <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+        <h3 class="font-headline text-headline-md mb-2">Al-Haq Initiative</h3>
+        <p class="text-white/70 mb-8">
+          Seeking Truth in History, Protecting Health in the Present.
+        </p>
+        <nav class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+          <a
+            href="index.html"
+            class="text-white/80 hover:text-secondary transition"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-secondary font-label-sm uppercase tracking-widest"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-white/80 hover:text-secondary transition"
+            >Projects</a
+          >
+          <a
+            href="help.html"
+            class="text-white/80 hover:text-secondary transition"
+            >Help</a
+          >
+          <a
+            href="contact.html"
+            class="text-white/80 hover:text-secondary transition"
+            >Contact</a
+          >
+        </nav>
+        <p class="text-white/50 text-xs">
+          © 2026 Al-Haq Studio & Afrasyaab Meranai. All rights reserved.
+        </p>
+      </div>
     </footer>
     <script src="assets/js/site.js"></script>
     <script src="assets/js/about.js"></script>
-</body>
+  </body>
 </html>
