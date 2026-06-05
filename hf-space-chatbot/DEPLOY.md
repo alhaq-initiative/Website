@@ -1,4 +1,4 @@
-# Al-Haq Initiative Website Chatbot
+﻿# Al-Haq Initiative Website Chatbot
 
 A free conversational chatbot powered by Mistral 7B for guiding visitors on the Al-Haq Initiative website.
 
@@ -235,4 +235,4 @@ theme=gr.themes.Soft(
 
 ---
 
-**Created for Al-Haq Initiative by ADS Solutions**
+**Created for Al-Haq Initiative by Al-Haq Studio**

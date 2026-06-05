@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   'use strict';
   // Global site version (bump on big deploys)
   const SITE_VERSION = '20250927';
@@ -1069,7 +1069,7 @@
           <iframe id="alhaq-chatbot-frame" title="Al-Haq Initiative Assistant" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-write"></iframe>
         </div>
         <div id="alhaq-chatbot-footer">
-          <span>Powered by ADS Solutions</span>
+          <span>Powered by Al-Haq Studio</span>
           <a href="/contact.html">Need a human?</a>
         </div>
       `;

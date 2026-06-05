@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "amnshield",
     "title": "AmnShield",
@@ -6,8 +6,8 @@
     "type": "Mobile Application",
     "status": "Closed Testing",
     "badge": "Freemium",
-    "link": "https://amnshield.tech",
-    "attribution": "Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader)."
+    "link": "https://amnshield.com",
+    "attribution": "Developed by Al-Haq Studio (UK sole trader)."
   },
   {
     "id": "deenhub",
@@ -17,6 +17,6 @@
     "status": "Beta",
     "badge": "Free during beta",
     "link": "/deenhub.html",
-    "attribution": "Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader)."
+    "attribution": "Developed by Al-Haq Studio (UK sole trader)."
   }
 ]
