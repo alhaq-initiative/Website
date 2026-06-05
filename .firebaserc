@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "alhaq-initiative"
+  },
+  "targets": {
+    "alhaq-initiative": {
+      "hosting": {
+        "initiative": [
+          "alhaq-initiative"
+        ]
+      }
+    }
+  }
+}
