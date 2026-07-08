@@ -700,8 +700,8 @@
           if (name.includes('quranhub')) return 'quranhub';
           if (name.includes('quran')) return 'quran';
           if (name.includes('media')) return 'media';
-          if (name.includes('deenhub_join_beta')) return 'deenhub_join_beta';
-          if (name.includes('deenhub')) return 'deenhub';
+          if (name.includes('alhaq-hub-join-beta')) return 'alhaq-hub-join-beta';
+          if (name.includes('alhaq-hub')) return 'alhaq-hub';
           if (name.includes('golden-speech')) return 'golden-speech';
           if (name === 'docs.html') return 'docs';
           if (name.includes('introduction')) return 'introduction';

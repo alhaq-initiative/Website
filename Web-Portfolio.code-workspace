@@ -4,7 +4,13 @@
 			"path": "."
 		},
 		{
-			"path": "../Al-Haq-main"
+			"path": "../main-site"
+		},
+		{
+			"path": "../amnshield-site"
+		},
+		{
+			"path": "../Afrasyaab-GH.io"
 		}
 	],
 	"settings": {

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products & Services — Al-Haq Initiative | Available Today</title>
+  <meta name="description" content="Products & Services from the Al-Haq Initiative: AmnShield, Al-Haq Hub, Quran Hub, ADS Solutions digital services — available today.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/site.webmanifest">
+  <meta name="theme-color" content="#0A2540">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN + design-system config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+  tailwind.config = {
+      darkMode: "class",
+      theme: {
+          extend: {
+              colors: {
+                  primary:                  "#0A2540",
+                  "on-primary":             "#ffffff",
+                  "primary-container":      "#c8d8f0",
+                  "on-primary-container":   "#0A2540",
+                  secondary:                "#D4AF37",
+                  "on-secondary":           "#0A2540",
+                  "secondary-container":    "#fdf3c7",
+                  "on-secondary-container": "#5a460a",
+                  "surface-container-lowest":  "#ffffff",
+                  "surface-container-low":     "#f5f7fb",
+                  "surface-container":         "#edf0f6",
+                  "surface-container-high":    "#e3e8f0",
+                  "surface-container-highest": "#d6dce8",
+                  "surface-bright":            "#fafbfd",
+                  "on-surface":                "#111827",
+                  "on-surface-variant":        "#4b5563",
+                  "outline":                   "#6b7280",
+                  "outline-variant":           "#d1d5db",
+                  background:                  "#f8f9fc",
+                  "inverse-surface":           "#1e2a3a",
+                  "inverse-on-surface":        "#9ca3af",
+                  "error":                     "#b91c1c",
+                  "on-error":                  "#ffffff",
+              },
+              borderRadius: {
+                  DEFAULT: "0.125rem",
+                  lg:      "0.25rem",
+                  xl:      "0.5rem",
+                  full:    "0.75rem",
+              },
+              spacing: {
+                  "container-max":  "1280px",
+                  gutter:           "24px",
+                  "margin-desktop": "40px",
+                  "section-gap":    "80px",
+                  "margin-mobile":  "16px",
+                  base:             "8px",
+                  "content-gap":    "32px",
+              },
+              fontFamily: {
+                  display:  ["Source Serif 4", "Georgia", "serif"],
+                  headline: ["Source Serif 4", "Georgia", "serif"],
+                  body:     ["Inter", "sans-serif"],
+                  label:    ["Inter", "sans-serif"],
+                  arabic:   ["Amiri", "serif"],
+              },
+              fontSize: {
+                  "display-lg":  ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                  "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                  "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                  "body-lg":     ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                  "body-md":     ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                  "label-md":    ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                  "label-sm":    ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+              },
+          }
+      }
+  };
+  </script>
+
+  <style>
+      .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+          vertical-align: middle;
+      }
+      body { background-color: #f8f9fc; color: #111827; }
+  </style>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body class="font-body text-body-md antialiased bg-background">
+  <header id="global-header"></header>
+
+  <main class="pt-20 pb-section-gap">
+    <section class="fade-in-section">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="mb-12">
+          <h1 class="font-display text-display-lg text-primary mb-4">Products & Services</h1>
+          <p class="font-body-lg text-on-surface-variant max-w-3xl">Everything <strong>currently available</strong> from the Al-Haq Initiative and <strong>ADS Solutions</strong> (UK sole trader). For ongoing research and software in development, see the <a href="services.html" class="text-primary underline hover:text-secondary">Projects</a> portfolio.</p>
+        </div>
+
+        <!-- Available Products -->
+        <h2 id="available-products" class="font-headline text-headline-lg text-primary mb-3 scroll-mt-28">Available Products</h2>
+        <p class="text-on-surface-variant mb-8">Free and freemium tools and publications you can use today.</p>
+        <div id="shield" class="scroll-mt-28"></div>
+        <div id="extension" class="scroll-mt-28"></div>
+
+        <!-- Featured: Filastin Verified -->
+        <div class="bg-surface-container-low border border-secondary p-8 mb-8">
+          <div class="flex flex-wrap items-start justify-between gap-6">
+            <div class="flex-1 min-w-0">
+              <span class="text-label-sm text-secondary uppercase tracking-wide">⚡ Featured · Independent Research Book</span>
+              <h3 class="font-headline text-headline-lg text-primary mt-2 mb-2">Filastin Verified <span class="text-body-md font-body text-on-surface-variant">(فلسطين الموثّقة)</span></h3>
+              <p class="text-on-surface-variant mb-3">A primary-source investigation into the historical, legal, and moral status of Palestine — from the 7th-century conquest through the Yusufian restoration and modern international law. Evidence-led, source-cited, free to read.</p>
+              <p class="text-body-md text-secondary mb-2">Writing in progress · Chapters published as completed</p>
+              <p class="text-label-sm text-on-surface-variant">Authored personally by Afrasyaab Meranai (Habibur Rahman). Published via the Al-Haq Initiative under ADS Solutions.</p>
+            </div>
+            <a href="library.html#books" class="inline-block self-end bg-secondary text-primary font-label-md py-3 px-6 hover:bg-opacity-90 transition whitespace-nowrap">Read in Library →</a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <a id="amnshield" href="https://amnshield.com/" class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors block group">
+            <h3 class="font-headline text-headline-md text-primary group-hover:text-secondary mb-2">AmnShield Suite</h3>
+            <p class="text-on-surface-variant mb-3">Digital protection for habit management and spiritual wellbeing. Browser Extension, Mobile Apps, Desktop Manager & Desktop App.</p>
+            <p class="mt-3"><a href="/amnshield_join_beta.html" class="text-primary underline hover:text-secondary font-label-md">Join the beta →</a></p>
+            <p class="text-body-md text-secondary mb-2 mt-3">Freemium · Free tier + optional premium plans</p>
+            <p class="text-label-sm text-on-surface-variant">Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader).</p>
+          </a>
+           <div id="alhaq-hub" class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors block group">
+            <h3 class="font-headline text-headline-md text-primary group-hover:text-secondary mb-2">Al-Haq Hub Mobile App</h3>
+            <p class="text-on-surface-variant mb-3">Islamic productivity and spiritual growth on your phone — prayer times, Qibla, adhkaar, daily deen tools, and the <strong>Quran Hub</strong> feature for AI recitation feedback (powered by our in-house <strong>TaleemAI</strong> engine).</p>
+            <p class="mt-3"><a href="/alhaq-hub-join-beta.html" class="text-primary underline hover:text-secondary font-label-md">Join the beta →</a></p>
+            <p class="text-body-md text-secondary mb-2 mt-3">Beta · Free during beta · companion web app planned</p>
+            <p class="text-label-sm text-on-surface-variant mb-3">Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader).</p>
+            <p><a href="/alhaq-hub.html" class="text-primary underline hover:text-secondary font-label-md">Learn more about Al-Haq Hub →</a></p>
+          </div>
+          <a href="quran.html" class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors block group">
+            <h3 class="font-headline text-headline-md text-primary group-hover:text-secondary mb-2">Quran Hub</h3>
+            <p class="text-on-surface-variant mb-3">Reader with translations, recitation, and study resources.</p>
+            <p class="text-body-md text-secondary mb-2">Free · Available</p>
+            <p class="text-label-sm text-on-surface-variant">Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader).</p>
+          </a>
+          <a href="library.html" class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors block group">
+            <h3 class="font-headline text-headline-md text-primary group-hover:text-secondary mb-2">Al-Haq Library</h3>
+            <p class="text-on-surface-variant mb-3">Books, articles, and infographics — the central hub for written and visual research output.</p>
+            <p class="text-body-md text-secondary mb-2">Free · Growing</p>
+            <p class="text-label-sm text-on-surface-variant">Developed by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader).</p>
+          </a>
+          <a href="media.html" class="bg-surface-container-low border border-outline-variant p-8 text-left hover:border-secondary transition-colors block group">
+            <h3 class="font-headline text-headline-md text-primary group-hover:text-secondary mb-2">Al-Haq Media Hub</h3>
+            <p class="text-on-surface-variant mb-3">Historical media, documentary snippets, and educational series. Acapella / vocal-only audio.</p>
+            <p class="text-body-md text-secondary mb-2">Free · Growing</p>
+            <p class="text-label-sm text-on-surface-variant">Delivered by ADS Solutions (Al-Haq Digital Services & Solutions — UK sole trader).</p>
+          </a>
+        </div>
+
+        <!-- Available Services -->
+        <h2 id="available-services" class="font-headline text-headline-lg text-primary mb-3 scroll-mt-28">Available Services</h2>
+        <p class="text-on-surface-variant mb-8">Professional services delivered by <strong>ADS Solutions</strong> — <em>Al-Haq Digital Services & Solutions</em>, a UK sole trader owned by the founder. Engagements fund the initiative's ongoing projects.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+            <h3 class="font-headline text-headline-md text-primary mb-2">Web Development</h3>
+            <p class="text-on-surface-variant">Static and dynamic websites, PWAs, and accessibility-first front-end builds.</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+            <h3 class="font-headline text-headline-md text-primary mb-2">Security & Hardening</h3>
+            <p class="text-on-surface-variant">Site hardening, dependency audits, content-security review, and privacy-respecting analytics.</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+            <h3 class="font-headline text-headline-md text-primary mb-2">Infrastructure & DevOps</h3>
+            <p class="text-on-surface-variant">Hosting setup, CI/CD pipelines, and lightweight backend infrastructure tailored to small teams.</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+            <h3 class="font-headline text-headline-md text-primary mb-2">Custom Islamic Apps</h3>
+            <p class="text-on-surface-variant">Mobile and web applications for Islamic education, productivity, and digital wellbeing.</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant p-8 text-left">
+            <h3 class="font-headline text-headline-md text-primary mb-2">Consulting</h3>
+            <p class="text-on-surface-variant">Architecture reviews and faith-aligned product strategy for Muslim-led teams and individuals.</p>
+          </div>
+          <a href="contact.html" class="bg-surface-container border border-outline-variant p-8 text-left hover:border-secondary transition-colors block group">
+            <h3 class="font-headline text-headline-md text-primary group-hover:text-secondary mb-2">Request a Service →</h3>
+            <p class="text-on-surface-variant">Get in touch to discuss scope, timelines, and pricing.</p>
+          </a>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="services.html" class="inline-block bg-secondary text-primary font-label-md py-3 px-6 hover:bg-opacity-90 transition">See the Projects portfolio →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white mt-20">
+    <div class="container mx-auto px-6 py-8 text-center">
+      <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
+      <p class="mt-2 text-sm text-gray-500">© 2026 ADS Solutions &amp; Afrasyaab Meranai. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

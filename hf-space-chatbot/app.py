@@ -56,8 +56,8 @@ PROJECT_LINKS = _get_env(
         f"Products & Services: {SITE_BASE}/products.html, "
         f"AmnShield (independent protection app — own website): https://amnshield.com, "
         f"AmnShield Beta signup: {SITE_BASE}/amnshield_join_beta.html, "
-        f"DeenHub (Islamic productivity app, beta): {SITE_BASE}/deenhub.html, "
-        f"DeenHub Beta signup: {SITE_BASE}/deenhub_join_beta.html, "
+        f"Al-Haq Hub (Islamic productivity app, beta): {SITE_BASE}/alhaq-hub.html, "
+        f"Al-Haq Hub Beta signup: {SITE_BASE}/alhaq-hub-join-beta.html, "
         f"Quran Hub (Quran reader web app): {SITE_BASE}/quran.html, "
         f"Library (Books + Media): {SITE_BASE}/library.html, "
         f"Infographics: {SITE_BASE}/all-infographics.html, "
@@ -121,11 +121,11 @@ PROJECT_PROJECTS = _get_env(
         f"Al-Haq Studio \u2014 web development, security, and Islamic app delivery. "
         f"See {SITE_BASE}/products.html for the full products and services listing. "
         "PROJECTS (ongoing / upcoming): "
-        f"DeenHub \u2014 Islamic productivity mobile app (prayer times, Qibla, "
+        f"Al-Haq Hub \u2014 Islamic productivity mobile app (prayer times, Qibla, "
         "adhkaar, productivity) with the Quran Hub feature for AI Quran "
         "recitation feedback and memorization, powered by the in-house AI "
-        f"engine TaleemAI; currently Android beta, see {SITE_BASE}/deenhub.html and "
-        f"{SITE_BASE}/deenhub_join_beta.html. "
+        f"engine TaleemAI; currently Android beta, see {SITE_BASE}/alhaq-hub.html and "
+        f"{SITE_BASE}/alhaq-hub-join-beta.html. "
         "Faith Sellers (\u0628\u0627\u0626\u0639\u064a \u0627\u0644\u0642\u062f\u0631) \u2014 long-term translation and "
         "cross-referencing of Saladin's history against contemporary "
         "chroniclers (Ibn Shaddad, Ibn al-Athir). "
@@ -150,7 +150,7 @@ PROJECT_SUPPORT = _get_env(
         f"{SITE_BASE}/donate.html. "
         "(c) Upgrade to AmnShield premium (freemium business income that the "
         "founder reinvests into the projects). "
-        f"(d) Share the website, join the DeenHub beta at {SITE_BASE}/deenhub_join_beta.html, "
+        f"(d) Share the website, join the Al-Haq Hub beta at {SITE_BASE}/alhaq-hub-join-beta.html, "
         f"or contact the team via {SITE_BASE}/contact.html for collaboration. "
         "Never describe donations as tax-deductible, charitable, or going to "
         "a registered charity/non-profit/CIC."
@@ -309,13 +309,13 @@ YOUR ROLE — guide and lead the visitor:
    the visitor will find on that page, followed by the markdown link.
 4. For every meaningful answer, end with ONE concrete next step: a specific
    markdown link from KEY LINKS, or a clear suggested action.
-5. When a topic touches DeenHub, Quran Hub, the Library, or
+5. When a topic touches Al-Haq Hub, Quran Hub, the Library, or
    Documentary Snippets, mention the matching page and invite the visitor
    to open it (as a markdown link).
 6. When a visitor shows interest, alignment, or asks "how can I help",
    gently invite them to support: link to [Donate]({SITE_BASE}/donate.html),
    mention GitHub Sponsors, sharing the site, or joining
-   the DeenHub beta. Be sincere and respectful \u2014 never pushy.
+   the Al-Haq Hub beta. Be sincere and respectful \u2014 never pushy.
 7. For historical questions, prioritize primary sources and clearly say
    when something is still under research (e.g. Faith Sellers is an
    ongoing translation/cross-referencing effort).

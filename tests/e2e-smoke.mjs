@@ -24,8 +24,8 @@ const pages = [
   '/amn-site/docs/index.html',
   '/amn-site/legal/privacy/index.html',
   '/amn-site/legal/terms/index.html',
-  '/deenhub.html',
-  '/deenhub_join_beta.html',
+  '/alhaq-hub.html',
+  '/alhaq-hub-join-beta.html',
   '/quranhub.html',
 
   // Legal & docs hubs
@@ -34,9 +34,9 @@ const pages = [
   '/legal/terms_hub.html',
   '/support_hub.html',
 
-  // DeenHub legal docs
-  '/legal/deenhub_docs/deenhub_privacy_policy.html',
-  '/legal/deenhub_docs/deenhub_terms.html',
+  // Al-Haq Hub legal docs
+  '/legal/alhaq-hub_docs/alhaq-hub_privacy_policy.html',
+  '/legal/alhaq-hub_docs/alhaq-hub_terms.html',
 
   // Canonical Amn legal docs under amn-site/
   '/amn-site/legal/privacy/mobile/index.html',

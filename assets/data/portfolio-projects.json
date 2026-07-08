@@ -10,13 +10,13 @@
     "attribution": "Developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader)."
   },
   {
-    "id": "deenhub",
-    "title": "DeenHub",
+    "id": "alhaq-hub",
+    "title": "Al-Haq Hub",
     "tagline": "Islamic productivity companion with prayer times, Qibla, adhkaar, and AI Quran recitation feedback via the Quran Hub feature (powered by TaleemAI).",
     "type": "Mobile Application",
     "status": "Beta",
     "badge": "Free during beta",
-    "link": "/deenhub.html",
+    "link": "/alhaq-hub.html",
     "attribution": "Developed by Al-Haq Studio (Al-Haq Digital Services & Solutions — UK sole trader)."
   }
 ]
