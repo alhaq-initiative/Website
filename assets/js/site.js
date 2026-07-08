@@ -1212,7 +1212,7 @@
 
 /* ============================================================
    Al-Haq Initiative AI Chatbot — floating launcher + iframe
-   Embeds the Hugging Face Space Habib-HF/alhaq-website-chatbot.
+   Embeds the Hugging Face Space Alhaq-HF/alhaq-website-chatbot.
    Skipped on AmnShield/legacy shield surfaces (they have their
    own shells). Configurable via window.ALHAQ_CHATBOT_URL.
    ============================================================ */
@@ -1231,7 +1231,7 @@
 
     const CHATBOT_URL =
       window.ALHAQ_CHATBOT_URL ||
-      'https://habib-hf-alhaq-website-chatbot.hf.space';
+      'https://alhaq-hf-alhaq-website-chatbot.hf.space';
     const CHATBOT_SRC =
       CHATBOT_URL +
       (CHATBOT_URL.indexOf('?') === -1 ? '?' : '&') +

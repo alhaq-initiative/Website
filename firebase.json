@@ -185,7 +185,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://alhaq-initiative.org; frame-src 'self' https://habib-hf-alhaq-website-chatbot.hf.space;"
+            "value": "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://alhaq-initiative.org; frame-src 'self' https://alhaq-hf-alhaq-website-chatbot.hf.space;"
           }
         ]
       },
