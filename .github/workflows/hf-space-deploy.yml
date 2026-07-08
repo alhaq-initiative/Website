@@ -42,7 +42,7 @@ jobs:
           if not token:
               raise SystemExit('HF_TOKEN secret is required for Hugging Face deployment')
 
-          repo_id = 'Habib-HF/alhaq-website-chatbot'
+          repo_id = 'Alhaq-HF/alhaq-website-chatbot'
           source_dir = Path('hf-space-chatbot').resolve()
           if not source_dir.exists():
               raise SystemExit(f"Source directory not found: {source_dir}")
