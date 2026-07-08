@@ -46,6 +46,7 @@ function extractRefs(html, dir) {
   const resolved = refs
     .map(r => r.split('#')[0])
     .map(r => r.split('?')[0])
+    .map(r => decodeURIComponent(r))
     .filter(r => !/^https?:\/\//i.test(r) && !/^data:/i.test(r))
     .map(r => (r.startsWith('/') ? path.join(ROOT, r) : path.join(dir, r)))
     .map(p => path.normalize(p));

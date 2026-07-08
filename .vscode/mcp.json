@@ -1,25 +1,4 @@
 {
-	"servers": {
-		"stitch": {
-			"type": "http",
-			"url": "https://stitch.googleapis.com/mcp",
-			"headers": {
-				"X-Goog-Api-Key": "AQ.Ab8RN6ISO8sPJ6xZBx_x_d5lP_b3RuMYYI6WSSzdBLg5Zl31dQ"
-			}
-		},
-		"microsoft/markitdown": {
-			"type": "stdio",
-			"command": "D:\\Tools\\Miniconda\\python.exe",
-			"args": [
-				"-m",
-				"uv",
-				"tool",
-				"run",
-				"markitdown-mcp@0.0.1a4"
-			],
-			"gallery": "https://api.mcp.github.com",
-			"version": "1.0.0"
-		}
-	},
-	"inputs": []
+	"inputs": [],
+	"servers": {}
 }

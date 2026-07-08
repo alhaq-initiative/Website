@@ -8,9 +8,9 @@
     "lint": "eslint . --ext .js,.html",
     "lint:fix": "eslint . --ext .js,.html --fix",
     "format": "prettier --write .",
-    "deploy": "npx firebase deploy --only hosting:main",
-    "deploy:main": "npx firebase deploy --only hosting:main",
-    "deploy:all": "npx firebase deploy --only hosting:main",
+    "deploy": "npx firebase deploy --only hosting:initiative",
+    "deploy:main": "npx firebase deploy --only hosting:initiative",
+    "deploy:all": "npx firebase deploy --only hosting:initiative",
     "chatbot:index": "node scripts/build-site-index.mjs",
     "content:index": "node scripts/build-content-index.mjs",
     "library:import": "node scripts/normalise-notion-md.mjs",
@@ -19,6 +19,7 @@
     "integrity": "node tests/local-integrity.mjs",
     "smoke": "node tests/e2e-smoke.mjs",
     "test": "node tests/comprehensive-tests.mjs",
+    "test:translations": "node tests/check-translations.mjs",
     "prepare": "husky install"
   },
   "devDependencies": {

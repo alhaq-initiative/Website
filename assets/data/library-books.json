@@ -1,19 +1,24 @@
 {
-  "generated": "2026-06-05",
+  "generated": "2026-07-08",
   "types": {
     "translation": {
       "key": "translation",
       "title": "Translations",
       "description": "Chapter-by-chapter translations validated against primary Arabic sources.",
       "order": 1,
-      "books": ["al-nawadir-al-sultaniyya", "faith-sellers"]
+      "books": [
+        "al-nawadir-al-sultaniyya",
+        "faith-sellers"
+      ]
     },
     "independent_book": {
       "key": "independent_book",
       "title": "Independent Books",
       "description": "Original authored books and research booklets published independently.",
       "order": 2,
-      "books": ["filastin-verified"]
+      "books": [
+        "filastin-verified"
+      ]
     }
   },
   "books": {
@@ -55,7 +60,9 @@
           "status": "draft",
           "historical_confidence": "low",
           "source_type": "Mixed narrative",
-          "tags": ["Saladin"],
+          "tags": [
+            "Saladin"
+          ],
           "last_imported": "2026-05-15",
           "excerpt": "“So great was the amount of booty that came into the hands of Ṣalāḥ ad-Dīn al-Ayyūbī that it could not be counted. The number of prisoners of war was likewise beyond calculation.”",
           "path": "assets/library/books/02_Chronicles_of_the_Faith_Sellers/01_Chapters/02_001_The_Faith_Sellers.md"
