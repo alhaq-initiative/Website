@@ -27,7 +27,7 @@ PROJECT_TAGLINE = _get_env(
     "PROJECT_TAGLINE",
     "Seeking Truth in History, Protecting Health in the Present.",
 )
-PROJECT_URL = _get_env("PROJECT_URL", "https://alhaq.uk")
+PROJECT_URL = _get_env("PROJECT_URL", "https://alhaq-initiative.org")
 SITE_BASE = _get_env("SITE_BASE", PROJECT_URL).rstrip("/")
 PROJECT_DESCRIPTION = _get_env(
     "PROJECT_DESCRIPTION",
