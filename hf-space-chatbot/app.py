@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 import gradio as gr
+from fastapi import Response
 from huggingface_hub import InferenceClient
 
 
@@ -697,6 +698,12 @@ with gr.Blocks(
             "How can I support the founder's work?",
         ],
     )
+
+
+@demo.app.api_route("/health", methods=["GET", "HEAD"], include_in_schema=False)
+def health_check():
+    """Lightweight liveness endpoint for external uptime monitors."""
+    return Response(status_code=200)
 
 
 if __name__ == "__main__":
