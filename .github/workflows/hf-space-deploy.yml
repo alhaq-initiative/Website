@@ -43,40 +43,40 @@ jobs:
           token = os.getenv('HF_TOKEN')
           if not token:
               raise SystemExit(
-                'A Hugging Face token secret is required. Set one of: '
-                'HF_TOKEN, HUGGINGFACE_TOKEN, or HUGGINGFACEHUB_API_TOKEN.'
+                  'A Hugging Face token secret is required. Set one of: '
+                  'HF_TOKEN, HUGGINGFACE_TOKEN, or HUGGINGFACEHUB_API_TOKEN.'
               )
 
-            repo_id = os.getenv('HF_SPACE_REPO_ID', '').strip() or 'Alhaq-HF/alhaq-website-chatbot'
+          repo_id = os.getenv('HF_SPACE_REPO_ID', '').strip() or 'Alhaq-HF/alhaq-website-chatbot'
           source_dir = Path('hf-space-chatbot').resolve()
           if not source_dir.exists():
               raise SystemExit(f"Source directory not found: {source_dir}")
 
           api = HfApi(token=token)
 
-            # Preflight identity to make namespace permission issues explicit.
-            try:
+          # Preflight identity to make namespace permission issues explicit.
+          try:
               who = api.whoami(token=token)
               user = who.get('name') or who.get('fullname') or 'unknown'
               orgs = ', '.join((who.get('orgs') or [])) or '(none)'
               print(f"Authenticated as: {user}")
               print(f"Token org memberships: {orgs}")
-            except Exception as exc:  # pylint: disable=broad-except
+          except Exception as exc:  # pylint: disable=broad-except
               raise SystemExit(
-                'HF token authentication failed. Verify the token value and scope.'
+                  'HF token authentication failed. Verify the token value and scope.'
               ) from exc
 
-            # Update-only mode: the target Space must already exist and be accessible
-            # to the provided token. This avoids accidental create attempts.
+          # Update-only mode: the target Space must already exist and be accessible
+          # to the provided token. This avoids accidental create attempts.
           try:
               api.space_info(repo_id)
-            except RepositoryNotFoundError as exc:
+          except RepositoryNotFoundError as exc:
               raise SystemExit(
-                f"Target Space '{repo_id}' is not accessible with this token. "
+                  f"Target Space '{repo_id}' is not accessible with this token. "
                   "Confirm the repo_id (set HF_SPACE_REPO_ID repo variable if needed) and ensure the token has write access."
               ) from exc
 
-            print(f"Space '{repo_id}' is accessible. Starting upload.")
+          print(f"Space '{repo_id}' is accessible. Starting upload.")
 
           # Upload the entire hf-space-chatbot/ folder in one API call.
           # huggingface_hub >= 0.20 — no Repository / git clone needed.
