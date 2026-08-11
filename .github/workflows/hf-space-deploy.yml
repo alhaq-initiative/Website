@@ -32,10 +32,12 @@ jobs:
       - name: Deploy hf-space-chatbot to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN || secrets.HUGGINGFACE_TOKEN || secrets.HUGGINGFACEHUB_API_TOKEN }}
+          HF_SPACE_REPO_ID: Alhaq-HF/alhaq-website-chatbot
         run: |
           python - <<'PY'
           import os
           from pathlib import Path
+          from huggingface_hub.errors import RepositoryNotFoundError
           from huggingface_hub import HfApi
 
           token = os.getenv('HF_TOKEN')
@@ -45,26 +47,24 @@ jobs:
                 'HF_TOKEN, HUGGINGFACE_TOKEN, or HUGGINGFACEHUB_API_TOKEN.'
               )
 
-          repo_id = 'Alhaq-HF/alhaq-website-chatbot'
+            repo_id = os.getenv('HF_SPACE_REPO_ID', '').strip() or 'Alhaq-HF/alhaq-website-chatbot'
           source_dir = Path('hf-space-chatbot').resolve()
           if not source_dir.exists():
               raise SystemExit(f"Source directory not found: {source_dir}")
 
           api = HfApi(token=token)
 
-          # Create the Space if it doesn't exist yet
+            # Update-only mode: the target Space must already exist and be accessible
+            # to the provided token. This avoids accidental create attempts.
           try:
               api.space_info(repo_id)
-              print(f"Space '{repo_id}' already exists.")
-          except Exception:
-              api.create_repo(
-                  repo_id=repo_id,
-                  repo_type='space',
-                  space_sdk='gradio',
-                  private=False,
-                  exist_ok=True,
-              )
-              print(f"Created Space '{repo_id}'.")
+            except RepositoryNotFoundError as exc:
+              raise SystemExit(
+                f"Target Space '{repo_id}' is not accessible with this token. "
+                "Confirm the repo_id and ensure the token has write access to that existing Space."
+              ) from exc
+
+            print(f"Space '{repo_id}' is accessible. Starting upload.")
 
           # Upload the entire hf-space-chatbot/ folder in one API call.
           # huggingface_hub >= 0.20 — no Repository / git clone needed.
