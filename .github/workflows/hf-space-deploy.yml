@@ -32,7 +32,7 @@ jobs:
       - name: Deploy hf-space-chatbot to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN || secrets.HUGGINGFACE_TOKEN || secrets.HUGGINGFACEHUB_API_TOKEN }}
-          HF_SPACE_REPO_ID: Alhaq-HF/alhaq-website-chatbot
+          HF_SPACE_REPO_ID: ${{ vars.HF_SPACE_REPO_ID || 'Alhaq-HF/alhaq-website-chatbot' }}
         run: |
           python - <<'PY'
           import os
@@ -54,6 +54,18 @@ jobs:
 
           api = HfApi(token=token)
 
+            # Preflight identity to make namespace permission issues explicit.
+            try:
+              who = api.whoami(token=token)
+              user = who.get('name') or who.get('fullname') or 'unknown'
+              orgs = ', '.join((who.get('orgs') or [])) or '(none)'
+              print(f"Authenticated as: {user}")
+              print(f"Token org memberships: {orgs}")
+            except Exception as exc:  # pylint: disable=broad-except
+              raise SystemExit(
+                'HF token authentication failed. Verify the token value and scope.'
+              ) from exc
+
             # Update-only mode: the target Space must already exist and be accessible
             # to the provided token. This avoids accidental create attempts.
           try:
@@ -61,7 +73,7 @@ jobs:
             except RepositoryNotFoundError as exc:
               raise SystemExit(
                 f"Target Space '{repo_id}' is not accessible with this token. "
-                "Confirm the repo_id and ensure the token has write access to that existing Space."
+                  "Confirm the repo_id (set HF_SPACE_REPO_ID repo variable if needed) and ensure the token has write access."
               ) from exc
 
             print(f"Space '{repo_id}' is accessible. Starting upload.")
