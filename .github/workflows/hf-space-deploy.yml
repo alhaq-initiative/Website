@@ -31,7 +31,7 @@ jobs:
 
       - name: Deploy hf-space-chatbot to Hugging Face Space
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN || secrets.HUGGINGFACE_TOKEN || secrets.HUGGINGFACEHUB_API_TOKEN }}
         run: |
           python - <<'PY'
           import os
@@ -40,7 +40,10 @@ jobs:
 
           token = os.getenv('HF_TOKEN')
           if not token:
-              raise SystemExit('HF_TOKEN secret is required for Hugging Face deployment')
+              raise SystemExit(
+                'A Hugging Face token secret is required. Set one of: '
+                'HF_TOKEN, HUGGINGFACE_TOKEN, or HUGGINGFACEHUB_API_TOKEN.'
+              )
 
           repo_id = 'Alhaq-HF/alhaq-website-chatbot'
           source_dir = Path('hf-space-chatbot').resolve()
