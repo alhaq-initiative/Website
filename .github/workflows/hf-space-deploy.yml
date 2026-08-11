@@ -1,12 +1,6 @@
 name: Deploy Hugging Face Space
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'hf-space-chatbot/**'
-      - '.github/workflows/hf-space-deploy.yml'
   workflow_dispatch:
 
 jobs:
@@ -16,95 +10,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install Hugging Face Hub
+      - name: Disabled deployment notice
         run: |
-          python -m pip install --upgrade pip
-          pip install "huggingface_hub>=0.23"
-
-      - name: Deploy hf-space-chatbot to Hugging Face Space
-        env:
-          HF_TOKEN_PRIMARY: ${{ secrets.HF_TOKEN }}
-          HF_TOKEN_ALT1: ${{ secrets.HUGGINGFACE_TOKEN }}
-          HF_TOKEN_ALT2: ${{ secrets.HUGGINGFACEHUB_API_TOKEN }}
-          HF_SPACE_REPO_ID: ${{ vars.HF_SPACE_REPO_ID || 'Alhaq-HF/alhaq-website-chatbot' }}
-        run: |
-          python - <<'PY'
-          import os
-          from pathlib import Path
-          from huggingface_hub.errors import RepositoryNotFoundError
-          from huggingface_hub import HfApi
-
-          candidates = [
-              ('HF_TOKEN', os.getenv('HF_TOKEN_PRIMARY', '')),
-              ('HUGGINGFACE_TOKEN', os.getenv('HF_TOKEN_ALT1', '')),
-              ('HUGGINGFACEHUB_API_TOKEN', os.getenv('HF_TOKEN_ALT2', '')),
-          ]
-          token_source = None
-          token = ''
-          for label, raw in candidates:
-              normalized = (raw or '').strip().strip('"').strip("'")
-              if normalized:
-                  token_source = label
-                  token = normalized
-                  break
-
-          if not token:
-              raise SystemExit(
-                  'A Hugging Face token secret is required. Set one of: '
-                  'HF_TOKEN, HUGGINGFACE_TOKEN, or HUGGINGFACEHUB_API_TOKEN.'
-              )
-          print(f'Using token source: {token_source}')
-
-          repo_id = os.getenv('HF_SPACE_REPO_ID', '').strip() or 'Habib-HF/alhaq-website-chatbot'
-          source_dir = Path('hf-space-chatbot').resolve()
-          if not source_dir.exists():
-              raise SystemExit(f"Source directory not found: {source_dir}")
-
-          api = HfApi(token=token)
-
-          # Preflight identity to make namespace permission issues explicit.
-          try:
-              who = api.whoami(token=token)
-              user = who.get('name') or who.get('fullname') or 'unknown'
-              orgs = ', '.join((who.get('orgs') or [])) or '(none)'
-              print(f"Authenticated as: {user}")
-              print(f"Token org memberships: {orgs}")
-          except Exception as exc:  # pylint: disable=broad-except
-              print('Warning: unable to resolve token identity via whoami; continuing to repo access check.')
-              print(f'whoami error: {type(exc).__name__}: {exc}')
-
-          # Update-only mode: the target Space must already exist and be accessible
-          # to the provided token. This avoids accidental create attempts.
-          try:
-              api.space_info(repo_id)
-          except RepositoryNotFoundError as exc:
-              raise SystemExit(
-                  f"Target Space '{repo_id}' is not accessible with this token. "
-                  "Confirm the repo_id (set HF_SPACE_REPO_ID repo variable if needed) and ensure the token has write access."
-              ) from exc
-
-          print(f"Space '{repo_id}' is accessible. Starting upload.")
-
-          # Upload the entire hf-space-chatbot/ folder in one API call.
-          # huggingface_hub >= 0.20 — no Repository / git clone needed.
-          api.upload_folder(
-              folder_path=str(source_dir),
-              repo_id=repo_id,
-              repo_type='space',
-              commit_message=f"Deploy from GitHub commit {os.getenv('GITHUB_SHA', 'unknown')}",
-              ignore_patterns=['__pycache__', '*.pyc', '.DS_Store'],
-          )
-          print('Files uploaded successfully.')
-
-          # Restart so the Space picks up the new site_index.json immediately
-          api.restart_space(repo_id)
-          print('Hugging Face Space restart requested.')
-          PY
+          echo "Hugging Face Space deployment is disabled for this repository because the current Gradio Space hosting path is not viable for the namespace/plan in use."
+          echo "Keep this workflow manual-only until a working host and access path are confirmed."
