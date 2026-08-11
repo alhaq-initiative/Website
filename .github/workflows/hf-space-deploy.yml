@@ -31,7 +31,9 @@ jobs:
 
       - name: Deploy hf-space-chatbot to Hugging Face Space
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN || secrets.HUGGINGFACE_TOKEN || secrets.HUGGINGFACEHUB_API_TOKEN }}
+          HF_TOKEN_PRIMARY: ${{ secrets.HF_TOKEN }}
+          HF_TOKEN_ALT1: ${{ secrets.HUGGINGFACE_TOKEN }}
+          HF_TOKEN_ALT2: ${{ secrets.HUGGINGFACEHUB_API_TOKEN }}
           HF_SPACE_REPO_ID: ${{ vars.HF_SPACE_REPO_ID || 'Alhaq-HF/alhaq-website-chatbot' }}
         run: |
           python - <<'PY'
@@ -40,14 +42,26 @@ jobs:
           from huggingface_hub.errors import RepositoryNotFoundError
           from huggingface_hub import HfApi
 
-            token = os.getenv('HF_TOKEN', '')
-            # Normalize common secret formatting mistakes (quotes / trailing newlines).
-            token = token.strip().strip('"').strip("'")
+              candidates = [
+                ('HF_TOKEN', os.getenv('HF_TOKEN_PRIMARY', '')),
+                ('HUGGINGFACE_TOKEN', os.getenv('HF_TOKEN_ALT1', '')),
+                ('HUGGINGFACEHUB_API_TOKEN', os.getenv('HF_TOKEN_ALT2', '')),
+              ]
+              token_source = None
+              token = ''
+              for label, raw in candidates:
+                normalized = (raw or '').strip().strip('"').strip("'")
+                if normalized:
+                  token_source = label
+                  token = normalized
+                  break
+
           if not token:
               raise SystemExit(
                   'A Hugging Face token secret is required. Set one of: '
                   'HF_TOKEN, HUGGINGFACE_TOKEN, or HUGGINGFACEHUB_API_TOKEN.'
               )
+              print(f'Using token source: {token_source}')
 
           repo_id = os.getenv('HF_SPACE_REPO_ID', '').strip() or 'Alhaq-HF/alhaq-website-chatbot'
           source_dir = Path('hf-space-chatbot').resolve()
