@@ -40,7 +40,9 @@ jobs:
           from huggingface_hub.errors import RepositoryNotFoundError
           from huggingface_hub import HfApi
 
-          token = os.getenv('HF_TOKEN')
+            token = os.getenv('HF_TOKEN', '')
+            # Normalize common secret formatting mistakes (quotes / trailing newlines).
+            token = token.strip().strip('"').strip("'")
           if not token:
               raise SystemExit(
                   'A Hugging Face token secret is required. Set one of: '
@@ -62,9 +64,8 @@ jobs:
               print(f"Authenticated as: {user}")
               print(f"Token org memberships: {orgs}")
           except Exception as exc:  # pylint: disable=broad-except
-              raise SystemExit(
-                  'HF token authentication failed. Verify the token value and scope.'
-              ) from exc
+              print('Warning: unable to resolve token identity via whoami; continuing to repo access check.')
+              print(f'whoami error: {type(exc).__name__}: {exc}')
 
           # Update-only mode: the target Space must already exist and be accessible
           # to the provided token. This avoids accidental create attempts.
