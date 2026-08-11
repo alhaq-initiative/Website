@@ -188,6 +188,14 @@
                 research books.
               </p>
             </a>
+            <a href="publications.html" class="library-hub-tile">
+              <p class="library-hub-tile__kicker">Academic Face</p>
+              <h2 class="library-hub-tile__title">Publications</h2>
+              <p class="library-hub-tile__desc">
+                Curated booklets, essays, and research outputs presented as a
+                formal reading list.
+              </p>
+            </a>
             <a href="#media" class="library-hub-tile">
               <p class="library-hub-tile__kicker">Audio & Video</p>
               <h2 class="library-hub-tile__title">Media Hub</h2>
@@ -238,6 +246,18 @@
               Library Menu
             </h2>
             <ul class="space-y-1" role="menu">
+              <li role="none">
+                <a
+                  href="#publications"
+                  class="flex items-center gap-2 px-4 py-2 hover:bg-secondary hover:text-primary font-label-md transition-colors"
+                  role="menuitem"
+                  ><span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    aria-hidden="true"
+                    >article</span
+                  >Publications</a
+                >
+              </li>
               <li role="none">
                 <a
                   href="#quran"
@@ -302,6 +322,45 @@
           </nav>
           <!-- Main Content Area -->
           <div class="flex-1">
+            <!-- Section: Publications -->
+            <section
+              id="publications"
+              class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-8 scroll-mt-28"
+            >
+              <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                <div class="max-w-2xl">
+                  <p class="text-sm uppercase tracking-widest text-secondary font-semibold mb-2">
+                    Academic Face
+                  </p>
+                  <h2 class="text-2xl font-bold text-brand-blue mb-3">
+                    Publications
+                  </h2>
+                  <p class="text-gray-700 mb-4">
+                    The Publications page is the formal front door for the
+                    initiative's written work: translated source material,
+                    booklets, essays, and research notes presented in a more
+                    academic format than the broader Library archive.
+                  </p>
+                  <p class="text-gray-700 mb-4">
+                    Use it when you want the curated reading list; use the
+                    Library when you want the full archive across books, media,
+                    articles, and visual references.
+                  </p>
+                </div>
+                <div class="flex flex-col gap-3 min-w-0 lg:min-w-[220px]">
+                  <a
+                    href="publications.html"
+                    class="bg-brand-gold text-brand-blue font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition text-center"
+                    >Open Publications</a
+                  >
+                  <a
+                    href="library.html#books"
+                    class="bg-brand-blue text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition text-center"
+                    >Browse the Bookshelf</a
+                  >
+                </div>
+              </div>
+            </section>
             <!-- Section: Quran Hub -->
             <div
               id="quran"
@@ -412,6 +471,9 @@
                 primary-source translations, independent research booklets, and
                 historical investigations. Use the filters below to browse by
                 type.
+              </p>
+              <p class="text-sm text-gray-500 mb-4">
+                For the curated academic index, see <a href="publications.html" class="text-brand-blue underline hover:text-brand-gold">Publications</a>.
               </p>
               <!-- Type filter bar (populated by content-viewer.js when there are multiple types) -->
               <div

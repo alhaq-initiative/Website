@@ -691,6 +691,7 @@
           ).toLowerCase();
           if (name === '' || name === 'index.html') return 'home';
           if (name.includes('library')) return 'library';
+          if (name.includes('publications')) return 'publications';
           if (name.includes('help')) return 'help';
           if (name.includes('donate')) return 'donate';
           if (name.includes('contact')) return 'contact';
@@ -1280,6 +1281,9 @@
         #alhaq-chatbot-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#ffffff;}
         #alhaq-chatbot-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#475569;font:500 13px/1.4 'Inter',sans-serif;background:#f8fafc;text-align:center;padding:24px;}
         #alhaq-chatbot-loading.hidden{display:none;}
+        #alhaq-chatbot-loading.error{background:#fff7ed;color:#9a3412;}
+        #alhaq-chatbot-loading .alhaq-chatbot-retry{border:0;border-radius:10px;padding:9px 14px;background:#1d4ed8;color:#fff;font:600 13px/1.2 'Inter',sans-serif;cursor:pointer;}
+        #alhaq-chatbot-loading .alhaq-chatbot-open{color:#1d4ed8;font-weight:600;text-decoration:underline;}
         #alhaq-chatbot-loading .alhaq-spinner{width:36px;height:36px;border-radius:9999px;border:3px solid rgba(29,78,216,.18);border-top-color:#1d4ed8;animation:alhaq-spin 1s linear infinite;}
         @keyframes alhaq-spin{to{transform:rotate(360deg);}}
 
@@ -1347,7 +1351,9 @@
         <div id="alhaq-chatbot-body">
           <div id="alhaq-chatbot-loading">
             <div class="alhaq-spinner" aria-hidden="true"></div>
-            <div>Loading the Al-Haq Assistant&hellip;</div>
+            <div class="alhaq-chatbot-status">Loading the Al-Haq Assistant&hellip;</div>
+            <button type="button" class="alhaq-chatbot-retry" hidden>Retry</button>
+            <a class="alhaq-chatbot-open" href="https://huggingface.co/spaces/Alhaq-HF/alhaq-website-chatbot" target="_blank" rel="noopener" hidden>Open assistant directly</a>
           </div>
           <iframe id="alhaq-chatbot-frame" title="Al-Haq Initiative Assistant" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-write"></iframe>
         </div>
@@ -1363,17 +1369,46 @@
 
       const frame = panel.querySelector('#alhaq-chatbot-frame');
       const loading = panel.querySelector('#alhaq-chatbot-loading');
+      const status = loading.querySelector('.alhaq-chatbot-status');
+      const retry = loading.querySelector('.alhaq-chatbot-retry');
+      const directLink = loading.querySelector('.alhaq-chatbot-open');
       const expandBtn = panel.querySelector('#alhaq-chatbot-expand');
       let loaded = false;
+      let loadTimer = null;
 
       frame.addEventListener('load', function () {
-        if (loaded) loading.classList.add('hidden');
+        window.clearTimeout(loadTimer);
+        loading.classList.remove('error');
+        loading.classList.add('hidden');
       });
+      frame.addEventListener('error', showLoadError);
+
+      function showLoadError() {
+        window.clearTimeout(loadTimer);
+        loading.classList.remove('hidden');
+        loading.classList.add('error');
+        loading.querySelector('.alhaq-spinner').hidden = true;
+        status.textContent = 'The assistant is temporarily unavailable. Please retry or open it directly.';
+        retry.hidden = false;
+        directLink.hidden = false;
+      }
+
+      function loadAssistant() {
+        loading.classList.remove('hidden', 'error');
+        loading.querySelector('.alhaq-spinner').hidden = false;
+        status.textContent = 'Loading the Al-Haq Assistant…';
+        retry.hidden = true;
+        directLink.hidden = true;
+        frame.src = CHATBOT_SRC + (CHATBOT_SRC.indexOf('?') === -1 ? '?' : '&') + 'reload=' + Date.now();
+        window.clearTimeout(loadTimer);
+        loadTimer = window.setTimeout(showLoadError, 12000);
+      }
+      retry.addEventListener('click', loadAssistant);
 
       function open() {
         if (!loaded) {
-          frame.src = CHATBOT_SRC;
           loaded = true;
+          loadAssistant();
         }
         panel.classList.add('open');
         btn.classList.add('open');
