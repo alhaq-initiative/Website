@@ -140,7 +140,7 @@ html[dir='rtl'] .inline-flex .mr-1 {
 
 /* Make plain dropdown buttons neutral (avoid colorful defaults) */
 #langDropdown button {
-  color: #0a2540; /* brand blue text */
+  color: #0b532e; /* brand pine green text */
   background-color: #ffffff;
 }
 #langDropdown button:hover {

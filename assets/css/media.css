@@ -5,10 +5,10 @@ body {
   color: #333;
 }
 .bg-brand-blue {
-  background-color: #0a2540;
+  background-color: #0b532e;
 }
 .text-brand-blue {
-  color: #0a2540;
+  color: #0b532e;
 }
 .bg-brand-gold {
   background-color: #d4af37;
@@ -19,7 +19,7 @@ body {
 
 /* Hero panel */
 .media-hero-panel {
-  background: linear-gradient(140deg, #0a2540 0%, #123a62 60%, #1b4a74 100%);
+  background: linear-gradient(140deg, #0b532e 0%, #10663b 60%, #05361d 100%);
   color: #fff;
   border-radius: 1rem;
   padding: 1.1rem 1.2rem;
@@ -27,7 +27,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  box-shadow: 0 14px 34px rgba(10, 37, 64, 0.2);
+  box-shadow: 0 14px 34px rgba(5, 54, 29, 0.2);
 }
 .media-hero-panel__kicker {
   font-size: 0.72rem;
@@ -67,7 +67,7 @@ body {
 }
 .media-hero-btn--primary {
   background: #d4af37;
-  color: #0a2540;
+  color: #05361d;
 }
 .media-hero-btn--secondary {
   background: rgba(255, 255, 255, 0.14);

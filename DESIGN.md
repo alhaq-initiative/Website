@@ -7,28 +7,28 @@ The Al-Haq Initiative is the educational, historical, and community-focused arm 
 
 ## 2. Color Palette & Tonal Depth
 
-The palette relies on deep institutional blue and gold accents, structured over off-white backgrounds in light mode, and midnight navy in dark mode.
+The palette relies on Imperial Pine Green and warm gold accents, structured over clean light backgrounds in light mode, and dark pine/navy in dark mode.
 
 ### Tonal Hierarchy (Tailwind Config)
-*   **Primary:** `#0A2540` (Deep Blue) — Used for headers, primary actions, and hero sections.
+*   **Primary:** `#0B532E` (Imperial Pine Green) — Used for headers, primary actions, and hero sections.
 *   **Secondary:** `#D4AF37` (Gold) — Used for accents, badges, highlight borders, and active nav links.
-*   **Background Base:** `#f8f9fc` (Light Gray-Blue) — The main page background.
+*   **Background Base:** `#f8faf9` (Clean Mint/Off-White) — The main page background.
 *   **Surface Lowest:** `#ffffff` (White) — Used for cards and primary reading panes to lift them against the base.
-*   **Surface Low:** `#f5f7fb` — Alternate section background.
-*   **Surface High:** `#e3e8f0` — Highlight containers.
+*   **Surface Low:** `#f2f7f4` — Alternate section background.
+*   **Surface High:** `#d4e4da` — Highlight containers.
 *   **On-Surface:** `#111827` (Charcoal) — Primary text color.
 *   **On-Surface-Variant:** `#4b5563` (Muted Gray) — Secondary text/metadata.
 *   **Outline-Variant:** `#d1d5db` — Thin structural dividers.
 
 ### Dark Mode Mapping
 When the `.dark` class is applied to the root element, the tokens map as follows:
-*   **Background Base:** `#0b1220` (Midnight Navy)
-*   **Surface Lowest:** `#1e293b` (Slate Dark)
+*   **Background Base:** `#071422` / `#051f12` (Deep Dark Base)
+*   **Surface Lowest:** `#0d2238` / `#082b1a` (Dark Surface)
 *   **Surface Low:** `#0f172a` (Slate Deep)
 *   **Surface High:** `#334155` (Slate Muted)
 *   **Text Primary (`text-on-surface`):** `#f8fafc` (Off-white)
 *   **Text Secondary (`text-on-surface-variant`):** `#94a3b8` (Muted Slate)
-*   **Accent Swap:** In dark mode, `.bg-primary` and `.text-primary` map to Gold (`#D4AF37`) for readability and high contrast, using `#0A2540` as the matching text color.
+*   **Accent Swap:** In dark mode, `.bg-primary` and `.text-primary` map to Gold (`#D4AF37`) for readability and high contrast, using `#05361D` as the matching text color.
 
 ## 3. Typography
 The typography system focuses on academic readability, utilizing a classic editorial serif for titles and a crisp sans-serif for reading structure.

@@ -45,3 +45,9 @@ cypress/screenshots/
 # Local env
 .env
 .env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+

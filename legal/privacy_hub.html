@@ -1,162 +1,269 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Hub - Al-Haq Initiative</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/assets/css/components.css" />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-  </head>
-  <body class="antialiased">
-    <header id="global-header"></header>
-    <main id="main-content" role="main" tabindex="-1" class="pt-32 pb-20">
-      <section class="container mx-auto px-6 max-w-5xl">
-        <h1 class="text-4xl font-extrabold text-brand-blue mb-2">
-          Privacy Hub
-        </h1>
-        <p class="mb-6">
-          <a
-            href="/docs.html"
-            class="text-sm inline-flex items-center text-brand-blue hover:underline"
-            aria-label="Back to Legal & Documentation hub"
-            >← Back to Legal & Documentation</a
-          >
-        </p>
-        <div
-          class="glass-card p-5 mb-8 text-sm text-gray-700 border-l-4 border-brand-gold"
-        >
-          <strong>Data controller:</strong>
-          <strong>Al-Haq Studio</strong> (Al-Haq Digital Services &amp;
-          Solutions &mdash; UK sole trader), owned by
-          <strong>Afrasyaab Meranai</strong> (known casually as Habibur Rahman).
-          Al-Haq Initiative is a personal mission hosted under Al-Haq Studio and
-          is not a separate legal entity.
-        </div>
-        <p class="text-lg text-gray-700 mb-10 max-w-3xl">
-          This page centralizes privacy information for Al-Haq Initiative
-          products and services. Each product may have its own dedicated privacy
-          notice reflecting its scope and data handling model. We aim for
-          minimal data collection and a strong local-first approach.
-        </p>
-        <div class="grid md:grid-cols-2 gap-8 mb-14">
-          <div class="glass-card p-6">
-            <h2 class="text-2xl font-bold text-brand-blue mb-3">
-              General Privacy Overview
-            </h2>
-            <p class="text-gray-700 mb-4">
-              Explains our core privacy principles, data minimization,
-              local-first storage philosophy, and how we handle user feedback or
-              contact submissions.
-            </p>
-            <a
-              href="https://amnshield.com/legal/privacy/"
-              class="text-brand-gold font-semibold hover:underline"
-              >Read Overview →</a
-            >
-          </div>
-          <div class="glass-card p-6">
-            <h2 class="text-2xl font-bold text-brand-blue mb-3">
-              Why Local-First
-            </h2>
-            <p class="text-gray-700 mb-4">
-              A brief rationale for preferring on-device storage where feasible
-              to protect user intent, religious practice data, and usage
-              patterns.
-            </p>
-            <a
-              href="/docs.html#local-first"
-              class="text-brand-gold font-semibold hover:underline"
-              >Learn More →</a
-            >
-          </div>
-        </div>
 
-        <h2 class="text-2xl font-bold text-brand-blue mb-4">
-          Product Specific Privacy Notices
-        </h2>
-        <div class="overflow-x-auto">
-          <table
-            class="w-full text-left text-sm border border-gray-200 rounded-lg overflow-hidden"
-          >
-            <thead class="bg-gray-50 text-gray-700">
-              <tr>
-                <th class="py-3 px-4 font-semibold">Product / Area</th>
-                <th class="py-3 px-4 font-semibold">Privacy Document</th>
-                <th class="py-3 px-4 font-semibold">Scope</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-              <tr>
-                <td class="py-3 px-4 font-medium">Qur'an Hub / Quran Reader</td>
-                <td class="py-3 px-4 text-gray-400 italic">
-                  (No personal data stored)
-                </td>
-                <td class="py-3 px-4 text-gray-600">
-                  Static delivery, optional audio streaming.
-                </td>
-              </tr>
-              <tr>
-                <td class="py-3 px-4 font-medium">Contact & Feedback Forms</td>
-                <td class="py-3 px-4">
-                  <a
-                    href="/docs.html#forms"
-                    class="text-brand-blue hover:underline"
-                    >Form Handling</a
-                  >
-                </td>
-                <td class="py-3 px-4 text-gray-600">
-                  Transient processing via Logic Apps.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Hub · Al-Haq Initiative & Al-Haq Studio</title>
+  <meta name="description"
+    content="Unified privacy policy and zero-telemetry data commitments for Al-Haq Initiative and Al-Haq Studio software, platforms, and research utilities." />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
 
-        <div class="mt-14 grid md:grid-cols-2 gap-8">
-          <div class="glass-card p-6">
-            <h3 class="text-xl font-bold text-brand-blue mb-2">
-              Data Requests
-            </h3>
-            <p class="text-gray-700 mb-3">
-              For removal, clarification, or questions, email:
-              <a
-                href="mailto:privacy@alhaq-initiative.org"
-                class="text-brand-blue underline"
-                >privacy@alhaq-initiative.org</a
-              >
-            </p>
-            <p class="text-xs text-gray-500">
-              We typically respond within 7 business days.
-            </p>
-          </div>
-          <div class="glass-card p-6">
-            <h3 class="text-xl font-bold text-brand-blue mb-2">
-              Future Transparency
-            </h3>
-            <p class="text-gray-700 mb-3">
-              We plan to open-source relevant privacy-impacting modules and
-              expand automated transparency logs.
-            </p>
-            <p class="text-xs text-gray-500">(Roadmap subject to refinement)</p>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="bg-gray-800 text-white mt-20">
-      <div class="container mx-auto px-6 py-8 text-center">
-        <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
-        <p class="mt-2 text-sm text-gray-500">
-          © 2026 Al-Haq Studio &amp; Afrasyaab Meranai. All rights reserved.
+<body
+  class="antialiased bg-slate-50 dark:bg-[#071422] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <header id="global-header"></header>
+  <main id="main-content" role="main" tabindex="-1" class="pt-32 pb-20">
+    <section class="container mx-auto px-6 max-w-5xl">
+      <div class="mb-4">
+        <a href="/docs.html"
+          class="text-sm font-medium inline-flex items-center text-brand-blue dark:text-amber-400 hover:underline gap-1"
+          aria-label="Back to Legal and Documentation hub">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Legal &amp; Documentation Hub
+        </a>
+      </div>
+
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-blue dark:text-slate-100 mb-4 tracking-tight">
+        Privacy Hub &amp; Data Commitments
+      </h1>
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl leading-relaxed">
+        Comprehensive privacy standards, zero-telemetry architecture, and local-first data principles governing all
+        software engineered by Al-Haq Studio and distributed via the Al-Haq Initiative.
+      </p>
+
+      <!-- Legal Attribution Callout -->
+      <div
+        class="bg-amber-500/10 dark:bg-amber-500/10 border-l-4 border-amber-500 text-slate-800 dark:text-slate-200 p-6 rounded-r-2xl shadow-sm text-sm mb-10 leading-relaxed">
+        <p class="font-semibold text-amber-900 dark:text-amber-300 mb-2 uppercase tracking-wider text-xs">
+          Legal &amp; Operational Disclosure
+        </p>
+        <p>
+          Al-Haq Studio and the Al-Haq Initiative were founded by, and are wholly owned and operated by, Habibur Rahman
+          Meranai as a UK sole trader. Al-Haq Studio functions as the commercial software development studio, while the
+          Al-Haq Initiative functions as the non-profit digital welfare and historical research wing, with all software,
+          research platforms, and infrastructure engineered and maintained by Habibur Rahman Meranai through Al-Haq
+          Studio.
         </p>
       </div>
-    </footer>
-    <script src="/assets/js/site.js"></script>
-  </body>
+
+      <!-- Zero-Telemetry Architecture Cards -->
+      <h2 class="text-2xl font-bold text-brand-blue dark:text-slate-100 mb-6">
+        Core Privacy Architecture
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+          <div
+            class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            Zero-Telemetry &amp; No Tracking
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+            We do not include third-party advertising SDKs, tracking pixels, behavioral analytics, or session recording
+            scripts in our applications. User activity is never monetised, profiled, or sold to third parties.
+          </p>
+          <span
+            class="text-xs font-semibold px-2.5 py-1 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 rounded-md">
+            100% Tracking-Free
+          </span>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+          <div
+            class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            On-Device AI Inference
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+            Visual content filtering (AmniHaze via LiteRT and TensorFlow Lite) processes all video streams and images
+            directly on your local hardware. Zero screen frames, pixels, or images are transmitted across the network or
+            saved remotely.
+          </p>
+          <span
+            class="text-xs font-semibold px-2.5 py-1 bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 rounded-md">
+            On-Device Neural Models
+          </span>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+          <div
+            class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            Offline Cryptographic Licensing
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+            Supporter Pass validation uses asymmetric NIST P-256 ECDSA public key verification. License keys are
+            validated locally on the device without requiring persistent internet connections or central phone-home
+            checkpoints.
+          </p>
+          <span
+            class="text-xs font-semibold px-2.5 py-1 bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 rounded-md">
+            NIST P-256 ECDSA
+          </span>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+          <div
+            class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            Data Minimisation &amp; Ephemeral Handling
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+            Web contact forms, newsletter signups, and beta registrations collect strictly essential contact fields.
+            Submissions are processed securely for correspondence and purged in accordance with our retention policy.
+          </p>
+          <span
+            class="text-xs font-semibold px-2.5 py-1 bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 rounded-md">
+            UK GDPR Compliant
+          </span>
+        </div>
+      </div>
+
+      <!-- Product-Specific Privacy Summary Table -->
+      <h2 class="text-2xl font-bold text-brand-blue dark:text-slate-100 mb-4">
+        Product-Specific Privacy Matrix
+      </h2>
+      <div class="overflow-x-auto mb-12">
+        <table
+          class="w-full text-left text-sm border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-[#0d2238]">
+          <thead
+            class="bg-slate-100 dark:bg-[#081b2e] text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800">
+            <tr>
+              <th class="py-3.5 px-5 font-semibold">Application / Service</th>
+              <th class="py-3.5 px-5 font-semibold">Data Storage &amp; Scope</th>
+              <th class="py-3.5 px-5 font-semibold">Network &amp; Cloud Transmission</th>
+              <th class="py-3.5 px-5 font-semibold">Dedicated Notice</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+            <tr>
+              <td class="py-4 px-5 font-medium text-slate-900 dark:text-slate-100">AmnShield Suite (Android / Windows /
+                Extension)</td>
+              <td class="py-4 px-5">Local Room/SQLite DB, Preferences DataStore, custom keywords and blocklists.</td>
+              <td class="py-4 px-5">Zero network telemetry. Optional cloud sync via encrypted Supabase for Supporter
+                Pass.</td>
+              <td class="py-4 px-5">
+                <a href="https://amnishield.com/legal/privacy/" target="_blank" rel="noopener noreferrer"
+                  class="text-brand-blue dark:text-amber-400 font-semibold hover:underline">AmnShield Privacy →</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-medium text-slate-900 dark:text-slate-100">AmniHaze Suite (Android / Extension)
+              </td>
+              <td class="py-4 px-5">On-device LiteRT and TensorFlow Lite model weights. No image storage.</td>
+              <td class="py-4 px-5">100% offline inference. Zero screen frames or captured camera pixels transmitted.
+              </td>
+              <td class="py-4 px-5">
+                <a href="https://amnishield.com/legal/privacy/" target="_blank" rel="noopener noreferrer"
+                  class="text-brand-blue dark:text-amber-400 font-semibold hover:underline">AmniHaze Policy →</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-medium text-slate-900 dark:text-slate-100">Al-Haq Hub (Mobile &amp; Web
+                Platform)</td>
+              <td class="py-4 px-5">Local prayer calculation parameters, bookmarks, and UI preferences.</td>
+              <td class="py-4 px-5">Calculations computed on-device. No location histories or user identifiers tracked.
+              </td>
+              <td class="py-4 px-5">
+                <a href="/legal/alhaq-hub_docs/alhaq-hub_privacy_policy.html"
+                  class="text-brand-blue dark:text-amber-400 font-semibold hover:underline">Hub Policy →</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-medium text-slate-900 dark:text-slate-100">Quran Reader &amp; Islamic Library
+              </td>
+              <td class="py-4 px-5">Local reading position, audio reciter preferences, font sizing.</td>
+              <td class="py-4 px-5">Static content delivery. No personal reading history collected or monitored.</td>
+              <td class="py-4 px-5 text-slate-400 italic">Static Local-First</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-medium text-slate-900 dark:text-slate-100">Contact &amp; Feedback Submissions
+              </td>
+              <td class="py-4 px-5">Transient email address, sender name, and inquiry content.</td>
+              <td class="py-4 px-5">Processed over TLS directly to secure customer service inbox.</td>
+              <td class="py-4 px-5">
+                <a href="/docs.html" class="text-brand-blue dark:text-amber-400 font-semibold hover:underline">Docs Hub
+                  →</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Rights and Legal Controller -->
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            Your Rights (UK GDPR / DPA 2018)
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+            Under UK and European data protection legislation, you have the right to request access to, rectification
+            of, or erasure of any personal data you have provided via our communications channels.
+          </p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Direct all privacy inquiries to: <a href="mailto:privacy@alhaq-initiative.org"
+              class="text-brand-blue dark:text-amber-400 underline font-medium">privacy@alhaq-initiative.org</a>
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            Data Controller Contact
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-2 leading-relaxed">
+            <strong>Controller:</strong> Habibur Rahman Meranai (trading as Al-Haq Studio &amp; Al-Haq Initiative).
+          </p>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+            <strong>Official Enquiries:</strong> <a href="mailto:contact@alhaq-initiative.org"
+              class="text-brand-blue dark:text-amber-400 underline">contact@alhaq-initiative.org</a> or <a
+              href="mailto:legal@alhaq.uk" class="text-brand-blue dark:text-amber-400 underline">legal@alhaq.uk</a>.
+          </p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Responses are typically provided within 7 business days.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 dark:bg-[#050e18] border-t border-slate-800 text-slate-400 py-10 mt-16">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-sm font-semibold text-slate-200 dark:text-slate-200 mb-1">
+        Al-Haq Initiative &amp; Al-Haq Studio
+      </p>
+      <p class="text-xs text-slate-400">
+        © 2026 Al-Haq Initiative &amp; Al-Haq Studio (Habibur Rahman Meranai). All rights reserved.
+      </p>
+    </div>
+  </footer>
+  <script src="/assets/js/site.js"></script>
+</body>
+
 </html>

@@ -5,10 +5,10 @@ body {
   color: #333;
 }
 .bg-brand-blue {
-  background-color: #0a2540;
+  background-color: #0b532e;
 }
 .text-brand-blue {
-  color: #0a2540;
+  color: #0b532e;
 }
 .bg-brand-gold {
   background-color: #d4af37;
@@ -28,7 +28,7 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #0b532e, #d4af37);
 }
 
 /* Quick-access overview tiles */
@@ -65,7 +65,7 @@ body {
 .library-hub-tile__title {
   font-size: 1rem;
   font-weight: 800;
-  color: #0a2540;
+  color: #0b532e;
   margin-bottom: 0.25rem;
 }
 .library-hub-tile__desc {
@@ -96,7 +96,7 @@ body {
 }
 .library-stream-card__title {
   font-size: 0.95rem;
-  color: #0a2540;
+  color: #0b532e;
   font-weight: 700;
   margin-bottom: 0.2rem;
 }
@@ -123,7 +123,7 @@ body {
 .library-topic-card__title,
 .library-info-card__title {
   font-size: 0.92rem;
-  color: #0a2540;
+  color: #0b532e;
   font-weight: 700;
   margin-bottom: 0.2rem;
 }

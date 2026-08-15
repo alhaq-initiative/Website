@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help & FAQ — Al-Haq Initiative</title>
-    <meta name="theme-color" content="#0A2540" />
+    <title>Help &amp; Support — Al-Haq Initiative</title>
+    <meta name="description" content="Official Help & Support knowledgebase for Al-Haq Initiative: FAQs, academic research guidance, Quran Hub reader, technical support, and direct contact channels." />
+    <meta name="theme-color" content="#0B532E" />
 
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
@@ -37,17 +38,20 @@
         theme: {
           extend: {
             colors: {
-              primary: '#0A2540',
+              primary: '#0B532E',
+              'primary-container': '#10663B',
               secondary: '#D4AF37',
-              'surface-container': '#edf0f6',
+              'surface-container': '#e5efe8',
               'on-surface': '#111827',
               'on-surface-variant': '#4b5563',
-              background: '#f8f9fc',
+              background: '#f8faf9',
             },
             fontFamily: {
               display: ['Source Serif 4', 'Georgia', 'serif'],
+              headline: ['Source Serif 4', 'Georgia', 'serif'],
               body: ['Inter', 'sans-serif'],
               label: ['Inter', 'sans-serif'],
+              arabic: ['Amiri', 'serif'],
             },
             spacing: {
               'container-max': '1280px',
@@ -59,369 +63,373 @@
       };
     </script>
     <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
       body {
-        background-color: #f8f9fc;
+        background-color: #f8faf9;
         color: #111827;
+      }
+      html.dark body {
+        background-color: #071422;
+        color: #f8fafc;
+      }
+      .faq-answer {
+        transition: max-height 0.35s ease-out, opacity 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        opacity: 1;
+      }
+      .faq-item.active .faq-chevron {
+        transform: rotate(180deg);
+      }
+      .faq-chevron {
+        transition: transform 0.3s ease;
       }
     </style>
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/help.css" />
   </head>
-  <body class="font-body text-body-md antialiased bg-background">
+  <body class="font-body text-base antialiased bg-background dark:bg-[#071422] transition-colors duration-300">
     <header id="global-header"></header>
-    <main class="pt-32 pb-20 bg-gray-50 min-h-screen">
-      <section class="fade-in-section">
-        <div class="container mx-auto px-6 text-center max-w-2xl">
-          <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-4">
-            Help & FAQ
+
+    <main class="pt-32 pb-24 min-h-screen">
+      <section class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <!-- Hero Header -->
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h1 class="text-4xl sm:text-5xl font-display font-extrabold text-[#0B532E] dark:text-slate-100 mb-4 tracking-tight">
+            Help &amp; Support
           </h1>
-          <p class="text-lg text-gray-700 mb-8">
-            Find answers to common questions and get help with our services.
+          <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            Find answers to common questions regarding our academic research, digital welfare tools, Quran Hub reader, and direct support channels.
           </p>
-          <div class="glass-card p-6 text-left shadow-lg">
-            <h2 id="faqHeading" class="text-2xl font-bold text-brand-blue mb-4">
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative max-w-xl mx-auto mb-8">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-2xl">search</span>
+          <input type="text" id="faq-search"
+            placeholder="Search FAQs (e.g. Quran Hub, donations, author, offline)..."
+            class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-700/80 text-slate-900 dark:text-slate-100 placeholder-slate-400 shadow-xs focus:border-[#0B532E] dark:focus:border-amber-400 focus:ring-2 focus:ring-emerald-500/20 transition outline-none text-base" />
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="category-filters">
+          <button type="button" data-filter="all"
+            class="category-btn active px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-[#0B532E] dark:bg-amber-400 text-white dark:text-[#071422] shadow-xs">
+            All Questions
+          </button>
+          <button type="button" data-filter="about"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#0B532E] dark:hover:border-amber-400">
+            About &amp; Entity
+          </button>
+          <button type="button" data-filter="products"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#0B532E] dark:hover:border-amber-400">
+            Products &amp; Library
+          </button>
+          <button type="button" data-filter="quran"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#0B532E] dark:hover:border-amber-400">
+            Quran Hub
+          </button>
+          <button type="button" data-filter="donations"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#0B532E] dark:hover:border-amber-400">
+            Donations
+          </button>
+          <button type="button" data-filter="contact"
+            class="category-btn px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-[#0B532E] dark:hover:border-amber-400">
+            Contact &amp; Privacy
+          </button>
+        </div>
+
+        <!-- Foundership Disclosure Box -->
+        <div class="bg-amber-500/10 dark:bg-amber-500/10 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-xs text-sm mb-10 leading-relaxed">
+          <p class="font-bold text-amber-900 dark:text-amber-300 mb-1 text-xs uppercase tracking-wider">
+            Operational Disclosure
+          </p>
+          <p class="text-slate-800 dark:text-slate-200 font-medium">
+            Al-Haq Studio and the Al-Haq Initiative were founded by, and are wholly owned and operated by, <strong>Habibur Rahman Meranai</strong> as a UK sole trader. Al-Haq Studio functions as the commercial software development studio, while the Al-Haq Initiative functions as the non-profit digital welfare and historical research wing, with all software, research platforms, and infrastructure engineered and maintained by Habibur Rahman Meranai through Al-Haq Studio.
+          </p>
+        </div>
+
+        <!-- FAQ Container -->
+        <div class="glass-card bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+            <h2 id="faqHeading" class="text-2xl font-bold text-[#0B532E] dark:text-slate-100 font-headline">
               Frequently Asked Questions
             </h2>
-            <!-- About Al-Haq Studio & Initiative -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">
-              About Al-Haq Initiative
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                What is Al-Haq Initiative?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Al-Haq Initiative (مبادرة الحق) is a personal initiative for
-                &ldquo;Seeking the Truth&rdquo; &mdash; truth in history and
-                protection in the present. It publishes free academic research,
-                booklets, and digital tools. Learn more on the
-                <a
-                  href="about.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >About</a
-                >
-                page.
-              </p>
+            <span id="faq-count" class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">14 questions</span>
+          </div>
+
+          <div class="space-y-4" id="faq-list">
+
+            <!-- Category: About & Entity -->
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="about">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">What is Al-Haq Initiative?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Al-Haq Initiative (مبادرة الحق) is a personal initiative for &ldquo;Seeking the Truth&rdquo;, focusing on truth in history and ethical protection in the present digital age. It publishes open academic research, booklets, and free digital tools. Learn more on our <a href="about.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">About page</a>.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Who runs Al-Haq Initiative?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                <strong>Afrasyaab Meranai</strong> &mdash; known casually as
-                <strong>Habibur Rahman</strong> &mdash; is the sole founder,
-                developer, and writer. He owns and operates both
-                <strong>Al-Haq Studio</strong> (his UK sole-trader business) and
-                the Al-Haq Initiative brand.
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="about">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">Who runs the Al-Haq Initiative?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Al-Haq Studio and the Al-Haq Initiative were founded by, and are wholly owned and operated by, <strong>Habibur Rahman Meranai</strong> as a UK sole trader. Al-Haq Studio functions as the commercial software development studio, while the Al-Haq Initiative functions as the non-profit digital welfare and historical research wing, with all software, research platforms, and infrastructure engineered and maintained by Habibur Rahman Meranai through Al-Haq Studio.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Is Al-Haq Initiative a charity, non-profit, or organization?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                No. Al-Haq Initiative is <strong>not</strong> a charity,
-                non-profit, NGO, or registered organization. It is a personal
-                effort hosted under <strong>Al-Haq Studio</strong> (Al-Haq
-                Digital Services &amp; Solutions &mdash; UK sole trader). The
-                founder may later convert it into a registered organization, but
-                that has not happened yet.
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="about">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">Is the Al-Haq Initiative a charity, non-profit, or registered organisation?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                No. The Al-Haq Initiative is <strong>not</strong> a registered charity, non-profit, or NGO. It is a personal digital welfare initiative operated under <strong>Al-Haq Studio</strong> (UK sole trader).
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                What is Al-Haq Studio?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Al-Haq Studio is the founder&rsquo;s UK sole-trader business. It
-                builds and delivers all software, products, and professional
-                services associated with Al-Haq Initiative (web development,
-                security, infrastructure, custom Islamic apps, consulting). See
-                .
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="about">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">Who writes the academic and literary publications?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                All academic and literary work, including <em>Faith Sellers (بائعي القدر)</em>, <em>Lessons from Islamic Civilisation</em>, and <em>The Caretaker’s Guide</em>, is authored personally by <strong>Habibur Rahman Meranai</strong>.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Who writes the academic and literary work?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                All academic and literary work &mdash; including
-                <em>Faith Sellers (بائعي القدر)</em>,
-                <em>Lessons from Islamic Civilization</em>, and
-                <em>The Caretaker&rsquo;s Guide</em> &mdash; is authored
-                personally by the founder. It is not corporate output of Al-Haq
-                Studio.
-              </p>
+
+            <!-- Category: Products & Library -->
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="products">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">What is the difference between Products and Projects/Services?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                The <a href="products.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Products</a> page lists digital tools available today (such as Al-Haq Hub, AmnShield, and TaleemAI). The <a href="services.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Services &amp; Projects</a> page details our technical consulting offerings and long-term academic research portfolio.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Products &amp; Services vs Projects &mdash; what&rsquo;s the
-                difference?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                lists what is <strong>available today</strong>.
-                <a
-                  href="services.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Projects</a
-                >
-                is the portfolio of ongoing research and future missions that
-                are not yet released.
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="products">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">How can I access the digital library? Is it completely free?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Yes, all research papers, infographics, and books in the <a href="library.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Library</a> are freely accessible without subscription or paywalls.
+              </div>
             </div>
-            <!-- Library -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">Library</h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                How can I access the library? Is it free?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Yes, all infographics and most resources in the Library are
-                freely accessible to all users. Visit the
-                <a
-                  href="library.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Library</a
-                >
-                page to explore the available content.
-              </p>
+
+            <!-- Category: Quran Hub -->
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="quran">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">How do I use Quran Hub and listen to recitations?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Open <a href="quran.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Quran Hub</a>, select a surah, and use the reader toolbar to jump between ayahs, adjust typography, bookmark your last session, read translations, and listen to recitations.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                How do I access the Quran and Hadith sections?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Go to the
-                <a
-                  href="library.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Library</a
-                >
-                page and select the Quran or Hadith section to explore
-                translations, tafsir, and authentic collections.
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="quran">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">Can I install Quran Hub on my phone or desktop? Does it work offline?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Yes. Quran Hub is an installable Progressive Web App (PWA). On Chrome, Edge, or Android, click the install prompt in the address bar. On iPhone/iPad, open Safari and select <em>Add to Home Screen</em>. Core reading assets are cached locally for offline reading.
+              </div>
             </div>
-            <!-- Usage -->
-            <h3
-              id="quranhub-support"
-              class="text-xl font-bold text-brand-blue mt-6 mb-2"
-            >
-              Quran Hub
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                How do I use Quran Hub?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Open
-                <a
-                  href="quran.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Quran Hub</a
-                >, choose a surah, then use the reading controls to jump to an
-                ayah, change font size, resume your last session, browse
-                translations, and listen to recitation.
-              </p>
+
+            <!-- Category: Donations -->
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="donations">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">How can I support or sponsor the initiative?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Visit the <a href="donate.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Donate page</a> for voluntary sponsorship channels, including Ko-fi and GitHub Sponsors.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Can I use Quran Hub on Windows, phone, and browsers?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Yes. Quran Hub works across desktop browsers, Windows laptops,
-                Android phones, iPhone, iPad, and tablets. Chrome and Edge
-                usually offer the best install-as-app experience on desktop and
-                Android. On iPhone and iPad, use Safari and choose
-                <span class="font-semibold">Add to Home Screen</span> from the
-                Share menu for an app-like experience.
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="donations">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">Where do sponsorships and donations go?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                Sponsorships are received as sole-trader income by founder <strong>Habibur Rahman Meranai</strong> under <strong>Al-Haq Studio</strong>. They are <strong>not</strong> tax-deductible charity contributions. The founder commits to allocating these funds directly toward server hosting, content translation, and free digital welfare software.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Can I install Quran Hub like an app?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                If your browser supports it, Quran Hub can be installed as a web
-                app. On Windows, Edge and Chrome usually provide the cleanest
-                app window and taskbar shortcut. On iPhone and iPad, open
-                <a
-                  href="quran.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Quran Hub</a
-                >
-                in Safari, tap Share, then choose
-                <span class="font-semibold">Add to Home Screen</span>.
-              </p>
+
+            <!-- Category: Media Policy -->
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="about">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">What is your media policy regarding music?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                All media in our Historical Media series is strictly <strong>acapella / vocal-only</strong> with zero musical instrumentation. Learn more on our <a href="media.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Media Hub</a>.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Does Quran Hub work offline?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Core Quran Hub reader assets are cached after use so returning
-                visits are faster and basic reading support remains available
-                offline. For the best experience, open the page once while
-                connected before relying on offline access.
-              </p>
+
+            <!-- Category: Contact & Privacy -->
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="contact">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">How do I report a bug or submit feedback?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                You can send an enquiry directly via our <a href="contact.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Contact page</a> or file an issue on the open-source <a href="https://github.com/alhaq-initiative" target="_blank" rel="noopener noreferrer" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">GitHub Organization</a>.
+              </div>
             </div>
-            <!-- Donations -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">
-              Donations &amp; Sponsorship
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                How can I donate or sponsor the work?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Visit the
-                <a
-                  href="donate.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Donate</a
-                >
-                page for available channels, including Ko-fi and GitHub
-                Sponsors.
-              </p>
+
+            <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs transition" data-category="contact">
+              <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none bg-slate-50/50 dark:bg-[#0a1b2d]/50">
+                <span class="font-semibold text-[#0B532E] dark:text-slate-100 faq-q text-base">How is user privacy protected across your tools?</span>
+                <span class="material-symbols-outlined faq-chevron text-[#D4AF37] dark:text-amber-400 text-2xl shrink-0">expand_more</span>
+              </button>
+              <div class="faq-answer px-4 sm:px-5 pb-5 pt-2 text-slate-700 dark:text-slate-300 faq-a text-sm leading-relaxed">
+                All Al-Haq digital tools strictly practice data minimisation and zero-knowledge architecture. No personal data, tracking cookies, or browsing history are ever stored or sold. Review our full <a href="legal/privacy_hub.html" class="text-[#0B532E] dark:text-amber-400 font-semibold underline">Privacy Policy</a>.
+              </div>
             </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Where do donations actually go?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Donations and sponsorships are received as personal income by
-                the founder under his UK sole trader,
-                <strong>Al-Haq Studio</strong> (Al-Haq Digital Services &amp;
-                Solutions &mdash; UK sole trader). They are
-                <strong>not</strong> tax-deductible and they do
-                <strong>not</strong> go to a charity or registered organization.
-                The founder commits, as a Muslim, to spend that income on Al-Haq
-                Initiative projects.
-              </p>
-            </div>
-            <div class="mb-4 faq-item"></div>
-            <!-- Media policy -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">
-              Media Policy
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Do you publish music?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                No. Our Historical Media series is
-                <strong>acapella / vocal-only</strong>. We do not publish
-                instrumental music. See the
-                <a
-                  href="media.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Media Hub</a
-                >.
-              </p>
-            </div>
-            <!-- Contact & Support -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">
-              Contact & Support
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                How do I contact you for support or collaboration?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Use the
-                <a
-                  href="contact.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Contact</a
-                >
-                page, or click the floating button on the bottom right corner of
-                the webpage, to send us a message directly.
-              </p>
-            </div>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                How do I report a bug or suggest a feature?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Please use the
-                <a
-                  href="contact.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Contact</a
-                >
-                page or email us with details about the bug or your suggestion.
-                We appreciate your feedback!
-              </p>
-            </div>
-            <!-- Privacy & Data -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">
-              Privacy & Data
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Is my data safe?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Yes, we take privacy seriously and do not share your data with
-                third parties. All information is handled securely. For more
-                details, see our
-                <a
-                  href="contact.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Contact</a
-                >
-                page to reach out with privacy concerns.
-              </p>
-            </div>
-            <!-- Features & Updates -->
-            <h3 class="text-xl font-bold text-brand-blue mt-6 mb-2">
-              Features & Updates
-            </h3>
-            <div class="mb-4 faq-item">
-              <h4 class="font-semibold text-brand-blue faq-q">
-                Are there plans to add more books or features?
-              </h4>
-              <p class="text-gray-700 faq-a">
-                Yes, we are continuously working to expand our
-                <a
-                  href="library.html"
-                  class="text-brand-blue underline hover:text-brand-gold"
-                  >Library</a
-                >
-                and add new features. Stay tuned for updates!
-              </p>
-            </div>
-            <!-- Still Need Help? -->
-            <div
-              class="mt-8 p-4 bg-yellow-50 border-l-4 border-brand-gold rounded-lg flex flex-col items-start"
-            >
-              <h3 class="text-lg font-bold text-brand-blue mb-2">
-                Haven't found your answer?
+
+          </div>
+
+          <!-- Empty Search State -->
+          <div id="no-results" class="hidden text-center py-10">
+            <span class="material-symbols-outlined text-4xl text-slate-400 mb-2">search_off</span>
+            <h3 class="text-lg font-bold text-[#0B532E] dark:text-slate-200">No matching questions found</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Try adjusting your search terms or reach out directly.</p>
+          </div>
+
+          <!-- Still Need Help Box -->
+          <div class="mt-8 p-5 bg-emerald-50 dark:bg-[#0a1e30] border-l-4 border-[#0B532E] dark:border-amber-400 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h3 class="text-base font-bold text-[#0B532E] dark:text-slate-100 mb-1">
+                Haven't found what you're looking for?
               </h3>
-              <p class="text-gray-700 mb-2">
-                Still need help? Find answers to your questions here and get
-                help if needed.
+              <p class="text-sm text-slate-600 dark:text-slate-300">
+                Reach out directly for specialized support or academic research inquiries.
               </p>
-              <a
-                href="contact.html"
-                class="inline-block bg-brand-gold text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 transition"
-                >Contact Us for Support</a
-              >
+            </div>
+            <a href="contact.html"
+              class="inline-flex items-center gap-2 bg-[#0B532E] hover:bg-[#10663B] text-white text-xs font-bold uppercase tracking-wider py-3 px-5 rounded-xl transition shrink-0 shadow-xs">
+              <span>Contact Support</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier C: Direct Support & Contact Channels -->
+        <div class="mt-16">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-[#0B532E] dark:text-slate-100 mb-3 tracking-tight">
+              Direct Support &amp; Contact
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+              Access direct channels for academic inquiries, bug reporting, or software assistance.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Channel 1: Technical & General Support -->
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs flex flex-col justify-between hover:border-[#0B532E] dark:hover:border-amber-400 transition">
+              <div>
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-[#0B532E] dark:text-amber-400 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-2xl">support_agent</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#0B532E] dark:text-slate-100 mb-2">Technical &amp; General</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                  Assistance with Quran Hub reader, library downloads, and general welfare tools.
+                </p>
+              </div>
+              <a href="mailto:support@alhaq-initiative.org"
+                class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0B532E] dark:text-amber-400 hover:underline">
+                <span>support@alhaq-initiative.org</span>
+                <span class="material-symbols-outlined text-sm">mail</span>
+              </a>
+            </div>
+
+            <!-- Channel 2: Commercial Software Studio -->
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs flex flex-col justify-between hover:border-[#0B532E] dark:hover:border-amber-400 transition">
+              <div>
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-2xl">terminal</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#0B532E] dark:text-slate-100 mb-2">Studio &amp; Licensing</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                  Bespoke development consulting, offline ECDSA licensing, and commercial software desk.
+                </p>
+              </div>
+              <a href="https://alhaq.uk/help.html"
+                class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 hover:underline">
+                <span>Studio Help Desk</span>
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
+            </div>
+
+            <!-- Channel 3: Issue Tracker & Repositories -->
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs flex flex-col justify-between hover:border-[#0B532E] dark:hover:border-amber-400 transition">
+              <div>
+                <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-2xl">bug_report</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#0B532E] dark:text-slate-100 mb-2">Issue Tracker</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                  Submit bug reports, request features, and inspect open-source tools on GitHub.
+                </p>
+              </div>
+              <a href="https://github.com/alhaq-initiative" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 hover:underline">
+                <span>GitHub Repositories</span>
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Email Directory Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-2xs">
+              <span class="font-bold text-[#0B532E] dark:text-slate-200 uppercase tracking-wider block mb-1">General Info</span>
+              <a href="mailto:info@alhaq-initiative.org" class="text-slate-600 dark:text-amber-400 hover:underline break-all">info@alhaq-initiative.org</a>
+            </div>
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-2xs">
+              <span class="font-bold text-[#0B532E] dark:text-slate-200 uppercase tracking-wider block mb-1">Contact</span>
+              <a href="mailto:contact@alhaq-initiative.org" class="text-slate-600 dark:text-amber-400 hover:underline break-all">contact@alhaq-initiative.org</a>
+            </div>
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-2xs">
+              <span class="font-bold text-[#0B532E] dark:text-slate-200 uppercase tracking-wider block mb-1">Technical Support</span>
+              <a href="mailto:support@alhaq-initiative.org" class="text-slate-600 dark:text-amber-400 hover:underline break-all">support@alhaq-initiative.org</a>
+            </div>
+            <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-2xs">
+              <span class="font-bold text-[#0B532E] dark:text-slate-200 uppercase tracking-wider block mb-1">Studio / Legal</span>
+              <a href="mailto:contact@alhaq.uk" class="text-slate-600 dark:text-amber-400 hover:underline break-all">contact@alhaq.uk</a>
             </div>
           </div>
         </div>
-      </section>
-    </main>
-    <footer class="bg-gray-800 text-white mt-20">
-      <div class="container mx-auto px-6 py-8 text-center">
-        <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
-        <p class="mt-2 text-gray-400">
+
+    <footer class="bg-slate-900 dark:bg-[#050e18] text-slate-300 py-12 border-t border-slate-800">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-xl font-bold text-white font-headline">Al-Haq Initiative</h3>
+        <p class="mt-2 text-sm text-slate-400">
           Building a Digital Future, Rooted in Faith.
         </p>
         <div class="mt-6 flex justify-center space-x-4">
           <a
             href="https://www.youtube.com/@AlhaqDigital"
-            class="text-gray-400 hover:text-white transition"
+            class="text-slate-400 hover:text-white transition"
             aria-label="YouTube"
             title="Subscribe on YouTube"
             target="_blank"
@@ -433,7 +441,7 @@
           ></a>
           <a
             href="https://x.com/@AlhaqD7396"
-            class="text-gray-400 hover:text-white transition"
+            class="text-slate-400 hover:text-white transition"
             aria-label="X.com"
             title="Follow us on X.com"
             target="_blank"
@@ -444,13 +452,84 @@
               /></svg
           ></a>
         </div>
-        <p class="mt-8 text-sm text-gray-500">
-          &copy; 2026 Al-Haq Studio &amp; Afrasyaab Meranai. All rights
+        <p class="mt-8 text-xs text-slate-500">
+          &copy; 2026 Al-Haq Initiative &amp; Al-Haq Studio (Habibur Rahman Meranai). All rights
           reserved.
         </p>
       </div>
     </footer>
+
     <script src="assets/js/site.js"></script>
     <script src="assets/js/help.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(function (item) {
+          const toggleBtn = item.querySelector('.faq-toggle');
+          if (toggleBtn) {
+            toggleBtn.addEventListener('click', function () {
+              const isActive = item.classList.contains('active');
+              faqItems.forEach(function (other) {
+                if (other !== item) other.classList.remove('active');
+              });
+              item.classList.toggle('active', !isActive);
+            });
+          }
+        });
+
+        // Search & Category Filter
+        const searchInput = document.getElementById('faq-search');
+        const filterBtns = document.querySelectorAll('.category-btn');
+        const noResults = document.getElementById('no-results');
+        const faqCount = document.getElementById('faq-count');
+        let currentFilter = 'all';
+
+        function applyFilters() {
+          const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+          let visible = 0;
+
+          faqItems.forEach(function (item) {
+            const cat = item.getAttribute('data-category') || '';
+            const text = item.textContent.toLowerCase();
+            const matchesCat = currentFilter === 'all' || cat === currentFilter;
+            const matchesQuery = !query || text.includes(query);
+
+            if (matchesCat && matchesQuery) {
+              item.style.display = 'block';
+              visible++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          if (faqCount) {
+            faqCount.textContent = visible + (visible === 1 ? ' question' : ' questions');
+          }
+          if (noResults) {
+            if (visible === 0) noResults.classList.remove('hidden');
+            else noResults.classList.add('hidden');
+          }
+        }
+
+        filterBtns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            filterBtns.forEach(b => {
+              b.classList.remove('active', 'bg-[#0B532E]', 'dark:bg-amber-400', 'text-white', 'dark:text-[#071422]');
+              b.classList.add('bg-white', 'dark:bg-[#0d2238]', 'text-slate-600', 'dark:text-slate-300');
+            });
+            btn.classList.add('active', 'bg-[#0B532E]', 'dark:bg-amber-400', 'text-white', 'dark:text-[#071422]');
+            btn.classList.remove('bg-white', 'dark:bg-[#0d2238]', 'text-slate-600', 'dark:text-slate-300');
+            currentFilter = btn.getAttribute('data-filter') || 'all';
+            applyFilters();
+          });
+        });
+
+        if (searchInput) {
+          searchInput.addEventListener('input', applyFilters);
+        }
+      });
+    </script>
   </body>
 </html>
+

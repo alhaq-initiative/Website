@@ -1,10 +1,10 @@
-﻿# Book 02 — The Chronicles of the Faith Sellers (بائعي القدر)
+# Book 02 — The Chronicles of the Faith Sellers (بائعي القدر)
 
 Long-term translation and cross-referencing project on the history of Sultan
 Ṣalāḥ ad-Dīn al-Ayyūbī, validated against contemporary Arabic chroniclers
 (Ibn Shaddād, Ibn al-Athīr, Ibn Khallikān).
 
-Authored personally by **Afrasyaab Meranai (Habibur Rahman)** as part of the
+Authored personally by **Habibur Rahman Meranai** as part of the
 Al-Haq Initiative. This folder is the **canonical source** for the chapters
 that the website renders.
 
@@ -81,6 +81,6 @@ carefully — anything you hand-edited in the repo will be lost.
 
 ## Attribution
 
-Authored by **Afrasyaab Meranai (Habibur Rahman)**.
+Authored by **Habibur Rahman Meranai**.
 Delivered via the Al-Haq Initiative under **Al-Haq Studio**
-(_Al-Haq Digital Services & Solutions_ — UK sole trader).
+(UK sole trader).

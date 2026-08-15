@@ -5,10 +5,10 @@ body {
   color: #333;
 }
 .bg-brand-blue {
-  background-color: #0a2540;
+  background-color: #0b532e;
 }
 .text-brand-blue {
-  color: #0a2540;
+  color: #0b532e;
 }
 .bg-brand-gold {
   background-color: #d4af37;
@@ -28,6 +28,7 @@ body {
     rgba(255, 255, 255, 0.95),
     rgba(255, 255, 255, 0.9)
   );
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid rgba(212, 175, 55, 0.2);
 }
@@ -42,10 +43,10 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #0b532e, #d4af37);
 }
 .islamic-footer {
-  background: linear-gradient(135deg, #2d3748, #1a202c);
+  background: linear-gradient(135deg, #0b532e, #05361d);
   border-top: 3px solid #d4af37;
 }
 .islamic-card {
@@ -56,6 +57,7 @@ body {
   );
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
+  box-shadow: 0 8px 32px rgba(5, 54, 29, 0.1);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }

@@ -91,7 +91,7 @@
       pathLower.startsWith('/legal/shield_docs/');
     if (!skipGlobalNav) {
       try {
-        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(229,231,235,0.9);">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Al-Haq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Al-Haq_Logo.png" alt="Al-Haq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Al-Haq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Projects</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="quran.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Quran Hub</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & FAQ</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation" style="display:none;">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Projects</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="quran.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Quran Hub</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & FAQ</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
+        const NAV_HTML = `\n<header id="site-global-header" class="islamic-header bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200 transition-all duration-300" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(229,231,235,0.9);">\n  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">\n    <a href="index.html" class="flex items-center space-x-2" aria-label="Al-Haq Initiative Home">\n      <div class="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200">\n        <img src="assets/images/Initiative-Logo.png" alt="Al-Haq Initiative Logo" class="h-full w-full object-cover" />\n      </div>\n      <span class="text-lg md:text-xl font-bold text-brand-blue">Al-Haq Initiative</span>\n    </a>\n    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-brand-blue focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">\n      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">\n        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />\n      </svg>\n    </button>\n    <nav class="hidden md:flex items-center justify-between flex-1 pl-6" aria-label="Primary">\n      <ul class="flex space-x-1" role="menubar">\n        <li role="none"><a role="menuitem" href="index.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Home</a></li>\n        <li role="none"><a role="menuitem" href="about.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">About</a></li>\n        <li role="none"><a role="menuitem" href="services.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Projects</a></li>\n        <li role="none"><a role="menuitem" href="library.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Library</a></li>\n        <li role="none"><a role="menuitem" href="quran.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Quran Hub</a></li>\n        <li role="none"><a role="menuitem" href="help.html" class="nav-link px-3 py-2 text-gray-800 font-medium hover:text-brand-gold transition rounded-md">Help & Support</a></li>\n      </ul>\n      <div class="flex items-center space-x-2 ml-4">\n        <a href="contact.html" class="bg-brand-gold text-brand-blue font-medium py-2 px-4 rounded-lg hover:bg-yellow-400 transition shadow-sm text-sm">Contact</a>\n        <a href="donate.html" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition shadow-sm text-sm">Donate</a>\n      </div>\n    </nav>\n    <div id="mobile-menu" class="hidden w-full md:hidden mt-3 py-2" aria-label="Mobile Primary Navigation" style="display:none;">\n      <nav>\n        <ul class="flex flex-col space-y-1">\n          <li><a href="index.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Home</a></li>\n          <li><a href="about.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">About</a></li>\n          <li><a href="services.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Projects</a></li>\n          <li><a href="library.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Library</a></li>\n          <li><a href="quran.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Quran Hub</a></li>\n          <li><a href="help.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Help & Support</a></li>\n          <li><a href="contact.html" class="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md">Contact</a></li>\n          <li><a href="donate.html" class="px-4 py-2 text-green-600 font-medium hover:bg-gray-100 rounded-md">Donate</a></li>\n        </ul>\n      </nav>\n    </div>\n  </div>\n</header>`;
         const already = document.getElementById('site-global-header');
         if (!already) {
           const placeholder = document.getElementById('global-header');
@@ -292,7 +292,7 @@
               cursor: 'pointer',
               border: '1px solid rgba(212,175,55,0.5)',
               background: 'rgba(255,255,255,0.9)',
-              color: '#0A2540',
+              color: '#0B532E',
               fontWeight: '700',
               backdropFilter: 'blur(8px)',
               boxShadow: '0 6px 16px rgba(0,0,0,0.12)',
@@ -959,7 +959,7 @@
             background: 'rgba(255,255,255,0.9)',
             backdropFilter: 'blur(8px)',
             boxShadow: '0 6px 16px rgba(0,0,0,0.12)',
-            color: '#0A2540',
+            color: '#0B532E',
             fontWeight: '700',
           });
           btn.textContent = findLang(initialLang).short;
@@ -996,7 +996,7 @@
               border: 'none',
               background: 'transparent',
               cursor: 'pointer',
-              color: '#0A2540',
+              color: '#0B532E',
               fontWeight: '600',
             });
             item.innerHTML = `<span>${l.label}</span><span style="opacity:.7;font-size:12px;">${l.short}</span>`;
@@ -1093,7 +1093,7 @@
             legal.style.marginTop = '0.75rem';
             legal.style.fontSize = '0.75rem';
             legal.style.textAlign = 'center';
-            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> &middot; <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> &middot; <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> &middot; <a href="/support_hub.html" style="color:#e5e7eb;text-decoration:underline;">Support Hub</a>`;
+            legal.innerHTML = `<a href="/legal/docs.html" style="color:#e5e7eb;text-decoration:underline;">Legal / Docs Hub</a> &middot; <a href="/legal/privacy_hub.html" style="color:#e5e7eb;text-decoration:underline;">Privacy Hub</a> &middot; <a href="/legal/terms_hub.html" style="color:#e5e7eb;text-decoration:underline;">Terms Hub</a> &middot; <a href="/help.html" style="color:#e5e7eb;text-decoration:underline;">Help & Support</a>`;
             footer.appendChild(legal);
           }
           // Baseline privacy/terms if the footer does not already contain obvious links (skip AmnShield which has its own detailed set)
@@ -1211,11 +1211,100 @@
   });
 })();
 
+
+// --- Unified Logic App form submission handler (Name/Email/Message) ---
+// Some pages include lightweight feedback/contact forms that were submitting
+// as urlencoded with inconsistent field casing, resulting in empty values in
+// the Azure Logic App (JSON schema mismatch). We intercept and send clean JSON.
+(function initLogicAppForms() {
+  const LOGIC_APP_SIGNATURE = 'workflows/2a3b358e4c614e2aaeb81efadcf9fa42';
+  function extractValue(map, keys) {
+    for (const k of keys) {
+      if (map.has(k)) return map.get(k).value.trim();
+    }
+    return '';
+  }
+  function bindForm(form) {
+    if (form.dataset.logicBound) return; // already processed
+    form.dataset.logicBound = 'true';
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const inputs = Array.from(form.querySelectorAll('input,textarea'));
+      const byName = new Map();
+      inputs.forEach(el => {
+        if (el.name) byName.set(el.name.toLowerCase(), el);
+      });
+      // Honeypot (spam) field named 'website' (common pattern) â€“ abort silently if filled
+      if (byName.get('website') && byName.get('website').value.trim() !== '') {
+        return;
+      }
+      const name = extractValue(byName, ['name', 'fullname']);
+      const email = extractValue(byName, ['email', 'e-mail']);
+      const message = extractValue(byName, ['message', 'msg', 'feedback']);
+      const source = form.getAttribute('data-source') || location.pathname;
+      // Visual feedback elements
+      let statusEl = form.querySelector('.form-status');
+      if (!statusEl) {
+        statusEl = document.createElement('div');
+        statusEl.className = 'form-status text-sm mt-1';
+        form.appendChild(statusEl);
+      }
+      const submitBtn = form.querySelector(
+        'button[type="submit"],input[type="submit"]'
+      );
+      const origBtnText = submitBtn
+        ? submitBtn.textContent || submitBtn.value
+        : '';
+      function setState(txt, color) {
+        if (statusEl) {
+          statusEl.textContent = txt;
+          statusEl.style.color = color || 'inherit';
+        }
+      }
+      try {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add('opacity-60', 'pointer-events-none');
+          if (submitBtn.textContent) submitBtn.textContent = 'Sending...';
+        }
+        setState('Sending...', 'gray');
+        const payload = {
+          Name: name,
+          Email: email,
+          Message: message,
+          Source: source,
+          Agent: navigator.userAgent,
+        };
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        setState('Submitted successfully. JazakAllahu khairan.', 'green');
+        form.reset();
+      } catch (err) {
+        console.error('Form submit failed', err);
+        setState('Submission failed. Please retry later.', 'red');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-60', 'pointer-events-none');
+          if (submitBtn.textContent) submitBtn.textContent = origBtnText;
+        }
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    document
+      .querySelectorAll('form[action*="' + LOGIC_APP_SIGNATURE + '"]')
+      .forEach(bindForm);
+  });
+})();
+
 /* ============================================================
-   Al-Haq Initiative AI Chatbot — floating launcher + iframe
-   Embeds the Hugging Face Space Alhaq-HF/alhaq-website-chatbot.
-   Skipped on AmnShield/legacy shield surfaces (they have their
-   own shells). Configurable via window.ALHAQ_CHATBOT_URL.
+   Al-Haq Initiative AI Chatbot — floating launcher + panel
+   Uses native AlHaqChatbotEngine for serverless inference.
    ============================================================ */
 (function () {
   'use strict';
@@ -1230,19 +1319,9 @@
     if (window.__alhaqChatbotInjected) return;
     window.__alhaqChatbotInjected = true;
 
-    const CHATBOT_URL =
-      window.ALHAQ_CHATBOT_URL ||
-      'https://alhaq-hf-alhaq-website-chatbot.hf.space';
-    const CHATBOT_SRC =
-      CHATBOT_URL +
-      (CHATBOT_URL.indexOf('?') === -1 ? '?' : '&') +
-      '__theme=light&context=alhaq-initiative';
-
     function inject() {
       if (document.getElementById('alhaq-chatbot-launcher')) return;
 
-      // If the page already has a fixed bottom-right action (e.g. #feedback-btn),
-      // stack the chat launcher above it instead of overlapping.
       const stacked = !!document.querySelector('#feedback-btn');
 
       const style = document.createElement('style');
@@ -1277,15 +1356,32 @@
         #alhaq-chatbot-header .alhaq-actions button:hover{background:rgba(255,255,255,.18);}
         #alhaq-chatbot-header .alhaq-actions svg{width:18px;height:18px;}
 
-        #alhaq-chatbot-body{flex:1;position:relative;background:#ffffff;}
-        #alhaq-chatbot-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#ffffff;}
-        #alhaq-chatbot-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#475569;font:500 13px/1.4 'Inter',sans-serif;background:#f8fafc;text-align:center;padding:24px;}
-        #alhaq-chatbot-loading.hidden{display:none;}
-        #alhaq-chatbot-loading.error{background:#fff7ed;color:#9a3412;}
-        #alhaq-chatbot-loading .alhaq-chatbot-retry{border:0;border-radius:10px;padding:9px 14px;background:#1d4ed8;color:#fff;font:600 13px/1.2 'Inter',sans-serif;cursor:pointer;}
-        #alhaq-chatbot-loading .alhaq-chatbot-open{color:#1d4ed8;font-weight:600;text-decoration:underline;}
-        #alhaq-chatbot-loading .alhaq-spinner{width:36px;height:36px;border-radius:9999px;border:3px solid rgba(29,78,216,.18);border-top-color:#1d4ed8;animation:alhaq-spin 1s linear infinite;}
-        @keyframes alhaq-spin{to{transform:rotate(360deg);}}
+        #alhaq-chatbot-body{flex:1;position:relative;background:#f8fafc;display:flex;flex-direction:column;min-height:0;overflow:hidden;}
+        #alhaq-chat-messages{flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;}
+        .alhaq-chat-msg{display:flex;flex-direction:column;max-width:88%;font:14px/1.5 'Inter',sans-serif;}
+        .alhaq-chat-msg.bot{align-self:flex-start;}
+        .alhaq-chat-msg.user{align-self:flex-end;}
+        .alhaq-chat-bubble{padding:10px 14px;border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05);position:relative;}
+        .alhaq-chat-msg.bot .alhaq-chat-bubble{background:#ffffff;border:1px solid #e2e8f0;color:#0f172a;}
+        .alhaq-chat-msg.user .alhaq-chat-bubble{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:#ffffff;}
+        .alhaq-chat-msg.user .alhaq-chat-bubble *{color:#ffffff !important;}
+        .alhaq-chat-link{color:#1d4ed8;font-weight:700;text-decoration:underline;text-underline-offset:2px;}
+        .alhaq-chat-msg.user .alhaq-chat-link{color:#fde68a !important;}
+        .alhaq-chat-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+        .alhaq-chat-chip{background:#eff6ff;color:#1e3a8a;border:1px solid #bfdbfe;padding:6px 12px;border-radius:9999px;font:600 12px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .15s ease;}
+        .alhaq-chat-chip:hover{background:#dbeafe;}
+        .alhaq-chat-audio-btn{background:transparent;border:none;cursor:pointer;color:#64748b;padding:2px 4px;font-size:12px;display:inline-flex;align-items:center;gap:3px;margin-top:4px;opacity:.8;transition:opacity .15s ease;}
+        .alhaq-chat-audio-btn:hover{opacity:1;color:#1d4ed8;}
+        #alhaq-chat-form{padding:10px 12px;background:#ffffff;border-top:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;}
+        #alhaq-chat-input{flex:1;border:1.5px solid #cbd5e1;border-radius:10px;padding:9px 12px;font:14px 'Inter',sans-serif;outline:none;background:#ffffff;color:#0f172a;}
+        #alhaq-chat-input:focus{border-color:#1d4ed8;box-shadow:0 0 0 2px rgba(29,78,216,.15);}
+        #alhaq-chat-send-btn{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);border:none;color:#ffffff;padding:9px 14px;border-radius:10px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+        #alhaq-chat-send-btn svg{width:18px;height:18px;}
+        .alhaq-chat-typing{display:inline-flex;gap:4px;align-items:center;padding:4px 0;}
+        .alhaq-chat-typing span{width:6px;height:6px;border-radius:9999px;background:#94a3b8;animation:alhaq-bounce 1.4s infinite ease-in-out both;}
+        .alhaq-chat-typing span:nth-child(1){animation-delay:-0.32s;}
+        .alhaq-chat-typing span:nth-child(2){animation-delay:-0.16s;}
+        @keyframes alhaq-bounce{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
 
         #alhaq-chatbot-footer{padding:10px 14px;border-top:1px solid rgba(15,23,42,.08);background:#fff;color:#475569;font:500 12px/1.4 'Inter',sans-serif;display:flex;align-items:center;justify-content:space-between;gap:8px;}
         #alhaq-chatbot-footer a{color:#1d4ed8;text-decoration:none;font-weight:600;}
@@ -1311,6 +1407,112 @@
       `;
       document.head.appendChild(style);
 
+      (function injectJSONLD() {
+        if (document.getElementById('alhaq-jsonld-schema')) return;
+        const script = document.createElement('script');
+        script.id = 'alhaq-jsonld-schema';
+        script.type = 'application/ld+json';
+        const schemaData = {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://alhaq-initiative.org/#organization",
+              "name": "Al-Haq Studio",
+              "alternateName": "Al-Haq Digital Services & Solutions",
+              "url": "https://alhaq.uk",
+              "logo": "https://alhaq-initiative.org/assets/images/Initiative-Logo.png",
+              "founder": {
+                "@type": "Person",
+                "name": "Habibur Rahman Meranai"
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://alhaq-initiative.org/#website",
+              "url": "https://alhaq-initiative.org",
+              "name": "Al-Haq Initiative",
+              "publisher": { "@id": "https://alhaq-initiative.org/#organization" }
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Al-Haq Hub",
+              "operatingSystem": "Android, Web",
+              "applicationCategory": "ProductivityApplication",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+              "author": { "@id": "https://alhaq-initiative.org/#organization" }
+            }
+          ]
+        };
+        script.textContent = JSON.stringify(schemaData);
+        document.head.appendChild(script);
+      })();
+
+      function getPageChips() {
+        const p = (location.pathname || '').toLowerCase();
+        if (p.includes('quran')) {
+          return [
+            { label: "How does Quran Hub work?", query: "How does Quran Hub work?" },
+            { label: "TaleemAI Recitation Feedback", query: "What is TaleemAI Quran feedback?" },
+            { label: "Quran Features", query: "What features are in Quran Hub?" }
+          ];
+        }
+        if (p.includes('library') || p.includes('infographic') || p.includes('media') || p.includes('publication')) {
+          return [
+            { label: "Available Books", query: "What books are available in the Library?" },
+            { label: "Faith Sellers Translation", query: "Tell me about Faith Sellers book" },
+            { label: "Nawadir al-Usul Research", query: "What is Nawadir al-Usul?" }
+          ];
+        }
+        if (p.includes('alhaq-hub') || p.includes('products')) {
+          return [
+            { label: "Al-Haq Hub Features", query: "What features are in Al-Haq Hub?" },
+            { label: "Join Android Beta", query: "How do I join the Al-Haq Hub beta?" },
+            { label: "Is Al-Haq Hub free?", query: "Is Al-Haq Hub free to use?" }
+          ];
+        }
+        if (p.includes('donate') || p.includes('support')) {
+          return [
+            { label: "Support the Founder", query: "How can I support the founder's work?" },
+            { label: "Is this a charity?", query: "Is Al-Haq Initiative a charity?" },
+            { label: "Stripe & GitHub Sponsors", query: "How can I donate via Stripe or GitHub Sponsors?" }
+          ];
+        }
+        if (p.includes('contact') || p.includes('help')) {
+          return [
+            { label: "Contact Al-Haq Studio", query: "How do I contact Al-Haq Studio?" },
+            { label: "Submit Feedback or Bug", query: "How do I submit feedback or report a bug?" },
+            { label: "Who is the Founder?", query: "Who is Habibur Rahman Meranai?" }
+          ];
+        }
+        return [
+          { label: "What is Al-Haq Initiative?", query: "What is the Al-Haq Initiative?" },
+          { label: "Al-Haq Hub & AmnShield", query: "Tell me about Al-Haq Hub & AmnShield" },
+          { label: "Support & Donate", query: "How can I support or donate?" }
+        ];
+      }
+
+      const SESSION_KEY = 'alhaq_chat_session_v1';
+      function saveSession(messages) {
+        try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(messages)); } catch (_) {}
+      }
+      function loadSession() {
+        try {
+          const raw = sessionStorage.getItem(SESSION_KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (_) {}
+        return null;
+      }
+      function clearSession() {
+        try { sessionStorage.removeItem(SESSION_KEY); } catch (_) {}
+      }
+
+      if (!window.AlHaqChatbotEngine) {
+        const engineScript = document.createElement('script');
+        engineScript.src = '/assets/js/chatbot-engine.js';
+        document.head.appendChild(engineScript);
+      }
+
       const btn = document.createElement('button');
       btn.id = 'alhaq-chatbot-launcher';
       btn.type = 'button';
@@ -1326,6 +1528,8 @@
       tip.id = 'alhaq-chatbot-tip';
       tip.textContent = 'Ask the Al-Haq Assistant';
 
+      const pageChipsHtml = getPageChips().map(c => `<button type="button" class="alhaq-chat-chip" data-query="${c.query}">${c.label}</button>`).join('');
+
       const panel = document.createElement('div');
       panel.id = 'alhaq-chatbot-panel';
       panel.setAttribute('role', 'dialog');
@@ -1337,9 +1541,12 @@
           </div>
           <div class="alhaq-meta">
             <span class="alhaq-title">Al-Haq Assistant</span>
-            <span class="alhaq-sub">Online &middot; Multilingual</span>
+            <span class="alhaq-sub">Online &middot; Native Serverless</span>
           </div>
           <div class="alhaq-actions">
+            <button type="button" id="alhaq-chatbot-clear" aria-label="Clear chat history" title="Clear chat">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+            </button>
             <button type="button" id="alhaq-chatbot-expand" aria-label="Expand or shrink chatbot" title="Expand">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
             </button>
@@ -1349,16 +1556,26 @@
           </div>
         </div>
         <div id="alhaq-chatbot-body">
-          <div id="alhaq-chatbot-loading">
-            <div class="alhaq-spinner" aria-hidden="true"></div>
-            <div class="alhaq-chatbot-status">Loading the Al-Haq Assistant&hellip;</div>
-            <button type="button" class="alhaq-chatbot-retry" hidden>Retry</button>
-            <a class="alhaq-chatbot-open" href="https://huggingface.co/spaces/Alhaq-HF/alhaq-website-chatbot" target="_blank" rel="noopener" hidden>Open assistant directly</a>
+          <div id="alhaq-chat-messages">
+            <div class="alhaq-chat-msg bot">
+              <div class="alhaq-chat-bubble">
+                <p style="margin:0 0 6px;">Assalamu alaikum! I am the <strong>Al-Haq Assistant</strong>.</p>
+                <p style="margin:0 0 8px;">How can I guide you across our tools, research, and applications today?</p>
+                <div class="alhaq-chat-chips">
+                  ${pageChipsHtml}
+                </div>
+              </div>
+            </div>
           </div>
-          <iframe id="alhaq-chatbot-frame" title="Al-Haq Initiative Assistant" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-write"></iframe>
+          <form id="alhaq-chat-form">
+            <input type="text" id="alhaq-chat-input" placeholder="Ask a question..." autocomplete="off" />
+            <button type="submit" id="alhaq-chat-send-btn" aria-label="Send">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
         </div>
         <div id="alhaq-chatbot-footer">
-          <span>Powered by Al-Haq Studio</span>
+          <span>Developed by Al-Haq Studio</span>
           <a href="/contact.html">Need a human?</a>
         </div>
       `;
@@ -1367,55 +1584,135 @@
       document.body.appendChild(tip);
       document.body.appendChild(panel);
 
-      const frame = panel.querySelector('#alhaq-chatbot-frame');
-      const loading = panel.querySelector('#alhaq-chatbot-loading');
-      const status = loading.querySelector('.alhaq-chatbot-status');
-      const retry = loading.querySelector('.alhaq-chatbot-retry');
-      const directLink = loading.querySelector('.alhaq-chatbot-open');
+      const msgContainer = panel.querySelector('#alhaq-chat-messages');
+      const chatForm = panel.querySelector('#alhaq-chat-form');
+      const chatInput = panel.querySelector('#alhaq-chat-input');
       const expandBtn = panel.querySelector('#alhaq-chatbot-expand');
-      let loaded = false;
-      let loadTimer = null;
+      const clearBtn = panel.querySelector('#alhaq-chatbot-clear');
 
-      frame.addEventListener('load', function () {
-        window.clearTimeout(loadTimer);
-        loading.classList.remove('error');
-        loading.classList.add('hidden');
+      let currentHistory = loadSession() || [];
+
+      function renderHistory() {
+        if (!currentHistory.length) return;
+        msgContainer.innerHTML = '';
+        for (const item of currentHistory) {
+          appendMessageUI(item.text, item.isUser, false);
+        }
+      }
+
+      function appendMessageUI(text, isUser = false, save = true) {
+        const row = document.createElement('div');
+        row.className = 'alhaq-chat-msg ' + (isUser ? 'user' : 'bot');
+        const bubble = document.createElement('div');
+        bubble.className = 'alhaq-chat-bubble';
+        bubble.innerHTML = text;
+
+        if (!isUser) {
+          const audioBtn = document.createElement('button');
+          audioBtn.type = 'button';
+          audioBtn.className = 'alhaq-chat-audio-btn';
+          audioBtn.innerHTML = '🔊 Read Aloud';
+          audioBtn.addEventListener('click', function () {
+            if (window.speechSynthesis) {
+              window.speechSynthesis.cancel();
+              const cleanText = text.replace(/<[^>]+>/g, '');
+              const u = new SpeechSynthesisUtterance(cleanText);
+              window.speechSynthesis.speak(u);
+            }
+          });
+          bubble.appendChild(audioBtn);
+        }
+
+        row.appendChild(bubble);
+        msgContainer.appendChild(row);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+
+        if (save) {
+          currentHistory.push({ text, isUser });
+          saveSession(currentHistory);
+        }
+        return row;
+      }
+
+      renderHistory();
+
+      function showTypingIndicator() {
+        const row = document.createElement('div');
+        row.id = 'alhaq-chat-typing-row';
+        row.className = 'alhaq-chat-msg bot';
+        row.innerHTML = '<div class="alhaq-chat-bubble"><div class="alhaq-chat-typing"><span></span><span></span><span></span></div></div>';
+        msgContainer.appendChild(row);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+      }
+
+      function removeTypingIndicator() {
+        const el = document.getElementById('alhaq-chat-typing-row');
+        if (el) el.remove();
+      }
+
+      async function handleUserSend(text) {
+        const queryText = (text || chatInput.value || '').trim();
+        if (!queryText) return;
+        chatInput.value = '';
+
+        appendMessageUI(queryText.replace(/</g, '&lt;'), true);
+        showTypingIndicator();
+
+        try {
+          let responseHtml = '';
+          if (window.AlHaqChatbotEngine) {
+            responseHtml = await window.AlHaqChatbotEngine.query(queryText);
+          } else {
+            responseHtml = '<p>The assistant engine is initializing. Please try again in a moment.</p>';
+          }
+          removeTypingIndicator();
+          appendMessageUI(responseHtml, false);
+        } catch (err) {
+          removeTypingIndicator();
+          appendMessageUI('<p>The assistant hit a temporary error. Please try again or visit our <a href="/contact.html" class="alhaq-chat-link">Contact</a> page.</p>', false);
+        }
+      }
+
+      chatForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        handleUserSend();
       });
-      frame.addEventListener('error', showLoadError);
 
-      function showLoadError() {
-        window.clearTimeout(loadTimer);
-        loading.classList.remove('hidden');
-        loading.classList.add('error');
-        loading.querySelector('.alhaq-spinner').hidden = true;
-        status.textContent = 'The assistant is temporarily unavailable. Please retry or open it directly.';
-        retry.hidden = false;
-        directLink.hidden = false;
-      }
+      panel.addEventListener('click', function (e) {
+        if (e.target && e.target.classList.contains('alhaq-chat-chip')) {
+          const queryText = e.target.getAttribute('data-query');
+          if (queryText) handleUserSend(queryText);
+        }
+      });
 
-      function loadAssistant() {
-        loading.classList.remove('hidden', 'error');
-        loading.querySelector('.alhaq-spinner').hidden = false;
-        status.textContent = 'Loading the Al-Haq Assistant…';
-        retry.hidden = true;
-        directLink.hidden = true;
-        frame.src = CHATBOT_SRC + (CHATBOT_SRC.indexOf('?') === -1 ? '?' : '&') + 'reload=' + Date.now();
-        window.clearTimeout(loadTimer);
-        loadTimer = window.setTimeout(showLoadError, 12000);
-      }
-      retry.addEventListener('click', loadAssistant);
+      clearBtn.addEventListener('click', function () {
+        clearSession();
+        currentHistory = [];
+        msgContainer.innerHTML = `
+          <div class="alhaq-chat-msg bot">
+            <div class="alhaq-chat-bubble">
+              <p style="margin:0 0 6px;">Assalamu alaikum! History cleared.</p>
+              <p style="margin:0 0 8px;">How can I guide you today?</p>
+              <div class="alhaq-chat-chips">
+                ${pageChipsHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      });
 
       function open() {
-        if (!loaded) {
-          loaded = true;
-          loadAssistant();
-        }
         panel.classList.add('open');
         btn.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
         btn.setAttribute('aria-label', 'Close Al-Haq Assistant chatbot');
         btn.innerHTML = ICON_CLOSE;
+        if (window.AlHaqChatbotEngine) {
+          window.AlHaqChatbotEngine.getIndex();
+        }
+        setTimeout(() => chatInput.focus(), 150);
       }
+
       function close() {
         panel.classList.remove('open');
         btn.classList.remove('open');
@@ -1423,13 +1720,16 @@
         btn.setAttribute('aria-label', 'Open Al-Haq Assistant chatbot');
         btn.innerHTML = ICON_CHAT;
       }
+
       btn.addEventListener('click', function () {
         if (panel.classList.contains('open')) close();
         else open();
       });
+
       panel
         .querySelector('#alhaq-chatbot-close')
         .addEventListener('click', close);
+
       expandBtn.addEventListener('click', function () {
         panel.classList.toggle('expanded');
         expandBtn.setAttribute(
@@ -1437,6 +1737,7 @@
           panel.classList.contains('expanded') ? 'Shrink' : 'Expand'
         );
       });
+
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && panel.classList.contains('open')) close();
       });

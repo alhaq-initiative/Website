@@ -628,7 +628,7 @@ function clearAyahHighlight() {
               Object.assign(tip.style, {
                 position: 'fixed',
                 maxWidth: '260px',
-                background: '#0A2540',
+                background: '#0B532E',
                 color: '#fff',
                 padding: '8px 10px',
                 fontSize: '12px',
@@ -906,13 +906,13 @@ function clearAyahHighlight() {
     function setAudioStatus(msg, ok = true) {
       if (audioStatus) {
         audioStatus.textContent = msg;
-        audioStatus.style.color = ok ? '#0A2540' : '#b91c1c';
+        audioStatus.style.color = ok ? '#0B532E' : '#b91c1c';
       }
     }
     function setHifzStatus(msg, ok = true) {
       if (hifzStatusEl) {
         hifzStatusEl.textContent = msg;
-        hifzStatusEl.style.color = ok ? '#0A2540' : '#b91c1c';
+        hifzStatusEl.style.color = ok ? '#0B532E' : '#b91c1c';
       }
     }
     function setNowPlaying(msg) {
@@ -1379,7 +1379,7 @@ function clearAyahHighlight() {
       bar.style.gap = '8px';
       bar.style.alignItems = 'center';
       bar.style.fontSize = '12px';
-      bar.innerHTML = `<span style="font-weight:600;color:#0A2540">Quick Access:</span>`;
+      bar.innerHTML = `<span style="font-weight:600;color:#0B532E">Quick Access:</span>`;
       // Surah select clone
       const sClone = originalSurah.cloneNode(true);
       sClone.id = 'fs-surah-select';
@@ -1407,7 +1407,7 @@ function clearAyahHighlight() {
       close.title = 'Close fullscreen';
       close.setAttribute('aria-label', 'Exit fullscreen');
       close.style.cssText =
-        'background:#0A2540;color:#fff;font-weight:600;border:none;width:28px;height:28px;line-height:28px;text-align:center;border-radius:8px;cursor:pointer';
+        'background:#0B532E;color:#fff;font-weight:600;border:none;width:28px;height:28px;line-height:28px;text-align:center;border-radius:8px;cursor:pointer';
       close.addEventListener('click', () => exitFullscreen());
       bar.appendChild(close);
       document.body.appendChild(bar);

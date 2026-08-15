@@ -7,10 +7,10 @@ body {
 
 /* Define brand colors for Tailwind */
 .bg-brand-blue {
-  background-color: #0a2540;
+  background-color: #0b532e;
 }
 .text-brand-blue {
-  color: #0a2540;
+  color: #0b532e;
 }
 .bg-brand-gold {
   background-color: #d4af37;
@@ -116,7 +116,7 @@ body {
     ),
     radial-gradient(
       circle at 75% 75%,
-      rgba(10, 37, 64, 0.1) 0%,
+      rgba(11, 83, 46, 0.1) 0%,
       transparent 50%
     );
 }
@@ -134,7 +134,7 @@ body {
   left: -4px;
   right: -4px;
   bottom: -4px;
-  background: linear-gradient(45deg, #d4af37, #0a2540, #d4af37);
+  background: linear-gradient(45deg, #d4af37, #0b532e, #d4af37);
   border-radius: 16px;
   z-index: -1;
 }
@@ -147,14 +147,14 @@ body {
   );
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
+  box-shadow: 0 8px 32px rgba(5, 54, 29, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
 .islamic-button {
   background: linear-gradient(135deg, #d4af37, #b8941f);
-  border: 2px solid #0a2540;
+  border: 2px solid #0b532e;
   border-radius: 25px;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
   transition: all 0.3s ease;
@@ -178,7 +178,7 @@ body {
 }
 
 .islamic-hero {
-  background: linear-gradient(135deg, #0a2540, #1a365d);
+  background: linear-gradient(135deg, #0b532e, #05361d);
   position: relative;
   overflow: hidden;
 }
@@ -216,16 +216,16 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #0b532e, #d4af37);
 }
 
 .islamic-footer {
-  background: linear-gradient(135deg, #2d3748, #1a202c);
+  background: linear-gradient(135deg, #0b532e, #05361d);
   border-top: 3px solid #d4af37;
 }
 
 .islamic-text-shadow {
-  text-shadow: 2px 2px 4px rgba(10, 37, 64, 0.3);
+  text-shadow: 2px 2px 4px rgba(5, 54, 29, 0.3);
 }
 
 .islamic-glow {
@@ -433,7 +433,7 @@ body {
   justify-content: center;
   font-size: 0.74rem;
   font-weight: 700;
-  color: #0a2540;
+  color: #05361d;
   background: #f4ecd0;
   border: 1px solid rgba(212, 175, 55, 0.45);
   border-radius: 999px;
@@ -443,7 +443,19 @@ body {
 
 .product-chip-link:hover {
   background: #d4af37;
-  color: #0a2540;
+  color: #05361d;
   border-color: #d4af37;
   transform: translateY(-1px);
 }
+
+/* Decorative dot grids */
+.dot-grid-white {
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dot-grid-black {
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+

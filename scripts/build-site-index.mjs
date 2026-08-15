@@ -38,6 +38,7 @@ const PAGES = [
   'docs.html',
   'golden-speech.html',
   'amnshield_join_beta.html',
+  'publications.html',
   'legal/docs.html',
   'legal/privacy_hub.html',
   'legal/terms_hub.html',
@@ -64,15 +65,19 @@ const PAGE_META = {
     url: '/quranhub.html',
     title: 'Quran Hub (Al-Haq Hub feature)',
   },
-  'help.html': { url: '/help.html', title: 'Help & FAQ' },
+  'help.html': { url: '/help.html', title: 'Help & Support' },
   'contact.html': { url: '/contact.html', title: 'Contact' },
   'donate.html': { url: '/donate.html', title: 'Donate / Sponsor' },
-  'support_hub.html': { url: '/support_hub.html', title: 'Support Hub' },
+  'support_hub.html': { url: '/help.html', title: 'Help & Support' },
   'docs.html': { url: '/docs.html', title: 'Docs' },
   'golden-speech.html': { url: '/golden-speech.html', title: 'Golden Speech' },
   'amnshield_join_beta.html': {
     url: '/amnshield_join_beta.html',
     title: 'AmnShield Beta Signup',
+  },
+  'publications.html': {
+    url: '/publications.html',
+    title: 'Publications',
   },
   'legal/docs.html': { url: '/legal/docs.html', title: 'Legal & Docs' },
   'legal/privacy_hub.html': {
@@ -97,10 +102,10 @@ const TRANSLATION_PAGE_MAP = {
     url: '/alhaq-hub-join-beta.html',
     title: 'Al-Haq Hub Beta Signup',
   },
-  help: { url: '/help.html', title: 'Help & FAQ' },
+  help: { url: '/help.html', title: 'Help & Support' },
   contact: { url: '/contact.html', title: 'Contact' },
   donate: { url: '/donate.html', title: 'Donate / Sponsor' },
-  support: { url: '/support_hub.html', title: 'Support Hub' },
+  support: { url: '/help.html', title: 'Help & Support' },
   docs: { url: '/docs.html', title: 'Docs' },
   'golden-speech': { url: '/golden-speech.html', title: 'Golden Speech' },
   privacy: { url: '/legal/privacy_hub.html', title: 'Privacy Hub' },
@@ -183,6 +188,33 @@ async function main() {
     console.log(`[ok]   ${rel} -> ${chunks.length} chunk(s)`);
   }
 
+  // Index Library Books metadata if available
+  const LIB_DATA_PATH = path.join(REPO_ROOT, 'assets', 'data', 'library-books.json');
+  try {
+    const libRaw = await fs.readFile(LIB_DATA_PATH, 'utf8');
+    const libData = JSON.parse(libRaw);
+    if (libData && libData.books) {
+      let bookCount = 0;
+      for (const [key, b] of Object.entries(libData.books)) {
+        const text = `Book: ${b.title || key} (${b.subtitle || ''}). Author: ${b.author || ''}. ${b.description || ''} ${b.attribution || ''}`;
+        const chunks = chunkText(text, 600, 480);
+        chunks.forEach((c, idx) => {
+          records.push({
+            id: `library-book/${key}#${idx}`,
+            page: `Library — ${b.title || key}`,
+            url: `${SITE_BASE}/library.html`,
+            lang: 'en',
+            text: c,
+          });
+        });
+        bookCount++;
+      }
+      console.log(`[lib]  Indexed ${bookCount} book entry(s) into site index.`);
+    }
+  } catch (err) {
+    console.warn(`[skip] library-books.json: ${err.message}`);
+  }
+
   // Translations: walk assets/Translations/<folder>/<lang>.json and add chunks.
   const T_ROOT = path.join(REPO_ROOT, 'assets', 'Translations');
   let folders = [];
@@ -244,18 +276,112 @@ async function main() {
     }
   }
 
+  // Canonical list of valid site URLs for link sanitization and validation
+  const valid_urls = Array.from(new Set([
+    `${SITE_BASE}/`,
+    ...Object.values(PAGE_META).map(m => `${SITE_BASE}${m.url}`),
+    'https://amnishield.com',
+    'https://amnishield.com/download/',
+    'https://amnishield.com/faq/',
+    'https://amnishield.com/support/',
+    'https://amnishield.com/docs/',
+  ]));
+
   const payload = {
     generated_at: new Date().toISOString(),
     site_base: SITE_BASE,
+    valid_urls,
     chunk_count: records.length,
     chunks: records,
   };
 
-  await fs.mkdir(path.dirname(OUT_PATH), { recursive: true });
-  await fs.writeFile(OUT_PATH, JSON.stringify(payload), 'utf8');
-  console.log(
-    `\nWrote ${records.length} chunks to ${path.relative(REPO_ROOT, OUT_PATH)}`
-  );
+  // ── Multi-Repo Crawling: Studio & AmnShield ───────────────────────────────
+  // 1. Studio Site (sibling directory at ../Studio-site)
+  const STUDIO_ROOT = path.resolve(REPO_ROOT, '..', 'Studio-site');
+  const STUDIO_BASE = 'https://alhaq.uk';
+  const STUDIO_PAGES = [
+    { rel: 'index.html', url: '/', title: 'Al-Haq Studio — Home' },
+    { rel: 'amnshield_join_beta.html', url: '/amnshield_join_beta.html', title: 'Al-Haq Studio — AmnShield Beta Signup' }
+  ];
+
+  for (const p of STUDIO_PAGES) {
+    const abs = path.join(STUDIO_ROOT, p.rel);
+    try {
+      const html = await fs.readFile(abs, 'utf8');
+      const text = stripHtmlToText(html);
+      const chunks = chunkText(text);
+      chunks.forEach((c, idx) => {
+        records.push({
+          id: `studio/${p.rel}#${idx}`,
+          page: p.title,
+          url: STUDIO_BASE + p.url,
+          lang: 'en',
+          text: c,
+        });
+      });
+      console.log(`[studio] ${p.rel} -> ${chunks.length} chunk(s)`);
+    } catch (err) {
+      console.warn(`[skip studio] ${p.rel}: ${err.message}`);
+    }
+  }
+
+  // 2. AmnShield Site (sibling directory at ../../AmnShield/Amnshield-site or ../Amnshield-site)
+  let AMNSHIELD_ROOT = path.resolve(REPO_ROOT, '..', '..', 'AmnShield', 'Amnshield-site');
+  try {
+    await fs.access(AMNSHIELD_ROOT);
+  } catch {
+    AMNSHIELD_ROOT = path.resolve(REPO_ROOT, '..', 'Amnshield-site');
+  }
+  const AMNSHIELD_BASE = 'https://amnishield.com';
+  const AMNSHIELD_PAGES = [
+    { rel: 'index.html', url: '/', title: 'AmnShield — Home' },
+    { rel: 'download/index.html', url: '/download/', title: 'AmnShield — Download' },
+    { rel: 'faq/index.html', url: '/faq/', title: 'AmnShield — FAQ' },
+    { rel: 'support/index.html', url: '/support/', title: 'AmnShield — Support' },
+    { rel: 'docs/index.html', url: '/docs/', title: 'AmnShield — Documentation' },
+    { rel: 'legal/privacy/index.html', url: '/legal/privacy/', title: 'AmnShield — Privacy Policy' },
+    { rel: 'legal/terms/index.html', url: '/legal/terms/', title: 'AmnShield — Terms of Service' },
+  ];
+
+  for (const p of AMNSHIELD_PAGES) {
+    const abs = path.join(AMNSHIELD_ROOT, p.rel);
+    try {
+      const html = await fs.readFile(abs, 'utf8');
+      const text = stripHtmlToText(html);
+      const chunks = chunkText(text);
+      chunks.forEach((c, idx) => {
+        records.push({
+          id: `amnshield/${p.rel}#${idx}`,
+          page: p.title,
+          url: AMNSHIELD_BASE + p.url,
+          lang: 'en',
+          text: c,
+        });
+      });
+      console.log(`[amnshield] ${p.rel} -> ${chunks.length} chunk(s)`);
+    } catch (err) {
+      console.warn(`[skip amnshield] ${p.rel}: ${err.message}`);
+    }
+  }
+
+  // Write site_index.json to current repo and sync to sibling repos
+  const TARGET_OUT_PATHS = [
+    OUT_PATH,
+    path.join(STUDIO_ROOT, 'hf-space-chatbot', 'site_index.json'),
+    path.join(AMNSHIELD_ROOT, 'hf-space-chatbot', 'site_index.json'),
+  ];
+
+  payload.chunk_count = records.length;
+
+  for (const targetPath of TARGET_OUT_PATHS) {
+    try {
+      await fs.mkdir(path.dirname(targetPath), { recursive: true });
+      await fs.writeFile(targetPath, JSON.stringify(payload), 'utf8');
+      console.log(`[out] Wrote ${records.length} chunks to ${path.relative(REPO_ROOT, targetPath)}`);
+    } catch (err) {
+      console.warn(`[out] skip ${targetPath}: ${err.message}`);
+    }
+  }
 }
 
 main().catch(err => {

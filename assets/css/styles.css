@@ -186,7 +186,7 @@ html.dark .glass-button {
     rgba(212, 175, 55, 0.9),
     rgba(184, 148, 31, 0.9)
   ) !important;
-  color: #0a2540 !important;
+  color: #05361d !important;
   border-color: rgba(212, 175, 55, 0.55) !important;
 }
 html.dark .glass-button:hover {
@@ -305,10 +305,10 @@ html.dark hr {
 
 /* Brand colors */
 .bg-brand-blue {
-  background-color: #0a2540;
+  background-color: #0b532e;
 }
 .text-brand-blue {
-  color: #0a2540;
+  color: #0b532e;
 }
 .bg-brand-gold {
   background-color: #d4af37;
@@ -364,15 +364,15 @@ html.dark .islamic-section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #0b532e, #d4af37);
 }
 
 html.dark .islamic-section::before {
-  background: linear-gradient(90deg, #d4af37, #1e3a8a, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #10663b, #d4af37);
 }
 
 .islamic-footer {
-  background: linear-gradient(135deg, #2d3748, #1a202c);
+  background: linear-gradient(135deg, #0b532e, #05361d);
   border-top: 3px solid #d4af37;
 }
 
@@ -393,7 +393,7 @@ body.has-global-header #main-content {
   top: -1000px;
   left: 0;
   padding: 0.75rem 1rem;
-  background: #0a2540;
+  background: #0b532e;
   color: #ffffff;
   font-weight: 600;
   border-radius: 0 0 6px 0;
@@ -408,11 +408,11 @@ body.has-global-header #main-content {
 .skip-link:active {
   top: 0;
   outline: 3px solid #d4af37;
-  background: #0a2540;
+  background: #0b532e;
 }
 html.dark .skip-link {
   background: #d4af37;
-  color: #0a2540;
+  color: #05361d;
 }
 html.dark .skip-link:focus {
   outline: 3px solid #ffffff;
@@ -427,8 +427,8 @@ html.dark .skip-link:focus {
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(10, 37, 64, 0.1);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 html.dark .islamic-card {

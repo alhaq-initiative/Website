@@ -1,13 +1,13 @@
 /* Quran Hub modern reader styles */
 :root {
   --quran-font-scale: 1;
-  --quran-navy: #0a2540;
+  --quran-navy: #0b532e;
   --quran-gold: #d4af37;
   --quran-cream: #fcfbf7;
   --quran-paper: rgba(255, 255, 255, 0.92);
   --quran-ink: #24364b;
   --quran-border: rgba(148, 163, 184, 0.22);
-  --quran-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --quran-shadow: 0 20px 50px rgba(5, 54, 29, 0.08);
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     ),
     radial-gradient(
       circle at top right,
-      rgba(10, 37, 64, 0.12),
+      rgba(11, 83, 46, 0.12),
       transparent 26%
     ),
     linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
@@ -59,10 +59,10 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #0a2540, #d4af37);
+  background: linear-gradient(90deg, #d4af37, #0b532e, #d4af37);
 }
 .islamic-footer {
-  background: linear-gradient(135deg, #2d3748, #1a202c);
+  background: linear-gradient(135deg, #0b532e, #05361d);
   border-top: 3px solid #d4af37;
 }
 .islamic-card {
@@ -619,7 +619,7 @@ body {
   cursor: pointer;
 }
 .footnote-ref:hover {
-  color: #0a2540;
+  color: #0b532e;
   text-decoration: underline;
 }
 #footnotes .expand-controls {

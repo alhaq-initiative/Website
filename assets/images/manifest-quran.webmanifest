@@ -8,14 +8,8 @@
   "start_url": "/quran.html",
   "scope": "/",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone",
-    "minimal-ui",
-    "browser"
-  ],
   "orientation": "any",
-  "theme_color": "#0A2540",
+  "theme_color": "#0B532E",
   "background_color": "#F8FAFC",
   "categories": ["books", "education", "lifestyle"],
   "prefer_related_applications": false,
@@ -71,16 +65,12 @@
     {
       "src": "/assets/images/QuranHub.png",
       "sizes": "1280x800",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Quran Hub desktop reading view"
+      "type": "image/png"
     },
     {
       "src": "/assets/images/Screenshot_virtical.Taleem AI.png",
       "sizes": "664x1430",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Quran Hub mobile reading layout"
+      "type": "image/png"
     }
   ]
 }

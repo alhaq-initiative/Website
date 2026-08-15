@@ -74,11 +74,12 @@ function run() {
     const html = fs.readFileSync(fp, 'utf8');
     const refs = extractRefs(html, dir);
     const missing = refs.filter(r => !fileExistsCaseSensitive(r));
+    const isRedirect = /<meta[^>]+http-equiv=["']refresh["']/i.test(html);
     const hasSiteJs = /assets\/js\/site\.js(\b|[?#])/i.test(html);
     const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
     const issues = [];
-    if (!hasSiteJs) issues.push('Missing assets/js/site.js include');
-    if (!hasCss) issues.push('No stylesheet link found');
+    if (!isRedirect && !hasSiteJs) issues.push('Missing assets/js/site.js include');
+    if (!isRedirect && !hasCss) issues.push('No stylesheet link found');
     if (missing.length)
       issues.push(
         `Missing files: ${missing.map(p => path.relative(ROOT, p)).join(', ')}`

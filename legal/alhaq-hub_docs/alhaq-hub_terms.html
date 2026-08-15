@@ -1,13 +1,16 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Al-Haq Hub — Terms of Service | Al-Haq Initiative</title>
-
+    <title>Al-Haq Hub · Terms of Service | Al-Haq Initiative</title>
+    <meta
+      name="description"
+      content="Terms of Service for Al-Haq Hub by Al-Haq Initiative: acceptable use, permissions, intellectual property, disclaimers, limitations, and operational standards."
+    />
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/images/site.webmanifest" />
-    <meta name="theme-color" content="#ffffff" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -17,290 +20,132 @@
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <style>
       .prose h2 {
-        margin-top: 1.5rem;
+        margin-top: 1.75rem;
         font-weight: 800;
-        color: #0a2540;
       }
       .prose h3 {
         margin-top: 1.25rem;
         font-weight: 700;
-        color: #0a2540;
-      }
-      .card {
-        background: rgba(255, 255, 255, 0.92);
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        border-radius: 16px;
       }
     </style>
-    <meta
-      name="description"
-      content="Terms of Service for Al-Haq Hub by Al-Haq Initiative: acceptable use, permissions, intellectual property, disclaimers, limitations, and contact."
-    />
-    <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="/legal/alhaq-hub_docs/alhaq-hub_terms.html" />
-    <meta property="og:title" content="Al-Haq Hub — Terms of Service" />
-    <meta
-      property="og:description"
-      content="Read the Terms of Service for using Al-Haq Hub from Al-Haq Initiative."
-    />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="/legal/alhaq-hub_docs/alhaq-hub_terms.html" />
   </head>
-  <body class="antialiased">
-    <header
-      class="bg-white/80 backdrop-blur-nav fixed top-0 left-0 right-0 z-50 shadow-md border-b border-gray-200"
-    >
-      <div
-        class="container mx-auto px-4 py-2 flex justify-between items-center"
-      >
-        <a href="/index.html" class="flex items-center space-x-2">
-          <img
-            src="/assets/images/Al-Haq_Logo.png"
-            alt="Al-Haq Initiative Logo"
-            class="h-8 w-8 rounded-full border border-gray-200"
-          />
-          <span class="text-xl font-bold text-brand-blue"
-            >Al-Haq Initiative</span
-          >
-        </a>
-        <nav class="hidden md:flex space-x-8 items-center">
-          <a
-            href="/index.html"
-            class="text-gray-800 font-semibold hover:text-brand-blue"
-            >Home</a
-          >
-          <a
-            href="/about.html"
-            class="text-gray-800 font-semibold hover:text-brand-blue"
-            >About</a
-          >
-          <a
-            href="/services.html"
-            class="text-gray-800 font-semibold hover:text-brand-blue"
-            >Services</a
-          >
-          <a
-            href="/library.html"
-            class="text-gray-800 font-semibold hover:text-brand-blue"
-            >Library</a
-          >
-          <a
-            href="/help.html"
-            class="text-gray-800 font-semibold hover:text-brand-blue"
-            >Help & FAQ</a
-          >
-        </nav>
-      </div>
-    </header>
-
-    <main class="pt-28 pb-20">
+  <body class="antialiased bg-slate-50 dark:bg-[#071422] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <header id="global-header"></header>
+    <main id="main-content" role="main" tabindex="-1" class="pt-32 pb-20">
       <section class="container mx-auto px-6 max-w-4xl">
-        <div class="card p-6 md:p-8">
-          <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-3">
-            Al-Haq Hub — Terms of Service
+        <div class="mb-4">
+          <a
+            href="/docs.html"
+            class="text-sm font-medium inline-flex items-center text-brand-blue dark:text-amber-400 hover:underline gap-1"
+            aria-label="Back to Legal and Documentation hub"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            Back to Legal &amp; Documentation Hub
+          </a>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d2238] border border-slate-200 dark:border-slate-800 p-6 md:p-10 rounded-2xl shadow-sm">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-blue dark:text-slate-100 mb-2 tracking-tight">
+            Al-Haq Hub · Terms of Service
           </h1>
-          <p class="text-gray-700 mb-6">Effective: 14 September 2025</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+            Effective Date: 14 September 2025 · Last Updated: 2026
+          </p>
 
-          <div class="prose max-w-none text-gray-700">
-            <h2>Overview</h2>
-            <p>
-              These Terms of Service (the “Terms”) govern your access to and use
-              of Al-Haq Hub, a product of <strong>Al-Haq Initiative</strong>. By
-              using Al-Haq Hub, you agree to be bound by these Terms. If you do not
-              agree, do not use Al-Haq Hub.
+          <!-- Legal Attribution Callout -->
+          <div class="bg-amber-500/10 dark:bg-amber-500/10 border-l-4 border-amber-500 text-slate-800 dark:text-slate-200 p-5 rounded-r-xl text-sm mb-8 leading-relaxed">
+            <p class="font-semibold text-amber-900 dark:text-amber-300 mb-1 uppercase tracking-wider text-xs">
+              Legal &amp; Operational Attribution
             </p>
-
-            <h2>Who May Use Al-Haq Hub</h2>
             <p>
-              You must be able to form a binding contract with Al-Haq Initiative
-              and comply with these Terms and applicable laws. If you are using
-              Al-Haq Hub on behalf of an organization, you represent that you have
-              authority to bind that organization.
-            </p>
-
-            <h2>Your Account and Security</h2>
-            <p>
-              Some features may not require an account. If accounts are
-              introduced or you access services requiring authentication, you
-              are responsible for safeguarding your credentials and for all
-              activities under your account. Notify us immediately of any
-              unauthorized use.
-            </p>
-
-            <h2>Acceptable Use</h2>
-            <p>
-              You agree to use Al-Haq Hub in a respectful, lawful manner aligned
-              with the spirit of the service. You will not:
-            </p>
-            <ul class="list-disc pl-6">
-              <li>
-                Engage in unlawful, harassing, harmful, or hateful conduct.
-              </li>
-              <li>
-                Probe, scan, or test the vulnerability of Al-Haq Hub or circumvent
-                security or authentication measures.
-              </li>
-              <li>
-                Interfere with or disrupt the operation of Al-Haq Hub or others’
-                use of it.
-              </li>
-              <li>
-                Misuse Al-Haq Hub to transmit malware or unauthorized automated
-                traffic.
-              </li>
-              <li>Violate others’ intellectual property or privacy rights.</li>
-            </ul>
-
-            <h2>Permissions and Device Features</h2>
-            <p>
-              Certain features (e.g., precise/approximate location,
-              notifications, motion/compass sensors) require your permission to
-              function. You may grant or revoke permissions at any time in your
-              device settings. Some functionality may be limited without the
-              relevant permissions.
-            </p>
-
-            <h2>Content and Intellectual Property</h2>
-            <p>
-              Al-Haq Hub and its content are protected by intellectual property
-              laws. Al-Haq Initiative and its licensors retain all rights not
-              expressly granted to you. You may not copy, modify, distribute,
-              sell, or lease any part of Al-Haq Hub unless permitted by law or with
-              our written consent.
-            </p>
-
-            <h2>License</h2>
-            <p>
-              Subject to these Terms, we grant you a limited, non‑exclusive,
-              non‑transferable, revocable license to use Al-Haq Hub for personal,
-              non‑commercial purposes. Any use of Al-Haq Hub contrary to these
-              Terms is prohibited.
-            </p>
-
-            <h2>Third‑Party Services</h2>
-            <p>
-              Al-Haq Hub may interoperate with or link to third‑party services. We
-              do not control and are not responsible for third‑party content,
-              policies, or practices. Your use of third‑party services is at
-              your own risk and may be subject to their terms.
-            </p>
-
-            <h2>Privacy</h2>
-            <p>
-              Your use of Al-Haq Hub is also governed by our
-              <a
-                class="text-blue-600 underline"
-                href="/legal/alhaq-hub_docs/alhaq-hub_privacy_policy.html"
-                >Privacy Policy</a
-              >, which explains how we handle information. Please read it
-              carefully.
-            </p>
-
-            <h2>Changes and Availability</h2>
-            <p>
-              We may modify, suspend, or discontinue Al-Haq Hub (in whole or in
-              part) at any time, with or without notice. We may also update
-              these Terms from time to time; material changes will be
-              communicated where appropriate. Your continued use after changes
-              take effect constitutes acceptance of the updated Terms.
-            </p>
-
-            <h2>Disclaimers</h2>
-            <p>
-              Al-Haq Hub is provided on an “as is” and “as available” basis. To the
-              fullest extent permitted by law, we disclaim all warranties,
-              express or implied, including merchantability, fitness for a
-              particular purpose, and non‑infringement. We do not warrant that
-              Al-Haq Hub will be uninterrupted, secure, or error‑free.
-            </p>
-
-            <h2>Limitation of Liability</h2>
-            <p>
-              To the fullest extent permitted by law, Al-Haq Initiative and its
-              affiliates will not be liable for any indirect, incidental,
-              special, consequential, or punitive damages, or any loss of data,
-              profits, or revenues, arising from or related to your use of
-              Al-Haq Hub. Our total liability for any claims relating to Al-Haq Hub
-              will be limited to the amount you paid (if any) for the service
-              during the twelve (12) months before the event giving rise to the
-              liability.
-            </p>
-
-            <h2>Indemnity</h2>
-            <p>
-              You agree to defend, indemnify, and hold harmless Al-Haq
-              Initiative and its affiliates, officers, employees, and agents
-              from and against any claims, liabilities, damages, losses, and
-              expenses (including reasonable legal fees) arising from your use
-              of Al-Haq Hub or your violation of these Terms or applicable law.
-            </p>
-
-            <h2>Termination</h2>
-            <p>
-              We may suspend or terminate your access to Al-Haq Hub at any time if
-              you violate these Terms or use Al-Haq Hub in a way that could cause
-              harm. You may stop using Al-Haq Hub at any time. Upon termination,
-              sections that by their nature should survive will remain in
-              effect.
-            </p>
-
-            <h2>Governing Law</h2>
-            <p>
-              These Terms are governed by applicable laws of the jurisdiction
-              where Al-Haq Initiative is established, without regard to conflict
-              of law principles. Where local law grants you mandatory consumer
-              rights, these Terms are applied to the fullest extent consistent
-              with those rights.
-            </p>
-
-            <h2>Contact</h2>
-            <p>
-              Questions about these Terms? Email
-              <a
-                class="text-blue-600 underline"
-                href="mailto:legal@alhaq-initiative.org"
-                >legal@alhaq-initiative.org</a
-              >. General info or collaboration:
-              <a
-                class="text-blue-600 underline"
-                href="mailto:info@alhaq-initiative.org"
-                >info@alhaq-initiative.org</a
-              >
-              •
-              <a
-                class="text-blue-600 underline"
-                href="mailto:contact@alhaq-initiative.org"
-                >contact@alhaq-initiative.org</a
-              >. Technical support:
-              <a
-                class="text-blue-600 underline"
-                href="mailto:support@alhaq-initiative.org"
-                >support@alhaq-initiative.org</a
-              >.
+              Al-Haq Studio and the Al-Haq Initiative were founded by, and are wholly owned and operated by, Habibur Rahman Meranai as a UK sole trader. Al-Haq Studio functions as the commercial software development studio, while the Al-Haq Initiative functions as the non-profit digital welfare and historical research wing, with all software, research platforms, and infrastructure engineered and maintained by Habibur Rahman Meranai through Al-Haq Studio.
             </p>
           </div>
 
-          <div class="mt-8">
+          <div class="prose max-w-none text-slate-700 dark:text-slate-300 dark:prose-invert">
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Overview</h2>
+            <p>
+              These Terms of Service (the “Terms”) govern your access to and use of Al-Haq Hub, an application suite engineered by <strong>Al-Haq Studio</strong> and provided for public benefit through the <strong>Al-Haq Initiative</strong>. By accessing or using Al-Haq Hub, you agree to be bound by these Terms. If you do not agree, do not use the application.
+            </p>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Who May Use Al-Haq Hub</h2>
+            <p>
+              You must be capable of forming a binding legal agreement and adhere to applicable statutory regulations. If you access or utilise the service on behalf of an institution or organisation, you represent that you have authority to bind that entity.
+            </p>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Acceptable &amp; Ethical Use</h2>
+            <p>
+              You agree to use Al-Haq Hub in a respectful, lawful manner aligned with Islamic ethical principles. You agree not to:
+            </p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Engage in abusive, defamatory, discriminatory, or unlawful activity through our communication or support channels.</li>
+              <li>Attempt to probe, scan, decompile, or compromise the security architecture of the application or underlying infrastructure.</li>
+              <li>Interfere with, overload, or disrupt the operation of web services or content distribution endpoints.</li>
+              <li>Redistribute, sublicense, or commercialise the application without explicit prior written authorisation from Al-Haq Studio.</li>
+            </ul>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Device Permissions &amp; Hardware Features</h2>
+            <p>
+              Certain utilities (including precise astronomical prayer times, Qibla compass alignment, and alert notifications) require device permissions to function. You may grant or revoke these permissions at any time via your device operating system settings. Revoking permissions may limit specific interactive features.
+            </p>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Intellectual Property &amp; Authorship</h2>
+            <p>
+              All software architectures, graphical assets, algorithms, and interface designs in Al-Haq Hub are the intellectual property of Habibur Rahman Meranai (trading as Al-Haq Studio &amp; Al-Haq Initiative). All rights not expressly granted under open-source licenses are reserved.
+            </p>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Disclaimers &amp; Limitation of Liability</h2>
+            <p>
+              Al-Haq Hub is provided on an “as is” and “as available” basis without express or implied warranties of any kind. While astronomical calculations and direction algorithms are implemented to high mathematical standards, users should verify critical timings locally.
+            </p>
+            <p>
+              To the fullest extent permitted by English law, Al-Haq Studio, the Al-Haq Initiative, and Habibur Rahman Meranai shall not be liable for any indirect, incidental, or consequential damages arising from the use of or inability to use the service.
+            </p>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Governing Law</h2>
+            <p>
+              These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the English courts.
+            </p>
+
+            <h2 class="text-2xl text-brand-blue dark:text-slate-100">Contact &amp; Legal Inquiries</h2>
+            <p>
+              For legal inquiries, copyright notices, or statutory questions, contact:
+            </p>
+            <p class="mt-2">
+              <strong>Legal Operations:</strong> <a class="text-brand-blue dark:text-amber-400 underline" href="mailto:legal@alhaq.uk">legal@alhaq.uk</a><br />
+              <strong>Initiative Queries:</strong> <a class="text-brand-blue dark:text-amber-400 underline" href="mailto:legal@alhaq-initiative.org">legal@alhaq-initiative.org</a><br />
+              <strong>General Support:</strong> <a class="text-brand-blue dark:text-amber-400 underline" href="mailto:support@alhaq-initiative.org">support@alhaq-initiative.org</a>
+            </p>
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-4">
             <a
               href="/docs.html"
-              class="inline-block bg-brand-gold text-brand-blue font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition"
-              >Back to Legal & Docs</a
+              class="inline-block bg-brand-gold dark:bg-amber-500 text-brand-blue dark:text-slate-950 font-bold py-2.5 px-6 rounded-full hover:bg-amber-400 transition"
             >
+              Back to Legal &amp; Docs Hub
+            </a>
+            <a
+              href="/legal/alhaq-hub_docs/alhaq-hub_privacy_policy.html"
+              class="inline-block border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold py-2.5 px-6 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            >
+              View Privacy Policy →
+            </a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="bg-gray-800 text-white mt-20">
-      <div class="container mx-auto px-6 py-8 text-center">
-        <h3 class="text-2xl font-bold">Al-Haq Initiative</h3>
-        <p class="mt-2 text-sm text-gray-400">
-          © 2026 Al-Haq Studio &amp; Afrasyaab Meranai.
+    <footer class="bg-slate-900 dark:bg-[#050e18] border-t border-slate-800 text-slate-400 py-10 mt-16">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-sm font-semibold text-slate-200 dark:text-slate-200 mb-1">
+          Al-Haq Initiative &amp; Al-Haq Studio
+        </p>
+        <p class="text-xs text-slate-400">
+          © 2026 Al-Haq Initiative &amp; Al-Haq Studio (Habibur Rahman Meranai). All rights reserved.
         </p>
       </div>
     </footer>
-
     <script src="/assets/js/site.js"></script>
-    <!-- Optional: anchor to top / analytics could be added here in future -->
   </body>
 </html>

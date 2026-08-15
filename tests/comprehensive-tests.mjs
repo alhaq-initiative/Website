@@ -290,6 +290,10 @@ class PageTester {
   }
 
   runAllTests() {
+    if (/<meta[^>]+http-equiv=["']refresh["']/i.test(this.html)) {
+      this.info.push('Redirect page detected');
+      return;
+    }
     this.testGlobalScript();
     this.testStylesheets();
     this.testHtmlStructure();
