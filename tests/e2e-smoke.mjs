@@ -6,6 +6,7 @@ const pages = [
   '/about.html',
   '/contact.html',
   '/donate.html',
+  '/support.html',
   '/help.html',
 
   // Services & Sub-services
@@ -16,20 +17,16 @@ const pages = [
   '/all-infographics.html',
   '/golden-speech.html',
 
-  // Products & Sub-products
-  '/amn-site/index.html',
-  '/amn-site/download/index.html',
-  '/amn-site/faq/index.html',
-  '/amn-site/support/index.html',
-  '/amn-site/docs/index.html',
-  '/amn-site/legal/privacy/index.html',
-  '/amn-site/legal/terms/index.html',
+  // Products & Apps
   '/alhaq-hub.html',
   '/alhaq-hub-join-beta.html',
   '/quranhub.html',
 
   // Legal & docs hubs
   '/docs.html',
+  '/legal/index.html',
+  '/legal/privacy.html',
+  '/legal/terms.html',
   '/legal/privacy_hub.html',
   '/legal/terms_hub.html',
   '/support_hub.html',
@@ -37,15 +34,6 @@ const pages = [
   // Al-Haq Hub legal docs
   '/legal/alhaq-hub_docs/alhaq-hub_privacy_policy.html',
   '/legal/alhaq-hub_docs/alhaq-hub_terms.html',
-
-  // Canonical Amn legal docs under amn-site/
-  '/amn-site/legal/privacy/mobile/index.html',
-  '/amn-site/legal/privacy/desktop/index.html',
-  '/amn-site/legal/privacy/extension/index.html',
-  '/amn-site/legal/privacy/manager/index.html',
-  '/amn-site/legal/privacy/en/main-privacy.html',
-  '/amn-site/legal/terms/en/index.html',
-  '/amn-site/support/index.html',
 ];
 
 import http from 'node:http';
@@ -154,16 +142,19 @@ async function fetchWithRetry(url, tries = 10, delayMs = 500) {
       const res = await fetchWithRetry(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
-      // Check that global site.js is referenced (relative or absolute path)
-      const hasSiteJs =
-        /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(
-          html
-        );
-      if (!hasSiteJs)
-        throw new Error('Missing global script assets/js/site.js');
-      // At least one stylesheet link
-      const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
-      if (!hasCss) throw new Error('No stylesheet link found');
+      const isRedirectPage = /<meta[^>]+http-equiv=["']refresh["'][^>]*>/i.test(html);
+      if (!isRedirectPage) {
+        // Check that global site.js is referenced (relative or absolute path)
+        const hasSiteJs =
+          /<script[^>]+src=["'][^"']*\/?assets\/js\/site\.js[^"']*["'][^>]*><\/script>/i.test(
+            html
+          );
+        if (!hasSiteJs)
+          throw new Error('Missing global script assets/js/site.js');
+        // At least one stylesheet link
+        const hasCss = /<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(html);
+        if (!hasCss) throw new Error('No stylesheet link found');
+      }
       if (p === '/amn-site/index.html') {
         const hasAmnCss = /\/amn-site\/assets\/css\/amn-redesign\.css/i.test(
           html

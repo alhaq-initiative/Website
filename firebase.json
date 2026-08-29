@@ -58,63 +58,78 @@
         "type": 301
       },
       {
-        "source": "/support",
-        "destination": "https://amnishield.com/support/",
+        "source": "/help",
+        "destination": "/support.html",
         "type": 301
       },
       {
-        "source": "/support/",
-        "destination": "https://amnishield.com/support/",
+        "source": "/help.html",
+        "destination": "/support.html",
         "type": 301
       },
       {
-        "source": "/support/**",
-        "destination": "https://amnishield.com/support/:splat",
+        "source": "/support_hub.html",
+        "destination": "/support.html",
         "type": 301
       },
       {
-        "source": "/docs",
-        "destination": "https://amnishield.com/docs/",
+        "source": "/legal/privacy_hub",
+        "destination": "/legal/privacy.html",
         "type": 301
       },
       {
-        "source": "/docs/",
-        "destination": "https://amnishield.com/docs/",
+        "source": "/legal/privacy_hub.html",
+        "destination": "/legal/privacy.html",
         "type": 301
       },
       {
-        "source": "/docs/**",
-        "destination": "https://amnishield.com/docs/:splat",
+        "source": "/legal/privacy-policy",
+        "destination": "https://alhaq.uk/legal/privacy.html",
+        "type": 301
+      },
+      {
+        "source": "/legal/privacy-policy.html",
+        "destination": "https://alhaq.uk/legal/privacy.html",
         "type": 301
       },
       {
         "source": "/legal/privacy",
-        "destination": "https://amnishield.com/legal/privacy/",
+        "destination": "/legal/privacy.html",
         "type": 301
       },
       {
         "source": "/legal/privacy/",
-        "destination": "https://amnishield.com/legal/privacy/",
+        "destination": "/legal/privacy.html",
         "type": 301
       },
       {
-        "source": "/legal/privacy/**",
-        "destination": "https://amnishield.com/legal/privacy/:splat",
+        "source": "/legal/terms_hub",
+        "destination": "/legal/terms.html",
+        "type": 301
+      },
+      {
+        "source": "/legal/terms_hub.html",
+        "destination": "/legal/terms.html",
         "type": 301
       },
       {
         "source": "/legal/terms",
-        "destination": "https://amnishield.com/legal/terms/",
+        "destination": "/legal/terms.html",
         "type": 301
       },
       {
         "source": "/legal/terms/",
-        "destination": "https://amnishield.com/legal/terms/",
+        "destination": "/legal/terms.html",
         "type": 301
       },
       {
-        "source": "/legal/terms/**",
-        "destination": "https://amnishield.com/legal/terms/:splat",
+        "source": "/privacy",
+        "destination": "https://alhaq.uk/legal/privacy.html",
+        "type": 301
+      },
+      {
+        "source": "/terms",
+        "destination": "https://alhaq.uk/legal/terms.html",
         "type": 301
       },
       {
