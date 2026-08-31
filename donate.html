@@ -69,49 +69,81 @@
       <div class="container mx-auto px-6 text-center max-w-2xl">
         <img src="assets/images/Initiative-Logo.png" alt="Al-Haq Initiative Logo"
           class="h-16 w-16 mx-auto mb-4 rounded-2xl border border-gray-200 shadow-md bg-white object-contain" />
-        <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-2">
-          Support Our Work
+        <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue mb-3">
+          Support the Community Mission
         </h1>
-        <p class="text-lg text-gray-700 mb-4">
-          Everything on the Al-Haq Initiative is, and will always remain,
-          completely free. Donations and sponsorships are received by the
-          founder, <strong>Habibur Rahman Meranai</strong>, personally through <strong>Al-Haq Studio</strong> (UK sole
-          trader) and are fully committed to keeping these projects alive and
-          growing. <em>This is not a charity or registered organisation.</em>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+          Everything on the Al-Haq Initiative is, and will always remain, <strong>100% free and open to everyone</strong>. This is an independent community initiative personally founded, engineered, and maintained by <strong>Habibur Rahman Meranai</strong> through <strong>Al-Haq Studio</strong> (UK sole trader).
         </p>
-        
-        <!-- Remove PayPal logo and text -->
-        <div
-          class="glass-container flex justify-center items-center rounded-2xl shadow-xl border border-gray-200 bg-white/60 p-4 mt-4 mb-2 max-w-xl mx-auto">
-          <!-- Stripe donation button -->
-          <a href="https://buy.stripe.com/28E3cwea897i8vkh2l14400" target="_blank" rel="noopener"
-            class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition shadow-sm text-lg flex items-center justify-center w-full">
-            Donate with Stripe
-          </a>
-        </div>
-        <p class="text-xs text-gray-500 mt-2">Secure donation via Stripe</p>
 
-        <!-- GitHub Sponsors Button -->
-        <div class="flex justify-center my-6 max-w-xl mx-auto">
+        <!-- Transparency Box -->
+        <div class="bg-amber-500/10 border-l-4 border-amber-500 p-4 rounded-r-xl text-left text-xs sm:text-sm text-gray-800 mb-8 leading-relaxed">
+          <p class="font-bold text-amber-900 uppercase tracking-wider text-[11px] mb-1">Founder &amp; Operational Transparency</p>
+          <p>
+            This is a solo-developer community initiative, not a registered charity or corporate trust. All donations, sponsorships, and memberships go directly toward keeping servers running, domain renewals, independent research, and continuous open-source software development.
+          </p>
+        </div>
+
+        <!-- Funding Options Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-8">
+          
+          <!-- 1. Stripe -->
+          <a href="https://buy.stripe.com/28E3cwea897i8vkh2l14400" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-sm transition text-base group">
+            <span class="material-symbols-outlined text-xl">credit_card</span>
+            <span>Donate via Stripe</span>
+          </a>
+
+          <!-- 2. GitHub Sponsors -->
           <a href="https://github.com/sponsors/Afrasyaab-GH" target="_blank" rel="noopener"
-            class="flex items-center justify-center gap-3 bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition text-lg w-full">
-            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
+            class="flex items-center justify-center gap-3 bg-[#ea4aaa] hover:bg-[#d63395] text-white font-bold py-3.5 px-6 rounded-2xl shadow-sm transition text-base group">
+            <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
               <path fill-rule="evenodd" d="M4.25 2.5c-1.33 0-2.42 1.02-2.5 2.324-.04.664.137 1.45.698 2.227C3.12 8.04 4.3 9.07 5.75 10.153l2.25 1.687 2.25-1.687c1.45-1.083 2.63-2.113 3.302-3.102.561-.777.738-1.563.698-2.227C14.17 3.52 13.08 2.5 11.75 2.5c-.868 0-1.63.456-2.127 1.157a.75.75 0 01-1.246 0C7.88 2.956 7.118 2.5 6.25 2.5h-2z"></path>
             </svg>
-            Sponsor on GitHub
+            <span>GitHub Sponsors</span>
+          </a>
+
+          <!-- 3. Patreon -->
+          <a href="https://patreon.com/alhaq" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-3 bg-[#FF424D] hover:bg-[#e0313c] text-white font-bold py-3.5 px-6 rounded-2xl shadow-sm transition text-base group">
+            <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24">
+              <path d="M15.386 2.05a8.96 8.96 0 0 0-8.96 8.96c0 4.938 4.022 8.96 8.96 8.96 4.938 0 8.96-4.022 8.96-8.96 0-4.938-4.022-8.96-8.96-8.96zm-12.836.45h2.9v19.45h-2.9z"/>
+            </svg>
+            <span>Patreon Membership</span>
+          </a>
+
+          <!-- 4. Ko-fi -->
+          <a href="https://ko-fi.com/alhaq" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-3 bg-[#13C3FF] hover:bg-[#0eb1e8] text-white font-bold py-3.5 px-6 rounded-2xl shadow-sm transition text-base group">
+            <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24">
+              <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.683-2.566s.896-.04 1.705-.084c3.486-.19 4.922-3.91 4.922-7.995zm-6.138 5.766c-.34.022-1.077.045-1.782.045l-.47-.001c-.139 0-.251-.112-.251-.251V6.376h2.247c1.378 0 3.32.32 3.656 2.97.359 2.827-1.758 5.258-3.4 5.368z"/>
+            </svg>
+            <span>Support on Ko-fi</span>
+          </a>
+
+        </div>
+
+        <!-- Buy Me a Coffee Full Button -->
+        <div class="max-w-xl mx-auto mb-8">
+          <a href="https://buymeacoffee.com/alhaq" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-3 bg-[#FFDD00] hover:bg-[#fed300] text-gray-950 font-bold py-3.5 px-6 rounded-2xl shadow-sm transition text-base w-full">
+            <svg class="w-5 h-5 fill-current text-gray-950" viewBox="0 0 24 24">
+              <path d="M20.216 6.415l-.132-.666c-.119-.597-.388-1.156-.782-1.618-.475-.558-1.123-.924-1.844-1.042-.647-.107-1.309-.074-1.944.098l-7.79 2.115c-1.393.378-2.348 1.637-2.348 3.097v6.626c0 1.93 1.57 3.5 3.5 3.5h5.5c1.93 0 3.5-1.57 3.5-3.5v-1.22c1.472-.456 2.502-1.82 2.502-3.414v-2.126c0-.62-.058-1.23-.162-1.849zm-2.162 3.975c0 .87-.58 1.61-1.42 1.83v-4.49l1.19-.32c.16-.04.32-.02.46.06.14.08.23.21.26.37.06.35.09.7.09 1.05v1.5-.001z"/>
+            </svg>
+            <span>Buy Me a Coffee</span>
           </a>
         </div>
 
         <!-- Star CTA -->
         <div class="my-6 max-w-xl mx-auto text-center">
           <p class="text-sm text-gray-600">
-            ⭐ Want to support us for free? Star our projects and repositories, and follow us on <a href="https://github.com/alhaq-initiative" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold font-semibold">GitHub</a> to help others discover our work!
+            ⭐ Want to support for free? Star our repositories and follow us on <a href="https://github.com/alhaq-initiative" target="_blank" rel="noopener" class="text-brand-blue underline hover:text-brand-gold font-semibold">GitHub</a> to help others discover our work!
           </p>
         </div>
 
         <p class="text-sm text-gray-400 mt-2">
-          Thank you for supporting our mission! For questions,
-          <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">contact us</a>.
+          Thank you for supporting our community mission! For questions,
+          <a href="contact.html" class="text-brand-blue underline hover:text-brand-gold">contact us directly</a>.
         </p>
       </div>
     </section>
