@@ -58,6 +58,21 @@
         "type": 301
       },
       {
+        "source": "/services",
+        "destination": "/projects.html",
+        "type": 301
+      },
+      {
+        "source": "/services.html",
+        "destination": "/projects.html",
+        "type": 301
+      },
+      {
+        "source": "/projects",
+        "destination": "/projects.html",
+        "type": 301
+      },
+      {
         "source": "/help",
         "destination": "/support.html",
         "type": 301
