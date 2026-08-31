@@ -68,6 +68,16 @@
         "type": 301
       },
       {
+        "source": "/products",
+        "destination": "/projects.html",
+        "type": 301
+      },
+      {
+        "source": "/products.html",
+        "destination": "/projects.html",
+        "type": 301
+      },
+      {
         "source": "/projects",
         "destination": "/projects.html",
         "type": 301

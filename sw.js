@@ -4,7 +4,7 @@ const ASSETS = [
   '/',
   '/index.html',
   '/about.html',
-  '/services.html',
+  '/projects.html',
   '/library.html',
   '/help.html',
   '/contact.html',
