@@ -193,7 +193,7 @@
       targetLink = retrievedChunks[0].url || `${SITE_BASE}/services.html`;
       targetLabel = retrievedChunks[0].page || 'Learn More';
     } else {
-      text = 'The Al-Haq Initiative is a personal digital and literary movement led by Habibur Rahman Meranai focused on truth in history and digital wellbeing.';
+      text = 'The Al-Haq Initiative is a personal digital and literary movement led by Habibur Rahman Mukhlis focused on truth in history and digital wellbeing.';
       targetLink = `${SITE_BASE}/services.html`;
       targetLabel = 'Explore Our Projects';
     }

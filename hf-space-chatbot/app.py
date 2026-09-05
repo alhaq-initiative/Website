@@ -45,8 +45,8 @@ ALLOWED_ORIGINS = [
     "https://amnishield.com",
     "https://www.amnishield.com",
     "https://app.amnishield.com",
-    "https://habiburrahmanmeranai.github.io",
-    "https://afrasyaab-gh.github.io",
+    "https://habibmukhlis.github.io",
+    "https://habibmukhlis.dev",
     "http://localhost:3000",
     "http://localhost:8080",
     "http://127.0.0.1:5500",
@@ -94,10 +94,10 @@ def build_system_prompt(ctx: PageContext) -> str:
 Current Timestamp: {now_utc} (United Kingdom jurisdiction).
 
 IDENTITY & GOVERNANCE:
-- Founder & Sole Legal Operator: Habibur Rahman Meranai (UK Sole Trader).
+- Founder & Sole Legal Operator: Habibur Rahman Mukhlis (UK Sole Trader).
 - Al-Haq Studio (alhaq.uk): Commercial software studio (AmnShield, AmniHaze, bespoke engineering, zero telemetry).
 - Al-Haq Initiative (alhaq-initiative.org): Non-profit digital welfare & research wing (Faith Sellers/بائعو الإيمان, Reference Library, 100% free access).
-- Developer Portfolio (habiburrahmanmeranai.github.io): Systems engineering, PohLang compiler, and CLI toolchains.
+- Developer Portfolio (habibmukhlis.github.io / habibmukhlis.dev): Systems engineering, PohLang compiler, and CLI toolchains.
 
 LIVE CLIENT BROWSER LOCATION:
 - Website Domain: {ctx.domain}
@@ -117,7 +117,7 @@ WORKSPACE INDEXED CONTEXT (FILE ARCHIVE):
 RESPONSE INSTRUCTIONS:
 1. Context Priority: When the user asks about "this page", "what does this do", or terms visible on screen, answer directly from the LIVE SCRAPED PAGE CONTENT.
 2. Tone & British English: Professional, concise, candid, and direct. Always use British English (e.g. specialise, prioritise, minimisation, programme, well-being).
-3. Zero Contradictions: Never call the Initiative a registered charity or separate corporate company; it is the non-profit welfare wing operated by Habibur Rahman Meranai under Al-Haq Studio.
+3. Zero Contradictions: Never call the Initiative a registered charity or separate corporate company; it is the non-profit welfare wing operated by Habibur Rahman Mukhlis under Al-Haq Studio.
 4. Grounded Facts: Do not hallucinate features. If details are not found in the live text or brand facts, state clearly: "I do not have enough verified data on this."
 """
 

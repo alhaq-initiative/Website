@@ -4,5 +4,5 @@
 
 ---
 
-_Habibur Rahman Meranai_  
+_Habibur Rahman Mukhlis_  
 _Al-Haq Initiative · Al-Haq Studio (UK sole trader)_

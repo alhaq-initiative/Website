@@ -8,16 +8,16 @@
 - **Firebase Project:** alhaq-initiative
 - **Hosting Target:** initiative (site ID: alhaq-initiative)
 - **Branch:** `master` is the production branch
-- **License:** MIT — Copyright (c) 2026 Afrasyaab Meranai
+- **License:** MIT — Copyright (c) 2026 Al-Haq Studio & Habib Mukhlis
 
 ## Branding — Hard Rules
 
 - The Islamic productivity app is called **Al-Haq Hub**, NOT "DeenHub".
-- The protection app is called **AmnShield**, NOT "DeenShield" or "DeenSheild".
+- The protection app is called **AmniShield**, NOT "DeenShield", "DeenSheild", or "AmniSheild".
 - The studio entity is **Al-Haq Studio** (Al-Haq Digital Services & Solutions — UK sole trader).
 - Al-Haq Initiative is **NOT** a charity, non-profit, NGO, CIC, or 501(c). It is a personal initiative.
-- Software / products / services attribution: "Developed by Al-Haq Studio."
-- Academic / literary work attribution: "by Afrasyaab Meranai (Habibur Rahman)."
+- Software / products / services attribution: "Developed by Al-Haq Studio" (Lead Architect: Habib Mukhlis).
+- Academic / literary work attribution: "by Habibur Rahman Mukhlis (Habib Mukhlis)."
 - The Hugging Face Space is at `Alhaq-HF/alhaq-website-chatbot` (NOT `Habib-HF`).
 - The chatbot iframe URL is `https://alhaq-hf-alhaq-website-chatbot.hf.space`.
 
@@ -26,11 +26,11 @@
 This workspace is the **primary repository** for the Al-Haq Initiative. Related repositories:
 
 | Repo | Path | Firebase Target | Site ID | Branch |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Initiative (this) | `d:\PROJECTS\Initiative-site` | `hosting:initiative` | `alhaq-initiative` | `master` |
 | Studio / Main Site | `d:\PROJECTS\Studio-site` | `hosting:main` | `alhaq-site` | `main` |
 | AmnShield Site | `d:\PROJECTS\Amnshield-site` | `hosting:amnshield` | `amnshield` | `main` |
-| Portfolio | `d:\Afrasyaab-GH.io` | GitHub Pages | — | `main` |
+| Portfolio | `d:\habibmukhlis.io` | GitHub Pages | — | `main` |
 | Org Profile | `d:\PROJECTS\org.github` | — | — | `main` |
 
 ## Tech Stack
@@ -47,23 +47,28 @@ This workspace is the **primary repository** for the Al-Haq Initiative. Related 
 ## Architecture
 
 ### Global Navigation
+
 All pages share a single-source-of-truth navigation injected at runtime by `assets/js/site.js`. Individual pages must **NOT** contain static nav markup. They only need:
+
 ```html
 <header id="global-header"></header>
 <script src="assets/js/site.js"></script>
 ```
 
 ### Translation System
+
 - Translation JSON files live in `assets/Translations/<pageKey>/{ar,fa,ps}.json`.
 - `site.js` handles language detection (URL path → query param → browser pref).
 - Pages that need per-page language adjustments define `window._pageSetLanguage = (lang) => { ... }`.
 
 ### Content Pipeline
+
 - `npm run chatbot:index` → builds `hf-space-chatbot/site_index.json` for the RAG chatbot.
 - `npm run content:index` → builds `assets/library/content-index.json` for the library viewer.
 - `npm run library:import:docs` → converts source files (PDF, Word, etc.) into chapter Markdown.
 
 ### Firebase Configuration
+
 - `firebase.json` contains hosting config, redirects, security headers, and CSP.
 - `.firebaserc` maps deploy targets to Firebase site IDs.
 - Deployment: `npm run deploy` or automatic via GitHub Actions on push to `master`.
@@ -71,6 +76,7 @@ All pages share a single-source-of-truth navigation injected at runtime by `asse
 ## Security Standards
 
 All Firebase Hosting sites must include these HTTP headers in `firebase.json`:
+
 - **Strict-Transport-Security:** `max-age=31536000; includeSubDomains; preload`
 - **X-Content-Type-Options:** `nosniff`
 - **X-Frame-Options:** `SAMEORIGIN`
@@ -80,6 +86,7 @@ All Firebase Hosting sites must include these HTTP headers in `firebase.json`:
 ## Testing
 
 Before committing, run:
+
 ```sh
 npm test                    # Comprehensive tests (link integrity, indexing)
 npm run integrity           # Ensures all pages include site.js + stylesheet

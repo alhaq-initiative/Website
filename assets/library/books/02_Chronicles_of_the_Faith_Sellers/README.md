@@ -4,7 +4,7 @@ Long-term translation and cross-referencing project on the history of Sultan
 Ṣalāḥ ad-Dīn al-Ayyūbī, validated against contemporary Arabic chroniclers
 (Ibn Shaddād, Ibn al-Athīr, Ibn Khallikān).
 
-Authored personally by **Habibur Rahman Meranai** as part of the
+Authored personally by **Habibur Rahman Mukhlis** as part of the
 Al-Haq Initiative. This folder is the **canonical source** for the chapters
 that the website renders.
 
@@ -81,6 +81,6 @@ carefully — anything you hand-edited in the repo will be lost.
 
 ## Attribution
 
-Authored by **Habibur Rahman Meranai**.
+Authored by **Habibur Rahman Mukhlis**.
 Delivered via the Al-Haq Initiative under **Al-Haq Studio**
 (UK sole trader).

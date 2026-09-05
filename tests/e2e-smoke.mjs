@@ -10,7 +10,7 @@ const pages = [
   '/help.html',
 
   // Services & Sub-services
-  '/services.html',
+  '/projects.html',
   '/library.html',
   '/quran.html',
   '/media.html',

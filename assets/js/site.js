@@ -1424,7 +1424,7 @@
               "logo": "https://alhaq-initiative.org/assets/images/Initiative-Logo.png",
               "founder": {
                 "@type": "Person",
-                "name": "Habibur Rahman Meranai"
+                "name": "Habibur Rahman Mukhlis"
               }
             },
             {
@@ -1482,7 +1482,7 @@
           return [
             { label: "Contact Al-Haq Studio", query: "How do I contact Al-Haq Studio?" },
             { label: "Submit Feedback or Bug", query: "How do I submit feedback or report a bug?" },
-            { label: "Who is the Founder?", query: "Who is Habibur Rahman Meranai?" }
+            { label: "Who is the Founder?", query: "Who is Habibur Rahman Mukhlis?" }
           ];
         }
         return [
