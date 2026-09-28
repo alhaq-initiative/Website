@@ -83,7 +83,7 @@ Add to any page (e.g., `help.html`, `contact.html`):
   id="chatbot-section"
   style="margin: 40px 0; padding: 20px; background: #f5f5f5; border-radius: 8px;"
 >
-  <h2>💬 Need Help? Chat with Our Guide</h2>
+  <h2>Need Help? Chat with Our Guide</h2>
   <iframe
     src="https://huggingface.co/spaces/YOUR-USERNAME/alhaq-chatbot"
     frameborder="0"
@@ -117,7 +117,7 @@ function initChatbot() {
             cursor: pointer;
             font-size: 24px;
             z-index: 999;
-        ">💬</button>
+        "><span class="material-symbols-outlined">chat</span></button>
         <div id="chat-window" style="
             position: fixed;
             bottom: 80px;
@@ -185,13 +185,13 @@ theme=gr.themes.Soft(
 
 ## Features
 
-✅ **100% Free** - Hosted on Hugging Face  
-✅ **No API Keys** - Just deploy and embed  
-✅ **Conversational** - Maintains chat history  
-✅ **Contextual** - Knows about Al-Haq, products, projects  
-✅ **Fast** - Mistral 7B is optimized for speed  
-✅ **Embeddable** - Works on any website  
-✅ **Mobile Friendly** - Responsive design
+- **100% Free** - Hosted on Hugging Face  
+- **No API Keys** - Just deploy and embed  
+- **Conversational** - Maintains chat history  
+- **Contextual** - Knows about Al-Haq, products, projects  
+- **Fast** - Mistral 7B is optimized for speed  
+- **Embeddable** - Works on any website  
+- **Mobile Friendly** - Responsive design
 
 ---
 

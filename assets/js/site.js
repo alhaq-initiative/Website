@@ -1611,7 +1611,7 @@
           const audioBtn = document.createElement('button');
           audioBtn.type = 'button';
           audioBtn.className = 'alhaq-chat-audio-btn';
-          audioBtn.innerHTML = '🔊 Read Aloud';
+          audioBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 0.95rem; vertical-align: middle; margin-right: 0.25rem;">volume_up</span><span>Read Aloud</span>';
           audioBtn.addEventListener('click', function () {
             if (window.speechSynthesis) {
               window.speechSynthesis.cancel();
